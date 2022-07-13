@@ -1,17 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Beamer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Kamera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Kreidetafel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Lautsprecher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Mikrofon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/PC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Smartboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Tafel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Tisch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/Whiteboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/buchung/Zeitraum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/diverses/Defekt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/diverses/Funktionstuechtig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/diverses/Haus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/diverses/HausListe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/diverses/Raum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/diverses/Zustand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2BtdFoXaFmdaVXI9KEm1s2wGUCC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,7 +66,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -31,6 +79,29 @@
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1657729327980</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657729327980</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
