@@ -1,9 +1,15 @@
 package diverses;
 
+import java.util.ArrayList;
+
+//singleton
 public class HausListe {
+    private ArrayList<Haus> alleHaeuser = new ArrayList<>();
+    private static HausListe instance;
+
     private HausListe(){
     }
-    private static HausListe instance;
+
     public static HausListe getInstance(){
         if(instance == null) {
             instance=new HausListe();
@@ -11,6 +17,13 @@ public class HausListe {
         return instance;
     }
 
+    public ArrayList<Haus> getAlleHaeuser() {
+        return alleHaeuser;
+    }
+
+    public void addHaus(Haus neuesHaus) {
+        this.alleHaeuser.add(neuesHaus);
+    }
 
 
 }

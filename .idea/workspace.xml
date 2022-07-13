@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Habe alle Klassen erstellt">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Singleton mit eingebunden">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/diverses/Haus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/diverses/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/diverses/HausListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/diverses/Raum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/diverses/RaumListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/diverses/RaumListe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +38,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "settings.editor.selected.configurable": "proofread"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -62,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657731227907</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Singleton mit eingebunden">
+      <created>1657731619921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657731619921</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,6 +89,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="Habe alle Klassen erstellt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Habe alle Klassen erstellt" />
+    <MESSAGE value="Singleton mit eingebunden" />
+    <option name="LAST_COMMIT_MESSAGE" value="Singleton mit eingebunden" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
