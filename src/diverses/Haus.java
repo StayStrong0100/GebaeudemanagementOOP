@@ -1,9 +1,11 @@
 package diverses;
 
+import java.util.ArrayList;
+
 public class Haus {
     private String hausnummer;
     private boolean barrierefrei;
-    private Raum [] raeume;
+    private ArrayList<Raum> raeume = new ArrayList<>();
 
 
     public String getHausnummer() {
