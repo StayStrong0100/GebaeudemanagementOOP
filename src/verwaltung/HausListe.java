@@ -1,4 +1,4 @@
-package diverses;
+package verwaltung;
 
 import java.util.ArrayList;
 

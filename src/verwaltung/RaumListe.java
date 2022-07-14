@@ -1,4 +1,4 @@
-package diverses;
+package verwaltung;
 
 import java.util.ArrayList;
 
@@ -23,5 +23,9 @@ public class RaumListe {
 
     public void addRaum(Raum neuerRaum){
         this.alleRaueme.add(neuerRaum);
+    }
+
+    public void findeRaum(){
+        //TODO Raum Filter implementieren
     }
 }

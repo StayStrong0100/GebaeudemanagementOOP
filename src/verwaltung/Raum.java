@@ -1,7 +1,7 @@
-package diverses;
+package verwaltung;
 
+import buchung.Dozent;
 import buchung.Terminbuchung;
-import buchung.Zeitraum;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,11 +20,11 @@ public class Raum {
 
     public Raum(int raumnummer) {
         this.raumnummer = raumnummer;
-
+        RaumListe.getInstance().addRaum(this);
     }
 
-    public void buchen(Calendar start, Calendar ende){
-        buchungen.add(new Terminbuchung(0,start,ende));
+    public void buchen(Calendar start, Calendar ende, Dozent doz){
+        buchungen.add(new Terminbuchung(0,start,ende,doz));
         //Todo Buchungs ID wird automatisch hochgezählt
         //vllt via Terminbuchungs Konstruktor
     }

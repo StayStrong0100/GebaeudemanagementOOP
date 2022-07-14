@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Hausliste und Raumliste implementiert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Terminbuchung und Zeitraum implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Dozent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/buchung/Zeitraum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Zeitraum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/diverses/Haus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/diverses/Raum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Defekt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Defekt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Funktionstuechtig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Funktionstuechtig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Haus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/RaumListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/RaumListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diverses/Zustand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Zustand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +47,24 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
     "settings.editor.selected.configurable": "proofread"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="GebaeudemanagementOOP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657736452863</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Terminbuchung und Zeitraum implementiert">
+      <created>1657738952474</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657738952474</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,7 +128,8 @@
     <MESSAGE value="Habe alle Klassen erstellt" />
     <MESSAGE value="Singleton mit eingebunden" />
     <MESSAGE value="Hausliste und Raumliste implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hausliste und Raumliste implementiert" />
+    <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminbuchung und Zeitraum implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
