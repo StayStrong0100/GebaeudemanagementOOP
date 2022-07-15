@@ -25,13 +25,17 @@ public class Haus {
     }
 
     public void printRaumuebersicht(){
-        //TODO noch zu implementieren
+        //TODO Raumübersicht implementieren
     }
 
     public Haus(String hausnummer, boolean barrierefrei) {
         this.hausnummer = hausnummer;
         this.barrierefrei = barrierefrei;
         HausListe.getInstance().addHaus(this);
+    }
+
+    public void addRaum(Raum neuerRaum){
+        this.raeume.add(neuerRaum);
     }
 
 }

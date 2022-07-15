@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Terminbuchung und Zeitraum implementiert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zustand/Defekt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Defekt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zustand/Funktionstuechtig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Funktionstuechtig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zustand/Zustand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Zustand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/Dozent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/Zeitraum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Zeitraum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Defekt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Defekt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Funktionstuechtig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Funktionstuechtig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Haus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/RaumListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/RaumListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diverses/Zustand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Zustand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Haus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/RaumListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/RaumListe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,15 +40,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
-    "settings.editor.selected.configurable": "proofread"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -109,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657738952474</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert">
+      <created>1657832391184</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657832391184</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +134,8 @@
     <MESSAGE value="Singleton mit eingebunden" />
     <MESSAGE value="Hausliste und Raumliste implementiert" />
     <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminbuchung und Zeitraum implementiert" />
+    <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

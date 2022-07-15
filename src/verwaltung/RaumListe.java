@@ -1,3 +1,5 @@
+//Diese Klasse kann gelöscht werden, dient nur noch als BackUp
+
 package verwaltung;
 
 import java.util.ArrayList;
@@ -21,11 +23,7 @@ public class RaumListe {
         return alleRaueme;
     }
 
-    public void addRaum(Raum neuerRaum){
-        this.alleRaueme.add(neuerRaum);
-    }
 
-    public void findeRaum(){
-        //TODO Raum Filter implementieren
-    }
+
+
 }

@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 public class Terminbuchung {
     private int id;
+    private static int count=0;
     private Zeitraum intervall;
     private Dozent dozent;
 
@@ -15,11 +16,15 @@ public class Terminbuchung {
         this.id = id;
     }
 
-    public Terminbuchung(int id, Calendar start, Calendar ende, Dozent prof) {
-        this.id = id;
+    public static int getCount() {
+        return count;
+    }
+
+    public Terminbuchung(Calendar start, Calendar ende, Dozent prof) {
+        count++;
+        this.id = count;
         this.intervall = new Zeitraum(start, ende);
         this.dozent = prof;
-
     }
 
     public void printBuchungDetails(){

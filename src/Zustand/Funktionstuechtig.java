@@ -1,8 +1,13 @@
 package Zustand;
 
+import java.util.Calendar;
+
 public class Funktionstuechtig extends Zustand{
 
 
-    public Funktionstuechtig() {
+    public Funktionstuechtig(Calendar datum) {
+        super(datum);
     }
+
+
 }

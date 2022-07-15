@@ -25,5 +25,9 @@ public class HausListe {
         this.alleHaeuser.add(neuesHaus);
     }
 
+    public void findeRaum(){
+        //TODO Raum Filter implementieren
+    }
+
 
 }

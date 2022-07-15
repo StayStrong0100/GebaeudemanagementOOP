@@ -20,13 +20,10 @@ public class Raum {
 
     public Raum(int raumnummer) {
         this.raumnummer = raumnummer;
-        RaumListe.getInstance().addRaum(this);
     }
 
     public void buchen(Calendar start, Calendar ende, Dozent doz){
-        buchungen.add(new Terminbuchung(0,start,ende,doz));
-        //Todo Buchungs ID wird automatisch hochgezählt
-        //vllt via Terminbuchungs Konstruktor
+        buchungen.add(new Terminbuchung(start,ende,doz));
     }
 
     public boolean cancelOrder(int id){

@@ -14,7 +14,7 @@ public class Main {
         start.set(2020, 05, 04,11,50);
         ende.set(2020,05,04,13,20);
 
-        Terminbuchung ostern = new Terminbuchung(01, start,ende,fausti);
+        Terminbuchung ostern = new Terminbuchung(start,ende,fausti);
 
         ostern.printBuchungDetails();
 
