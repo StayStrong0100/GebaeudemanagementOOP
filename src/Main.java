@@ -1,5 +1,6 @@
 import buchung.Dozent;
 import buchung.Terminbuchung;
+import verwaltung.HausListe;
 
 import java.util.Calendar;
 
@@ -17,6 +18,12 @@ public class Main {
         Terminbuchung ostern = new Terminbuchung(start,ende,fausti);
 
         ostern.printBuchungDetails();
+
+        HausListe lichtenberg = HausListe.getInstance();
+        lichtenberg.inventur();
+
+        HausListe schoeneberg = HausListe.getInstance();
+        schoeneberg.inventur();
 
 
 

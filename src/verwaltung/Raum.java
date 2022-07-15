@@ -1,5 +1,6 @@
 package verwaltung;
 
+import ausstattung.Ausstattungsmerkmal;
 import buchung.Dozent;
 import buchung.Terminbuchung;
 
@@ -9,6 +10,7 @@ import java.util.Calendar;
 public class Raum {
     private int raumnummer;
     private ArrayList<Terminbuchung> buchungen = new ArrayList<>();
+    private ArrayList<Ausstattungsmerkmal> ausstattung = new ArrayList<>();
 
     public int getRaumnummer() {
         return raumnummer;
@@ -16,6 +18,14 @@ public class Raum {
 
     public void setRaumnummer(int raumnummer) {
         this.raumnummer = raumnummer;
+    }
+
+    public ArrayList<Ausstattungsmerkmal> getAusstattung() {
+        return ausstattung;
+    }
+
+    public ArrayList<Terminbuchung> getBuchungen() {
+        return buchungen;
     }
 
     public Raum(int raumnummer) {
@@ -34,5 +44,9 @@ public class Raum {
             }
         }
         return false;
+    }
+
+    private void addAusstattung(Ausstattungsmerkmal neu){
+        this.ausstattung.add(neu);
     }
 }

@@ -24,4 +24,8 @@ public abstract class Ausstattungsmerkmal {
         this.zustandsListe.add(new Funktionstuechtig(Calendar.getInstance()));
     }
 
+    public Zustand getAktuellerZustand(){
+        return this.zustandsListe.get(this.zustandsListe.size()-1);
+    }
+
 }

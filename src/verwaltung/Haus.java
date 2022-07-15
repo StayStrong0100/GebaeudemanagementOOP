@@ -7,6 +7,9 @@ public class Haus {
     private boolean barrierefrei;
     private ArrayList<Raum> raeume = new ArrayList<>();
 
+    public ArrayList<Raum> getRaeume() {
+        return raeume;
+    }
 
     public String getHausnummer() {
         return hausnummer;

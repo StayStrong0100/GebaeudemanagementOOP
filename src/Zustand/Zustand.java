@@ -8,4 +8,5 @@ public abstract class Zustand {
     public Zustand(Calendar datum) {
         this.datum = datum;
     }
+
 }
