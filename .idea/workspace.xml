@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Inventur implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zustand/Zustand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zustand/Zustand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verwaltung/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Haus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +38,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RunManager">
@@ -117,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657879843097</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Inventur implementiert">
+      <created>1657886154392</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657886154392</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,7 +142,8 @@
     <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
     <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
     <MESSAGE value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
-    <option name="LAST_COMMIT_MESSAGE" value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
+    <MESSAGE value="Inventur implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inventur implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -11,6 +11,9 @@ public class Haus {
         return raeume;
     }
 
+
+
+
     public String getHausnummer() {
         return hausnummer;
     }
