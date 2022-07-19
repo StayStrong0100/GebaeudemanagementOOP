@@ -166,6 +166,44 @@ public class HausListe {
         System.out.println("Lautsprecher defekt: " + anzahlLautsprecherDefekt );
     }
 
+    public ArrayList<Raum> alleRaeueme(){
+        ArrayList<Raum> alleRaeume = new ArrayList<>();
+        for (Haus h: HausListe.getInstance().getAlleHaeuser()
+        ) {
+            for (Raum r: h.getRaeume()
+            ) {
+                alleRaeume.add(r);
+            }
+        }
+        return alleRaeume;
+    }
+
+    public void druckeAlleRaeume(){
+        for (Haus h: HausListe.getInstance().getAlleHaeuser()
+             ) {
+            for (Raum r: h.getRaeume()
+                 ) {
+                System.out.println("Haus: " + h.getHausnummer() + "\t" + "Raumnummer: " + r.getRaumnummer());
+            }
+        }
+        //return alleRaeume
+    }
+
+    //Überladung, wenn Hausparameter vorhanden
+    public void druckeAlleRaeume(String hausID){
+        for (Haus h: HausListe.getInstance().getAlleHaeuser()
+        ) {
+            if (h.getHausnummer().equals(hausID)){
+                System.out.println("Räume im Haus " + hausID + ": ");
+                for (Raum r: h.getRaeume()
+                ) {
+                    System.out.println("Raumnummer: " + r.getRaumnummer());
+                }
+            }
+
+        }
+    }
+
 
 
 
