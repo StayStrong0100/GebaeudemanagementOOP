@@ -2,17 +2,17 @@ package ausstattung;
 
 public class Kamera extends Ausstattungsmerkmal {
 
-    private KameraTyp exemplar;
+    private KameraTyp exemplarTyp;
 
-    public Kamera(KameraTyp exemplar){
-        this.exemplar = exemplar;
+    public Kamera(KameraTyp exemplarTyp){
+        this.exemplarTyp = exemplarTyp;
     }
 
-    public void setExemplar(KameraTyp exemplar) {
-        this.exemplar = exemplar;
+    public void setExemplarTyp(KameraTyp exemplarTyp) {
+        this.exemplarTyp = exemplarTyp;
     }
 
-    public KameraTyp getExemplar() {
-        return exemplar;
+    public KameraTyp getExemplarTyp() {
+        return exemplarTyp;
     }
 }

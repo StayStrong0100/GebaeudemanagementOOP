@@ -2,17 +2,17 @@ package ausstattung;
 
 public class Kreidetafel extends Ausstattungsmerkmal{
 
-    private KreidetafelTyp exemplar;
+    private KreidetafelTyp exemplarTyp;
 
-    public Kreidetafel(KreidetafelTyp exemplar){
-        this.exemplar = exemplar;
+    public Kreidetafel(KreidetafelTyp exemplarTyp){
+        this.exemplarTyp = exemplarTyp;
     }
 
-    public KreidetafelTyp getExemplar() {
-        return exemplar;
+    public KreidetafelTyp getExemplarTyp() {
+        return exemplarTyp;
     }
 
-    public void setExemplar(KreidetafelTyp exemplar) {
-        this.exemplar = exemplar;
+    public void setExemplarTyp(KreidetafelTyp exemplarTyp) {
+        this.exemplarTyp = exemplarTyp;
     }
 }
