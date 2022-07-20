@@ -1,4 +1,4 @@
 package ausstattung;
 
-public class Whiteboard extends Ausstattungsmerkmal{
+public class Whiteboard extends Tafel{
 }

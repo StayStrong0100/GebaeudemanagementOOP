@@ -1,6 +1,6 @@
 package ausstattung;
 
-public class Kreidetafel extends Ausstattungsmerkmal{
+public class Kreidetafel extends Tafel{
 
     private KreidetafelTyp exemplarTyp;
 
