@@ -3,10 +3,18 @@ package ausstattung;
 
 public class Beamer extends Ausstattungsmerkmal{
 
-    private final BeamerTyp exemplar;
+    public void setExemplar(BeamerTyp exemplar) {
+        this.exemplar = exemplar;
+    }
+
+    public BeamerTyp getExemplar() {
+        return exemplar;
+    }
+
+    private BeamerTyp exemplar;
 
     public Beamer(BeamerTyp exemplar){
-        this.exemplar = new BeamerTyp(exemplar.getMarke(), exemplar.getModell(), exemplar.getLumen(), exemplar.isLautsprecher());
+        this.exemplar = exemplar;
     }
 
 }
