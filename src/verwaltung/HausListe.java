@@ -31,6 +31,18 @@ public class HausListe {
         //TODO Raum Filter implementieren
     }
 
+    /**
+     * Pars Int
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     *
+     *
+     * @param
+     *
+     * @return
+     */
+
     public void inventur(){
         int anzahlTische = 0;
         int anzahlStuehle = 0;
