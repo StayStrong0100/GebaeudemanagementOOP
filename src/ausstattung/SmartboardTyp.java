@@ -35,4 +35,11 @@ public class SmartboardTyp {
     public void setLumen(int lumen) {
         this.lumen = lumen;
     }
+
+    @Override
+    public String toString() {
+        return "Marke='" + marke +
+                "\nModell: " + modell +
+                "\nLumen: " + lumen;
+    }
 }
