@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Übersicht über Räume (3 Varianten) implementiert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Tafel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Tafel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +123,91 @@
       <option name="project" value="LOCAL" />
       <updated>1657886154392</updated>
     </task>
-    <task id="LOCAL-00009" summary="Übersicht über Räume (3 Varianten) implementiert">
-      <created>1658245462741</created>
+    <task id="LOCAL-00009" summary="DateFormatter geändert: von &quot;YYYY&quot; zu &quot;yyyy&quot;">
+      <created>1658597103695</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1658245462741</updated>
+      <updated>1658597103695</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle">
+      <created>1658597457688</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1658597457688</updated>
+    </task>
+    <task id="LOCAL-00011" summary="toString() und print erstellt()">
+      <created>1658597580094</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1658597580094</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Großschreibung in der toString() geändert">
+      <created>1658597797384</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658597797384</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Großschreibung in der toString() geändert">
+      <created>1658597902741</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1658597902741</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Großschreibung in der toString() geändert">
+      <created>1658597983301</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658597983301</updated>
+    </task>
+    <task id="LOCAL-00015" summary="ToString() und print() erstellt">
+      <created>1658598160825</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658598160825</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ToString() und print() erstellt.Sourroundsound zu Surroundsound geändert">
+      <created>1658599388419</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599388419</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Formatierung von toString()">
+      <created>1658599639020</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599639020</updated>
+    </task>
+    <task id="LOCAL-00018" summary="toString() und print() erstellt">
+      <created>1658599715482</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599715482</updated>
+    </task>
+    <task id="LOCAL-00019" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658599955337</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599955337</updated>
+    </task>
+    <task id="LOCAL-00020" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658600258543</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600258543</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,8 +230,16 @@
     <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
     <MESSAGE value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
     <MESSAGE value="Inventur implementiert" />
-    <MESSAGE value="Übersicht über Räume (3 Varianten) implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Übersicht über Räume (3 Varianten) implementiert" />
+    <MESSAGE value="DateFormatter geändert: von &quot;YYYY&quot; zu &quot;yyyy&quot;" />
+    <MESSAGE value="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle" />
+    <MESSAGE value="toString() und print erstellt()" />
+    <MESSAGE value="Großschreibung in der toString() geändert" />
+    <MESSAGE value="ToString() und print() erstellt" />
+    <MESSAGE value="ToString() und print() erstellt.Sourroundsound zu Surroundsound geändert" />
+    <MESSAGE value="Formatierung von toString()" />
+    <MESSAGE value="toString() und print() erstellt" />
+    <MESSAGE value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
+    <option name="LAST_COMMIT_MESSAGE" value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
