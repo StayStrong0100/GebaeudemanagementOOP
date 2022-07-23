@@ -1,11 +1,9 @@
 package verwaltung;
 
-import ausstattung.Ausstattungsmerkmal;
-import buchung.Dozent;
-import buchung.Terminbuchung;
-
-import java.util.ArrayList;
-import java.util.Calendar;
+import ausstattung.*;
+import buchung.*;
+import Zustand.*;
+import java.util.*;
 
 public class Raum {
     private int raumnummer;
