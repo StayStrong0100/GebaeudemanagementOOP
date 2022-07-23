@@ -25,4 +25,10 @@ public class StuhlTyp {
     public void setModell(String modell) {
         this.modell = modell;
     }
+
+    @Override
+    public String toString() {
+        return "Drehstuhl: " + drehstuhl +
+                "\nModell: " + modell;
+    }
 }
