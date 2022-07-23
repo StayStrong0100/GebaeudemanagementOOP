@@ -24,7 +24,7 @@ public class Lautsprecher extends Ausstattungsmerkmal {
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
-                + "Anschaffungsdatum: " + df.format(Lautsprecher.super.getAnschaffungsdatum().getTime());
+                + "\nAnschaffungsdatum: " + df.format(Lautsprecher.super.getAnschaffungsdatum().getTime());
     }
 
     public void print() {

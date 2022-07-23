@@ -25,7 +25,7 @@ public class Kamera extends Ausstattungsmerkmal {
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
-                + "Anschaffungsdatum: " + df.format(Kamera.super.getAnschaffungsdatum().getTime());
+                + "\nAnschaffungsdatum: " + df.format(Kamera.super.getAnschaffungsdatum().getTime());
     }
 
         public void print() {
