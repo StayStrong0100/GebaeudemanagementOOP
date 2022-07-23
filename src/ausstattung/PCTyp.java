@@ -45,4 +45,12 @@ public class PCTyp {
     public void setRam(short ram) {
         this.ram = ram;
     }
+
+    @Override
+    public String toString() {
+        return "Betriebssystem: " + betriebssystem +
+                "\nTaktfrequenz: " + taktfrequenz +
+                "\nGrafikkarte: " + grafikkarte +
+                "\nRAM: " + ram;
+    }
 }
