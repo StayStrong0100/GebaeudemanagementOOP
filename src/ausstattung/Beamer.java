@@ -25,8 +25,8 @@ public class Beamer extends Ausstattungsmerkmal{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        System.out.println("Start: " + df.format(Beamer.super.getAnschaffungsdatum().getTime()));
-        return "Ausstattungsmerkmal: Beamer"+ "\nexemplarTyp:" + exemplarTyp;
+        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+                + "Anschaffungsdatum: " + df.format(Beamer.super.getAnschaffungsdatum().getTime());
     }
 
     public void print() {
