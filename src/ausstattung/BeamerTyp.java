@@ -49,9 +49,9 @@ public class BeamerTyp {
 
     @Override
     public String toString() {
-        return "marke: " + marke +
-                "\nmodell: " + modell +
-                "\nlumen: " + lumen +
-                "\nlautsprecher: " + lautsprecher;
+        return "Marke: " + marke +
+                "\nModell: " + modell +
+                "\nLumen: " + lumen +
+                "\nLautsprecher: " + lautsprecher;
     }
 }
