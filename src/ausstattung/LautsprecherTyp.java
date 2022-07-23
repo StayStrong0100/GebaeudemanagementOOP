@@ -6,14 +6,14 @@ public class LautsprecherTyp {
     private String modell;
     private int anzahl;
     private int maxLautstaerke;
-    private boolean sourroundSound;
+    private boolean surroundSound;
 
-    public LautsprecherTyp(String marke, String modell, int anzahl, int maxLautstaerke, boolean sourroundSound) {
+    public LautsprecherTyp(String marke, String modell, int anzahl, int maxLautstaerke, boolean surroundSound) {
         this.marke = marke;
         this.modell = modell;
         this.anzahl = anzahl;
         this.maxLautstaerke = maxLautstaerke;
-        this.sourroundSound = sourroundSound;
+        this.surroundSound = surroundSound;
     }
 
     public String getMarke() {
@@ -48,11 +48,20 @@ public class LautsprecherTyp {
         this.maxLautstaerke = maxLautstaerke;
     }
 
-    public boolean isSourroundSound() {
-        return sourroundSound;
+    public boolean isSurroundSound() {
+        return surroundSound;
     }
 
-    public void setSourroundSound(boolean sourroundSound) {
-        this.sourroundSound = sourroundSound;
+    public void setSorroundSound(boolean surroundSound) {
+        this.surroundSound = surroundSound;
+    }
+
+    @Override
+    public String toString() {
+        return "Marke: " + marke +
+                "\nModell: " + modell +
+                "\nAnzahl: " + anzahl +
+                "\nMaxLautstaerke: " + maxLautstaerke +
+                "\nSurroundSound: " + surroundSound;
     }
 }
