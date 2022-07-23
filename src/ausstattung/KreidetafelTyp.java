@@ -44,5 +44,13 @@ public class KreidetafelTyp {
     public void setHoehe(double hoehe) {
         this.hoehe = hoehe;
     }
+
+    @Override
+    public String toString() {
+        return "Wandtafel: " + wandtafel +
+                "\nFreitafel: " + freitafel +
+                "\nBreite: " + breite +
+                "\nHoehe:" + hoehe;
+    }
 }
 

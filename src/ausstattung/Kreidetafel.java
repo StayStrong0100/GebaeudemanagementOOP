@@ -1,5 +1,7 @@
 package ausstattung;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Kreidetafel extends Tafel{
@@ -19,5 +21,14 @@ public class Kreidetafel extends Tafel{
         this.exemplarTyp = exemplarTyp;
     }
 
+    @Override
+    public String toString() {
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+                + "Anschaffungsdatum: " + df.format(Kreidetafel.super.getAnschaffungsdatum().getTime());
+    }
 
+    public void print() {
+        System.out.println(toString());
+    }
 }
