@@ -55,4 +55,13 @@ public class TischTyp {
     public void setLaenge(double laenge) {
         this.laenge = laenge;
     }
+
+    @Override
+    public String toString() {
+        return "Anzahlplaetze: " + anzahlPlaetze +
+                "\nComputertisch: " + computertisch +
+                "\nHoehenverstellbar: " + hoehenverstellbar +
+                "\nBreite: " + breite +
+                "\nLaenge: " + laenge;
+    }
 }
