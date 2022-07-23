@@ -45,4 +45,12 @@ public class MikrofonTyp {
     public void setEmpfindlichkeit(int empfindlichkeit) {
         this.empfindlichkeit = empfindlichkeit;
     }
+
+    @Override
+    public String toString() {
+        return "Marke: " + marke +
+                "\nModell: " + modell +
+                "\nKonferenzmikro: " + konferenzMikro +
+                "\nEmpfindlichkeit: " + empfindlichkeit;
+    }
 }

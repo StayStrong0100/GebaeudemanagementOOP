@@ -1,10 +1,15 @@
 package ausstattung;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Mikrofon extends Ausstattungsmerkmal{
 
     private MikrofonTyp exemplarTyp;
 
-    public Mikrofon(MikrofonTyp exemplarTyp){
+    public Mikrofon(MikrofonTyp exemplarTyp, Calendar anschaffungsdatum){
+        super(anschaffungsdatum);
         this.exemplarTyp = exemplarTyp;
     }
 
@@ -14,5 +19,16 @@ public class Mikrofon extends Ausstattungsmerkmal{
 
     public void setExemplarTyp(MikrofonTyp exemplarTyp) {
         this.exemplarTyp = exemplarTyp;
+    }
+
+    @Override
+    public String toString() {
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+                + "\nAnschaffungsdatum: " + df.format(Mikrofon.super.getAnschaffungsdatum().getTime());
+    }
+
+    public void print() {
+        System.out.println(toString());
     }
 }
