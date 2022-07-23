@@ -54,4 +54,13 @@ public class KameraTyp {
     public boolean isFlexibel() {
         return flexibel;
     }
+
+    @Override
+    public String toString() {
+        return "marke: " + marke +
+                "\nmodell: " + modell +
+                "\npixel: " + pixel +
+                "\nbrennweite: " + brennweite +
+                "\nflexibel: " + flexibel;
+    }
 }
