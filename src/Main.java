@@ -1,3 +1,6 @@
+import ausstattung.Ausstattungsmerkmal;
+import ausstattung.Beamer;
+import ausstattung.BeamerTyp;
 import buchung.Dozent;
 import buchung.Terminbuchung;
 import verwaltung.HausListe;
@@ -8,14 +11,16 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
         Calendar start = Calendar.getInstance();
         Calendar ende = Calendar.getInstance();
         Dozent fausti = new Dozent("Faustmann");
 
-        start.set(2020, 05, 04,11,50);
-        ende.set(2020,05,04,13,20);
+        start.set(2020, 05, 04, 11, 50);
+        ende.set(2020, 05, 04, 13, 20);
 
-        Terminbuchung ostern = new Terminbuchung(start,ende,fausti);
+        Terminbuchung ostern = new Terminbuchung(start, ende, fausti);
 
         ostern.printBuchungDetails();
 
@@ -24,9 +29,6 @@ public class Main {
 
         HausListe schoeneberg = HausListe.getInstance();
         schoeneberg.inventur();
-
-
-
 
 
     }

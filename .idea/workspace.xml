@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/Tafel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Tafel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +202,35 @@
       <option name="project" value="LOCAL" />
       <updated>1658600258543</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658600473811</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600473811</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Anschaffungsdatum hinzugefügt.">
+      <created>1658600575605</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600575605</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Anschaffungsdatum hinzugefügt.">
+      <created>1658600777551</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600777552</updated>
+    </task>
+    <task id="LOCAL-00024" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658601031689</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658601031689</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,6 +261,7 @@
     <MESSAGE value="ToString() und print() erstellt.Sourroundsound zu Surroundsound geändert" />
     <MESSAGE value="Formatierung von toString()" />
     <MESSAGE value="toString() und print() erstellt" />
+    <MESSAGE value="Anschaffungsdatum hinzugefügt." />
     <MESSAGE value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
     <option name="LAST_COMMIT_MESSAGE" value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
   </component>
