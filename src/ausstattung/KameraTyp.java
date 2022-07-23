@@ -57,10 +57,10 @@ public class KameraTyp {
 
     @Override
     public String toString() {
-        return "marke: " + marke +
-                "\nmodell: " + modell +
-                "\npixel: " + pixel +
-                "\nbrennweite: " + brennweite +
-                "\nflexibel: " + flexibel;
+        return "Marke: " + marke +
+                "\nModell: " + modell +
+                "\nPixel: " + pixel +
+                "\nBrennweite: " + brennweite +
+                "\nFlexibel: " + flexibel;
     }
 }
