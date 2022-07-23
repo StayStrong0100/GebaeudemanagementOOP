@@ -31,7 +31,7 @@ public class Zeitraum {
     }
 
     public void print() {
-        DateFormat df = new SimpleDateFormat("dd.MM.YYYY HH:mm");
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         System.out.println("Start: " + df.format(start.getTime())+" Uhr");
         System.out.println("Ende: " + df.format(ende.getTime())+" Uhr");
 
