@@ -46,4 +46,12 @@ public class BeamerTyp {
     public void setLautsprecher(boolean lautsprecher) {
         this.lautsprecher = lautsprecher;
     }
+
+    @Override
+    public String toString() {
+        return "marke: " + marke +
+                "\nmodell: " + modell +
+                "\nlumen: " + lumen +
+                "\nlautsprecher: " + lautsprecher;
+    }
 }

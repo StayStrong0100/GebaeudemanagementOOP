@@ -1,6 +1,10 @@
 package ausstattung;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Beamer extends Ausstattungsmerkmal{
 
     public void setExemplarTyp(BeamerTyp exemplarTyp) {
@@ -13,8 +17,19 @@ public class Beamer extends Ausstattungsmerkmal{
 
     private BeamerTyp exemplarTyp;
 
-    public Beamer(BeamerTyp exemplarTyp){
+    public Beamer(BeamerTyp exemplarTyp, Calendar anschaffungsdatum){
+        super(anschaffungsdatum);
         this.exemplarTyp = exemplarTyp;
     }
 
+    @Override
+    public String toString() {
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        System.out.println("Start: " + df.format(Beamer.super.getAnschaffungsdatum().getTime()));
+        return "Ausstattungsmerrkmal: Beamer"+ "\nexemplarTyp:" + exemplarTyp;
+    }
+
+    public void print() {
+        System.out.println(toString());
+    }
 }

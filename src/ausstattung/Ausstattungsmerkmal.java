@@ -6,9 +6,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public abstract class Ausstattungsmerkmal {
+
+    private Calendar anschaffungsdatum;
     private ArrayList<Zustand> zustandsListe = new ArrayList<>();
 
-    public Ausstattungsmerkmal() {
+    public Ausstattungsmerkmal(Calendar anschaffungsdatum) {
+        this.anschaffungsdatum  = anschaffungsdatum;
         this.zustandsListe.add(new Funktionstuechtig(Calendar.getInstance()));
     }
 
@@ -28,4 +31,11 @@ public abstract class Ausstattungsmerkmal {
         return this.zustandsListe.get(this.zustandsListe.size()-1);
     }
 
+    public Calendar getAnschaffungsdatum() {
+        return anschaffungsdatum;
+    }
+
+    public void setAnschaffungsdatum(Calendar anschaffungsdatum) {
+        this.anschaffungsdatum = anschaffungsdatum;
+    }
 }
