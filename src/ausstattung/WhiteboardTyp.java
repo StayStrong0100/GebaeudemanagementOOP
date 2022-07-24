@@ -50,6 +50,6 @@ public class WhiteboardTyp {
         return "Wandtafel: " + wandtafel +
                 "\nFreitafel: " + freitafel +
                 "\nBreite: " + breite +
-                "\nHoehe=" + hoehe;
+                "\nHoehe: " + hoehe;
     }
 }

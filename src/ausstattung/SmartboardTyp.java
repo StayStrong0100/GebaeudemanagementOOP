@@ -38,7 +38,7 @@ public class SmartboardTyp {
 
     @Override
     public String toString() {
-        return "Marke='" + marke +
+        return "Marke: " + marke +
                 "\nModell: " + modell +
                 "\nLumen: " + lumen;
     }
