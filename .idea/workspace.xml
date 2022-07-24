@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="nichts geändert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Bei der Methode addAusstattung() den Modifier zu public umgeändert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +239,35 @@
       <option name="project" value="LOCAL" />
       <updated>1658601326056</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="toString() geändert">
+      <created>1658651503158</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658651503158</updated>
+    </task>
+    <task id="LOCAL-00027" summary="toString() geändert">
+      <created>1658651628505</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1658651628505</updated>
+    </task>
+    <task id="LOCAL-00028" summary="toString() geändert">
+      <created>1658652206866</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1658652206866</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Bei der Methode addAusstattung() den Modifier zu public umgeändert">
+      <created>1658701842589</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1658701842589</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,7 +301,10 @@
     <MESSAGE value="Anschaffungsdatum hinzugefügt." />
     <MESSAGE value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
     <MESSAGE value="nichts geändert" />
-    <option name="LAST_COMMIT_MESSAGE" value="nichts geändert" />
+    <MESSAGE value="toString() geändert" />
+    <MESSAGE value="nichts" />
+    <MESSAGE value="Bei der Methode addAusstattung() den Modifier zu public umgeändert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bei der Methode addAusstattung() den Modifier zu public umgeändert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
