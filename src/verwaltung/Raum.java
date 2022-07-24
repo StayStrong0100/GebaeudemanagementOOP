@@ -44,7 +44,7 @@ public class Raum {
         return false;
     }
 
-    private void addAusstattung(Ausstattungsmerkmal neu){
+    public void addAusstattung(Ausstattungsmerkmal neu){
         this.ausstattung.add(neu);
     }
 }
