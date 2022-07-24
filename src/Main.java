@@ -1,17 +1,15 @@
-import ausstattung.Ausstattungsmerkmal;
-import ausstattung.Beamer;
-import ausstattung.BeamerTyp;
+import ausstattung.*;
 import buchung.Dozent;
 import buchung.Terminbuchung;
 import verwaltung.HausListe;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Main {
 
 
     public static void main(String[] args) {
-
 
         Calendar start = Calendar.getInstance();
         Calendar ende = Calendar.getInstance();
@@ -29,7 +27,6 @@ public class Main {
 
         HausListe schoeneberg = HausListe.getInstance();
         schoeneberg.inventur();
-
 
     }
 }
