@@ -24,7 +24,7 @@ public class Stuhl extends Ausstattungsmerkmal{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Stuhl"+ "\nExemplartyp:\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Stuhl.super.getAnschaffungsdatum().getTime());
     }
 

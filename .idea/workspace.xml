@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="nichts geändert">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658601031689</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="nichts geändert">
+      <created>1658601326056</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1658601326056</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +271,8 @@
     <MESSAGE value="toString() und print() erstellt" />
     <MESSAGE value="Anschaffungsdatum hinzugefügt." />
     <MESSAGE value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
-    <option name="LAST_COMMIT_MESSAGE" value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
+    <MESSAGE value="nichts geändert" />
+    <option name="LAST_COMMIT_MESSAGE" value="nichts geändert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

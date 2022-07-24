@@ -24,7 +24,7 @@ public class Whiteboard extends Tafel{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Whiteboard"+ "\nExemplartyp:\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Whiteboard.super.getAnschaffungsdatum().getTime());
     }
 

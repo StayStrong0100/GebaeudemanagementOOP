@@ -24,7 +24,7 @@ public class Kreidetafel extends Tafel{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Kreidetafel"+ "\nExemplartyp:\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Kreidetafel.super.getAnschaffungsdatum().getTime());
     }
 

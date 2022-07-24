@@ -24,7 +24,7 @@ public class Smartboard extends Tafel{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Smartboard"+ "\nExemplartyp:\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Smartboard.super.getAnschaffungsdatum().getTime());
     }
 
