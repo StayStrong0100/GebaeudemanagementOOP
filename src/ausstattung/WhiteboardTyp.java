@@ -1,6 +1,10 @@
 package ausstattung;
 
-public class WhiteboardTyp {
+import java.io.Serializable;
+
+public class WhiteboardTyp implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private boolean wandtafel;
     private boolean freitafel;
     private double breite;

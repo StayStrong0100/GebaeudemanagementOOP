@@ -6,7 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Beamer extends Ausstattungsmerkmal {
+public class Beamer extends Ausstattungsmerkmal implements Serializable{
     public static final long serialVersionUID = 0;
     public void setExemplarTyp(BeamerTyp exemplarTyp) {
         this.exemplarTyp = exemplarTyp;

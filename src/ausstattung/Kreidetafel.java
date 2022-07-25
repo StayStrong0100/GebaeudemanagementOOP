@@ -1,10 +1,11 @@
 package ausstattung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Kreidetafel extends Tafel{
+public class Kreidetafel extends Tafel implements Serializable {
     public static final long serialVersionUID = 0;
     private KreidetafelTyp exemplarTyp;
 

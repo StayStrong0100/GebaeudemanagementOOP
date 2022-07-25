@@ -1,6 +1,10 @@
 package ausstattung;
 
-public class TischTyp {
+import java.io.Serializable;
+
+public class TischTyp implements Serializable {
+
+    public static final long serialVersionUID = 0;
 
     private int anzahlPlaetze;
     private boolean computertisch;

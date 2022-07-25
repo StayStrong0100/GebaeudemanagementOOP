@@ -1,6 +1,11 @@
 package ausstattung;
 
-public class StuhlTyp {
+import java.io.Serializable;
+import java.rmi.ServerError;
+
+public class StuhlTyp implements Serializable{
+
+    public static final long serialVersionUID = 0;
 
     private boolean drehstuhl;
     private String modell;

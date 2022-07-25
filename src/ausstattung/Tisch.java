@@ -1,10 +1,13 @@
 package ausstattung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Tisch extends Ausstattungsmerkmal{
+public class Tisch extends Ausstattungsmerkmal implements Serializable {
+
+    public static final long serialVersionUID = 0;
 
     private TischTyp exemplarTyp;
 

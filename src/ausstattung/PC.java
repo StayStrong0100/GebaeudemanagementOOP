@@ -1,11 +1,13 @@
 package ausstattung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class PC extends Ausstattungsmerkmal{
+public class PC extends Ausstattungsmerkmal implements Serializable{
 
+    public static final long serialVersionUID = 0;
     private PCTyp exemplarTyp;
 
     public PC(PCTyp exemplarTyp, Calendar anschaffungsdatum){

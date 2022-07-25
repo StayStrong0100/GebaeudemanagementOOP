@@ -1,10 +1,11 @@
 package ausstattung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Mikrofon extends Ausstattungsmerkmal{
+public class Mikrofon extends Ausstattungsmerkmal implements Serializable {
 
     public static final long serialVersionUID = 0;
     private MikrofonTyp exemplarTyp;

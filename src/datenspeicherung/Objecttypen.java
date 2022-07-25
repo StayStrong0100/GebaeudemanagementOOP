@@ -52,9 +52,9 @@ public class Objecttypen {
     //PcTyp
     //Taktfrequenz in GHz
 
-    PCTyp windowsPc = new PCTyp("Windows", 4.4, true, 16);
-    PCTyp linuxPc = new PCTyp("Linux", 2.2, false, 4);
-    PCTyp iosPC = new PCTyp("IOS", 3.2, false, 8);
+    PCTyp windowsPc = new PCTyp("Windows", 4.4, true, (short)16);
+    PCTyp linuxPc = new PCTyp("Linux", 2.2, false, (short)4);
+    PCTyp iosPC = new PCTyp("IOS", 3.2, false, (short) 8);
 
     //MikrofonTyp
     //Empfindlichkeit in max db

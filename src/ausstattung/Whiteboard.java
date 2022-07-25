@@ -1,10 +1,13 @@
 package ausstattung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Whiteboard extends Tafel{
+public class Whiteboard extends Tafel implements Serializable {
+
+    public static final long serialVersionUID = 0;
 
     private WhiteboardTyp exemplarTyp;
 

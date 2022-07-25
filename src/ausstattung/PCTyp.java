@@ -1,6 +1,10 @@
 package ausstattung;
 
-public class PCTyp {
+import java.io.Serializable;
+
+public class PCTyp implements Serializable{
+
+    public static final long serialVersionUID = 0;
 
     private String betriebssystem;
     private double taktfrequenz;

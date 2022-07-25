@@ -1,11 +1,13 @@
 package ausstattung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Stuhl extends Ausstattungsmerkmal{
+public class Stuhl extends Ausstattungsmerkmal implements Serializable{
 
+    public static final long serialVersionUID = 0;
     private StuhlTyp exemplarTyp;
 
     public Stuhl(StuhlTyp exemplarTyp, Calendar anschaffungsdatum){
