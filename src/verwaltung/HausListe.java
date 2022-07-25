@@ -1,9 +1,22 @@
+/**
+ * Pars Int
+ *
+ * @author ZanderLK
+ * @version 1.0.0
+ * @since 202207??
+ *
+ * @param
+ *
+ * @return
+ */
 package verwaltung;
 
 import ausstattung.*;
 import Zustand.*;
+import buchung.Terminbuchung;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 //singleton
 public class HausListe {
@@ -28,20 +41,32 @@ public class HausListe {
         this.alleHaeuser.add(neuesHaus);
     }
 
-    public void findeRaum() {
-        //TODO Raum Filter implementieren
-    }
 
-    /**
-     * Pars Int
-     *
-     * @param
-     * @return
-     * @author ZanderLK
-     * @version 1.0.0
-     */
+
+
 
     public void inventur() {
+        System.out.println("Anzahl Tische funktionstüchtig: " + this.getAnzahlTischeFunktionstuechtig());
+        System.out.println("Anzahl Tische defekt: " + this.getAnzahlTischeDefekt());
+        System.out.println("Anzahl Stühle funktionstüchtig: " + this.getAnzahlStuehleFunktionstuechtig());
+        System.out.println("Stühle defekt: " + this.getAnzahlStuehleDefekt());
+        System.out.println("Mikrofone funktionstüchtig: " + this.getAnzahlMikrofoneFunktionstuechtig());
+        System.out.println("Mikrofone defekt: " + this.getAnzahlMikrofoneDefekt());
+        System.out.println("Beamer funktionstüchtig: " + this.getAnzahlBeamerFunktionstuechtig());
+        System.out.println("Beamer defekt: " + this.getAnzahlBeamerDefekt());
+        System.out.println("PCs funktionstüchtig: " + this.getAnzahlPCsFunktionstuechtig());
+        System.out.println("PCs defekt: " + this.getAnzahlPCsDefekt());
+        System.out.println("Smartboards funktionstüchtig: " + this.getAnzahlSmartboardsFunktionstuechtig());
+        System.out.println("Smartboards defekt: " + this.getAnzahlSmartboardsDefekt());
+        System.out.println("Kreidetafeln funktionstüchtig: " + this.getAnzahlKreidetafelnFunktionstuechtig());
+        System.out.println("Kreidetafeln defekt: " + this.getAnzahlKreidetafelnDefekt());
+        System.out.println("Whiteboards funktionstüchtig: " + this.getAnzahlWhiteboardsFunktionstuechtig());
+        System.out.println("Whiteboards defekt: " + this.getAnzahlWhiteboardsDefekt());
+        System.out.println("Kameras funktionstüchtig: " + this.getAnzahlKamerasFunktionstuechtig());
+        System.out.println("Kameras defekt: " + this.getAnzahlKamerasDefekt());
+        System.out.println("Lautsprecher funktionstüchtig: " + this.getAnzahlLautsprecherFunktionstuechtig());
+        System.out.println("Lautsprecher defekt: " + this.getAnzahlLautsprecherDefekt());
+        /*
         int anzahlTische = 0;
         int anzahlStuehle = 0;
         int anzahlMikrofone = 0;
@@ -133,32 +158,10 @@ public class HausListe {
                         }
                     }
                 }
-            }
-        }
-
-        System.out.println("Anzahl Tische funktionstüchtig: " + anzahlTische);
-        System.out.println("Anzahl Tische defekt: " + anzahlTischeDefekt);
-        System.out.println("Anzahl Stühle funktionstüchtig: " + anzahlStuehle);
-        System.out.println("Stühle defekt: " + anzahlStuehleDefekt);
-        System.out.println("Mikrofone funktionstüchtig: " + anzahlMikrofone);
-        System.out.println("Mikrofone defekt: " + anzahlMikrofoneDefekt);
-        System.out.println("Beamer funktionstüchtig: " + anzahlBeamer);
-        System.out.println("Beamer defekt: " + anzahlBeamerDefekt);
-        System.out.println("PCs funktionstüchtig: " + anzahlPCs);
-        System.out.println("PCs defekt: " + anzahlPCsDefekt);
-        System.out.println("Smartboards funktionstüchtig: " + anzahlSmartboards);
-        System.out.println("Smartboards defekt: " + anzahlSmartboardsDefekt);
-        System.out.println("Kreidetafeln funktionstüchtig: " + anzahlKreidetafeln);
-        System.out.println("Kreidetafeln defekt: " + anzahlKreidetafelnDefekt);
-        System.out.println("Whiteboards funktionstüchtig: " + anzahlWhiteboards);
-        System.out.println("Whiteboards defekt: " + anzahlWhiteboardsDefekt);
-        System.out.println("Kameras funktionstüchtig: " + anzahlKameras);
-        System.out.println("Kameras defekt: " + anzahlKamerasDefekt);
-        System.out.println("Lautsprecher funktionstüchtig: " + anzahlLautsprecher);
-        System.out.println("Lautsprecher defekt: " + anzahlLautsprecherDefekt);
+            }*/
     }
 
-    public ArrayList<Raum> alleRaeueme() {
+    public ArrayList<Raum> getAlleRaeueme() {
         ArrayList<Raum> alleRaeume = new ArrayList<>();
         for (Haus h : HausListe.getInstance().getAlleHaeuser()
         ) {
@@ -195,7 +198,6 @@ public class HausListe {
 
         }
     }
-
 
     public ArrayList<Raum> wieVieleBeamer(int anzahl) {
 
@@ -262,6 +264,377 @@ public class HausListe {
 
         return RaumListe;
     }
+
+    public int getAnzahlBeamerFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Beamer && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                            anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlBeamerDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Beamer && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlKamerasFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Kamera && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlKamerasDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Kamera && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlKreidetafelnFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlKreidetafelnDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlLautsprecherFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlLautsprecherDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlMikrofoneFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlMikrofoneDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlPCsFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof PC && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlPCsDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof PC && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlSmartboardsFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlSmartboardsDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlStuehleFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlStuehleDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlTischeFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Tisch && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlTischeDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Tisch && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlWhiteboardsFunktionstuechtig(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlWhiteboardsDefekt(){
+        int anzahl = 0;
+        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                    //sortiert nach der Wahrscheinlichkeit der Übereinstimmung
+                    if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public ArrayList<Raum> filtereRaeuemeAusstattung() {
+        ArrayList<Raum> passendeRaueme = new ArrayList<>();
+        //TODO @Ben Filter nach Ausstattung bauen auf Basis der neuen ZählMethoden
+        return passendeRaueme;
+    }
+    /**
+     * Überprüft, ob ein Termin mit der Buchungsliste eines Raumes kollidiert
+     *
+     * @author ZanderLK
+     * @since 20220705
+     * @version 1.0.0
+     *
+     * @param 'Raum r, Calendar start, Calendar ende
+     *
+     * @return boolean
+     */
+    public boolean terminKollidiert(Raum r, Calendar start, Calendar ende){
+        for (Terminbuchung t : r.getBuchungen()
+                ) { if (start.after(t.getIntervall().getStart()) && start.before(t.getIntervall().getEnde())) {
+                        return true;
+                    }
+                    if (ende.after(t.getIntervall().getStart()) && ende.before(t.getIntervall().getEnde())) {
+                        return true;
+                    }
+        }
+        return false;
+    }
+
+    /**
+     * Gibt alle Räume zurück, die im angegebenem Zeitraum verfügbar sind
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @param 'Calendar start, Calendar ende
+     *
+     * @return ArrayList<Raum> freieRaume
+     */
+    public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende) {
+        ArrayList<Raum> freieRaueme = new ArrayList<>();
+        for (Raum r : this.getAlleRaeueme()
+             ) {if(!terminKollidiert(r,start,ende)){
+                 freieRaueme.add(r);
+                }
+        }
+        return freieRaueme;
+    }
+
+    /**
+     * Gibt alle Räume einer Raumliste zurück, die im angegebenem Zeitraum verfügbar sind
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @param 'Calendar start, Calendar ende, ArrayList<Raum> raumListe
+     *
+     * @return ArrayList<Raum> freieRaume
+     */
+    public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende, ArrayList<Raum> raumListe) {
+        ArrayList<Raum> freieRaueme = new ArrayList<>();
+        for (Raum r : raumListe
+        ) {if(!terminKollidiert(r,start,ende)){
+            freieRaueme.add(r);
+        }
+        }
+        return freieRaueme;
+    }
+
 
 
 }

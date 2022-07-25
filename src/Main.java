@@ -3,6 +3,7 @@ import buchung.Dozent;
 import buchung.Terminbuchung;
 import verwaltung.Haus;
 import verwaltung.HausListe;
+import verwaltung.Raum;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,7 +12,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+        /*
         Calendar start = Calendar.getInstance();
         Calendar ende = Calendar.getInstance();
         Dozent fausti = new Dozent("Faustmann");
@@ -26,12 +27,8 @@ public class Main {
         HausListe lichtenberg = HausListe.getInstance();
         lichtenberg.inventur();
 
-        HausListe schoeneberg = HausListe.getInstance();
-        schoeneberg.inventur();
-
         lichtenberg.addHaus(new Haus("6A", true));
-        lichtenberg.getAlleHaeuser().get(0).addRaum(120);
-        lichtenberg.getAlleHaeuser().get(0).getRaeume().get(0).addAusstattung
+        lichtenberg.getAlleHaeuser().get(0).addRaum(new Raum(120));
   //Variante 1
         BeamerTyp Phiillips10 = new BeamerTyp("Phillips", "10", 1000, true);
         Beamer neu = new Beamer(Phiillips10, Calendar.getInstance());
@@ -39,6 +36,19 @@ public class Main {
 
         //Variante 2
         Beamer neu1  = new Beamer( new BeamerTyp("Phillips", "10", 1000, true), Calendar.getInstance());
-        neu1.print();
+        neu1.print();*/
+
+        Calendar start = Calendar.getInstance();
+        Calendar ende = Calendar.getInstance();
+
+        start.set(2020, 05, 04, 14, 50);
+        ende.set(2020, 05, 04, 13, 20);
+
+        if (start.before(ende)){
+            System.out.println("Hi");
+        }
+
     }
+
+
 }

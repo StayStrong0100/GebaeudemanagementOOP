@@ -20,6 +20,10 @@ public class Terminbuchung {
         return count;
     }
 
+    public Zeitraum getIntervall() {
+        return intervall;
+    }
+
     public Terminbuchung(Calendar start, Calendar ende, Dozent prof) {
         count++;
         this.id = count;

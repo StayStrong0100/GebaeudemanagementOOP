@@ -43,6 +43,9 @@ public class Raum {
         }
         return false;
     }
+    public void addAusstattung(Ausstattungsmerkmal neu){
+        this.ausstattung.add(neu);
+    }
 
     public void addAusstattung(Ausstattungsmerkmal neu, int Anzahl){
 
@@ -50,4 +53,5 @@ public class Raum {
             this.ausstattung.add(neu);
         }
     }
+
 }
