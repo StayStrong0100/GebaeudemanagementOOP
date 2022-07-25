@@ -1,6 +1,9 @@
 package ausstattung;
 
-public class BeamerTyp {
+import java.io.Serializable;
+
+public class BeamerTyp implements Serializable {
+    public static final long serialVersionUID = 0;
     private String marke;
     private String modell;
     private int lumen;

@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 public class Mikrofon extends Ausstattungsmerkmal{
 
+    public static final long serialVersionUID = 0;
     private MikrofonTyp exemplarTyp;
 
     public Mikrofon(MikrofonTyp exemplarTyp, Calendar anschaffungsdatum){

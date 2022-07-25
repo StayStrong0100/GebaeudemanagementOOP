@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Lautsprecher extends Ausstattungsmerkmal {
+
+    public static final long serialVersionUID = 0;
     private LautsprecherTyp exemplarTyp;
 
     public Lautsprecher(LautsprecherTyp exemplarTyp, Calendar anschaffungsdatum){

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Kreidetafel extends Tafel{
-
+    public static final long serialVersionUID = 0;
     private KreidetafelTyp exemplarTyp;
 
     public Kreidetafel(KreidetafelTyp exemplarTyp, Calendar anschaffungsdatum){

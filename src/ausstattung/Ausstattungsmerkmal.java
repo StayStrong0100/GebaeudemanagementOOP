@@ -2,11 +2,13 @@ package ausstattung;
 
 import Zustand.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public abstract class Ausstattungsmerkmal {
+public abstract class Ausstattungsmerkmal implements Serializable {
 
+    public static final long serialVersionUID = 0;
     private Calendar anschaffungsdatum;
     private ArrayList<Zustand> zustandsListe = new ArrayList<>();
 

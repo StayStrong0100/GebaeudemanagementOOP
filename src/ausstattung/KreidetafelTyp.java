@@ -1,6 +1,10 @@
 package ausstattung;
 
-public class KreidetafelTyp {
+import java.io.Serializable;
+
+public class KreidetafelTyp implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private boolean wandtafel;
     private boolean freitafel;
     private double breite;

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Kamera extends Ausstattungsmerkmal {
-
+    public static final long serialVersionUID = 0;
     private KameraTyp exemplarTyp;
 
     public Kamera(KameraTyp exemplarTyp, Calendar anschaffungsdatum){

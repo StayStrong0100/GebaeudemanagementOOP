@@ -1,6 +1,10 @@
 package ausstattung;
 
-public class KameraTyp {
+import java.io.Serializable;
+
+public class KameraTyp implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private String marke;
     private String modell;
     private int pixel;

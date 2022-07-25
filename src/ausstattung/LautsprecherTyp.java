@@ -1,7 +1,10 @@
 package ausstattung;
 
-public class LautsprecherTyp {
+import java.io.Serializable;
 
+public class LautsprecherTyp implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private String marke;
     private String modell;
     private int anzahl;
