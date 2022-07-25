@@ -54,4 +54,215 @@ public class Raum {
         }
     }
 
+    /**
+     * Es folgen für alle Ausstattungstypen Zähl-Methoden, welche die Anzahl von Ausstattung in EINEM Raum zählen
+     *
+     * @author ZanderLK
+     * @version 1.2.0
+     * @since 20220725
+     *
+     * @return int
+     */
+
+    public int getAnzahlRaumBeamerFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Beamer && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumBeamerDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                     if (a instanceof Beamer && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumKamerasFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                     if (a instanceof Kamera && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumKamerasDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                         if (a instanceof Kamera && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumKreidetafelnFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                     if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumKreidetafelnDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumLautsprecherFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumLautsprecherDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumMikrofoneFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumMikrofoneDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumPCsFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof PC && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumPCsDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof PC && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumSmartboardsFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumSmartboardsDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumStuehleFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumStuehleDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumTischeFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Tisch && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumTischeDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Tisch && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumWhiteboardsFunktionstuechtig(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
+    public int getAnzahlRaumWhiteboardsDefekt(){
+        int anzahl = 0;
+        for (Ausstattungsmerkmal a : this.getAusstattung()) {
+                    if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Defekt) {
+                        anzahl++;
+                    }
+        }
+        return anzahl;
+    }
+
 }
