@@ -2,7 +2,7 @@ package datenspeicherung;
 
 import verwaltung.HausListe;
 
-import javax.imageio.IIOException;
+
 import java.io.*;
 
 public class PersistentObjekt {

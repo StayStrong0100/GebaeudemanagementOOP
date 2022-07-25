@@ -3,9 +3,13 @@ package verwaltung;
 import ausstattung.*;
 import buchung.*;
 import Zustand.*;
+
+import java.io.Serializable;
 import java.util.*;
 
-public class Raum {
+public class Raum implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private int raumnummer;
     private ArrayList<Terminbuchung> buchungen = new ArrayList<>();
     private ArrayList<Ausstattungsmerkmal> ausstattung = new ArrayList<>();

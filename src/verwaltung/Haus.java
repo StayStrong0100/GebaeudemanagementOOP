@@ -1,8 +1,11 @@
 package verwaltung;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Haus {
+public class Haus implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private String hausnummer;
     private boolean barrierefrei;
     private ArrayList<Raum> raeume = new ArrayList<>();

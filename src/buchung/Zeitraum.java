@@ -1,11 +1,14 @@
 package buchung;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Zeitraum {
+public class Zeitraum implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private Calendar start;
     private Calendar ende;
 

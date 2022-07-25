@@ -1,6 +1,10 @@
 package buchung;
 
-public class Dozent {
+import java.io.Serializable;
+
+public class Dozent implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private String name;
 
     public String getName() {

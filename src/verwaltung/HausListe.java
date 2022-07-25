@@ -14,11 +14,14 @@ package verwaltung;
 import ausstattung.*;
 import buchung.Terminbuchung;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 //singleton
-public class HausListe {
+public class HausListe implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private ArrayList<Haus> alleHaeuser = new ArrayList<>();
     private static HausListe instance;
 

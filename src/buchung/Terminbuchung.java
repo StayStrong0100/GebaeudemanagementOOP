@@ -1,8 +1,11 @@
 package buchung;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Terminbuchung {
+public class Terminbuchung implements Serializable {
+
+    public static final long serialVersionUID = 0;
     private int id;
     private static int count=0;
     private Zeitraum intervall;
