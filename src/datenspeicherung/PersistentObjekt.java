@@ -1,21 +1,21 @@
 package datenspeicherung;
 
-import verwaltung.HausListe;
+import verwaltung.*;
 
 
 import java.io.*;
 
 public class PersistentObjekt {
 
-    private PersistentObjekt() {
-    }
+
+
 
     //TODO Konstruktor definieren
     //TODO Location of database must be defined
 
    // private static final String FILE_LOCATION = "serialized/hausliste.ser";
 
-    public void speichern(String dateiname, HausListe hausListe) {
+    public void speichern(String dateiname, Haus hausListe) {
 
         try {
             FileOutputStream fileOut = new FileOutputStream(dateiname);
@@ -29,12 +29,12 @@ public class PersistentObjekt {
         }
     }
 
-    public HausListe lade(String dateiname){
+    public Haus lade(String dateiname){
         try {
             FileInputStream fileIn = new FileInputStream(dateiname);
             ObjectInputStream in = new ObjectInputStream(fileIn);
 
-            return (HausListe) in.readObject();
+            return (Haus) in.readObject();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
