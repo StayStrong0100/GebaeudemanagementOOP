@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 //singleton
-public class HausListe implements Serializable {
+public class HausListe implements Serializable, HauslisteIF {
 
     public static final long serialVersionUID = 0;
     private ArrayList<Haus> alleHaeuser = new ArrayList<>();
@@ -33,12 +33,13 @@ public class HausListe implements Serializable {
         return instance;
     }
 
+
+
     public ArrayList<Haus> getAlleHaeuser() {
         return alleHaeuser;
     }
 
-    public void addHaus(Haus neuesHaus) {
-        this.alleHaeuser.add(neuesHaus);
+    public void addHaus(Haus neuesHaus) {this.alleHaeuser.add(neuesHaus);
     }
 
 
@@ -51,37 +52,59 @@ public class HausListe implements Serializable {
      */
 
 
-    public void inventur() {
-        System.out.println("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig());
-        System.out.println("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt());
-        System.out.println("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig());
-        System.out.println("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt());
-        System.out.println("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig());
-        System.out.println("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt());
-        System.out.println("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig());
-        System.out.println("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt());
-        System.out.println("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig());
-        System.out.println("PCs defekt: " + this.getAnzahlAllePCsDefekt());
-        System.out.println("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig());
-        System.out.println("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt());
-        System.out.println("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig());
-        System.out.println("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt());
-        System.out.println("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig());
-        System.out.println("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt());
-        System.out.println("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig());
-        System.out.println("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt());
-        System.out.println("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig());
-        System.out.println("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt());
-    }
+        public void inventur() {
+            System.out.println("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig());
+            System.out.println("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt());
+            System.out.println("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig());
+            System.out.println("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt());
+            System.out.println("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig());
+            System.out.println("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt());
+            System.out.println("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig());
+            System.out.println("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt());
+            System.out.println("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig());
+            System.out.println("PCs defekt: " + this.getAnzahlAllePCsDefekt());
+            System.out.println("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig());
+            System.out.println("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt());
+            System.out.println("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig());
+            System.out.println("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt());
+            System.out.println("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig());
+            System.out.println("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt());
+            System.out.println("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig());
+            System.out.println("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt());
+            System.out.println("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig());
+            System.out.println("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt());
+        }
 
-    /**
-     * Gibt eine ArrayList mit allen existierenden Räumen zurück
-     *
-     * @return alleRaueme - ArrayList<Raum>
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220721
-     */
+        @Override
+        public String toString() {
+            String ausgabe = "";
+
+             ausgabe +="HausListe:";
+            for (Haus h : this.getAlleHaeuser()) {
+                ausgabe += "\n";
+                ausgabe += h.toString();
+                ausgabe += "\n";
+                for (Raum r : h.getRaeume()) {
+                    ausgabe += r.toString();
+                    ausgabe += "\n";
+                }
+            }
+
+            return ausgabe;
+        }
+
+        public void print(){
+            System.out.println(toString());
+        }
+
+        /**
+         * Gibt eine ArrayList mit allen existierenden Räumen zurück
+         *
+         * @return alleRaueme - ArrayList<Raum>
+         * @author ZanderLK
+         * @version 1.0.0
+         * @since 20220721
+         */
     public ArrayList<Raum> getAlleRaeueme() {
         ArrayList<Raum> alleRaeume = new ArrayList<>();
         for (Haus h : HausListe.getInstance().getAlleHaeuser()

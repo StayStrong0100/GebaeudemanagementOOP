@@ -1,12 +1,12 @@
-import ausstattung.*;
-import buchung.Dozent;
-import buchung.Terminbuchung;
+
+import ausstattung.Beamer;
+import ausstattung.BeamerTyp;
 import verwaltung.Haus;
 import verwaltung.HausListe;
 import verwaltung.Raum;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+
 import datenspeicherung.*;
 
 public class Main {
@@ -45,15 +45,25 @@ public class Main {
         start.set(2020, 05, 04, 14, 50);
         ende.set(2020, 05, 04, 13, 20);
 
-        if (start.before(ende)){
+        if (start.before(ende)) {
             System.out.println("Hi");
         }
+        HausListe lichtenberg = HausListe.getInstance();
+        // System.out.println(lichtenberg.getAlleHaeuser().size());
+        lichtenberg.addHaus(new Haus("6A", true));
+        lichtenberg.getAlleHaeuser().get(0).getRaeume().add(new Raum(1));
+        lichtenberg.getAlleHaeuser().get(0).getRaeume().get(0).
+                addAusstattung(new Beamer(new BeamerTyp("Philips", "X3", 3000, true), Calendar.getInstance()), 2);
+        //  System.out.println(lichtenberg.getAlleHaeuser().size());
+        lichtenberg.addHaus(new Haus("6B", true));
+        //  System.out.println(lichtenberg.getAlleHaeuser().size());
+        PersistenzDB datenbank = PersistenzDB.getInstance();
+        datenbank.speichern("datenbank.dat", lichtenberg);
 
-        PersistentObjekt datenbank = new PersistentObjekt();
-        datenbank.speichern("datenbank.dat", new Haus("6A", true));
+        HausListe neu = datenbank.lade("datenbank.dat");
+        neu.print();
 
-        Haus b = datenbank.lade("datenbank.dat");
-        System.out.println(b.getRaeume());
+        //HausListe b = datenbank.lade("datenbank.dat");
 
     }
 

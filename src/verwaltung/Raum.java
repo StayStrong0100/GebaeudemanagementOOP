@@ -22,6 +22,18 @@ public class Raum implements Serializable {
         this.raumnummer = raumnummer;
     }
 
+    //TODO Lukas: Buchungen schön ausgeben lassen
+    @Override
+    public String toString() {
+        String ausgabe = "Raumnummer:\t"+  raumnummer;
+
+        for(Ausstattungsmerkmal a : ausstattung){
+            ausgabe += a.toString();
+        }
+
+    return ausgabe;
+    }
+
     public ArrayList<Ausstattungsmerkmal> getAusstattung() {
         return ausstattung;
     }
