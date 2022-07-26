@@ -3,11 +3,9 @@
  *
  * @author ZanderLK
  * @version 1.0.0
- * @since 202207??
- *
  * @param
- *
  * @return
+ * @since 202207??
  */
 package verwaltung;
 
@@ -75,14 +73,14 @@ public class HausListe implements Serializable {
         System.out.println("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig());
         System.out.println("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt());
     }
+
     /**
      * Gibt eine ArrayList mit allen existierenden Räumen zurück
      *
+     * @return alleRaueme - ArrayList<Raum>
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220721
-     *
-     * @return alleRaueme - ArrayList<Raum>
      */
     public ArrayList<Raum> getAlleRaeueme() {
         ArrayList<Raum> alleRaeume = new ArrayList<>();
@@ -115,11 +113,10 @@ public class HausListe implements Serializable {
     /**
      * Gibt alle Räume eines bestimmten Hauses mit Haus- und Raumnummer in der Konsole aus
      *
+     * @param hausID - String
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220721
-     *
-     * @param hausID - String
      */
     public void druckeAlleRaeume(String hausID) {
         for (Haus h : HausListe.getInstance().getAlleHaeuser()
@@ -138,13 +135,11 @@ public class HausListe implements Serializable {
     /**
      * //TODO @Ben Pars Int
      *
+     * @param
+     * @return
      * @author Ben
      * @version 1.0.0
      * @since 202207??
-     *
-     * @param
-     *
-     * @return
      */
     public ArrayList<Raum> wieVieleBeamer(int anzahl) {
 
@@ -170,81 +165,14 @@ public class HausListe implements Serializable {
 
 
     /**
-     * //TODO @Ben Pars Int
-     *
-     * @author Ben
-     * @version 1.0.0
-     * @since 202207??
-     *
-     * @param
-     *
-     * @return
-     */
-    public ArrayList<Raum> wieVieleKamera(int anzahl) {
-
-        ArrayList<Raum> RaumListe = new ArrayList<>();
-        int counter = 0;
-
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                for (Ausstattungsmerkmal a : r.getAusstattung()) {
-                    if (a instanceof Kamera) {
-                        counter++;
-                    }
-                }
-                if (counter >= anzahl) {
-                    RaumListe.add(r);
-                }
-                counter = 0;
-            }
-        }
-
-        return RaumListe;
-    }
-
-    /**
-     * //TODO @Ben Pars Int
-     *
-     * @author Ben
-     * @version 1.0.0
-     * @since 202207??
-     *
-     * @param
-     *
-     * @return
-     */
-    public ArrayList<Raum> wieVieleKreidetafel(int anzahl) {
-
-        ArrayList<Raum> RaumListe = new ArrayList<>();
-        int counter = 0;
-
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                for (Ausstattungsmerkmal a : r.getAusstattung()) {
-                    if (a instanceof Kreidetafel) {
-                        counter++;
-                    }
-                }
-                if (counter >= anzahl) {
-                    RaumListe.add(r);
-                }
-                counter = 0;
-            }
-        }
-
-        return RaumListe;
-    }
-
-    /**
      * Zählt die Anzahl von funktionstüchtigen Beamern am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleBeamerFunktionstuechtig(){
+    public int getAnzahlAlleBeamerFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -257,13 +185,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Beamern am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleBeamerDefekt(){
+    public int getAnzahlAlleBeamerDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r :
@@ -277,13 +204,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Kameras am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleKamerasFunktionstuechtig(){
+    public int getAnzahlAlleKamerasFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -296,13 +222,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Kameras am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleKamerasDefekt(){
+    public int getAnzahlAlleKamerasDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -315,13 +240,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen kreidetafeln am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleKreidetafelnFunktionstuechtig(){
+    public int getAnzahlAlleKreidetafelnFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -334,13 +258,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Kreidetafeln am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleKreidetafelnDefekt(){
+    public int getAnzahlAlleKreidetafelnDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -353,13 +276,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Lautsprechern am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleLautsprecherFunktionstuechtig(){
+    public int getAnzahlAlleLautsprecherFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -372,13 +294,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Lautsprechern am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleLautsprecherDefekt(){
+    public int getAnzahlAlleLautsprecherDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -387,16 +308,16 @@ public class HausListe implements Serializable {
         }
         return anzahl;
     }
+
     /**
      * Zählt die Anzahl von funktionstüchtigen Mikrofonen am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleMikrofoneFunktionstuechtig(){
+    public int getAnzahlAlleMikrofoneFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -409,13 +330,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Mikrofonen am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleMikrofoneDefekt(){
+    public int getAnzahlAlleMikrofoneDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -428,13 +348,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen PCs am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAllePCsFunktionstuechtig(){
+    public int getAnzahlAllePCsFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -447,13 +366,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten PCs am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAllePCsDefekt(){
+    public int getAnzahlAllePCsDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -466,13 +384,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Smartboards am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleSmartboardsFunktionstuechtig(){
+    public int getAnzahlAlleSmartboardsFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -485,13 +402,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Smartboards am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleSmartboardsDefekt(){
+    public int getAnzahlAlleSmartboardsDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -504,13 +420,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Stuehlen am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleStuehleFunktionstuechtig(){
+    public int getAnzahlAlleStuehleFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -523,13 +438,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Stuehlen am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleStuehleDefekt(){
+    public int getAnzahlAlleStuehleDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -542,13 +456,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Tischen am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleTischeFunktionstuechtig(){
+    public int getAnzahlAlleTischeFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -561,13 +474,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Tischen am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleTischeDefekt(){
+    public int getAnzahlAlleTischeDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -580,13 +492,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Whiteboards am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleWhiteboardsFunktionstuechtig(){
+    public int getAnzahlAlleWhiteboardsFunktionstuechtig() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -599,13 +510,12 @@ public class HausListe implements Serializable {
     /**
      * Zählt die Anzahl von defekten Whiteboards am Campus
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlAlleWhiteboardsDefekt(){
+    public int getAnzahlAlleWhiteboardsDefekt() {
         int anzahl = 0;
         for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
@@ -618,36 +528,56 @@ public class HausListe implements Serializable {
     /**
      * //TODO @Ben Pars Int
      *
+     * @return passendeRaueme - ArrayList<Raum>
      * @author Ben
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return passendeRaueme - ArrayList<Raum>
      */
-    public ArrayList<Raum> filtereRaeuemeAusstattung() {
+    public ArrayList<Raum> filtereRaeuemeAusstattung(int anzahlBeamer, int anzahlKamera,
+                                                     int anzahlKreidetafel, int anzahlLautsprecher,
+                                                     int anzahlMikrofon, int anzahlPC, int anzahlSmartboard,
+                                                     int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
+
         ArrayList<Raum> passendeRaueme = new ArrayList<>();
-        //TODO @Ben Filter nach Ausstattung bauen auf Basis der neuen ZählMethoden
+
+        for (Haus h : this.getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
+                if (r.getAnzahlRaumBeamerFunktionstuechtig() >= anzahlBeamer
+                        && r.getAnzahlRaumKamerasFunktionstuechtig() >= anzahlKamera
+                        && r.getAnzahlRaumKreidetafelnFunktionstuechtig() >= anzahlKreidetafel
+                        && r.getAnzahlRaumLautsprecherFunktionstuechtig() >= anzahlLautsprecher
+                        && r.getAnzahlRaumMikrofoneFunktionstuechtig() >= anzahlMikrofon
+                        && r.getAnzahlRaumPCsFunktionstuechtig() >= anzahlPC
+                        && r.getAnzahlRaumSmartboardsFunktionstuechtig() >= anzahlSmartboard
+                        && r.getAnzahlRaumStuehleFunktionstuechtig() >= anzahlStuhl
+                        && r.getAnzahlRaumTischeFunktionstuechtig() >= anzahlTisch
+                        && r.getAnzahlRaumWhiteboardsFunktionstuechtig() >= anzahlWhiteboard) {
+
+                    passendeRaueme.add(r);
+                }
+            }
+        }
         return passendeRaueme;
     }
+
     /**
      * Überprüft, ob ein Termin mit der Buchungsliste eines Raumes kollidiert
      *
-     * @author ZanderLK
-     * @since 20220705
-     * @version 1.0.0
-     *
      * @param 'Raum r, Calendar start, Calendar ende
-     *
      * @return boolean
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220705
      */
-    public boolean terminKollidiert(Raum r, Calendar start, Calendar ende){
+    public boolean terminKollidiert(Raum r, Calendar start, Calendar ende) {
         for (Terminbuchung t : r.getBuchungen()
-                ) { if (start.after(t.getIntervall().getStart()) && start.before(t.getIntervall().getEnde())) {
-                        return true;
-                    }
-                    if (ende.after(t.getIntervall().getStart()) && ende.before(t.getIntervall().getEnde())) {
-                        return true;
-                    }
+        ) {
+            if (start.after(t.getIntervall().getStart()) && start.before(t.getIntervall().getEnde())) {
+                return true;
+            }
+            if (ende.after(t.getIntervall().getStart()) && ende.before(t.getIntervall().getEnde())) {
+                return true;
+            }
         }
         return false;
     }
@@ -655,20 +585,19 @@ public class HausListe implements Serializable {
     /**
      * Gibt alle Räume zurück, die im angegebenem Zeitraum verfügbar sind
      *
+     * @param 'Calendar start, Calendar ende
+     * @return freieRaueme - ArrayList<Raum>
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @param 'Calendar start, Calendar ende
-     *
-     * @return freieRaueme - ArrayList<Raum>
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende) {
         ArrayList<Raum> freieRaueme = new ArrayList<>();
         for (Raum r : this.getAlleRaeueme()
-             ) {if(!terminKollidiert(r,start,ende)){
-                 freieRaueme.add(r);
-                }
+        ) {
+            if (!terminKollidiert(r, start, ende)) {
+                freieRaueme.add(r);
+            }
         }
         return freieRaueme;
     }
@@ -676,24 +605,22 @@ public class HausListe implements Serializable {
     /**
      * Gibt alle Räume einer Raumliste zurück, die im angegebenem Zeitraum verfügbar sind
      *
+     * @param 'Calendar start, Calendar ende, ArrayList<Raum> raumListe
+     * @return freieRaueme -  ArrayList<Raum>
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @param 'Calendar start, Calendar ende, ArrayList<Raum> raumListe
-     *
-     * @return freieRaueme -  ArrayList<Raum>
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende, ArrayList<Raum> raumListe) {
         ArrayList<Raum> freieRaueme = new ArrayList<>();
         for (Raum r : raumListe
-        ) {if(!terminKollidiert(r,start,ende)){
-            freieRaueme.add(r);
-        }
+        ) {
+            if (!terminKollidiert(r, start, ende)) {
+                freieRaueme.add(r);
+            }
         }
         return freieRaueme;
     }
-
 
 
 }
