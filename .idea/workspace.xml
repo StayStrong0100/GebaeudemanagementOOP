@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="implements Serializiable und serialVerionUID hinzugefügt">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Kommentare überarbeitet">
+      <change afterPath="$PROJECT_DIR$/src/GUI/guiTest.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/guiTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/Objekttypen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/Objekttypen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.guiTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="GebaeudemanagementOOP" />
@@ -50,8 +50,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="guiTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.guiTest" />
+      <module name="GebaeudemanagementOOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.guiTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -275,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658780389091</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Kommentare überarbeitet">
+      <created>1658924924684</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1658924924684</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -313,7 +334,8 @@
     <MESSAGE value="nichts" />
     <MESSAGE value="Bei der Methode addAusstattung() den Modifier zu public umgeändert" />
     <MESSAGE value="implements Serializiable und serialVerionUID hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="implements Serializiable und serialVerionUID hinzugefügt" />
+    <MESSAGE value="Kommentare überarbeitet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kommentare überarbeitet" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

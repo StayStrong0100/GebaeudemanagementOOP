@@ -2,7 +2,7 @@ package Datenspeicherung;
 
 import ausstattung.*;
 
-public class Objecttypen {
+public class Objekttypen {
 
     //beamertypen
 
