@@ -1,4 +1,4 @@
-package ServiceLocator;
+package serviceLocator;
 
 import verwaltung.*;
 

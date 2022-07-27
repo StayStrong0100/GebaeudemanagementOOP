@@ -2,7 +2,7 @@ package verwaltung;
 
 import ausstattung.*;
 import buchung.*;
-import Zustand.*;
+import zustand.*;
 
 import java.io.Serializable;
 import java.util.*;

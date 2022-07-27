@@ -1,6 +1,6 @@
 package ausstattung;
 
-import Zustand.*;
+import zustand.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;

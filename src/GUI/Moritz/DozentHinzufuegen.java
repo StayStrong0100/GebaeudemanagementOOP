@@ -20,5 +20,7 @@ public class DozentHinzufuegen {
 		frame.setSize(420,420);
 		frame.setLayout(null);
 		frame.setVisible(true);
+
+
 	}
 }

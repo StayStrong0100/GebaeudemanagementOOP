@@ -1,22 +1,8 @@
 package GUI.Moritz;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-
-
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class MenuBarFrame extends JFrame implements ActionListener{
 	

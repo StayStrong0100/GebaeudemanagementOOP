@@ -1,4 +1,4 @@
-package Zustand;
+package zustand;
 
 import java.io.Serializable;
 import java.util.Calendar;

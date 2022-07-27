@@ -1,5 +1,5 @@
 
-import ServiceLocator.ServiceLocator;
+import serviceLocator.ServiceLocator;
 import ausstattung.Beamer;
 import ausstattung.BeamerTyp;
 import verwaltung.Haus;
