@@ -71,13 +71,13 @@ public class Raum implements Serializable {
     }
 
     /**
-     * Es folgen für alle Ausstattungstypen Zähl-Methoden, welche die Anzahl von Ausstattung in EINEM Raum zählen
+     * Zählt die Anzahl von funktionstüchtigen Beamern im Raum
      *
      * @author ZanderLK
-     * @version 1.2.0
+     * @version 1.0.0
      * @since 20220725
      *
-     * @return int
+     * @return anzahl - int
      */
 
     public int getAnzahlRaumBeamerFunktionstuechtig(){
@@ -91,6 +91,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Beamern im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumBeamerDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -101,6 +110,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Kameras im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumKamerasFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -111,6 +129,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Kameras im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumKamerasDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -121,6 +148,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Kreidetafeln im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumKreidetafelnFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -131,6 +167,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Kreidetafeln im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumKreidetafelnDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -141,6 +186,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Lautsprechern im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumLautsprecherFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -151,6 +205,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Lautsprechern im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumLautsprecherDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -161,6 +224,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Mikrofonen im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumMikrofoneFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -171,6 +243,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Mikrofonen im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumMikrofoneDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -181,6 +262,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen PCs im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumPCsFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -191,6 +281,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten PCs im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumPCsDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -201,6 +300,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Smartboards im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumSmartboardsFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -211,6 +319,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Smartboards im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumSmartboardsDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -221,6 +338,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Stuehlen im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumStuehleFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -231,6 +357,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Stuehlen im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumStuehleDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -241,6 +376,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Tischen im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumTischeFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -251,6 +395,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Tischen im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumTischeDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -261,6 +414,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von funktionstüchtigen Whiteboards im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumWhiteboardsFunktionstuechtig(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
@@ -271,6 +433,15 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    /**
+     * Zählt die Anzahl von defekten Whiteboards im Raum
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @return anzahl - int
+     */
     public int getAnzahlRaumWhiteboardsDefekt(){
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {

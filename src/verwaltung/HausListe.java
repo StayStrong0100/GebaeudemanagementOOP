@@ -3,9 +3,12 @@
  *
  * @author ZanderLK
  * @version 1.0.0
- * @param
- * @return
  * @since 202207??
+ *
+ * @param
+ *
+ * @return
+
  */
 package verwaltung;
 
@@ -156,6 +159,8 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
     /**
+     * @deprecated
+     *
      * //TODO @Ben Pars Int
      *
      * @param
@@ -261,7 +266,7 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
     /**
-     * Zählt die Anzahl von funktionstüchtigen kreidetafeln am Campus
+     * Zählt die Anzahl von funktionstüchtigen Kreidetafeln am Campus
      *
      * @return anzahl - int
      * @author ZanderLK
@@ -549,12 +554,26 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
     /**
-     * //TODO @Ben Pars Int
+     * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
+     * und gibt eine ArrayList mit passenden Räumen zurück
      *
-     * @return passendeRaueme - ArrayList<Raum>
+     *
      * @author Ben
      * @version 1.0.0
      * @since 20220725
+     *
+     * @param anzahlBeamer - int
+     *        anzahlKamera - int
+     *        anzahlKreidetafel - int
+     *        anzahlLautsprecher - int
+     *        anzahlMikrofon, int
+     *        anzahlPC - int
+     *        anzahlSmartboard - int
+     *        anzahlStuhl - int
+     *        anzahlTisch - int
+     *        anzahlWhiteboard - int
+     *
+     * @return passendeRaueme - ArrayList<Raum>
      */
     public ArrayList<Raum> filtereRaeuemeAusstattung(int anzahlBeamer, int anzahlKamera,
                                                      int anzahlKreidetafel, int anzahlLautsprecher,
@@ -582,6 +601,8 @@ public class HausListe implements Serializable, HauslisteIF {
         }
         return passendeRaueme;
     }
+
+
 
     /**
      * Überprüft, ob ein Termin mit der Buchungsliste eines Raumes kollidiert
