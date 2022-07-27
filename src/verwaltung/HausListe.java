@@ -666,5 +666,4 @@ public class HausListe implements Serializable, HauslisteIF {
         return freieRaueme;
     }
 
-
 }

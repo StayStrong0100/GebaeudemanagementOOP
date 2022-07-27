@@ -6,6 +6,10 @@ public class ServiceLocator {
 
     private verwaltung.HausListe hausliste;
 
+    public ServiceLocator(HausListe hausliste) {
+        this.hausliste = hausliste;
+    }
+
     public HauslisteIF getHausliste() {
         return hausliste;
     }

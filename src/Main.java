@@ -1,4 +1,5 @@
 
+import ServiceLocator.ServiceLocator;
 import ausstattung.Beamer;
 import ausstattung.BeamerTyp;
 import verwaltung.Haus;
@@ -64,6 +65,11 @@ public class Main {
         neu.print();
 
         //HausListe b = datenbank.lade("datenbank.dat");
+
+        
+        new ServiceLocator(HausListe.getInstance());
+
+
 
     }
 

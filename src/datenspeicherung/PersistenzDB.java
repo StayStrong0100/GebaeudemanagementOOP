@@ -1,10 +1,9 @@
 package datenspeicherung;
 
-
 import verwaltung.HausListe;
-
 import java.io.*;
 
+//singleton
 public class PersistenzDB implements PersistenzIF{
 
     private PersistenzDB() {
