@@ -2,7 +2,7 @@
  * @deprecated
  */
 
-package GUI.Moritz;
+package GUI_Moritz;
 
 public class GPUMain {
 

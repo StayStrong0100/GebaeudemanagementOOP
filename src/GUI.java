@@ -33,6 +33,8 @@ public class GUI extends JFrame {
     private JMenuBar hauptMenue = new JMenuBar();
 
     private JMenu startseite = new JMenu("Start");
+    private JPanel panelFooter;
+    private JLabel footerContent;
     private JMenu raumMenue = new JMenu("Raumbuchung");
     private JMenu inventarMenue = new JMenu("Inventar");
     private JMenu dozentenMenue = new JMenu("Dozenten");
@@ -72,7 +74,7 @@ public class GUI extends JFrame {
         this.setLayout(new FlowLayout());
         /*
         //Hintergrundbild für Startseite erstellen
-        hwr = new ImageIcon("src/GUI/Moritz/HWR Berlin Menu2.jpg");
+        hwr = new ImageIcon("src/GUI/Moritz/HWR Berlin.jpg");
         hintergrund = new JLabel(); // create a label
         hintergrund.setHorizontalTextPosition(JLabel.CENTER);
         hintergrund.setIcon(hwr);

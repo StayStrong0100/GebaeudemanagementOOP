@@ -1,4 +1,4 @@
-package GUI.Moritz;
+package GUI_Moritz;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -44,7 +44,7 @@ public class MenuBarFrame extends JFrame implements ActionListener{
 	 	this.setLayout(new FlowLayout());
 	 	
 	 	//Background Image
-	 	image = new ImageIcon("src/GUI/Moritz/HWR Berlin Menu2.jpg");
+	 	image = new ImageIcon("src/GUI/Moritz/HWR Berlin.jpg");
 	 	label = new JLabel(); // create a label
 	 	label.setHorizontalTextPosition(JLabel.CENTER);
 

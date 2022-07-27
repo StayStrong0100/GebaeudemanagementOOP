@@ -1,15 +1,15 @@
-package GUI.Moritz;
+package GUI_Moritz;
 
 import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class DozentHinzufuegen {
+public class Raumliste {
 	JFrame frame = new JFrame();
 	JLabel label = new JLabel("Hello");
 	
-	DozentHinzufuegen(){
+	Raumliste(){
 		
 		label.setBounds(0,0,100,50);
 		label.setFont(new Font("Comic Sans", Font.BOLD,25));
@@ -20,7 +20,5 @@ public class DozentHinzufuegen {
 		frame.setSize(420,420);
 		frame.setLayout(null);
 		frame.setVisible(true);
-
-
 	}
 }

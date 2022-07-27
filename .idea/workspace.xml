@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI importiert">
-      <change afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Neue GUI implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/DozentHinzufuegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Moritz/DozentHinzufuegen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/GPUMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Moritz/GPUMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/MenuBarFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Moritz/MenuBarFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/guiTest.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/guiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataImages/HWR Berlin Menu2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/HWR Berlin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/DozentHinzufuegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/DozentHinzufuegen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/DozentTerminplan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/DozentTerminplan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/GPUMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/GPUMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Inventarliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Inventarliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Inventarsuche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Inventarsuche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/MenuBarFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/MenuBarFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Raumliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Raumliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Raumsuche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Raumsuche.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +46,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "315",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "280",
     "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\DataImages" />
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\GUI\Moritz" />
     </key>
   </component>
@@ -342,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658941296462</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Neue GUI implementiert">
+      <created>1658961720905</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1658961720905</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +369,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Habe alle Klassen erstellt" />
     <MESSAGE value="Singleton mit eingebunden" />
     <MESSAGE value="Hausliste und Raumliste implementiert" />
     <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
@@ -382,7 +393,8 @@
     <MESSAGE value="Kommentare überarbeitet" />
     <MESSAGE value="GUI Test" />
     <MESSAGE value="GUI importiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI importiert" />
+    <MESSAGE value="Neue GUI implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neue GUI implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

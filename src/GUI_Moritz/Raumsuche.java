@@ -1,4 +1,4 @@
-package GUI.Moritz;
+package GUI_Moritz;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;

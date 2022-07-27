@@ -1,15 +1,15 @@
-package GUI.Moritz;
+package GUI_Moritz;
 
 import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Raumliste {
+public class DozentTerminplan {
 	JFrame frame = new JFrame();
 	JLabel label = new JLabel("Hello");
 	
-	Raumliste(){
+	DozentTerminplan(){
 		
 		label.setBounds(0,0,100,50);
 		label.setFont(new Font("Comic Sans", Font.BOLD,25));
