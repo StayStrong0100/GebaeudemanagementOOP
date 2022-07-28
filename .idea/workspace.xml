@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Neue GUI implementiert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Anpassungen und Namenskonventionen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataImages/HWR Berlin Menu2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/HWR Berlin.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/DozentHinzufuegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/DozentHinzufuegen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/DozentTerminplan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/DozentTerminplan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/GPUMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/GPUMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Inventarliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Inventarliste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Inventarsuche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Inventarsuche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/MenuBarFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/MenuBarFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Raumliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Raumliste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Moritz/Raumsuche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI_Moritz/Raumsuche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +27,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2BtdFoXaFmdaVXI9KEm1s2wGUCC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -46,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "280",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "534",
     "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -354,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658961720905</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="GUI Anpassungen und Namenskonventionen">
+      <created>1658962692411</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1658962692411</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,7 +373,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Singleton mit eingebunden" />
     <MESSAGE value="Hausliste und Raumliste implementiert" />
     <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
     <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
@@ -394,7 +397,8 @@
     <MESSAGE value="GUI Test" />
     <MESSAGE value="GUI importiert" />
     <MESSAGE value="Neue GUI implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Neue GUI implementiert" />
+    <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Anpassungen und Namenskonventionen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

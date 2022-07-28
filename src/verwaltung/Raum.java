@@ -452,4 +452,10 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
+    public void printRaum(){
+        System.out.println("Raumnummer: " + this.getRaumnummer());
+
+
+    }
+
 }

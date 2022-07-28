@@ -603,6 +603,56 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
 
+    /**
+     * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
+     * und gibt eine ArrayList mit passenden Räumen zurück
+     * NUR aus einer Array List von verfügbaren Räumen
+     *
+     *
+     * @author Ben
+     * @version 1.0.0
+     * @since 20220725
+     *
+     * @param anzahlBeamer - int
+     *        anzahlKamera - int
+     *        anzahlKreidetafel - int
+     *        anzahlLautsprecher - int
+     *        anzahlMikrofon, int
+     *        anzahlPC - int
+     *        anzahlSmartboard - int
+     *        anzahlStuhl - int
+     *        anzahlTisch - int
+     *        anzahlWhiteboard - int
+     *
+     * @return passendeRaueme - ArrayList<Raum>
+     */
+    public ArrayList<Raum> filtereRaeuemeAusstattung(ArrayList<Raum> freieRaeume, int anzahlBeamer, int anzahlKamera,
+                                                     int anzahlKreidetafel, int anzahlLautsprecher,
+                                                     int anzahlMikrofon, int anzahlPC, int anzahlSmartboard,
+                                                     int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
+
+        ArrayList<Raum> passendeRaueme = new ArrayList<>();
+
+            for (Raum r : freieRaeume) {
+                if (r.getAnzahlRaumBeamerFunktionstuechtig() >= anzahlBeamer
+                        && r.getAnzahlRaumKamerasFunktionstuechtig() >= anzahlKamera
+                        && r.getAnzahlRaumKreidetafelnFunktionstuechtig() >= anzahlKreidetafel
+                        && r.getAnzahlRaumLautsprecherFunktionstuechtig() >= anzahlLautsprecher
+                        && r.getAnzahlRaumMikrofoneFunktionstuechtig() >= anzahlMikrofon
+                        && r.getAnzahlRaumPCsFunktionstuechtig() >= anzahlPC
+                        && r.getAnzahlRaumSmartboardsFunktionstuechtig() >= anzahlSmartboard
+                        && r.getAnzahlRaumStuehleFunktionstuechtig() >= anzahlStuhl
+                        && r.getAnzahlRaumTischeFunktionstuechtig() >= anzahlTisch
+                        && r.getAnzahlRaumWhiteboardsFunktionstuechtig() >= anzahlWhiteboard) {
+
+                    passendeRaueme.add(r);
+                }
+            }
+
+        return passendeRaueme;
+    }
+
+
 
     /**
      * Überprüft, ob ein Termin mit der Buchungsliste eines Raumes kollidiert
@@ -664,6 +714,25 @@ public class HausListe implements Serializable, HauslisteIF {
             }
         }
         return freieRaueme;
+    }
+
+    /**
+     * Überprüft, ob eine neue Raumnummer bereits vergeben ist
+     *
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220728
+     *
+     * @param neueNummer
+     * @return boolean
+     */
+    public boolean raumnummerKollidiert(int neueNummer){
+        for (Raum r:HausListe.getInstance().getAlleRaeueme()) {
+            if (r.getRaumnummer() == neueNummer){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
