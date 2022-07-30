@@ -57,8 +57,8 @@ public class GUI extends JFrame {
     private JMenu startseite = new JMenu("Start");
     private JPanel panelFooter;
     private JLabel footerContent;
-    private JTextField raumsucheStartzeit;
-    private JTextField raumsucheEndzeit;
+    private JTextField raumsucheStartzeitInput;
+    private JTextField raumsucheEndzeitInput;
     private JTextField raumsucheTischeInput;
     private JTextField raumsucheStuehleInput;
     private JTextField raumsucheBeamerInput;
@@ -208,17 +208,21 @@ public class GUI extends JFrame {
                 Calendar ende = Calendar.getInstance();
 
                 SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+
                 try {
-                    start.setTime(format.parse(raumsucheStartzeit.getText()));
+                    start.setTime(format.parse(raumsucheStartzeitInput.getText()));
 
                 } catch (ParseException ex) {
                     //throw new RuntimeException(ex);
+                    //TODO Fehlermeldung falsches Format
+
                 }
                 try {
-                    ende.setTime(format.parse(raumsucheEndzeit.getText()));
+                    ende.setTime(format.parse(raumsucheEndzeitInput.getText()));
                 } catch (ParseException ex) {
                     //throw new RuntimeException(ex);
                 }
+
 
             //Ausstattungs-Daten auslesen
             int minBeamer = Integer.valueOf(raumsucheBeamerInput.getText());
