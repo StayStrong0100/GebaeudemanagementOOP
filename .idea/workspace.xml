@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Kleinigkeiten GUI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -362,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659042078096</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Kleinigkeiten GUI">
+      <created>1659172632888</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1659172632888</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,7 +380,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
     <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
     <MESSAGE value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
     <MESSAGE value="Inventur implementiert" />
@@ -402,7 +404,8 @@
     <MESSAGE value="Neue GUI implementiert" />
     <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
     <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
+    <MESSAGE value="Kleinigkeiten GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kleinigkeiten GUI" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
