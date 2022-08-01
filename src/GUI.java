@@ -3,8 +3,8 @@ IJ Sheets:
 Multi Cursor: Alt + Shift + Click
  */
 
+import serviceLocator.ServiceLocator;
 import verwaltung.Haus;
-import verwaltung.HausListe;
 import verwaltung.Raum;
 
 import javax.swing.*;
@@ -91,6 +91,17 @@ public class GUI extends JFrame {
     private JLabel raumbearbeitenTitel;
     private JPanel panelDozentHinzufuegen;
     private JLabel dozenthinzuTitel;
+    private JTextArea raumlisteBestätigung;
+    private JTextField raumbearbeitenRaumIDAltInput;
+    private JTextArea raumbearbeitenRaumliste;
+    private JButton raumbearbeitenRaumIDCheck;
+    private JLabel raumbearbeitenRaumlisteTitel;
+    private JLabel raumbearbeitenRaumIDAltTitel;
+    private JPanel panelRaumBearbeitenDetails;
+    private JLabel raumbearbeitenRaumIDNeuTitel;
+    private JTextField raumbearbeitenRaumIDNeuInput;
+    private JTextArea raumbearbeitenBestätigung;
+    private JTextArea raumsuchenbuchenBestätigung;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -202,7 +213,15 @@ public class GUI extends JFrame {
 
         raumsucheSuchen.addActionListener(new ActionListener() {
             @Override
+
+
             public void actionPerformed(ActionEvent e) {
+                //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+                if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")){
+                    raumsuchenbuchenBestätigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
+                    return;
+                }
+
                 //Zeit-Daten umwandeln
                 Calendar start = Calendar.getInstance();
                 Calendar ende = Calendar.getInstance();
@@ -213,62 +232,110 @@ public class GUI extends JFrame {
                     start.setTime(format.parse(raumsucheStartzeitInput.getText()));
 
                 } catch (ParseException ex) {
-                    //throw new RuntimeException(ex);
-                    //TODO Fehlermeldung falsches Format
-
+                    raumsuchenbuchenBestätigung.setText("Bitte geben Sie die Startzeit in dem angegebene Format an!");
+                    return;
                 }
                 try {
                     ende.setTime(format.parse(raumsucheEndzeitInput.getText()));
                 } catch (ParseException ex) {
-                    //throw new RuntimeException(ex);
+                    raumsuchenbuchenBestätigung.setText("Bitte geben Sie die Endzeit in dem angegebene Format an!");
+                    return;
                 }
 
-
-            //Ausstattungs-Daten auslesen
-            int minBeamer = Integer.valueOf(raumsucheBeamerInput.getText());
-            int minLautsprecher = Integer.valueOf(raumsucheLautsprecherInput.getText());
-            int minMikrofone = Integer.valueOf(raumsucheMikrofoneInput.getText());
-            int minKameras = Integer.valueOf(raumsucheKamerasInput.getText());
-            int minPCs = Integer.valueOf(raumsuchePCInput.getText());
-            int minTische = Integer.valueOf(raumsucheTischeInput.getText());
-            int minStuehle = Integer.valueOf(raumsucheStuehleInput.getText());
-            int minSmartboards = Integer.valueOf(raumsucheSmartboardInput.getText());
-            int minWhiteboards = Integer.valueOf(raumsucheWhiteboardsInput.getText());
-            int minKreidetafeln = Integer.valueOf(raumsucheKreidetafelnInput.getText());
+            //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
+            int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
+            int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
+            int minLautsprecher =  (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
+            int minMikrofone =  (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheMikrofoneInput.getText());
+            int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.valueOf(raumsuchePCInput.getText());
+            int minTische =  (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheTischeInput.getText());
+            int minStuehle =  (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheStuehleInput.getText());
+            int minSmartboards =  (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheSmartboardInput.getText());
+            int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
+            int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
 
             //Filter nach Zeit
-                ArrayList<Raum> freieRaueme = HausListe.getInstance().filtereRaeuemeVerfuegbar(start,ende);
+                ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
 
             //Filter nach Ausstattung
-            ArrayList<Raum> perfekteRaueme = HausListe.getInstance().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
+            ArrayList<Raum> perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
 
             //Temp. Lösung: Räume in der Konsole ausgeben
-            for (Raum r : perfekteRaueme) {r.printRaum();}
-            //TODO Gefundene Räume in der GUI anzeigen lassen
-                //dann kann man wählen, welchen man davon buchen möchte
-                //und gibt dann noch den Dozenten an und bestätigt
+            String anzeige = "";
+            for (Raum r : perfekteRaueme) {
+                anzeige.concat(r.printRaum());
+                anzeige.concat("\n");
+            }
+            raumsuchenbuchenBestätigung.setText(anzeige);
+            //TODO Buchungsvorgang implementieren
+            //Buchungs Panel sichtbar machen
+            //Eingabe
+            //EIngabe muss Teil von perfekte Räume sein
+            //Buchen
+            //Bestätigungsmeldung und hide BuchungsPanel
 
             }
         });
         raumlisteAddButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+                if (raumlisteAddNummerInput.getText().equals("") || raumlisteAddHausInput.getText().equals("")){
+                    raumlisteBestätigung.setText("Bitte füllen Sie beide Felder aus!");
+                    return;
+                }
+
                 int raumID = Integer.valueOf(raumlisteAddNummerInput.getText());
                 String hausID = raumlisteAddHausInput.getText();
                 //Prüfe, ob ID bereits vergeben ist
-                if(HausListe.getInstance().raumnummerKollidiert(raumID)){
-                    //TODO Fehlermeldung, dass RaumID bereits vergeben ist
+                if(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(raumID)){
+                    raumlisteBestätigung.setText("Raum wurde nicht angelegt, RaumID bereits vergeben");
                 }
 
                 //wenn keine Kollision: Im entsprechenden Haus addRaum
                 else {
-                    for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+                    for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
                         if (h.getHausnummer() == hausID) {
                             h.addRaum(new Raum(raumID));
+                            raumlisteBestätigung.setText("Neuer Raum angelegt: Haus " + hausID + " Raum: " + raumID);
                             return;
                         }
                     }
-                    //TODO Hausnummer exisiterte nicht, Meldung machen
+                    raumlisteBestätigung.setText("Raum wurde nicht angelegt, Haus existiert nicht");
+                }
+            }
+        });
+        raumbearbeitenRaumIDCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+                if (raumbearbeitenRaumIDAltInput.getText().equals("") || raumbearbeitenRaumIDNeuInput.getText().equals("")){
+                    raumbearbeitenBestätigung.setText("Bitte füllen Sie beide Felder aus!");
+                    return;
+                }
+
+                int alteID = Integer.valueOf(raumbearbeitenRaumIDAltInput.getText());
+                int neueID = Integer.valueOf(raumbearbeitenRaumIDNeuInput.getText());
+                //Wenn der angegebene Raum (alteID) existiert....
+                if(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(alteID)){
+                    //Wenn die neueID noch nicht vergeben ist:
+                    if(!(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(neueID))){
+                        for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                            if (r.getRaumnummer() == alteID){
+                                 r.setRaumnummer(neueID);
+                                 raumbearbeitenBestätigung.setText("Raumnummer erfolgreich geändert.");
+                                 return;
+                                }
+                        }
+                    }
+                    //Es gab eine ID-Kollision, also ist die Raumnummer bereits vergeben
+                    else {
+                        raumbearbeitenBestätigung.setText("Neue Raumnummer ist bereits vergeben. Bitte überprüfen Sie ihre Eingaben!");
+                    }
+                }
+                //Angegebener Raum existiert nicht
+                else {
+                    raumbearbeitenBestätigung.setText("Der ausgewählte Raum existiert nicht. Bitte überprüfen Sie ihre Eingaben!");
                 }
             }
         });
@@ -291,6 +358,6 @@ public class GUI extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+        //place custom component creation code here
     }
 }

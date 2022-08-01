@@ -22,7 +22,6 @@ public class Raum implements Serializable {
         this.raumnummer = raumnummer;
     }
 
-    //TODO Lukas: Buchungen schön ausgeben lassen
     @Override
     public String toString() {
         String ausgabe = "Raumnummer:\t"+  raumnummer;
@@ -32,6 +31,15 @@ public class Raum implements Serializable {
         }
 
     return ausgabe;
+    }
+
+    public String printAlleBuchungen(){
+        String ausgabe = "";
+        for (Terminbuchung t : this.getBuchungen()) {
+            ausgabe.concat(t.printBuchungDetails());
+            ausgabe.concat("\n");
+        }
+        return ausgabe;
     }
 
     public ArrayList<Ausstattungsmerkmal> getAusstattung() {
@@ -452,10 +460,8 @@ public class Raum implements Serializable {
         return anzahl;
     }
 
-    public void printRaum(){
-        System.out.println("Raumnummer: " + this.getRaumnummer());
-
-
+    public String printRaum(){
+        return ("Raumnummer: " + this.getRaumnummer());
     }
 
 }

@@ -59,15 +59,15 @@ public class Main {
         lichtenberg.addHaus(new Haus("6B", true));
         //  System.out.println(lichtenberg.getAlleHaeuser().size());
         PersistenzDB datenbank = PersistenzDB.getInstance();
-        datenbank.speichern("datenbank.dat", lichtenberg);
+        //datenbank.speichern("datenbank.dat", lichtenberg);
 
-        HausListe neu = datenbank.lade("datenbank.dat");
-        neu.print();
+       // HausListe neu = datenbank.lade("datenbank.dat");
+        //neu.print();
 
         //HausListe b = datenbank.lade("datenbank.dat");
 
         
-        new ServiceLocator(HausListe.getInstance());
+        //new ServiceLocator(HausListe.getInstance());
 
 
 

@@ -33,10 +33,8 @@ public class Zeitraum implements Serializable {
         this.ende = ende;
     }
 
-    public void print() {
+    public String print() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-        System.out.println("Start: " + df.format(start.getTime())+" Uhr");
-        System.out.println("Ende: " + df.format(ende.getTime())+" Uhr");
-
+        return (("Start: " + df.format(start.getTime())+" Uhr") + "\t" + ("Ende: " + df.format(ende.getTime())+" Uhr"));
     }
 }

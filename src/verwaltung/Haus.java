@@ -31,14 +31,9 @@ public class Haus implements Serializable {
         this.barrierefrei = barrierefrei;
     }
 
-    public void printRaumuebersicht() {
-        //TODO Raumübersicht implementieren
-    }
-//TODO: Mit der addHaus methode werden 2 hauser in alleHaeser gespeichert
     public Haus(String hausnummer, boolean barrierefrei) {
         this.hausnummer = hausnummer;
         this.barrierefrei = barrierefrei;
-       //HausListe.getInstance().addHaus(this);
     }
 
     public void addRaum(Raum neuerRaum) {
@@ -49,11 +44,9 @@ public class Haus implements Serializable {
     public String toString() {
         String ausgabe = "Hausnummer:\t" + hausnummer +
                 "\nBarrierefrei:\t" + barrierefrei + "\n\n";
-
         for (Raum r : getRaeume()) {
             ausgabe += r.toString() + "\n";
         }
-
         return ausgabe;
     }
 }
