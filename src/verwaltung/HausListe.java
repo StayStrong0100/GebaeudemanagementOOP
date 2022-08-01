@@ -158,39 +158,6 @@ public class HausListe implements Serializable, HauslisteIF {
         }
     }
 
-    /**
-     * @deprecated
-     *
-     * //TODO @Ben Pars Int
-     *
-     * @param
-     * @return
-     * @author Ben
-     * @version 1.0.0
-     * @since 202207??
-     */
-    public ArrayList<Raum> wieVieleBeamer(int anzahl) {
-
-        ArrayList<Raum> RaumListe = new ArrayList<>();
-        int counter = 0;
-
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                for (Ausstattungsmerkmal a : r.getAusstattung()) {
-                    if (a instanceof Beamer) {
-                        counter++;
-                    }
-                }
-                if (counter >= anzahl) {
-                    RaumListe.add(r);
-                }
-                counter = 0;
-            }
-        }
-
-        return RaumListe;
-    }
-
 
     /**
      * Zählt die Anzahl von funktionstüchtigen Beamern am Campus
