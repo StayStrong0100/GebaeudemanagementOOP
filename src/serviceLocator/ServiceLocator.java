@@ -1,20 +1,39 @@
 package serviceLocator;
 
+import datenspeicherung.*;
 import verwaltung.*;
 
 public class ServiceLocator {
 
-    private verwaltung.HausListe hausliste;
+    /*
+    Zugriff auf:
+    HausListe
+    PersistenzDB
+     */
 
-    public ServiceLocator(HausListe hausliste) {
-        this.hausliste = hausliste;
+    private HausListe hl;
+    private static ServiceLocator instance;
+
+    private ServiceLocator(HausListe hl) {
+        this.hl = hl;
     }
 
-    public HauslisteIF getHausliste() {
-        return hausliste;
+
+    public static ServiceLocator getInstance() {
+        if (instance == null) {
+            instance = new ServiceLocator(HausListe.getInstance());
+        }
+        return instance;
     }
 
-    public void setHausliste(verwaltung.HausListe hausliste) {
-        this.hausliste = hausliste;
+    public HausListe getHausliste() {
+        return HausListe.getInstance();
     }
+
+    public PersistenzIF getPersistenz(){
+        return PersistenzDB.getInstance();
+    }
+
+
+
 }
