@@ -3,6 +3,7 @@ IJ Sheets:
 Multi Cursor: Alt + Shift + Click
  */
 
+import buchung.Dozent;
 import serviceLocator.ServiceLocator;
 import verwaltung.Haus;
 import verwaltung.Raum;
@@ -102,10 +103,22 @@ public class GUI extends JFrame {
     private JTextField raumbearbeitenRaumIDNeuInput;
     private JTextArea raumbearbeitenBestätigung;
     private JTextArea raumsuchenbuchenBestätigung;
+    private JPanel panelBuchen;
+    private JTextField buchenRaumnummerInput;
+    private JTextField buchenDozentInput;
+    private JLabel buchenRaumnummerTitel;
+    private JLabel buchenDozentTitel;
+    private JButton buchenCheck;
+    private JTextArea buchenBestätigung;
 
     // Startbild Elemente
     private ImageIcon hwr;
     private JLabel hintergrund;
+
+    //Attribute für Methoden mit Zugriff auf Verarbeitungsschicht
+    private ArrayList<Raum> perfekteRaueme = new ArrayList<>();
+    private Calendar start = Calendar.getInstance();
+    private Calendar ende = Calendar.getInstance();
 
     public GUI() {
         //Menü erstellen und verbinden
@@ -213,9 +226,9 @@ public class GUI extends JFrame {
 
         raumsucheSuchen.addActionListener(new ActionListener() {
             @Override
-
-
             public void actionPerformed(ActionEvent e) {
+                panelBuchen.setVisible(false);
+
                 //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
                 if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")){
                     raumsuchenbuchenBestätigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
@@ -223,11 +236,9 @@ public class GUI extends JFrame {
                 }
 
                 //Zeit-Daten umwandeln
-                Calendar start = Calendar.getInstance();
-                Calendar ende = Calendar.getInstance();
+
 
                 SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-
                 try {
                     start.setTime(format.parse(raumsucheStartzeitInput.getText()));
 
@@ -242,38 +253,47 @@ public class GUI extends JFrame {
                     return;
                 }
 
-            //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
-            int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
-            int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
-            int minLautsprecher =  (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
-            int minMikrofone =  (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheMikrofoneInput.getText());
-            int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.valueOf(raumsuchePCInput.getText());
-            int minTische =  (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheTischeInput.getText());
-            int minStuehle =  (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheStuehleInput.getText());
-            int minSmartboards =  (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheSmartboardInput.getText());
-            int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
-            int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
+                //Start muss vor Ende liegen
+                if(start.after(ende)){
+                    raumsuchenbuchenBestätigung.setText("Die Startzeit muss vor der Endzeit liegen. Bitte überprüfen Sie Ihre Eingaben!");
+                    return;
+                }
 
-            //Filter nach Zeit
-                ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
+                //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
+                int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
+                int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
+                int minLautsprecher =  (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
+                int minMikrofone =  (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheMikrofoneInput.getText());
+                int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.valueOf(raumsuchePCInput.getText());
+                int minTische =  (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheTischeInput.getText());
+                int minStuehle =  (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheStuehleInput.getText());
+                int minSmartboards =  (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheSmartboardInput.getText());
+                int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
+                int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
 
-            //Filter nach Ausstattung
-            ArrayList<Raum> perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
+                //Filter nach Zeit
+                    ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
 
-            //Temp. Lösung: Räume in der Konsole ausgeben
-            String anzeige = "";
-            for (Raum r : perfekteRaueme) {
-                anzeige.concat(r.printRaum());
-                anzeige.concat("\n");
-            }
-            raumsuchenbuchenBestätigung.setText(anzeige);
-            //TODO Buchungsvorgang implementieren
-            //Buchungs Panel sichtbar machen
-            //Eingabe
-            //EIngabe muss Teil von perfekte Räume sein
-            //Buchen
-            //Bestätigungsmeldung und hide BuchungsPanel
+                //Filter nach Ausstattung
+                perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
 
+                if (perfekteRaueme.size() == 0){
+                    raumsuchenbuchenBestätigung.setText("Es gibt keine passenden Räume, bitte verändern Sie Ihre Suchkriterien!");
+                }
+
+                else {
+                    //Gefundene Räume anzeigen
+                    String anzeige = "Gefundene Räume: \n";
+                    for (Raum r : perfekteRaueme) {
+                        anzeige.concat(r.printRaum());
+                        anzeige.concat("\n");
+                    }
+
+                    raumsuchenbuchenBestätigung.setText(anzeige);
+                    //Buchungs Panel sichtbar machen
+                    panelBuchen.setVisible(true);
+                    buchenBestätigung.setText("Bitte geben Sie aus der obigen Liste eine Raumnummer und den gewünschten Dozenten ein!");
+                }
             }
         });
         raumlisteAddButton.addActionListener(new ActionListener() {
@@ -322,9 +342,9 @@ public class GUI extends JFrame {
                     if(!(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(neueID))){
                         for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
                             if (r.getRaumnummer() == alteID){
-                                 r.setRaumnummer(neueID);
-                                 raumbearbeitenBestätigung.setText("Raumnummer erfolgreich geändert.");
-                                 return;
+                                r.setRaumnummer(neueID);
+                                raumbearbeitenBestätigung.setText("Raumnummer erfolgreich geändert.");
+                                return;
                                 }
                         }
                     }
@@ -339,6 +359,38 @@ public class GUI extends JFrame {
                 }
             }
         });
+        buchenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Kontrolle, ob beide Felder ausgefüllt wurden
+                if(buchenRaumnummerInput.getText().equals("") || buchenDozentInput.getText().equals("")){
+                    buchenBestätigung.setText("Bitte füllen Sie beide Felder aus!");
+                    return;
+                }
+
+                for (Raum r : perfekteRaueme) {
+                    if(r.getRaumnummer() == Integer.valueOf(buchenRaumnummerInput.getText())){
+                        for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
+                            if (d.getName().equals(buchenDozentInput.getText())){
+                                r.buchen(start, ende,d);
+                                buchenBestätigung.setText("Erfolgreich gebucht. BuchungsID: " + (r.getBuchungen().get(r.getBuchungen().size()-1).getId()));
+                            }
+                            //Dozent ist noch nicht registriert
+                            else{
+                                buchenBestätigung.setText("Der Dozent ist noch nicht registriert. Bitte überprüfen Sie Ihre Eingaben oder fügen Sie den Dozenten hinzu!");
+                            }
+                            return;
+                        }
+                    }
+                    //Raumnummer war nicht in der Liste der passenden Räume
+                    else {
+                        buchenBestätigung.setText("Der angegebene Raum entspricht nicht den Suchkriterien. \t Bitte überprüfen Sie ihre Eingaben und vergewissern Sie sich, dass die Raumnummer oben angegeben ist!");
+                        return;
+                    }
+                }
+
+            }
+        });
     }
 
     public void verbergeAllePanels(){
@@ -351,6 +403,7 @@ public class GUI extends JFrame {
         panelStartseite.setVisible(false);
         panelRaumBearbeiten.setVisible(false);
         panelDozentHinzufuegen.setVisible(false);
+        panelBuchen.setVisible(false);
     }
 
     public static void main(String[] args) {

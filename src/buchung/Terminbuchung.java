@@ -38,4 +38,6 @@ public class Terminbuchung implements Serializable {
         return (("Buchungs-ID: "+ this.id) + "\t" + this.intervall.print() + "\t" + this.dozent.getName());
     }
 
+
+
 }
