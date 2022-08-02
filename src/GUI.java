@@ -47,7 +47,7 @@ public class GUI extends JFrame {
     private JLabel raumlisteTitel;
     private JLabel inventurStuehleTitel;
     private JLabel dozTerminplanTitel;
-    private JLabel dozVerwaltungTitel;
+    private JLabel dozUebersichtTitel;
     private JLabel inventarsucheTitel;
     private JLabel raumsucheTitel;
     private JPanel panelStartseite;
@@ -90,7 +90,7 @@ public class GUI extends JFrame {
     private JButton raumlisteAddButton;
     private JPanel panelRaumBearbeiten;
     private JLabel raumbearbeitenTitel;
-    private JPanel panelDozentHinzufuegen;
+    private JPanel panelDozentHinzufuegenLoeschen;
     private JLabel dozenthinzuTitel;
     private JTextArea raumlisteBestätigung;
     private JTextField raumbearbeitenRaumIDAltInput;
@@ -130,6 +130,23 @@ public class GUI extends JFrame {
     private JLabel inventurKreidetafelnOutput;
     private JLabel inventurWhiteboardsOutput;
     private JLabel inventurMikrofoneOutput;
+    private JTextArea dozUebersichtBestätigung;
+    private JLabel dozenthinzuInputTitel;
+    private JTextField dozenthinzuInput;
+    private JButton dozenthinzuButton;
+    private JButton dozenthinzuLoeschenButton;
+    private JTextArea dozenthinzuBestätigung;
+    private JTextArea inventurBestätigung;
+    private JLabel dozTerminplanSucheTitel;
+    private JTextArea dozTerminplanBestätigung;
+    private JTextField dozTerminplanSucheInput;
+    private JLabel dozTerminplanT1Titel;
+    private JLabel dozTerminplanT3Titel;
+    private JLabel dozTerminplanT7Titel;
+    private JLabel dozTerminplanT5Titel;
+    private JLabel dozTerminplanT6Titel;
+    private JLabel dozTerminplanT2Titel;
+    private JLabel dozTerminplanDonnerstagTitel;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -240,7 +257,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
-                panelDozentHinzufuegen.setVisible(true);
+                panelDozentHinzufuegenLoeschen.setVisible(true);
             }
         });
 
@@ -422,7 +439,7 @@ public class GUI extends JFrame {
         panelDozentenTerminplan.setVisible(false);
         panelStartseite.setVisible(false);
         panelRaumBearbeiten.setVisible(false);
-        panelDozentHinzufuegen.setVisible(false);
+        panelDozentHinzufuegenLoeschen.setVisible(false);
         panelBuchen.setVisible(false);
     }
 
