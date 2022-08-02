@@ -31,14 +31,16 @@ public class ServiceLocator {
     }
 
     public HausListe getHausliste() {
-        return HausListe.getInstance();
+        return hl;
+    }
+
+    public DozentListe getDozentenListe() {
+        return dl;
     }
 
     public PersistenzIF getPersistenz(){
         return PersistenzDB.getInstance();
     }
-
-    public DozentListe getDozentenListe() { return DozentListe.getInstance();}
 
 
 
