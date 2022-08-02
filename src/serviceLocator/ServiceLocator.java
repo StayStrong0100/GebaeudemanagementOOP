@@ -4,7 +4,9 @@ import buchung.DozentListe;
 import datenspeicherung.*;
 import verwaltung.*;
 
-public class ServiceLocator {
+import java.io.Serializable;
+
+public class ServiceLocator implements Serializable {
 
     /*
     Zugriff auf:
