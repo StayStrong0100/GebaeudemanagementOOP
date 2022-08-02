@@ -45,7 +45,7 @@ public class GUI extends JFrame {
     private JPanel panelDozentenUebersicht;
     private JPanel panelDozentenTerminplan;
     private JLabel raumlisteTitel;
-    private JLabel inventurTitel;
+    private JLabel inventurStuehleTitel;
     private JLabel dozTerminplanTitel;
     private JLabel dozVerwaltungTitel;
     private JLabel inventarsucheTitel;
@@ -110,6 +110,26 @@ public class GUI extends JFrame {
     private JLabel buchenDozentTitel;
     private JButton buchenCheck;
     private JTextArea buchenBestätigung;
+    private JLabel inventurTischTitel;
+    private JLabel inventurTitel;
+    private JLabel inventurLautsprecherTitel;
+    private JLabel inventurPCsTitel;
+    private JLabel inventurBeamerTitel;
+    private JLabel inventurKameraTitel;
+    private JLabel inventurSmartboardsTitel;
+    private JLabel inventurKreidetafelnTitel;
+    private JLabel inventurWhiteboardsTitel;
+    private JLabel inventurMikrofoneTitel;
+    private JLabel inventurTischeOutput;
+    private JLabel inventurStuehleOutput;
+    private JLabel inventurBeamerOutput;
+    private JLabel inventurKamerasOutput;
+    private JLabel inventurPCsOutput;
+    private JLabel inventurLautsprecherOutput;
+    private JLabel inventurSmartboardsOutput;
+    private JLabel inventurKreidetafelnOutput;
+    private JLabel inventurWhiteboardsOutput;
+    private JLabel inventurMikrofoneOutput;
 
     // Startbild Elemente
     private ImageIcon hwr;
