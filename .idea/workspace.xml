@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Raum bearbeiten implementiert, Eingabefehler werden gecatcht, Überarbeitung von print-Methoden: Ausgabe erfolgt nun nicht in der Konsole sondern als String-Return">
-      <change afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +19,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,8 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "102",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "318",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "438",
     "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -368,28 +366,7 @@
       <option name="project" value="LOCAL" />
       <updated>1659042078096</updated>
     </task>
-    <task id="LOCAL-00037" summary="Kleinigkeiten GUI">
-      <created>1659172632888</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1659172632888</updated>
-    </task>
-    <task id="LOCAL-00038" summary="GUI Inventar implementiert">
-      <created>1659173084295</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1659173084295</updated>
-    </task>
-    <task id="LOCAL-00039" summary="GUI Raum bearbeiten implementiert, Eingabefehler werden gecatcht, Überarbeitung von print-Methoden: Ausgabe erfolgt nun nicht in der Konsole sondern als String-Return">
-      <created>1659378674464</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1659378674464</updated>
-    </task>
-    <option name="localTasksCounter" value="40" />
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -404,6 +381,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
+    <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
+    <MESSAGE value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
     <MESSAGE value="Inventur implementiert" />
     <MESSAGE value="DateFormatter geändert: von &quot;YYYY&quot; zu &quot;yyyy&quot;" />
     <MESSAGE value="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle" />
@@ -426,10 +406,7 @@
     <MESSAGE value="Neue GUI implementiert" />
     <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
     <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
-    <MESSAGE value="Kleinigkeiten GUI" />
-    <MESSAGE value="GUI Inventar implementiert" />
-    <MESSAGE value="GUI Raum bearbeiten implementiert, Eingabefehler werden gecatcht, Überarbeitung von print-Methoden: Ausgabe erfolgt nun nicht in der Konsole sondern als String-Return" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI Raum bearbeiten implementiert, Eingabefehler werden gecatcht, Überarbeitung von print-Methoden: Ausgabe erfolgt nun nicht in der Konsole sondern als String-Return" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
