@@ -90,8 +90,8 @@ public class GUI extends JFrame {
     private JButton raumlisteAddButton;
     private JPanel panelRaumBearbeiten;
     private JLabel raumbearbeitenTitel;
-    private JPanel panelDozentHinzufuegenLoeschen;
-    private JLabel dozenthinzuTitel;
+    private JPanel panelDozentVerwalten;
+    private JLabel dozentVerwTitel;
     private JTextArea raumlisteBestätigung;
     private JTextField raumbearbeitenRaumIDAltInput;
     private JTextArea raumbearbeitenRaumliste;
@@ -131,14 +131,13 @@ public class GUI extends JFrame {
     private JLabel inventurWhiteboardsOutput;
     private JLabel inventurMikrofoneOutput;
     private JTextArea dozUebersichtBestätigung;
-    private JLabel dozenthinzuInputTitel;
-    private JTextField dozenthinzuInput;
-    private JButton dozenthinzuButton;
-    private JButton dozenthinzuLoeschenButton;
-    private JTextArea dozenthinzuBestätigung;
+    private JLabel dozentVerwInputTitel;
+    private JTextField dozentVerwInput;
+    private JButton dozentVerwHinzuButton;
+    private JButton dozentVerwLoeschenButton;
+    private JTextArea dozentVerwBestätigung;
     private JTextArea inventurBestätigung;
     private JLabel dozTerminplanSucheTitel;
-    private JTextArea dozTerminplanBestätigung;
     private JTextField dozTerminplanSucheInput;
     private JLabel dozTerminplanT1Titel;
     private JLabel dozTerminplanT3Titel;
@@ -147,6 +146,17 @@ public class GUI extends JFrame {
     private JLabel dozTerminplanT6Titel;
     private JLabel dozTerminplanT2Titel;
     private JLabel dozTerminplanDonnerstagTitel;
+    private JLabel buchenDozentenSuche;
+    private JLabel dozTerminplanPlatzhalter;
+    private JLabel dozTerminplanW1Titel;
+    private JTextArea dozTerminplanBestätigung;
+    private JLabel dozTerminplanW2Titel;
+    private JLabel dozTerminplanW3Titel;
+    private JLabel dozTerminplanW4Titel;
+    private JLabel dozTerminplanW5Titel;
+    private JLabel dozTerminplanW6Titel;
+    private JLabel dozTerminplanW7Titel;
+    private JLabel dozTerminplanW8Titel;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -257,7 +267,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
-                panelDozentHinzufuegenLoeschen.setVisible(true);
+                panelDozentVerwalten.setVisible(true);
             }
         });
 
@@ -439,7 +449,7 @@ public class GUI extends JFrame {
         panelDozentenTerminplan.setVisible(false);
         panelStartseite.setVisible(false);
         panelRaumBearbeiten.setVisible(false);
-        panelDozentHinzufuegenLoeschen.setVisible(false);
+        panelDozentVerwalten.setVisible(false);
         panelBuchen.setVisible(false);
     }
 
