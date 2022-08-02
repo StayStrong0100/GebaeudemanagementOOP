@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class SmartboardTyp implements Serializable {
 
     public static final long serialVersionUID = 0;
-    private String marke;
     private String modell;
+    private String marke;
     private int lumen;
 
-    public SmartboardTyp(String marke, String modell, int lumen){
-        this.marke = marke;
+    public SmartboardTyp(String modell, String marke, int lumen) {
         this.modell = modell;
+        this.marke = marke;
         this.lumen = lumen;
     }
 

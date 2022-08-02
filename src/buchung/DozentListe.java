@@ -3,9 +3,10 @@ package buchung;
 import verwaltung.Haus;
 import verwaltung.HausListe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 //singleton
-public class DozentListe {
+public class DozentListe implements Serializable {
 
     private ArrayList<Dozent> alleDozenten = new ArrayList<>();
     private static DozentListe instance;

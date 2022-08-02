@@ -4,18 +4,16 @@ import java.io.Serializable;
 
 public class BeamerTyp implements Serializable {
     public static final long serialVersionUID = 0;
-    private String marke;
     private String modell;
+    private String marke;
     private int lumen;
     private boolean lautsprecher;
 
-    public BeamerTyp(String marke, String modell, int lumen, boolean lautsprecher){
-
-        this.marke = marke;
+    public BeamerTyp(String modell, String marke, int lumen, boolean lautsprecher) {
         this.modell = modell;
+        this.marke = marke;
         this.lumen = lumen;
         this.lautsprecher = lautsprecher;
-
     }
 
     public String getMarke() {

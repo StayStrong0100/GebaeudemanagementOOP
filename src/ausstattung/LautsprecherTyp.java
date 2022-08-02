@@ -5,15 +5,16 @@ import java.io.Serializable;
 public class LautsprecherTyp implements Serializable {
 
     public static final long serialVersionUID = 0;
-    private String marke;
     private String modell;
+    private String marke;
     private int anzahl;
     private int maxLautstaerke;
     private boolean surroundSound;
 
-    public LautsprecherTyp(String marke, String modell, int anzahl, int maxLautstaerke, boolean surroundSound) {
-        this.marke = marke;
+
+    public LautsprecherTyp(String modell, String marke, int anzahl, int maxLautstaerke, boolean surroundSound) {
         this.modell = modell;
+        this.marke = marke;
         this.anzahl = anzahl;
         this.maxLautstaerke = maxLautstaerke;
         this.surroundSound = surroundSound;

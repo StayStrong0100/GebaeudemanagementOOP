@@ -6,13 +6,15 @@ public class TischTyp implements Serializable {
 
     public static final long serialVersionUID = 0;
 
+    private String modell;
     private int anzahlPlaetze;
     private boolean computertisch;
     private boolean hoehenverstellbar;
     private double breite;
     private double laenge;
 
-    public TischTyp(int anzahlPlaetze, boolean computertisch, boolean hoehenverstellbar, double breite, double laenge){
+    public TischTyp(String modell, int anzahlPlaetze, boolean computertisch, boolean hoehenverstellbar, double breite, double laenge) {
+        this.modell = modell;
         this.anzahlPlaetze = anzahlPlaetze;
         this.computertisch = computertisch;
         this.hoehenverstellbar = hoehenverstellbar;

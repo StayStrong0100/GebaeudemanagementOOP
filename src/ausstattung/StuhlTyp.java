@@ -7,12 +7,12 @@ public class StuhlTyp implements Serializable{
 
     public static final long serialVersionUID = 0;
 
-    private boolean drehstuhl;
     private String modell;
+    private boolean drehstuhl;
 
-    public StuhlTyp(boolean drehstuhl, String modell){
-        this.drehstuhl = drehstuhl;
+    public StuhlTyp(String modell, boolean drehstuhl) {
         this.modell = modell;
+        this.drehstuhl = drehstuhl;
     }
 
     public boolean isDrehstuhl() {

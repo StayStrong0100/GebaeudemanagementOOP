@@ -6,12 +6,14 @@ public class PCTyp implements Serializable{
 
     public static final long serialVersionUID = 0;
 
+    private String modell;
     private String betriebssystem;
     private double taktfrequenz;
     private boolean grafikkarte;
     private short ram;
 
-    public PCTyp(String betriebssystem, double taktfrequenz, boolean grafikkarte, short ram){
+    public PCTyp(String modell, String betriebssystem, double taktfrequenz, boolean grafikkarte, short ram) {
+        this.modell = modell;
         this.betriebssystem = betriebssystem;
         this.taktfrequenz = taktfrequenz;
         this.grafikkarte = grafikkarte;

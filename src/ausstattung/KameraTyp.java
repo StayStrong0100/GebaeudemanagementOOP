@@ -5,19 +5,19 @@ import java.io.Serializable;
 public class KameraTyp implements Serializable {
 
     public static final long serialVersionUID = 0;
-    private String marke;
     private String modell;
+    private String marke;
     private int pixel;
     private int brennweite;
     private boolean flexibel;
 
- public KameraTyp(String marke, String modell, int pixel, int brennweite, boolean flexibel){
-     this.marke = marke;
-     this.modell = modell;
-     this.pixel = pixel;
-     this.brennweite = brennweite;
-     this.flexibel = flexibel;
- }
+    public KameraTyp(String modell, String marke, int pixel, int brennweite, boolean flexibel) {
+        this.modell = modell;
+        this.marke = marke;
+        this.pixel = pixel;
+        this.brennweite = brennweite;
+        this.flexibel = flexibel;
+    }
 
     public void setMarke(String marke) {
         this.marke = marke;

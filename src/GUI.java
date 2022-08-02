@@ -3,6 +3,7 @@ IJ Sheets:
 Multi Cursor: Alt + Shift + Click
  */
 
+import ausstattung.*;
 import buchung.Dozent;
 import serviceLocator.ServiceLocator;
 import verwaltung.Haus;
@@ -93,11 +94,9 @@ public class GUI extends JFrame {
     private JPanel panelDozentVerwalten;
     private JLabel dozentVerwTitel;
     private JTextArea raumlisteBestätigung;
-    private JTextField raumbearbeitenRaumIDAltInput;
-    private JTextArea raumbearbeitenRaumliste;
-    private JButton raumbearbeitenRaumIDCheck;
+    private JTextField raumbearbeitenRaumIDInput;
+    private JButton raumbearbeitenIDÄndernCheck;
     private JLabel raumbearbeitenRaumlisteTitel;
-    private JLabel raumbearbeitenRaumIDAltTitel;
     private JPanel panelRaumBearbeitenDetails;
     private JLabel raumbearbeitenRaumIDNeuTitel;
     private JTextField raumbearbeitenRaumIDNeuInput;
@@ -157,6 +156,16 @@ public class GUI extends JFrame {
     private JLabel dozTerminplanW6Titel;
     private JLabel dozTerminplanW7Titel;
     private JLabel dozTerminplanW8Titel;
+    private JTextArea inventurGesamtinventur;
+    private JComboBox raumbearbeitenHinzufügenInput;
+    private JLabel raumbearbeitenHinzufügenTitel;
+    private JLabel raumbearbeitenVerändernTitel;
+    private JButton raumbearbeitenHinzufügenCheck;
+    private JButton raumbearbeitenVerändernCheck;
+    private JComboBox raumbearbeitenHinzufügenTypInput;
+    private JComboBox raumbearbeitenHinzufügenArtInput;
+    private JComboBox raumbearbeitenRaumlisteInput;
+    private JComboBox raumbearbeitenVerändernZustandInput;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -228,6 +237,14 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelRaumBearbeiten.setVisible(true);
+                //raumbearbeitenBestätigung.setText(ServiceLocator.getInstance().getHausliste().toString());
+                raumbearbeitenRaumlisteInput.removeAllItems();
+                //raumbearbeitenBestätigung.setText(ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size()+"");
+
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                    raumbearbeitenRaumlisteInput.addItem(r.getRaumnummer());
+                //    System.out.println(r.getRaumnummer());
+                }
             }
         });
 
@@ -236,6 +253,7 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelInventur.setVisible(true);
+                inventurGesamtinventur.setText(ServiceLocator.getInstance().getHausliste().inventur());
             }
         });
 
@@ -332,8 +350,8 @@ public class GUI extends JFrame {
                     //Gefundene Räume anzeigen
                     String anzeige = "Gefundene Räume: \n";
                     for (Raum r : perfekteRaueme) {
-                        anzeige.concat(r.printRaum());
-                        anzeige.concat("\n");
+                        anzeige += (r.printRaum());
+                        anzeige += ("\n");
                     }
 
                     raumsuchenbuchenBestätigung.setText(anzeige);
@@ -372,39 +390,50 @@ public class GUI extends JFrame {
                 }
             }
         });
-        raumbearbeitenRaumIDCheck.addActionListener(new ActionListener() {
+        raumbearbeitenIDÄndernCheck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
-                if (raumbearbeitenRaumIDAltInput.getText().equals("") || raumbearbeitenRaumIDNeuInput.getText().equals("")){
-                    raumbearbeitenBestätigung.setText("Bitte füllen Sie beide Felder aus!");
+                //Wenn kein Raum ausgewählt wurde
+                if (raumbearbeitenRaumlisteInput.getSelectedItem() == null){
+                    raumbearbeitenBestätigung.setText("Bitte wählen Sie einen Raum aus!");
                     return;
                 }
 
-                int alteID = Integer.valueOf(raumbearbeitenRaumIDAltInput.getText());
-                int neueID = Integer.valueOf(raumbearbeitenRaumIDNeuInput.getText());
-                //Wenn der angegebene Raum (alteID) existiert....
-                if(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(alteID)){
-                    //Wenn die neueID noch nicht vergeben ist:
-                    if(!(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(neueID))){
-                        for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
-                            if (r.getRaumnummer() == alteID){
-                                r.setRaumnummer(neueID);
-                                raumbearbeitenBestätigung.setText("Raumnummer erfolgreich geändert.");
-                                return;
-                                }
+                //Wenn neue ID nicht angegeben wurde, Fehlermeldung und Methode nicht ausführen
+                if (raumbearbeitenRaumIDNeuInput.getText().equals("")){
+                    raumbearbeitenBestätigung.setText("Bitte geben Sie eine neue Raumnummer an!");
+                    return;
+                }
+
+                //Neue ID einlesen, wenn falsches Format Abbruch
+                int neueID;
+                try {
+                    neueID = Integer.parseInt(raumbearbeitenRaumIDNeuInput.getText());
+                }
+                catch (NumberFormatException ex){
+                    raumbearbeitenBestätigung.setText("Bitte geben Sie eine Zahl ein!");
+                    return;
+                }
+
+                //Alte ID aus DropDown Menu extrahieren
+                int alteID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
+
+                //Wenn die neueID noch nicht vergeben ist:
+                if(!(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(neueID))){
+                    for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                        if (r.getRaumnummer() == alteID){
+                            r.setRaumnummer(neueID);
+                            raumbearbeitenBestätigung.setText("Raumnummer erfolgreich geändert.");
+                            return;
                         }
                     }
-                    //Es gab eine ID-Kollision, also ist die Raumnummer bereits vergeben
-                    else {
-                        raumbearbeitenBestätigung.setText("Neue Raumnummer ist bereits vergeben. Bitte überprüfen Sie ihre Eingaben!");
-                    }
                 }
-                //Angegebener Raum existiert nicht
+                //Es gab eine ID-Kollision, also ist die Raumnummer bereits vergeben
                 else {
-                    raumbearbeitenBestätigung.setText("Der ausgewählte Raum existiert nicht. Bitte überprüfen Sie ihre Eingaben!");
+                    raumbearbeitenBestätigung.setText("Neue Raumnummer ist bereits vergeben. Bitte überprüfen Sie ihre Eingaben!");
                 }
             }
+
         });
         buchenCheck.addActionListener(new ActionListener() {
             @Override
@@ -438,7 +467,86 @@ public class GUI extends JFrame {
 
             }
         });
+        raumbearbeitenHinzufügenArtInput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /*String art = raumbearbeitenHinzufügenArtInput.getSelectedItem().toString();
+
+                switch (art) {
+                    case "Beamer" -> {
+                        for (BeamerTyp bt : ServiceLocator.getInstance().
+                             ) {
+
+                        }
+                    }r.addAusstattung(new Beamer(null, Calendar.getInstance()));
+                    case "Kamera" -> r.addAusstattung(new Kamera(null, Calendar.getInstance()));
+                    case "Kreidetafel" -> r.addAusstattung(new Kreidetafel(null, Calendar.getInstance()));
+                    case "Lautsprecher" -> r.addAusstattung(new Lautsprecher(null, Calendar.getInstance()));
+                    case "Mikrofon" -> r.addAusstattung(new Mikrofon(null, Calendar.getInstance()));
+                    case "PC" -> r.addAusstattung(new PC(null, Calendar.getInstance()));
+                    case "Smartboard" -> r.addAusstattung(new Smartboard(null, Calendar.getInstance()));
+                    case "Stuhl" -> r.addAusstattung(new Stuhl(null, Calendar.getInstance()));
+                    case "Tisch" -> r.addAusstattung(new Tisch(null, Calendar.getInstance()));
+                    case "Whiteboard" -> r.addAusstattung(new Whiteboard(null, Calendar.getInstance()));
+                    default -> System.out.println("Kp why, aber den Typ geht es nicht.");
+                }
+
+                String typ = raumbearbeitenHinzufügenTypInput.getSelectedItem().toString();
+
+
+
+
+                 */
+
+                raumbearbeitenBestätigung.setText(raumbearbeitenHinzufügenArtInput.getSelectedItem().toString());
+
+            }
+        });
+
+        raumbearbeitenHinzufügenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
+                String typ = raumbearbeitenHinzufügenTypInput.getSelectedItem().toString();
+                String art = raumbearbeitenHinzufügenArtInput.getSelectedItem().toString();
+
+                //Im entsprechenden Raum, entsprechend dem Typ ein neues Objekt erstellen und hinzufügen
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                    if (r.getRaumnummer() == raumID){
+
+                        switch (art) {
+                            case "Beamer" -> r.addAusstattung(new Beamer(null, Calendar.getInstance()));
+                            case "Kamera" -> r.addAusstattung(new Kamera(null, Calendar.getInstance()));
+                            case "Kreidetafel" -> r.addAusstattung(new Kreidetafel(null, Calendar.getInstance()));
+                            case "Lautsprecher" -> r.addAusstattung(new Lautsprecher(null, Calendar.getInstance()));
+                            case "Mikrofon" -> r.addAusstattung(new Mikrofon(null, Calendar.getInstance()));
+                            case "PC" -> r.addAusstattung(new PC(null, Calendar.getInstance()));
+                            case "Smartboard" -> r.addAusstattung(new Smartboard(null, Calendar.getInstance()));
+                            case "Stuhl" -> r.addAusstattung(new Stuhl(null, Calendar.getInstance()));
+                            case "Tisch" -> r.addAusstattung(new Tisch(null, Calendar.getInstance()));
+                            case "Whiteboard" -> r.addAusstattung(new Whiteboard(null, Calendar.getInstance()));
+                            default -> System.out.println("Kp why, aber den Typ geht es nicht.");
+                        }
+
+                    }
+                    return;
+
+                }
+
+
+
+
+
+            }
+        });
     }
+
+    public AusstattungsTypIF getTyp(String typName){
+        switch (typName){
+            //TODO Typen Cases ergänzen
+        }
+    }
+
 
     public void verbergeAllePanels(){
         panelRaumHinzufügen.setVisible(false);
@@ -451,10 +559,6 @@ public class GUI extends JFrame {
         panelRaumBearbeiten.setVisible(false);
         panelDozentVerwalten.setVisible(false);
         panelBuchen.setVisible(false);
-    }
-
-    public static void main(String[] args) {
-        new GUI();
     }
 
     private void createUIComponents() {

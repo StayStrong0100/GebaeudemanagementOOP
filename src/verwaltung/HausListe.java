@@ -55,27 +55,45 @@ public class HausListe implements Serializable, HauslisteIF {
      */
 
 
-        public void inventur() {
-            System.out.println("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig());
-            System.out.println("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt());
-            System.out.println("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig());
-            System.out.println("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt());
-            System.out.println("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig());
-            System.out.println("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt());
-            System.out.println("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig());
-            System.out.println("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt());
-            System.out.println("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig());
-            System.out.println("PCs defekt: " + this.getAnzahlAllePCsDefekt());
-            System.out.println("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig());
-            System.out.println("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt());
-            System.out.println("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig());
-            System.out.println("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt());
-            System.out.println("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig());
-            System.out.println("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt());
-            System.out.println("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig());
-            System.out.println("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt());
-            System.out.println("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig());
-            System.out.println("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt());
+        public String inventur() {
+/*
+            //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
+            int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
+            int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
+            int minLautsprecher =  (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
+            int minMikrofone =  (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheMikrofoneInput.getText());
+            int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.valueOf(raumsuchePCInput.getText());
+            int minTische =  (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheTischeInput.getText());
+            int minStuehle =  (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheStuehleInput.getText());
+            int minSmartboards =  (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheSmartboardInput.getText());
+            int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
+            int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
+
+
+ */
+
+            String ausgabe = "Inventur: \n";
+            ausgabe += ("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig()) + "\n";
+            ausgabe += (("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt()) + "\n\n");
+            ausgabe += (("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig()) + "\n");
+            ausgabe += (("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt()) + "\n\n");
+            ausgabe += (("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig()) + "\n");
+            ausgabe += (("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt()) + "\n\n");
+            ausgabe += (("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig()) + "\n");
+            ausgabe += (("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt()) + "\n\n");
+            ausgabe += (("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig()) + "\n");
+            ausgabe += (("PCs defekt: " + this.getAnzahlAllePCsDefekt()) + "\n\n");
+            ausgabe += (("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig()) + "\n");
+            ausgabe += (("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt()) + "\n\n");
+            ausgabe += (("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig()) + "\n");
+            ausgabe += (("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt()) + "\n\n");
+            ausgabe += (("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig()) + "\n");
+            ausgabe += (("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt()) + "\n\n");
+            ausgabe += (("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig()) + "\n");
+            ausgabe += (("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt()) + "\n\n");
+            ausgabe += (("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig()) + "\n");
+            ausgabe += (("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt()) + "\n");
+            return ausgabe;
         }
 
         @Override
@@ -108,17 +126,17 @@ public class HausListe implements Serializable, HauslisteIF {
          * @version 1.0.0
          * @since 20220721
          */
-    public ArrayList<Raum> getAlleRaeueme() {
-        ArrayList<Raum> alleRaeume = new ArrayList<>();
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()
-        ) {
-            for (Raum r : h.getRaeume()
+        public ArrayList<Raum> getAlleRaeueme() {
+            ArrayList<Raum> alleRaeume = new ArrayList<>();
+            for (Haus h : this.getAlleHaeuser()
             ) {
-                alleRaeume.add(r);
+                for (Raum r : h.getRaeume()
+                ) {
+                    alleRaeume.add(r);
+                }
             }
+            return alleRaeume;
         }
-        return alleRaeume;
-    }
 
     /**
      * Gibt alle Räume mit Haus- und Raumnummer in der Konsole aus
@@ -128,7 +146,7 @@ public class HausListe implements Serializable, HauslisteIF {
      * @since 20220721
      */
     public void druckeAlleRaeume() {
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()
+        for (Haus h : this.getAlleHaeuser()
         ) {
             for (Raum r : h.getRaeume()) {
                 System.out.println("Haus: " + h.getHausnummer() + "\t" + "Raumnummer: " + r.getRaumnummer());
@@ -145,7 +163,7 @@ public class HausListe implements Serializable, HauslisteIF {
      * @since 20220721
      */
     public void druckeAlleRaeume(String hausID) {
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()
+        for (Haus h : this.getAlleHaeuser()
         ) {
             if (h.getHausnummer().equals(hausID)) {
                 System.out.println("Räume im Haus " + hausID + ": ");
@@ -169,7 +187,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleBeamerFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumBeamerFunktionstuechtig();
             }
@@ -187,7 +205,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleBeamerDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r :
                     h.getRaeume()) {
                 anzahl += r.getAnzahlRaumBeamerDefekt();
@@ -206,7 +224,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleKamerasFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumKamerasFunktionstuechtig();
             }
@@ -224,7 +242,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleKamerasDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumKamerasDefekt();
             }
@@ -242,7 +260,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleKreidetafelnFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumKreidetafelnFunktionstuechtig();
             }
@@ -260,7 +278,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleKreidetafelnDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumKreidetafelnDefekt();
             }
@@ -278,7 +296,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleLautsprecherFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumLautsprecherFunktionstuechtig();
             }
@@ -296,7 +314,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleLautsprecherDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumLautsprecherDefekt();
             }
@@ -314,7 +332,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleMikrofoneFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumMikrofoneFunktionstuechtig();
             }
@@ -332,7 +350,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleMikrofoneDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumMikrofoneDefekt();
             }
@@ -350,7 +368,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAllePCsFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumPCsFunktionstuechtig();
             }
@@ -368,7 +386,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAllePCsDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumPCsDefekt();
             }
@@ -386,7 +404,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleSmartboardsFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumSmartboardsFunktionstuechtig();
             }
@@ -404,7 +422,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleSmartboardsDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumSmartboardsDefekt();
             }
@@ -422,7 +440,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleStuehleFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumStuehleFunktionstuechtig();
             }
@@ -440,7 +458,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleStuehleDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumStuehleDefekt();
             }
@@ -458,7 +476,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleTischeFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumTischeFunktionstuechtig();
             }
@@ -476,7 +494,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleTischeDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumTischeDefekt();
             }
@@ -494,7 +512,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleWhiteboardsFunktionstuechtig() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumWhiteboardsFunktionstuechtig();
             }
@@ -512,7 +530,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public int getAnzahlAlleWhiteboardsDefekt() {
         int anzahl = 0;
-        for (Haus h : HausListe.getInstance().getAlleHaeuser()) {
+        for (Haus h : this.getAlleHaeuser()) {
             for (Raum r : h.getRaeume()) {
                 anzahl += r.getAnzahlRaumWhiteboardsDefekt();
             }
@@ -694,12 +712,18 @@ public class HausListe implements Serializable, HauslisteIF {
      * @return boolean
      */
     public boolean raumnummerKollidiert(int neueNummer){
-        for (Raum r:HausListe.getInstance().getAlleRaeueme()) {
+        for (Raum r:this.getAlleRaeueme()) {
             if (r.getRaumnummer() == neueNummer){
                 return true;
             }
         }
         return false;
+    }
+
+    public ArrayList<Ausstattungsmerkmal> getAlleAusstattungen(){
+        ArrayList<Ausstattungsmerkmal> alleAusstattungen = new ArrayList<>();
+        //TODO ergänzen
+        return alleAusstattungen;
     }
 
 }

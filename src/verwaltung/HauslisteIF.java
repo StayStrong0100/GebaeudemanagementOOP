@@ -13,7 +13,7 @@ public interface HauslisteIF{
 
     public void addHaus(Haus neuesHaus);
 
-    public void inventur();
+    public String inventur();
 
     @Override
     public String toString();

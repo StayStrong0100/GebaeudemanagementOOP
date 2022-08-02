@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class KreidetafelTyp implements Serializable {
 
     public static final long serialVersionUID = 0;
+    private String modell;
     private boolean wandtafel;
     private boolean freitafel;
     private double breite;
     private double hoehe;
 
-    public KreidetafelTyp(boolean wandtafel, boolean freitafel, double breite, double hoehe){
+    public KreidetafelTyp(String modell, boolean wandtafel, boolean freitafel, double breite, double hoehe) {
+        this.modell = modell;
         this.wandtafel = wandtafel;
         this.freitafel = freitafel;
         this.breite = breite;

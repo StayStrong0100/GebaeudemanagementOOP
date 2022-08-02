@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class WhiteboardTyp implements Serializable {
 
     public static final long serialVersionUID = 0;
+    private String modell;
     private boolean wandtafel;
     private boolean freitafel;
     private double breite;
     private double hoehe;
 
-    public WhiteboardTyp(boolean wandtafel, boolean freitafel, double breite, double hoehe){
+    public WhiteboardTyp(String modell, boolean wandtafel, boolean freitafel, double breite, double hoehe) {
+        this.modell = modell;
         this.wandtafel = wandtafel;
         this.freitafel = freitafel;
         this.breite = breite;

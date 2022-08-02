@@ -1,74 +1,83 @@
-
-import serviceLocator.ServiceLocator;
-import ausstattung.Beamer;
-import ausstattung.BeamerTyp;
-import verwaltung.Haus;
-import verwaltung.HausListe;
-import verwaltung.Raum;
+import datenspeicherung.*;
+import serviceLocator.*;
+import verwaltung.*;
+import ausstattung.*;
+import buchung.*;
+//import images.*;
+import zustand.*;
 
 import java.util.Calendar;
 
-import datenspeicherung.*;
-
 public class Main {
-
+    public static ServiceLocator sl;
 
     public static void main(String[] args) {
-        /*
-        Calendar start = Calendar.getInstance();
-        Calendar ende = Calendar.getInstance();
-        Dozent fausti = new Dozent("Faustmann");
+/*
+        //Daten erstellen: Objekttypen
 
-        start.set(2020, 05, 04, 11, 50);
-        ende.set(2020, 05, 04, 13, 20);
+        //Beamertypen
+        BeamerTyp LCDProjektor = new BeamerTyp("TOPVISION", "T26", 9500, true);
+        BeamerTyp DLPProjektor = new BeamerTyp("ACER", "P5530", 7000, false);
+        BeamerTyp LEDProjektor = new BeamerTyp("ViewSonic", "X100-4k", 2500, true);
 
-        Terminbuchung ostern = new Terminbuchung(start, ende, fausti);
+        //Kreidetafeltypen
+        KreidetafelTyp großeKreideTafel = new KreidetafelTyp(true, false, 250, 180);
+        KreidetafelTyp mittlereKreideTafel = new KreidetafelTyp(false, true, 220, 160);
+        KreidetafelTyp kleineKreideTafel = new KreidetafelTyp(false, true, 200, 140);
 
-        ostern.printBuchungDetails();
+        //Smartboardtypen
+        WhiteboardTyp flipChart = new WhiteboardTyp(false, true, 60 , 100);
+        WhiteboardTyp wandWhiteboard = new WhiteboardTyp(true, false, 180 , 120);
+        WhiteboardTyp verschiebaresWhiteboard = new WhiteboardTyp(false, true, 180 , 120);
 
-        HausListe lichtenberg = HausListe.getInstance();
-        lichtenberg.inventur();
+        //Smartboardtypen
+        SmartboardTyp teuresSmartboard = new SmartboardTyp("SMARTBOARD", "MX255 PRO", 3000);
+        SmartboardTyp billigesSmartboard = new SmartboardTyp("iiyama", "Lite PRO", 1500);
 
-        lichtenberg.addHaus(new Haus("6A", true));
-        lichtenberg.getAlleHaeuser().get(0).addRaum(new Raum(120));
-  //Variante 1
-        BeamerTyp Phiillips10 = new BeamerTyp("Phillips", "10", 1000, true);
-        Beamer neu = new Beamer(Phiillips10, Calendar.getInstance());
-       // neu.print();
 
-        //Variante 2
-        Beamer neu1  = new Beamer( new BeamerTyp("Phillips", "10", 1000, true), Calendar.getInstance());
-        neu1.print();*/
+        //Tischtypen
+        TischTyp einzelTisch = new TischTyp(1, false, false, 80, 60);
+        TischTyp zweierTisch = new TischTyp(2, false, false, 160, 60);
+        TischTyp computerTisch = new TischTyp(2, true, false, 180, 70);
+        TischTyp höhenvertellbarerTisch = new TischTyp(1, true, true, 160, 80);
 
-        Calendar start = Calendar.getInstance();
-        Calendar ende = Calendar.getInstance();
+        //Stuhltyp
+        StuhlTyp drehstuhl = new StuhlTyp(true, "Dynamic");
+        StuhlTyp einfacherStuhl = new StuhlTyp(false, "Static");
 
-        start.set(2020, 05, 04, 14, 50);
-        ende.set(2020, 05, 04, 13, 20);
+        //KameraTypen //Pixel in mega angegeben, Brennweite in mm
+        KameraTyp statischeWebcam = new KameraTyp("Logitech", "Streamcam", 16, 50, false);
+        KameraTyp bewegbareWebcam = new KameraTyp("csl", "Full HD Webcam", 4, 100, true);
 
-        if (start.before(ende)) {
-            System.out.println("Hi");
+        //PcTyp Taktfrequenz in GHz
+        PCTyp windowsPc = new PCTyp("Windows", 4.4, true, (short)16);
+        PCTyp linuxPc = new PCTyp("Linux", 2.2, false, (short)4);
+        PCTyp iosPC = new PCTyp("IOS", 3.2, false, (short) 8);
+
+        //MikrofonTyp Empfindlichkeit in max db
+        MikrofonTyp konferenzMikrofon = new MikrofonTyp("Rhode", "NT-USB", true, 80);
+        MikrofonTyp bbbMikrofon = new MikrofonTyp("Tonor", "Q9", false, 50);
+
+
+
+ */
+
+        ServiceLocator.setInstance(ServiceLocator.getInstance().getPersistenz().lade("TestNeu"));
+        System.out.println(ServiceLocator.getInstance().getHausliste().getAlleHaeuser().toString());
+
+        System.out.println(ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size()+"");
+        System.out.println(ServiceLocator.getInstance().getHausliste().getAlleHaeuser().size()+"");
+
+        for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
+            System.out.println(h.getRaeume().size());
         }
-        HausListe lichtenberg = HausListe.getInstance();
-        // System.out.println(lichtenberg.getAlleHaeuser().size());
-        lichtenberg.addHaus(new Haus("6A", true));
-        lichtenberg.getAlleHaeuser().get(0).getRaeume().add(new Raum(1));
-        lichtenberg.getAlleHaeuser().get(0).getRaeume().get(0).
-                addAusstattung(new Beamer(new BeamerTyp("Philips", "X3", 3000, true), Calendar.getInstance()), 2);
-        //  System.out.println(lichtenberg.getAlleHaeuser().size());
-        lichtenberg.addHaus(new Haus("6B", true));
-        //  System.out.println(lichtenberg.getAlleHaeuser().size());
-        PersistenzDB datenbank = PersistenzDB.getInstance();
-        //datenbank.speichern("datenbank.dat", lichtenberg);
 
-       // HausListe neu = datenbank.lade("datenbank.dat");
-        //neu.print();
 
-        //HausListe b = datenbank.lade("datenbank.dat");
 
-        
-        //new ServiceLocator(HausListe.getInstance());
 
+
+        //GUI starten
+        new GUI();
 
 
     }
