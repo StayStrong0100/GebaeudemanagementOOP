@@ -43,11 +43,11 @@ public class Raum implements Serializable {
     }
 
     public ArrayList<Ausstattungsmerkmal> getAusstattung() {
-        return ausstattung;
+        return this.ausstattung;
     }
 
     public ArrayList<Terminbuchung> getBuchungen() {
-        return buchungen;
+        return this.buchungen;
     }
 
     public Raum(int raumnummer) {
@@ -55,7 +55,7 @@ public class Raum implements Serializable {
     }
 
     public void buchen(Calendar start, Calendar ende, Dozent doz){
-        buchungen.add(new Terminbuchung(start,ende,doz));
+        this.buchungen.add(new Terminbuchung(start,ende,doz));
     }
 
     public boolean cancelOrder(int id){

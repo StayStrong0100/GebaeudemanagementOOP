@@ -671,10 +671,11 @@ public class HausListe implements Serializable, HauslisteIF {
      * @since 20220725
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende) {
+        //TODO @Lukas Filter funktioniert nicht: es werdem alle Räume zurückgegeben
         ArrayList<Raum> freieRaueme = new ArrayList<>();
         for (Raum r : this.getAlleRaeueme()
         ) {
-            if (!terminKollidiert(r, start, ende)) {
+            if (!this.terminKollidiert(r, start, ende)) {
                 freieRaueme.add(r);
             }
         }
@@ -692,9 +693,8 @@ public class HausListe implements Serializable, HauslisteIF {
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende, ArrayList<Raum> raumListe) {
         ArrayList<Raum> freieRaueme = new ArrayList<>();
-        for (Raum r : raumListe
-        ) {
-            if (!terminKollidiert(r, start, ende)) {
+        for (Raum r : raumListe) {
+            if (!this.terminKollidiert(r, start, ende)) {
                 freieRaueme.add(r);
             }
         }

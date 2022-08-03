@@ -165,6 +165,8 @@ public class GUI extends JFrame {
     private JComboBox buchenRaumnummerSelectInput;
     private JComboBox buchenDozentSelectInput;
     private JComboBox raumlisteAddHausInput;
+    private JScrollPane panelScrollRaumbearbeiten;
+    private JSeparator raumbearbeitenSeperator;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -216,6 +218,8 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelRaumHinzufügen.setVisible(true);
+                raumlisteAddHausInput.removeAllItems();
+
                 for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
                     raumlisteAddHausInput.addItem(h.getHausnummer());
                 }
@@ -234,6 +238,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
+                panelScrollRaumbearbeiten.setVisible(true);
                 panelRaumBearbeiten.setVisible(true);
                 //raumbearbeitenBestätigung.setText(ServiceLocator.getInstance().getHausliste().toString());
                 raumbearbeitenRaumlisteInput.removeAllItems();
@@ -292,6 +297,10 @@ public class GUI extends JFrame {
         raumsucheSuchen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Felder leeren von vorherigen Durchläufen
+                raumsuchenbuchenBestätigung.setText("");
+                buchenRaumnummerSelectInput.removeAllItems();
+                buchenDozentSelectInput.removeAllItems();
 
                 //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
                 if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")){
@@ -333,19 +342,25 @@ public class GUI extends JFrame {
                 int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
                 int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
 
-                //Filter nach Zeit
-                    ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
-
                 //TODO @Lukas Filter kontrollieren, in GUI werden auch Räume angezeigt, die bereits gebucht sind
+                //Filter nach Zeit
+                ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
 
                 //Filter nach Ausstattung
                 perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
+
+                //TODO @Lukas DEBUGING
+                System.out.println("Anzahl Räume: " + ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size());
+                System.out.println("Anzahl freier Räume: " + freieRaueme.size());
+                System.out.println("Anzahl perfekter Räume: " + perfekteRaueme.size());
 
                 if (perfekteRaueme.size() == 0){
                     raumsuchenbuchenBestätigung.setText("Es gibt keine passenden Räume, bitte verändern Sie Ihre Suchkriterien!");
                 }
 
                 else {
+                    //Clearn, falls alte vorhanden:
+
                     //Gefundene Räume in den DropDownMenus zum Buchen anzeigen
                     for (Raum r : perfekteRaueme) {
                         buchenRaumnummerSelectInput.addItem(r.getRaumnummer());
@@ -354,7 +369,7 @@ public class GUI extends JFrame {
                     for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
                         buchenDozentSelectInput.addItem(d.getName());
                     }
-                    raumbearbeitenBestätigung.setText("Bitte wählen Sie einen Raum und einen Dozenten aus!");
+                    raumsuchenbuchenBestätigung.setText("Bitte wählen Sie einen Raum und einen Dozenten aus!");
 
                 }
             }
@@ -452,6 +467,7 @@ public class GUI extends JFrame {
                             if (d.getName().equals(dozent)){
                                 r.buchen(start,ende,d);
                                 raumsuchenbuchenBestätigung.setText("Erfolgreich gebucht. BuchungsID: " + (r.getBuchungen().get(r.getBuchungen().size()-1).getId()));
+                                System.out.println("Anzahl Buchungen im Raum: " +r.getBuchungen().size());
                                 return;
                             }
                         }
@@ -536,16 +552,21 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Wenn kein Typ gewählt wurde, kann nur beim Starten passieren
-                if(raumbearbeitenHinzufügenTypInput.getSelectedItem()==null){
-                    raumbearbeitenBestätigung.setText("Bitte wählen Sie einen Typen aus!");
+                if(raumbearbeitenHinzufügenTypInput.getSelectedItem() == null || raumbearbeitenHinzufügenArtInput.getSelectedItem() == null){
+                    raumbearbeitenBestätigung.setText("Bitte wählen Sie Art und Typ aus!");
                     return;
                 }
 
+                //Es muss vorher ein Raum gewählt worden sein
+                if (raumbearbeitenRaumlisteInput.getSelectedItem() == null){
+                    raumbearbeitenBestätigung.setText("Bitte wählen Sie zuerst einen Raum aus!");
+                    return;
+                }
+
+                //Initialisierung
                 int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
                 String typ = raumbearbeitenHinzufügenTypInput.getSelectedItem().toString();
                 String art = raumbearbeitenHinzufügenArtInput.getSelectedItem().toString();
-
-                //TODO findet nur Raum 101, alle anderen anscheinend nicht vorhanden
 
                 //Im entsprechenden Raum
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
@@ -575,9 +596,9 @@ public class GUI extends JFrame {
                             return;
                         }
                     }
-                    raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Raum nicht gefunden.");
-                    return;
                 }
+                raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Raum nicht gefunden.");
+                return;
 
 
             }
@@ -588,22 +609,28 @@ public class GUI extends JFrame {
                 //Aktuelle Ausstattung dem Zustands-DropDown Menu hinzufügen
                 raumbearbeitenVerändernAusstattungInput.removeAllItems();
 
-                int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
+                if (raumbearbeitenRaumlisteInput.getSelectedItem() != null){
+                    int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
 
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
-                    if(r.getRaumnummer() == raumID){
-                        for (Ausstattungsmerkmal a : r.getAusstattung()) {
-                            //DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-                            //raumbearbeitenVerändernAusstattungInput.addItem(a.getId() +"\t"+ df.format(a.getAnschaffungsdatum().getTime()));
-                            raumbearbeitenVerändernAusstattungInput.addItem(a.getId());
-                            //a.getClass().
-                            //TODO Modell anzeigen lassen
+                    for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                        if(r.getRaumnummer() == raumID){
+                            for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                                //DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                                //raumbearbeitenVerändernAusstattungInput.addItem(a.getId() +"\t"+ df.format(a.getAnschaffungsdatum().getTime()));
+                                raumbearbeitenVerändernAusstattungInput.addItem(a.getId());
+                                //a.getClass().
+                                //TODO @Lukas Modell anzeigen lassen
 
 
+                            }
                         }
-                    }
 
+                    }
                 }
+
+
+
+
             }
         });
         raumbearbeitenVerändernCheck.addActionListener(new ActionListener() {
@@ -733,6 +760,7 @@ public class GUI extends JFrame {
     panelStartseite.setVisible(false);
     panelRaumBearbeiten.setVisible(false);
     panelDozentVerwalten.setVisible(false);
+    panelScrollRaumbearbeiten.setVisible(false);
     }
 
     private void createUIComponents() {
