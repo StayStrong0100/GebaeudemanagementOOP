@@ -13,7 +13,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class GUI extends JFrame {
     private JMenuItem dozentHinzufügen = new JMenuItem("Dozent hinzufügen");
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
 
-    // Panels und Labels
+    // GUI Elemente: Panels, Labels, ComboBox, TextField. TextAreas
     private JPanel panelMain;
     private JPanel panelRaumHinzufügen;
     private JPanel panelRaumSuchenBuchen;
@@ -46,6 +45,8 @@ public class GUI extends JFrame {
     private JPanel panelInventarBearbeiten;
     private JPanel panelDozentenUebersicht;
     private JPanel panelDozentenTerminplan;
+    private JPanel panelFooter;
+
     private JLabel raumlisteTitel;
     private JLabel inventurStuehleTitel;
     private JLabel dozTerminplanTitel;
@@ -55,10 +56,6 @@ public class GUI extends JFrame {
     private JPanel panelStartseite;
     private JLabel startseiteTitel;
     private JLabel startseiteBild;
-
-
-    private JMenu startseite = new JMenu("Start");
-    private JPanel panelFooter;
     private JLabel footerContent;
     private JTextField raumsucheStartzeitInput;
     private JTextField raumsucheEndzeitInput;
@@ -88,7 +85,6 @@ public class GUI extends JFrame {
     private JLabel raumlisteAddNummerTitel;
     private JTextField raumlisteAddNummerInput;
     private JLabel raumlisteAddHausTitel;
-    private JTextField raumlisteAddHausInput;
     private JButton raumlisteAddButton;
     private JPanel panelRaumBearbeiten;
     private JLabel raumbearbeitenTitel;
@@ -103,7 +99,6 @@ public class GUI extends JFrame {
     private JTextField raumbearbeitenRaumIDNeuInput;
     private JTextArea raumbearbeitenBestätigung;
     private JTextArea raumsuchenbuchenBestätigung;
-    private JPanel panelBuchen;
     private JTextField buchenRaumnummerInput;
     private JTextField buchenDozentInput;
     private JLabel buchenRaumnummerTitel;
@@ -146,7 +141,6 @@ public class GUI extends JFrame {
     private JLabel dozTerminplanT6Titel;
     private JLabel dozTerminplanT2Titel;
     private JLabel dozTerminplanDonnerstagTitel;
-    private JLabel buchenDozentenSuche;
     private JLabel dozTerminplanPlatzhalter;
     private JLabel dozTerminplanW1Titel;
     private JTextArea dozTerminplanBestätigung;
@@ -168,12 +162,16 @@ public class GUI extends JFrame {
     private JComboBox raumbearbeitenRaumlisteInput;
     private JComboBox raumbearbeitenVerändernZustandInput;
     private JComboBox raumbearbeitenVerändernInput;
+    private JComboBox buchenRaumnummerSelectInput;
+    private JComboBox buchenDozentSelectInput;
+    private JComboBox raumlisteAddHausInput;
 
     // Startbild Elemente
     private ImageIcon hwr;
     private JLabel hintergrund;
 
     //Attribute für Methoden mit Zugriff auf Verarbeitungsschicht
+    //TODO @Lukas prüfen, ob Elemente noch notwendig sind
     private ArrayList<Raum> perfekteRaueme = new ArrayList<>();
     private Calendar start = Calendar.getInstance();
     private Calendar ende = Calendar.getInstance();
@@ -201,13 +199,6 @@ public class GUI extends JFrame {
         this.setMinimumSize(new Dimension(500, 500));
         this.setSize(500,500);
         this.setLayout(new FlowLayout());
-        /*
-        //Hintergrundbild für Startseite erstellen
-        hwr = new ImageIcon("src/GUI/Moritz/HWR Berlin.jpg");
-        hintergrund = new JLabel(); // create a label
-        hintergrund.setHorizontalTextPosition(JLabel.CENTER);
-        hintergrund.setIcon(hwr);
-        this.add(hintergrund);*/
 
         //Seiten Konfiguration
         hauptMenue.setVisible(true);
@@ -218,11 +209,16 @@ public class GUI extends JFrame {
         panelStartseite.setVisible(true);
         //hintergrund.setVisible(true);
 
+
+        //Es folgen die Action Listener, beim Aufruf / Wechsel von Seiten
         raumHinzufügen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelRaumHinzufügen.setVisible(true);
+                for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
+                    raumlisteAddHausInput.addItem(h.getHausnummer());
+                }
             }
         });
 
@@ -291,10 +287,10 @@ public class GUI extends JFrame {
             }
         });
 
+        //Es folgen Action Listener, die bei Buttons ausgeführt werden
         raumsucheSuchen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                panelBuchen.setVisible(false);
 
                 //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
                 if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")){
@@ -303,8 +299,6 @@ public class GUI extends JFrame {
                 }
 
                 //Zeit-Daten umwandeln
-
-
                 SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
                 try {
                     start.setTime(format.parse(raumsucheStartzeitInput.getText()));
@@ -341,6 +335,8 @@ public class GUI extends JFrame {
                 //Filter nach Zeit
                     ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
 
+                //TODO @Lukas Filter kontrollieren, in GUI werden auch Räume angezeigt, die bereits gebucht sind
+
                 //Filter nach Ausstattung
                 perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
 
@@ -349,17 +345,16 @@ public class GUI extends JFrame {
                 }
 
                 else {
-                    //Gefundene Räume anzeigen
-                    String anzeige = "Gefundene Räume: \n";
+                    //Gefundene Räume in den DropDownMenus zum Buchen anzeigen
                     for (Raum r : perfekteRaueme) {
-                        anzeige += (r.printRaum());
-                        anzeige += ("\n");
+                        buchenRaumnummerSelectInput.addItem(r.getRaumnummer());
                     }
+                    //Dozenten Auswahl
+                    for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                        buchenDozentSelectInput.addItem(d.getName());
+                    }
+                    raumbearbeitenBestätigung.setText("Bitte wählen Sie einen Raum und einen Dozenten aus!");
 
-                    raumsuchenbuchenBestätigung.setText(anzeige);
-                    //Buchungs Panel sichtbar machen
-                    panelBuchen.setVisible(true);
-                    buchenBestätigung.setText("Bitte geben Sie aus der obigen Liste eine Raumnummer und den gewünschten Dozenten ein!");
                 }
             }
         });
@@ -367,16 +362,17 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
-                if (raumlisteAddNummerInput.getText().equals("") || raumlisteAddHausInput.getText().equals("")){
+                if (raumlisteAddNummerInput.getText().equals("") || raumlisteAddHausInput.getSelectedItem() == null){
                     raumlisteBestätigung.setText("Bitte füllen Sie beide Felder aus!");
                     return;
                 }
 
                 int raumID = Integer.valueOf(raumlisteAddNummerInput.getText());
-                String hausID = raumlisteAddHausInput.getText();
+                String hausID = raumlisteAddHausInput.getSelectedItem().toString();
                 //Prüfe, ob ID bereits vergeben ist
                 if(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(raumID)){
-                    raumlisteBestätigung.setText("Raum wurde nicht angelegt, RaumID bereits vergeben");
+                    raumlisteBestätigung.setText("Die Raumnummer ist bereits vergeben, bitte wählen Sie eine andere!");
+                    return;
                 }
 
                 //wenn keine Kollision: Im entsprechenden Haus addRaum
@@ -388,7 +384,7 @@ public class GUI extends JFrame {
                             return;
                         }
                     }
-                    raumlisteBestätigung.setText("Raum wurde nicht angelegt, Haus existiert nicht");
+                    raumlisteBestätigung.setText("Unerwarteter Fehler: Haus existiert nicht. Bitte wiederholen Sie den Vorgang!");
                 }
             }
         });
@@ -440,31 +436,26 @@ public class GUI extends JFrame {
         buchenCheck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Kontrolle, ob beide Felder ausgefüllt wurden
-                if(buchenRaumnummerInput.getText().equals("") || buchenDozentInput.getText().equals("")){
-                    buchenBestätigung.setText("Bitte füllen Sie beide Felder aus!");
+                //Kontrolle, ob Raum und Dozent ausgewählt wurden
+                if(buchenDozentSelectInput.getSelectedItem() == null || buchenRaumnummerSelectInput.getSelectedItem() == null){
+                    raumsuchenbuchenBestätigung.setText("Bitte füllen Sie beide Felder aus!");
                     return;
                 }
 
-                for (Raum r : perfekteRaueme) {
-                    if(r.getRaumnummer() == Integer.valueOf(buchenRaumnummerInput.getText())){
-                        for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
-                            if (d.getName().equals(buchenDozentInput.getText())){
-                                r.buchen(start, ende,d);
-                                buchenBestätigung.setText("Erfolgreich gebucht. BuchungsID: " + (r.getBuchungen().get(r.getBuchungen().size()-1).getId()));
+                int raumID = Integer.valueOf(buchenRaumnummerSelectInput.getSelectedItem().toString());
+                String dozent = buchenDozentSelectInput.getSelectedItem().toString();
+
+                for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                    if (r.getRaumnummer() == raumID){
+                        for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                            if (d.getName().equals(dozent)){
+                                r.buchen(start,ende,d);
+                                raumsuchenbuchenBestätigung.setText("Erfolgreich gebucht. BuchungsID: " + (r.getBuchungen().get(r.getBuchungen().size()-1).getId()));
+                                return;
                             }
-                            //Dozent ist noch nicht registriert
-                            else{
-                                buchenBestätigung.setText("Der Dozent ist noch nicht registriert. Bitte überprüfen Sie Ihre Eingaben oder fügen Sie den Dozenten hinzu!");
-                            }
-                            return;
                         }
                     }
-                    //Raumnummer war nicht in der Liste der passenden Räume
-                    else {
-                        buchenBestätigung.setText("Der angegebene Raum entspricht nicht den Suchkriterien. \t Bitte überprüfen Sie ihre Eingaben und vergewissern Sie sich, dass die Raumnummer oben angegeben ist!");
-                        return;
-                    }
+                    raumsuchenbuchenBestätigung.setText("Unerwarteter Fehler, bitte wiederholen Sie den Buchungsvorgang");
                 }
 
             }
@@ -637,112 +628,15 @@ public class GUI extends JFrame {
     }
 
     /**
-     * @deprecated Alte Version, um den Typ zu ermitteln
+     * Methode ermittelt den Typ, basierend auf einem String der dem Typennamen entspricht
+     *
+     * @author ZanderLK
+     * @version 1.0.1
+     * @since 20220802
+     *
      * @param typName
-     * @return
+     * @return typ
      */
-    /*
-    public AusstattungsTypIF getTyp(String typName){
-        switch (typName){
-            case "T26","P5530","X100-4k":
-                for (BeamerTyp typ : ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            case "Kreide250", "Kreide220", "Kreide200":
-                for (KreidetafelTyp typ : ServiceLocator.getInstance().getKreideTypen().getAlleKreidetafelTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            case "MX255 PRO", "Lite PRO":
-                for (SmartboardTyp typ : ServiceLocator.getInstance().getSmartboardTypen().getAlleSmartboardTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            case "BasicTisch", "Doppeltisch", "PCGroß", "PCUltraKomfort":
-                for (TischTyp typ : ServiceLocator.getInstance().getTischTypen().getAlleTischTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            case "WhiteSuper", "WhitePro", "WhiteBasic":
-                for (WhiteboardTyp typ : ServiceLocator.getInstance().getWhiteboardTypen().getAlleWhiteboardTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-
-            case "Dynamic", "Static":
-                for (StuhlTyp typ : ServiceLocator.getInstance().getStuhlTypen().getAlleStuhlTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-
-            case "Streamcam", "Full HD Webcam":
-                for (KameraTyp typ : ServiceLocator.getInstance().getKameraTypen().getAlleKameraTypen()) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            case "", "", "":
-                for ( typ : ServiceLocator.getInstance().) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-
-            case "", "", "":
-                for ( typ : ServiceLocator.getInstance().) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            case "", "", "":
-                for ( typ : ServiceLocator.getInstance().) {
-                    if(typ.getModell().equals(typName)){
-                        return (AusstattungsTypIF) typ;
-                    }
-
-                }
-                break;
-
-            default -> return null;
-        }
-
-
-     */
-
     public AusstattungsTypIF getTyp(String typName){
         for (BeamerTyp typ : ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen()) {
             if(typ.getModell().equals(typName)){
@@ -817,24 +711,23 @@ public class GUI extends JFrame {
         return null;
     }
 
-
-
-
-
-
-
-
-        public void verbergeAllePanels(){
-        panelRaumHinzufügen.setVisible(false);
-        panelRaumSuchenBuchen.setVisible(false);
-        panelInventur.setVisible(false);
-        panelInventarBearbeiten.setVisible(false);
-        panelDozentenUebersicht.setVisible(false);
-        panelDozentenTerminplan.setVisible(false);
-        panelStartseite.setVisible(false);
-        panelRaumBearbeiten.setVisible(false);
-        panelDozentVerwalten.setVisible(false);
-        panelBuchen.setVisible(false);
+    /**
+     * Verbirgt alle Panels, die nicht dauerhaft notwendig sind
+     *
+     * @author ZanderLK
+     * @version 1.1.3
+     * @since 20220725
+     */
+    public void verbergeAllePanels(){
+    panelRaumHinzufügen.setVisible(false);
+    panelRaumSuchenBuchen.setVisible(false);
+    panelInventur.setVisible(false);
+    panelInventarBearbeiten.setVisible(false);
+    panelDozentenUebersicht.setVisible(false);
+    panelDozentenTerminplan.setVisible(false);
+    panelStartseite.setVisible(false);
+    panelRaumBearbeiten.setVisible(false);
+    panelDozentVerwalten.setVisible(false);
     }
 
     private void createUIComponents() {
