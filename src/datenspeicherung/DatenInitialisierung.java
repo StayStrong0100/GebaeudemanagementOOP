@@ -8,6 +8,7 @@ import buchung.*;
 import zustand.*;
 
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class DatenInitialisierung {
 
@@ -84,6 +85,23 @@ public class DatenInitialisierung {
         //LautsprecherTyp
         ServiceLocator.getInstance().getLautsprecherTypen().addLautsprecherTyp(new LautsprecherTyp("Master200","Logitech",4,300,true));
         ServiceLocator.getInstance().getLautsprecherTypen().addLautsprecherTyp(new LautsprecherTyp("Basic100", "Logitech", 2,100,false));
+
+        //Beamer anlegen
+        for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 3; i++) {
+                ServiceLocator.getInstance().getHausliste().getAlleRaeueme().get(j).addAusstattung(new Beamer(ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen().get(i), Calendar.getInstance()));
+            }
+        }
+
+        //PCs anlegen
+        for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 3; i++) {
+                ServiceLocator.getInstance().getHausliste().getAlleRaeueme().get(j).addAusstattung(new PC(ServiceLocator.getInstance().getPCTypen().getAllePCTypen().get(i), Calendar.getInstance()));
+            }
+
+        ///
+        }
+
 
         //speichern
         ServiceLocator.getInstance().getPersistenz().speichern("Grunddaten",ServiceLocator.getInstance());

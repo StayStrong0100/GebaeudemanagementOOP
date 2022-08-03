@@ -568,9 +568,11 @@ public class GUI extends JFrame {
 
                         if(hinzugefügt){
                             raumbearbeitenBestätigung.setText("Ausstattung erfolgreich hinzugefügt.\nAktueller Raumzustand: "+r.toString());
+                            return;
                         }
                         else{
                             raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Der Typ exisitert nicht. Wenden Sie sich bitte an den Systemadmin!");
+                            return;
                         }
                     }
                     raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Raum nicht gefunden.");
@@ -584,6 +586,8 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Aktuelle Ausstattung dem Zustands-DropDown Menu hinzufügen
+                raumbearbeitenVerändernAusstattungInput.removeAllItems();
+
                 int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
 
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
