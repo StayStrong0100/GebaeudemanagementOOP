@@ -2,7 +2,7 @@ package ausstattung;
 
 import java.io.Serializable;
 
-public class SmartboardTyp implements Serializable {
+public class SmartboardTyp implements Serializable, AusstattungsTypIF {
 
     public static final long serialVersionUID = 0;
     private String modell;

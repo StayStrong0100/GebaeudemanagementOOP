@@ -4,49 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream">
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_09_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_09_49__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_13_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_13_24__Changes_.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="TypListen gemacht, GUI weiterentwickelt, Daten definiert">
+      <change afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/DozentHinzufuegen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/DozentTerminplan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/GPUMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/Inventarliste.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/Inventarsuche.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/MenuBarFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/Raumliste.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI_Moritz/Raumsuche.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/PC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Tisch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Tisch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/Objekttypen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/Objekttypen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,6 +87,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="DatenInitialisierung" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datenspeicherung.DatenInitialisierung" />
+      <module name="GebaeudemanagementOOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datenspeicherung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GPUMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.Moritz.GPUMain" />
       <module name="GebaeudemanagementOOP" />
@@ -143,6 +143,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DatenInitialisierung" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GPUMain" />
         <item itemvalue="Application.guiTest" />
@@ -438,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659451300963</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="TypListen gemacht, GUI weiterentwickelt, Daten definiert">
+      <created>1659479773185</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1659479773186</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -453,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
     <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
     <MESSAGE value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
     <MESSAGE value="Inventur implementiert" />
@@ -478,7 +485,8 @@
     <MESSAGE value="Neue GUI implementiert" />
     <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
     <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
+    <MESSAGE value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

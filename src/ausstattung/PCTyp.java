@@ -2,7 +2,7 @@ package ausstattung;
 
 import java.io.Serializable;
 
-public class PCTyp implements Serializable{
+public class PCTyp implements Serializable, AusstattungsTypIF{
 
     public static final long serialVersionUID = 0;
 
@@ -50,6 +50,10 @@ public class PCTyp implements Serializable{
 
     public void setRam(short ram) {
         this.ram = ram;
+    }
+
+    public String getModell() {
+        return this.modell;
     }
 
     @Override

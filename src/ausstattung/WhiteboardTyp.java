@@ -2,7 +2,7 @@ package ausstattung;
 
 import java.io.Serializable;
 
-public class WhiteboardTyp implements Serializable {
+public class WhiteboardTyp implements Serializable, AusstattungsTypIF {
 
     public static final long serialVersionUID = 0;
     private String modell;
@@ -49,6 +49,11 @@ public class WhiteboardTyp implements Serializable {
 
     public void setHoehe(double hoehe) {
         this.hoehe = hoehe;
+    }
+
+
+    public String getModell() {
+        return this.modell;
     }
 
     @Override

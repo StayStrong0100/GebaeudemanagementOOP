@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MikrofonTypListe implements Serializable, AusstattungsTypIF {
+public class MikrofonTypListe implements Serializable {
     private ArrayList<MikrofonTyp> alleMikrofonTypen = new ArrayList<>();
     private static MikrofonTypListe instance;
 

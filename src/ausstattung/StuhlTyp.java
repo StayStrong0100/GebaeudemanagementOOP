@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.rmi.ServerError;
 
-public class StuhlTyp implements Serializable{
+public class StuhlTyp implements Serializable, AusstattungsTypIF{
 
     public static final long serialVersionUID = 0;
 

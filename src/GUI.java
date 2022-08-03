@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -166,6 +167,7 @@ public class GUI extends JFrame {
     private JComboBox raumbearbeitenHinzufügenArtInput;
     private JComboBox raumbearbeitenRaumlisteInput;
     private JComboBox raumbearbeitenVerändernZustandInput;
+    private JComboBox raumbearbeitenVerändernInput;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -470,35 +472,70 @@ public class GUI extends JFrame {
         raumbearbeitenHinzufügenArtInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*String art = raumbearbeitenHinzufügenArtInput.getSelectedItem().toString();
-
-                switch (art) {
+                raumbearbeitenHinzufügenTypInput.removeAllItems();
+                switch (raumbearbeitenHinzufügenArtInput.getSelectedItem().toString()) {
                     case "Beamer" -> {
-                        for (BeamerTyp bt : ServiceLocator.getInstance().
-                             ) {
-
+                        for (BeamerTyp typ : ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
                         }
-                    }r.addAusstattung(new Beamer(null, Calendar.getInstance()));
-                    case "Kamera" -> r.addAusstattung(new Kamera(null, Calendar.getInstance()));
-                    case "Kreidetafel" -> r.addAusstattung(new Kreidetafel(null, Calendar.getInstance()));
-                    case "Lautsprecher" -> r.addAusstattung(new Lautsprecher(null, Calendar.getInstance()));
-                    case "Mikrofon" -> r.addAusstattung(new Mikrofon(null, Calendar.getInstance()));
-                    case "PC" -> r.addAusstattung(new PC(null, Calendar.getInstance()));
-                    case "Smartboard" -> r.addAusstattung(new Smartboard(null, Calendar.getInstance()));
-                    case "Stuhl" -> r.addAusstattung(new Stuhl(null, Calendar.getInstance()));
-                    case "Tisch" -> r.addAusstattung(new Tisch(null, Calendar.getInstance()));
-                    case "Whiteboard" -> r.addAusstattung(new Whiteboard(null, Calendar.getInstance()));
+                    }
+
+                    case "Kamera" -> {
+                        for (KameraTyp typ : ServiceLocator.getInstance().getKameraTypen().getAlleKameraTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Kreidetafel" -> {
+                        for (KreidetafelTyp typ : ServiceLocator.getInstance().getKreideTypen().getAlleKreidetafelTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Lautsprecher" -> {
+                        for (LautsprecherTyp typ : ServiceLocator.getInstance().getLautsprecherTypen().getAlleLautsprecherTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Mikrofon" -> {
+                        for (MikrofonTyp typ : ServiceLocator.getInstance().getMikrofonTypen().getAlleMikrofonTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "PC" -> {
+                        for (PCTyp typ : ServiceLocator.getInstance().getPCTypen().getAllePCTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Smartboard" -> {
+                        for (SmartboardTyp typ : ServiceLocator.getInstance().getSmartboardTypen().getAlleSmartboardTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Stuhl" -> {
+                        for (StuhlTyp typ : ServiceLocator.getInstance().getStuhlTypen().getAlleStuhlTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Tisch" -> {
+                        for (TischTyp typ : ServiceLocator.getInstance().getTischTypen().getAlleTischTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
+                    case "Whiteboard" -> {
+                        for (WhiteboardTyp typ : ServiceLocator.getInstance().getWhiteboardTypen().getAlleWhiteboardTypen()) {
+                            raumbearbeitenHinzufügenTypInput.addItem(typ.getModell());
+                        }
+                    }
+
                     default -> System.out.println("Kp why, aber den Typ geht es nicht.");
                 }
-
-                String typ = raumbearbeitenHinzufügenTypInput.getSelectedItem().toString();
-
-
-
-
-                 */
-
-                raumbearbeitenBestätigung.setText(raumbearbeitenHinzufügenArtInput.getSelectedItem().toString());
 
             }
         });
@@ -506,49 +543,288 @@ public class GUI extends JFrame {
         raumbearbeitenHinzufügenCheck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Wenn kein Typ gewählt wurde, kann nur beim Starten passieren
+                if(raumbearbeitenHinzufügenTypInput.getSelectedItem()==null){
+                    raumbearbeitenBestätigung.setText("Bitte wählen Sie einen Typen aus!");
+                    return;
+                }
+
                 int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
                 String typ = raumbearbeitenHinzufügenTypInput.getSelectedItem().toString();
                 String art = raumbearbeitenHinzufügenArtInput.getSelectedItem().toString();
 
-                //Im entsprechenden Raum, entsprechend dem Typ ein neues Objekt erstellen und hinzufügen
+                //Im entsprechenden Raum
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
                     if (r.getRaumnummer() == raumID){
-
+                        boolean hinzugefügt = true;
+                    //Entsprechend der Art, dann entsprechend des Typen
                         switch (art) {
-                            case "Beamer" -> r.addAusstattung(new Beamer(null, Calendar.getInstance()));
-                            case "Kamera" -> r.addAusstattung(new Kamera(null, Calendar.getInstance()));
-                            case "Kreidetafel" -> r.addAusstattung(new Kreidetafel(null, Calendar.getInstance()));
-                            case "Lautsprecher" -> r.addAusstattung(new Lautsprecher(null, Calendar.getInstance()));
-                            case "Mikrofon" -> r.addAusstattung(new Mikrofon(null, Calendar.getInstance()));
-                            case "PC" -> r.addAusstattung(new PC(null, Calendar.getInstance()));
-                            case "Smartboard" -> r.addAusstattung(new Smartboard(null, Calendar.getInstance()));
-                            case "Stuhl" -> r.addAusstattung(new Stuhl(null, Calendar.getInstance()));
-                            case "Tisch" -> r.addAusstattung(new Tisch(null, Calendar.getInstance()));
-                            case "Whiteboard" -> r.addAusstattung(new Whiteboard(null, Calendar.getInstance()));
-                            default -> System.out.println("Kp why, aber den Typ geht es nicht.");
+                            case "Beamer" -> r.addAusstattung(new Beamer((BeamerTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Kamera" -> r.addAusstattung(new Kamera((KameraTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Kreidetafel" -> r.addAusstattung(new Kreidetafel((KreidetafelTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Lautsprecher" -> r.addAusstattung(new Lautsprecher((LautsprecherTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Mikrofon" -> r.addAusstattung(new Mikrofon((MikrofonTyp) getTyp(typ), Calendar.getInstance()));
+                            case "PC" -> r.addAusstattung(new PC((PCTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Smartboard" -> r.addAusstattung(new Smartboard((SmartboardTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Stuhl" -> r.addAusstattung(new Stuhl((StuhlTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Tisch" -> r.addAusstattung(new Tisch((TischTyp) getTyp(typ), Calendar.getInstance()));
+                            case "Whiteboard" -> r.addAusstattung(new Whiteboard((WhiteboardTyp) getTyp(typ), Calendar.getInstance()));
+                            default -> hinzugefügt = false;
                         }
+
+                        if(hinzugefügt){
+                            raumbearbeitenBestätigung.setText("Ausstattung erfolgreich hinzugefügt.\nAktueller Raumzustand: "+r.toString());
+                        }
+                        else{
+                            raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Der Typ exisitert nicht. Wenden Sie sich bitte an den Systemadmin!");
+                        }
+
+
+
+
 
                     }
                     return;
 
                 }
 
+            }
+        });
+        raumbearbeitenRaumlisteInput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Aktuelle Ausstattung dem Zustands-DropDown Menu hinzufügen
+                int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
+
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                    if(r.getRaumnummer() == raumID){
+                        for (Ausstattungsmerkmal a : r.getAusstattung()) {
+                            //DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                            //raumbearbeitenVerändernInput.addItem(a.getId() +"\t"+ df.format(a.getAnschaffungsdatum().getTime()));
+                            raumbearbeitenVerändernInput.addItem(a.getId());
+                            //TODO Modell anzeigen lassen
 
 
+                        }
+                    }
 
+                }
+            }
+        });
+        raumbearbeitenVerändernCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int ID = Integer.valueOf(raumbearbeitenVerändernInput.getSelectedItem().toString());
+
+                String neuerStatus = raumbearbeitenVerändernZustandInput.getSelectedItem().toString();
+
+                for (Ausstattungsmerkmal a : ServiceLocator.getInstance().getHausliste().getAlleAusstattungen()) {
+                    if(a.getId() == ID){
+                        if (neuerStatus.equals("Defekt")){
+                            a.gehtKaputt();
+                            raumbearbeitenBestätigung.setText("Ausstattung " + ID + " wurde erfolgreich als defekt eingestuft.");
+                        } else if (neuerStatus.equals("Funktionstüchtig")) {
+                            a.wirdRepariert();
+                            raumbearbeitenBestätigung.setText("Ausstattung " + ID + " wurde erfolgreich als funktionstüchtig eingestuft.");
+                        }
+                        return;
+                    }
+
+                }
 
             }
         });
     }
 
+    /**
+     * @deprecated Alte Version, um den Typ zu ermitteln
+     * @param typName
+     * @return
+     */
+    /*
     public AusstattungsTypIF getTyp(String typName){
         switch (typName){
-            //TODO Typen Cases ergänzen
+            case "T26","P5530","X100-4k":
+                for (BeamerTyp typ : ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            case "Kreide250", "Kreide220", "Kreide200":
+                for (KreidetafelTyp typ : ServiceLocator.getInstance().getKreideTypen().getAlleKreidetafelTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            case "MX255 PRO", "Lite PRO":
+                for (SmartboardTyp typ : ServiceLocator.getInstance().getSmartboardTypen().getAlleSmartboardTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            case "BasicTisch", "Doppeltisch", "PCGroß", "PCUltraKomfort":
+                for (TischTyp typ : ServiceLocator.getInstance().getTischTypen().getAlleTischTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            case "WhiteSuper", "WhitePro", "WhiteBasic":
+                for (WhiteboardTyp typ : ServiceLocator.getInstance().getWhiteboardTypen().getAlleWhiteboardTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+
+            case "Dynamic", "Static":
+                for (StuhlTyp typ : ServiceLocator.getInstance().getStuhlTypen().getAlleStuhlTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+
+            case "Streamcam", "Full HD Webcam":
+                for (KameraTyp typ : ServiceLocator.getInstance().getKameraTypen().getAlleKameraTypen()) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            case "", "", "":
+                for ( typ : ServiceLocator.getInstance().) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+
+            case "", "", "":
+                for ( typ : ServiceLocator.getInstance().) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            case "", "", "":
+                for ( typ : ServiceLocator.getInstance().) {
+                    if(typ.getModell().equals(typName)){
+                        return (AusstattungsTypIF) typ;
+                    }
+
+                }
+                break;
+
+            default -> return null;
         }
+
+
+     */
+
+    public AusstattungsTypIF getTyp(String typName){
+        for (BeamerTyp typ : ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (KreidetafelTyp typ : ServiceLocator.getInstance().getKreideTypen().getAlleKreidetafelTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (SmartboardTyp typ : ServiceLocator.getInstance().getSmartboardTypen().getAlleSmartboardTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (TischTyp typ : ServiceLocator.getInstance().getTischTypen().getAlleTischTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (WhiteboardTyp typ : ServiceLocator.getInstance().getWhiteboardTypen().getAlleWhiteboardTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (StuhlTyp typ : ServiceLocator.getInstance().getStuhlTypen().getAlleStuhlTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (KameraTyp typ : ServiceLocator.getInstance().getKameraTypen().getAlleKameraTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (PCTyp typ : ServiceLocator.getInstance().getPCTypen().getAllePCTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for (MikrofonTyp typ : ServiceLocator.getInstance().getMikrofonTypen().getAlleMikrofonTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        for ( LautsprecherTyp typ : ServiceLocator.getInstance().getLautsprecherTypen().getAlleLautsprecherTypen()) {
+            if(typ.getModell().equals(typName)){
+                return (AusstattungsTypIF) typ;
+            }
+
+        }
+
+        return null;
     }
 
 
-    public void verbergeAllePanels(){
+
+
+
+
+
+
+        public void verbergeAllePanels(){
         panelRaumHinzufügen.setVisible(false);
         panelRaumSuchenBuchen.setVisible(false);
         panelInventur.setVisible(false);

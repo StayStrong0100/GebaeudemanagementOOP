@@ -1,9 +1,9 @@
-package Datenspeicherung;
+package datenspeicherung;
 
 import ausstattung.*;
 
 public class Objekttypen {
-
+/*
     //beamertypen
 
     BeamerTyp LCDProjektor = new BeamerTyp("TOPVISION", "T26", 9500, true);
@@ -63,6 +63,8 @@ public class Objekttypen {
     MikrofonTyp bbbMikrofon = new MikrofonTyp("Tonor", "Q9", false, 50);
 
 
+
+ */
 
 
 

@@ -24,10 +24,10 @@ public class Raum implements Serializable {
 
     @Override
     public String toString() {
-        String ausgabe = "Raumnummer:\t"+  raumnummer;
+        String ausgabe = "Raumnummer:\t"+  raumnummer+"\n\n";
 
         for(Ausstattungsmerkmal a : ausstattung){
-            ausgabe += a.toString();
+            ausgabe += a.toString()+"\n\n";
         }
 
     return ausgabe;

@@ -2,7 +2,7 @@ package ausstattung;
 
 import java.io.Serializable;
 
-public class TischTyp implements Serializable {
+public class TischTyp implements Serializable, AusstattungsTypIF {
 
     public static final long serialVersionUID = 0;
 
@@ -61,6 +61,12 @@ public class TischTyp implements Serializable {
     public void setLaenge(double laenge) {
         this.laenge = laenge;
     }
+
+    public String getModell() {
+        return this.modell;
+    }
+
+
 
     @Override
     public String toString() {

@@ -9,6 +9,7 @@ import java.util.Calendar;
 public abstract class Ausstattungsmerkmal implements Serializable {
 
     public static final long serialVersionUID = 0;
+
     private int id;
     private static int count=0;
     private Calendar anschaffungsdatum;

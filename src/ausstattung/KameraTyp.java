@@ -2,7 +2,7 @@ package ausstattung;
 
 import java.io.Serializable;
 
-public class KameraTyp implements Serializable {
+public class KameraTyp implements Serializable, AusstattungsTypIF {
 
     public static final long serialVersionUID = 0;
     private String modell;

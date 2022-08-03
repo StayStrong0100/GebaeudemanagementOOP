@@ -33,4 +33,6 @@ public class PC extends Ausstattungsmerkmal implements Serializable{
     public void print() {
         System.out.println(toString());
     }
+
+
 }

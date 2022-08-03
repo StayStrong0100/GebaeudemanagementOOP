@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LautsprecherTypListe implements Serializable, AusstattungsTypIF {
+public class LautsprecherTypListe implements Serializable {
     private ArrayList<LautsprecherTyp> alleLautsprecherTypen = new ArrayList<>();
     private static LautsprecherTypListe instance;
 

@@ -86,7 +86,7 @@ public class DatenInitialisierung {
         ServiceLocator.getInstance().getLautsprecherTypen().addLautsprecherTyp(new LautsprecherTyp("Basic100", "Logitech", 2,100,false));
 
         //speichern
-        ServiceLocator.getInstance().getPersistenz().speichern("TestNeu",ServiceLocator.getInstance());
+        ServiceLocator.getInstance().getPersistenz().speichern("Grunddaten",ServiceLocator.getInstance());
     }
 }
 

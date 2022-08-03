@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TischTypListe implements Serializable, AusstattungsTypIF {
+public class TischTypListe implements Serializable {
     private ArrayList<TischTyp> alleTischTypen = new ArrayList<>();
     private static TischTypListe instance;
 

@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BeamerTypListe implements Serializable, AusstattungsTypIF {
+public class BeamerTypListe implements Serializable {
     private ArrayList<BeamerTyp> alleBeamerTypen = new ArrayList<>();
     private static BeamerTypListe instance;
 

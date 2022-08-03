@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WhiteboardTypListe implements Serializable, AusstattungsTypIF {
+public class WhiteboardTypListe implements Serializable {
     private ArrayList<WhiteboardTyp> alleWhiteboardTypen = new ArrayList<>();
     private static WhiteboardTypListe instance;
 
