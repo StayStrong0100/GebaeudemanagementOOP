@@ -720,9 +720,24 @@ public class HausListe implements Serializable, HauslisteIF {
         return false;
     }
 
+    /**
+     * Gibt alle Ausstattungsmerkmale zurück
+     *
+     * @author ZanderLK
+     * @since 20220803
+     * @version 1.0.0
+     *
+     * @return alleAusstattungen - ArrayList<Ausstatungsmerkmal>
+     */
     public ArrayList<Ausstattungsmerkmal> getAlleAusstattungen(){
         ArrayList<Ausstattungsmerkmal> alleAusstattungen = new ArrayList<>();
-        //TODO ergänzen
+
+        for (Haus h : this.getAlleHaeuser()){
+            for (Raum r : h.getRaeume()){
+                alleAusstattungen.addAll(r.getAusstattung());
+            }
+        }
+
         return alleAusstattungen;
     }
 

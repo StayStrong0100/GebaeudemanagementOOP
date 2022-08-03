@@ -161,7 +161,7 @@ public class GUI extends JFrame {
     private JComboBox raumbearbeitenHinzufügenArtInput;
     private JComboBox raumbearbeitenRaumlisteInput;
     private JComboBox raumbearbeitenVerändernZustandInput;
-    private JComboBox raumbearbeitenVerändernInput;
+    private JComboBox raumbearbeitenVerändernAusstattungInput;
     private JComboBox buchenRaumnummerSelectInput;
     private JComboBox buchenDozentSelectInput;
     private JComboBox raumlisteAddHausInput;
@@ -241,6 +241,7 @@ public class GUI extends JFrame {
 
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
                     raumbearbeitenRaumlisteInput.addItem(r.getRaumnummer());
+
                 //    System.out.println(r.getRaumnummer());
                 }
             }
@@ -544,6 +545,8 @@ public class GUI extends JFrame {
                 String typ = raumbearbeitenHinzufügenTypInput.getSelectedItem().toString();
                 String art = raumbearbeitenHinzufügenArtInput.getSelectedItem().toString();
 
+                //TODO findet nur Raum 101, alle anderen anscheinend nicht vorhanden
+
                 //Im entsprechenden Raum
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
                     if (r.getRaumnummer() == raumID){
@@ -569,15 +572,11 @@ public class GUI extends JFrame {
                         else{
                             raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Der Typ exisitert nicht. Wenden Sie sich bitte an den Systemadmin!");
                         }
-
-
-
-
-
                     }
+                    raumbearbeitenBestätigung.setText("Unerwarteter Fehler: Raum nicht gefunden.");
                     return;
-
                 }
+
 
             }
         });
@@ -591,8 +590,9 @@ public class GUI extends JFrame {
                     if(r.getRaumnummer() == raumID){
                         for (Ausstattungsmerkmal a : r.getAusstattung()) {
                             //DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-                            //raumbearbeitenVerändernInput.addItem(a.getId() +"\t"+ df.format(a.getAnschaffungsdatum().getTime()));
-                            raumbearbeitenVerändernInput.addItem(a.getId());
+                            //raumbearbeitenVerändernAusstattungInput.addItem(a.getId() +"\t"+ df.format(a.getAnschaffungsdatum().getTime()));
+                            raumbearbeitenVerändernAusstattungInput.addItem(a.getId());
+                            //a.getClass().
                             //TODO Modell anzeigen lassen
 
 
@@ -605,12 +605,13 @@ public class GUI extends JFrame {
         raumbearbeitenVerändernCheck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int ID = Integer.valueOf(raumbearbeitenVerändernInput.getSelectedItem().toString());
+                int ID = Integer.valueOf(raumbearbeitenVerändernAusstattungInput.getSelectedItem().toString());
 
                 String neuerStatus = raumbearbeitenVerändernZustandInput.getSelectedItem().toString();
 
                 for (Ausstattungsmerkmal a : ServiceLocator.getInstance().getHausliste().getAlleAusstattungen()) {
                     if(a.getId() == ID){
+                        raumbearbeitenBestätigung.setText("Ausstattung gefunden!");
                         if (neuerStatus.equals("Defekt")){
                             a.gehtKaputt();
                             raumbearbeitenBestätigung.setText("Ausstattung " + ID + " wurde erfolgreich als defekt eingestuft.");
