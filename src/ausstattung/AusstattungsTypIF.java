@@ -9,5 +9,8 @@ import java.util.Calendar;
 
 public interface AusstattungsTypIF {
 
+    String getModell();
+
+
 
 }

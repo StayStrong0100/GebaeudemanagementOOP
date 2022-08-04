@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -217,6 +218,12 @@ public class GUI extends JFrame {
     private JPanel panelAusstattungstypHinzufuegen;
     private JLabel ausstattungstypHinzufuegenTitel;
     private JSeparator ausstattungstypHinzufuegenTitelSeperator;
+    private JSeparator raumbearbeitenTitelSeperator;
+    private JSeparator raumbearbeitenAusstattungSeperator;
+    private JSpinner raumbearbeitenHinzufuegenAnzahl;
+    private JLabel raumbearbeitenHinzufuegenArtTitel;
+    private JLabel raumbearbeitenHinzufuegenModellTitel;
+    private JLabel raumbearbeitenHinzufuegenAnzahlTitel;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -306,10 +313,16 @@ public class GUI extends JFrame {
             raumbearbeitenRaumlisteInput.removeAllItems();
             //raumbearbeitenBestaetigung.setText(ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size()+"");
 
-            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
-                raumbearbeitenRaumlisteInput.addItem(r.getRaumnummer());
+            ArrayList<Integer>alleRaumnummern = new ArrayList<>();
 
-            //    System.out.println(r.getRaumnummer());
+            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                alleRaumnummern.add(r.getRaumnummer());
+            }
+
+            alleRaumnummern.sort(null);
+
+            for (Integer ID : alleRaumnummern) {
+                raumbearbeitenRaumlisteInput.addItem(ID.toString());
             }
         });
 
@@ -687,13 +700,8 @@ public class GUI extends JFrame {
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
                     if(r.getRaumnummer() == raumID){
                         for (Ausstattungsmerkmal a : r.getAusstattung()) {
-                            //DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-                            //raumbearbeitenVeraendernAusstattungInput.addItem(a.getId() +"\t"+ df.format(a.getAnschaffungsdatum().getTime()));
-                            raumbearbeitenVeraendernAusstattungInput.addItem(a.getId());
-                            //a.getClass().
-                            //TODO @Lukas Modell anzeigen lassen
-
-
+                            DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                            raumbearbeitenVeraendernAusstattungInput.addItem(a.getId() + " | " + a.getExemplarTyp().getModell() + " | " + df.format(a.getAnschaffungsdatum().getTime()));
                         }
                     }
 
@@ -703,7 +711,8 @@ public class GUI extends JFrame {
 
         });
         raumbearbeitenVeraendernCheck.addActionListener(e -> {
-            int ID = Integer.valueOf(raumbearbeitenVeraendernAusstattungInput.getSelectedItem().toString());
+
+            int ID = Integer.valueOf(raumbearbeitenVeraendernAusstattungInput.getSelectedItem().toString().split(" | ")[0]);
 
             String neuerStatus = raumbearbeitenVeraendernZustandInput.getSelectedItem().toString();
 

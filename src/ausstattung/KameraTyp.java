@@ -19,6 +19,8 @@ public class KameraTyp implements Serializable, AusstattungsTypIF {
         this.flexibel = flexibel;
     }
 
+
+
     public void setMarke(String marke) {
         this.marke = marke;
     }

@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public abstract class Ausstattungsmerkmal implements Serializable, AusstattungsTypIF {
+public abstract class Ausstattungsmerkmal implements Serializable{
 
     public static final long serialVersionUID = 0;
 
@@ -14,6 +14,9 @@ public abstract class Ausstattungsmerkmal implements Serializable, AusstattungsT
     private static int count=0;
     private Calendar anschaffungsdatum;
     private ArrayList<Zustand> zustandsListe = new ArrayList<>();
+
+    public abstract AusstattungsTypIF getExemplarTyp();
+
 
     public int getId() {
         return id;
