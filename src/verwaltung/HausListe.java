@@ -3,16 +3,13 @@
  *
  * @author ZanderLK
  * @version 1.0.0
- * @since 202207??
- *
  * @param
- *
  * @return
-
+ * @since 202207??
  */
 package verwaltung;
 
-import ausstattung.*;
+import ausstattung.Ausstattungsmerkmal;
 import buchung.Terminbuchung;
 
 import java.io.Serializable;
@@ -23,8 +20,8 @@ import java.util.Calendar;
 public class HausListe implements Serializable, HauslisteIF {
 
     public static final long serialVersionUID = 0;
-    private ArrayList<Haus> alleHaeuser = new ArrayList<>();
     private static HausListe instance;
+    private final ArrayList<Haus> alleHaeuser = new ArrayList<>();
 
     private HausListe() {
     }
@@ -37,12 +34,16 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
 
-
     public ArrayList<Haus> getAlleHaeuser() {
         return alleHaeuser;
     }
 
-    public void addHaus(Haus neuesHaus) {this.alleHaeuser.add(neuesHaus);
+    public void addHaus(Haus neuesHaus) {
+        this.alleHaeuser.add(neuesHaus);
+    }
+
+    public void removeHaus(Haus altesHaus){
+        this.alleHaeuser.remove(altesHaus);
     }
 
 
@@ -55,7 +56,7 @@ public class HausListe implements Serializable, HauslisteIF {
      */
 
 
-        public String inventur() {
+    public String inventur() {
 /*
             //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
             int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
@@ -72,71 +73,71 @@ public class HausListe implements Serializable, HauslisteIF {
 
  */
 
-            String ausgabe = "";
-            ausgabe += ("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig()) + "\n";
-            ausgabe += (("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt()) + "\n\n");
-            ausgabe += (("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig()) + "\n");
-            ausgabe += (("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt()) + "\n\n");
-            ausgabe += (("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig()) + "\n");
-            ausgabe += (("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt()) + "\n\n");
-            ausgabe += (("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig()) + "\n");
-            ausgabe += (("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt()) + "\n\n");
-            ausgabe += (("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig()) + "\n");
-            ausgabe += (("PCs defekt: " + this.getAnzahlAllePCsDefekt()) + "\n\n");
-            ausgabe += (("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig()) + "\n");
-            ausgabe += (("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt()) + "\n\n");
-            ausgabe += (("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig()) + "\n");
-            ausgabe += (("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt()) + "\n\n");
-            ausgabe += (("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig()) + "\n");
-            ausgabe += (("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt()) + "\n\n");
-            ausgabe += (("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig()) + "\n");
-            ausgabe += (("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt()) + "\n\n");
-            ausgabe += (("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig()) + "\n");
-            ausgabe += (("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt()) + "\n");
-            return ausgabe;
-        }
+        String ausgabe = "";
+        ausgabe += ("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig()) + "\n";
+        ausgabe += (("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt()) + "\n\n");
+        ausgabe += (("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig()) + "\n");
+        ausgabe += (("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt()) + "\n\n");
+        ausgabe += (("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig()) + "\n");
+        ausgabe += (("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt()) + "\n\n");
+        ausgabe += (("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig()) + "\n");
+        ausgabe += (("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt()) + "\n\n");
+        ausgabe += (("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig()) + "\n");
+        ausgabe += (("PCs defekt: " + this.getAnzahlAllePCsDefekt()) + "\n\n");
+        ausgabe += (("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig()) + "\n");
+        ausgabe += (("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt()) + "\n\n");
+        ausgabe += (("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig()) + "\n");
+        ausgabe += (("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt()) + "\n\n");
+        ausgabe += (("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig()) + "\n");
+        ausgabe += (("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt()) + "\n\n");
+        ausgabe += (("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig()) + "\n");
+        ausgabe += (("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt()) + "\n\n");
+        ausgabe += (("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig()) + "\n");
+        ausgabe += (("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt()) + "\n");
+        return ausgabe;
+    }
 
-        @Override
-        public String toString() {
-            String ausgabe = "";
+    @Override
+    public String toString() {
+        String ausgabe = "";
 
-             ausgabe +="HausListe:";
-            for (Haus h : this.getAlleHaeuser()) {
+        ausgabe += "HausListe:";
+        for (Haus h : this.getAlleHaeuser()) {
+            ausgabe += "\n";
+            ausgabe += h.toString();
+            ausgabe += "\n";
+            for (Raum r : h.getRaeume()) {
+                ausgabe += r.toString();
                 ausgabe += "\n";
-                ausgabe += h.toString();
-                ausgabe += "\n";
-                for (Raum r : h.getRaeume()) {
-                    ausgabe += r.toString();
-                    ausgabe += "\n";
-                }
             }
-
-            return ausgabe;
         }
 
-        public void print(){
-            System.out.println(toString());
-        }
+        return ausgabe;
+    }
 
-        /**
-         * Gibt eine ArrayList mit allen existierenden Räumen zurück
-         *
-         * @return alleRaueme - ArrayList<Raum>
-         * @author ZanderLK
-         * @version 1.0.0
-         * @since 20220721
-         */
-        public ArrayList<Raum> getAlleRaeueme() {
-            ArrayList<Raum> alleRaeume = new ArrayList<>();
-            for (Haus h : this.getAlleHaeuser()
+    public void print() {
+        System.out.println(this);
+    }
+
+    /**
+     * Gibt eine ArrayList mit allen existierenden Räumen zurück
+     *
+     * @return alleRaueme - ArrayList<Raum>
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220721
+     */
+    public ArrayList<Raum> getAlleRaeueme() {
+        ArrayList<Raum> alleRaeume = new ArrayList<>();
+        for (Haus h : this.getAlleHaeuser()
+        ) {
+            for (Raum r : h.getRaeume()
             ) {
-                for (Raum r : h.getRaeume()
-                ) {
-                    alleRaeume.add(r);
-                }
+                alleRaeume.add(r);
             }
-            return alleRaeume;
         }
+        return alleRaeume;
+    }
 
     /**
      * Gibt alle Räume mit Haus- und Raumnummer in der Konsole aus
@@ -542,23 +543,20 @@ public class HausListe implements Serializable, HauslisteIF {
      * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
      * und gibt eine ArrayList mit passenden Räumen zurück
      *
-     *
+     * @param anzahlBeamer - int
+     *                     anzahlKamera - int
+     *                     anzahlKreidetafel - int
+     *                     anzahlLautsprecher - int
+     *                     anzahlMikrofon, int
+     *                     anzahlPC - int
+     *                     anzahlSmartboard - int
+     *                     anzahlStuhl - int
+     *                     anzahlTisch - int
+     *                     anzahlWhiteboard - int
+     * @return passendeRaueme - ArrayList<Raum>
      * @author Ben
      * @version 1.0.0
      * @since 20220725
-     *
-     * @param anzahlBeamer - int
-     *        anzahlKamera - int
-     *        anzahlKreidetafel - int
-     *        anzahlLautsprecher - int
-     *        anzahlMikrofon, int
-     *        anzahlPC - int
-     *        anzahlSmartboard - int
-     *        anzahlStuhl - int
-     *        anzahlTisch - int
-     *        anzahlWhiteboard - int
-     *
-     * @return passendeRaueme - ArrayList<Raum>
      */
     public ArrayList<Raum> filtereRaeuemeAusstattung(int anzahlBeamer, int anzahlKamera,
                                                      int anzahlKreidetafel, int anzahlLautsprecher,
@@ -593,23 +591,20 @@ public class HausListe implements Serializable, HauslisteIF {
      * und gibt eine ArrayList mit passenden Räumen zurück
      * NUR aus einer Array List von verfügbaren Räumen
      *
-     *
+     * @param anzahlBeamer - int
+     *                     anzahlKamera - int
+     *                     anzahlKreidetafel - int
+     *                     anzahlLautsprecher - int
+     *                     anzahlMikrofon, int
+     *                     anzahlPC - int
+     *                     anzahlSmartboard - int
+     *                     anzahlStuhl - int
+     *                     anzahlTisch - int
+     *                     anzahlWhiteboard - int
+     * @return passendeRaueme - ArrayList<Raum>
      * @author Ben
      * @version 1.0.0
      * @since 20220725
-     *
-     * @param anzahlBeamer - int
-     *        anzahlKamera - int
-     *        anzahlKreidetafel - int
-     *        anzahlLautsprecher - int
-     *        anzahlMikrofon, int
-     *        anzahlPC - int
-     *        anzahlSmartboard - int
-     *        anzahlStuhl - int
-     *        anzahlTisch - int
-     *        anzahlWhiteboard - int
-     *
-     * @return passendeRaueme - ArrayList<Raum>
      */
     public ArrayList<Raum> filtereRaeuemeAusstattung(ArrayList<Raum> freieRaeume, int anzahlBeamer, int anzahlKamera,
                                                      int anzahlKreidetafel, int anzahlLautsprecher,
@@ -618,25 +613,24 @@ public class HausListe implements Serializable, HauslisteIF {
 
         ArrayList<Raum> passendeRaueme = new ArrayList<>();
 
-            for (Raum r : freieRaeume) {
-                if (r.getAnzahlRaumBeamerFunktionstuechtig() >= anzahlBeamer
-                        && r.getAnzahlRaumKamerasFunktionstuechtig() >= anzahlKamera
-                        && r.getAnzahlRaumKreidetafelnFunktionstuechtig() >= anzahlKreidetafel
-                        && r.getAnzahlRaumLautsprecherFunktionstuechtig() >= anzahlLautsprecher
-                        && r.getAnzahlRaumMikrofoneFunktionstuechtig() >= anzahlMikrofon
-                        && r.getAnzahlRaumPCsFunktionstuechtig() >= anzahlPC
-                        && r.getAnzahlRaumSmartboardsFunktionstuechtig() >= anzahlSmartboard
-                        && r.getAnzahlRaumStuehleFunktionstuechtig() >= anzahlStuhl
-                        && r.getAnzahlRaumTischeFunktionstuechtig() >= anzahlTisch
-                        && r.getAnzahlRaumWhiteboardsFunktionstuechtig() >= anzahlWhiteboard) {
+        for (Raum r : freieRaeume) {
+            if (r.getAnzahlRaumBeamerFunktionstuechtig() >= anzahlBeamer
+                    && r.getAnzahlRaumKamerasFunktionstuechtig() >= anzahlKamera
+                    && r.getAnzahlRaumKreidetafelnFunktionstuechtig() >= anzahlKreidetafel
+                    && r.getAnzahlRaumLautsprecherFunktionstuechtig() >= anzahlLautsprecher
+                    && r.getAnzahlRaumMikrofoneFunktionstuechtig() >= anzahlMikrofon
+                    && r.getAnzahlRaumPCsFunktionstuechtig() >= anzahlPC
+                    && r.getAnzahlRaumSmartboardsFunktionstuechtig() >= anzahlSmartboard
+                    && r.getAnzahlRaumStuehleFunktionstuechtig() >= anzahlStuhl
+                    && r.getAnzahlRaumTischeFunktionstuechtig() >= anzahlTisch
+                    && r.getAnzahlRaumWhiteboardsFunktionstuechtig() >= anzahlWhiteboard) {
 
-                    passendeRaueme.add(r);
-                }
+                passendeRaueme.add(r);
             }
+        }
 
         return passendeRaueme;
     }
-
 
 
     /**
@@ -708,16 +702,15 @@ public class HausListe implements Serializable, HauslisteIF {
     /**
      * Überprüft, ob eine neue Raumnummer bereits vergeben ist
      *
+     * @param neueNummer
+     * @return boolean
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220728
-     *
-     * @param neueNummer
-     * @return boolean
      */
-    public boolean raumnummerKollidiert(int neueNummer){
-        for (Raum r:this.getAlleRaeueme()) {
-            if (r.getRaumnummer() == neueNummer){
+    public boolean raumnummerKollidiert(int neueNummer) {
+        for (Raum r : this.getAlleRaeueme()) {
+            if (r.getRaumnummer() == neueNummer) {
                 return true;
             }
         }
@@ -727,17 +720,16 @@ public class HausListe implements Serializable, HauslisteIF {
     /**
      * Gibt alle Ausstattungsmerkmale zurück
      *
-     * @author ZanderLK
-     * @since 20220803
-     * @version 1.0.0
-     *
      * @return alleAusstattungen - ArrayList<Ausstatungsmerkmal>
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220803
      */
-    public ArrayList<Ausstattungsmerkmal> getAlleAusstattungen(){
+    public ArrayList<Ausstattungsmerkmal> getAlleAusstattungen() {
         ArrayList<Ausstattungsmerkmal> alleAusstattungen = new ArrayList<>();
 
-        for (Haus h : this.getAlleHaeuser()){
-            for (Raum r : h.getRaeume()){
+        for (Haus h : this.getAlleHaeuser()) {
+            for (Raum r : h.getRaeume()) {
                 alleAusstattungen.addAll(r.getAusstattung());
             }
         }
@@ -746,3 +738,4 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
 }
+

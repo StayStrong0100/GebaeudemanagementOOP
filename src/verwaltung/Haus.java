@@ -40,6 +40,10 @@ public class Haus implements Serializable {
         this.raeume.add(neuerRaum);
     }
 
+    public void removeRaum(Raum alterRaum) {
+        this.raeume.remove(alterRaum);
+    }
+
     @Override
     public String toString() {
         String ausgabe = "Hausnummer:\t" + hausnummer +

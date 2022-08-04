@@ -297,11 +297,19 @@ public class GUI extends JFrame {
         hausBearbeiten.addActionListener(e -> {
             verbergeAllePanels();
             panelHausBearbeiten.setVisible(true);
+            hausBearbeitenHausInput.removeAllItems();
+            for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
+                hausBearbeitenHausInput.addItem(h.getHausnummer());
+            }
         });
 
         hausLoeschen.addActionListener(e -> {
             verbergeAllePanels();
             panelHausLoeschen.setVisible(true);
+            hausloeschenHausInput.removeAllItems();
+            for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
+                hausloeschenHausInput.addItem(h.getHausnummer());
+            }
         });
 
 
@@ -829,6 +837,66 @@ public class GUI extends JFrame {
         });
 
 
+        hausloeschenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String hausID = hausloeschenHausInput.getSelectedItem().toString();
+
+                for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
+                    if(h.getHausnummer().equals(hausID)){
+                        ServiceLocator.getInstance().getHausliste().getAlleHaeuser().remove(h);
+                        hausloeschenBestaetigung.setText("Haus " + hausID + " wurde entfernt.");
+                        return;
+                    }
+                }
+                hausloeschenBestaetigung.setText("Haus nicht gefunden, Haus wurde nicht entfernt. Bitte wiederholen Sie den Vorgang!");
+                //TODO @Lukas Warum geht "hausLoeschen.doClick();" nicht?
+            }
+        });
+        hausHinzufuegenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String hausnummer = hausHinzufuegenIDInput.getText();
+                //Wenn keine Hausnummer angegeben wurde
+                if(hausnummer.equals("")){
+                    hausHinzufuegenBestaetigung.setText("Bitte geben Sie eine Hausnummer an!");
+                    return;
+                }
+
+                for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
+                    if(h.getHausnummer().equals(hausnummer)){
+                        hausHinzufuegenBestaetigung.setText("Hausnummer bereits vergeben, bitte wählen Sie eine andere Nummer!");
+                        return;
+                    }
+                }
+                ServiceLocator.getInstance().getHausliste().getAlleHaeuser().add(new Haus(hausnummer,hausHinzufuegenBarrierefreInput.isSelected()));
+                hausHinzufuegenBestaetigung.setText("Haus " + hausnummer + " wurde angelegt. Barrierefrei: " + hausHinzufuegenBarrierefreInput.isSelected());
+            }
+        });
+        hausBearbeitenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String hausnummerAktuell = hausBearbeitenHausInput.getSelectedItem().toString();
+                String hausnummerNeu = hausBearbeitenNeueIDInput.getText();
+
+                for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
+                    if(h.getHausnummer().equals(hausnummerAktuell)){
+                        h.setBarrierefrei(hausBearbeitenBarriefreiInput.isSelected());
+                        if(hausnummerNeu.equals("")){
+                            hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
+                            return;
+                        }
+                        else {
+                            h.setHausnummer(hausnummerNeu);
+                            hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet. Neue Nummer: " + hausnummerNeu);
+                            return;
+
+                        }
+                    }
+                }
+                hausBearbeitenBestaetigung.setText("Haus nicht gefunden, bitte wiederholen Sie den Vorgang.");
+            }
+        });
     }
 
     /**
