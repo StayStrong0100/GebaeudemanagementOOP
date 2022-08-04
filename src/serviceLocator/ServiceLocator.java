@@ -67,8 +67,6 @@ public class ServiceLocator implements Serializable {
         return PersistenzDB.getInstance();
     }
 
-
-    //TODO @Ben ist das so richtig? Oder muss hier auch irgendwie mit IFs gearbeitet werden?
     public DozentListeIF getDozentenListe() {
         return dl;
     }

@@ -39,6 +39,7 @@ public class GUI extends JFrame {
 
     private JMenuItem inventur = new JMenuItem("Inventur");
     private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
+    private JMenuItem ausstattungsTypHinzufuegen = new JMenuItem("Ausstattungs- Typ Hinzufügen");
 
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
     private JMenuItem dozentHinzufuegen = new JMenuItem("Dozent hinzufügen");
@@ -213,6 +214,9 @@ public class GUI extends JFrame {
     private JLabel hausHinzufuegenTitel;
     private JSeparator hausHinzufuegenTitelSeperator;
     private JSeparator inventurTitelSeperator;
+    private JPanel panelAusstattungstypHinzufuegen;
+    private JLabel ausstattungstypHinzufuegenTitel;
+    private JSeparator ausstattungstypHinzufuegenTitelSeperator;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -234,7 +238,9 @@ public class GUI extends JFrame {
         raumMenue.add(raumBearbeiten);
 
         inventarMenue.add(inventur);
-        inventarMenue.add(inventarBearbeiten);
+        //inventarMenue.add(inventarBearbeiten);
+        inventarMenue.add(ausstattungsTypHinzufuegen);
+
 
         dozentenMenue.add(dozentTerminplan);
         dozentenMenue.add(dozentHinzufuegen);
@@ -316,6 +322,14 @@ public class GUI extends JFrame {
         inventarBearbeiten.addActionListener(e -> {
             verbergeAllePanels();
             panelInventarBearbeiten.setVisible(true);
+        });
+
+        ausstattungsTypHinzufuegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelAusstattungstypHinzufuegen.setVisible(true);
+            }
         });
 
         dozentLoeschen.addActionListener(e -> {
@@ -687,8 +701,6 @@ public class GUI extends JFrame {
             }
 
 
-
-
         });
         raumbearbeitenVeraendernCheck.addActionListener(e -> {
             int ID = Integer.valueOf(raumbearbeitenVeraendernAusstattungInput.getSelectedItem().toString());
@@ -739,13 +751,14 @@ public class GUI extends JFrame {
 
         });
         dozTerminplanDozAuswahlInput.addActionListener(e -> {
-            //TODO @Moritz
+            //TODO @Moritz Terminplan anzeigen lassen
             /*
             wenn die ComboBox ausgewählt wird, muss sich die Tabelle initialisieren
              */
 
             String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
 
+            //Testen der Dozenten-Buchungs-Liste (ZanderLK)
             for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
                 if (d.getName().equals(dozent)){
                     System.out.println(d.getMeineBuchungen().size());
@@ -879,10 +892,10 @@ public class GUI extends JFrame {
     panelHausBearbeiten.setVisible(false);
     panelHausHinzufuegen.setVisible(false);
     panelHausLoeschen.setVisible(false);
+    panelAusstattungstypHinzufuegen.setVisible(false);
     }
 
     private void createUIComponents() {
         //place custom component creation code here
     }
 }
-//TODO
