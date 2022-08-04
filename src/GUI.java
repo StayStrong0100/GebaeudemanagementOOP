@@ -10,6 +10,8 @@ import verwaltung.Haus;
 import verwaltung.Raum;
 
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.DateFormat;
@@ -24,7 +26,8 @@ public class GUI extends JFrame {
 
     private JMenu hausMenue = new JMenu("Haus");
     private JMenu raumMenue = new JMenu("Raum");
-    private JMenu inventarMenue = new JMenu("Inventar");
+    private JMenu inventur = new JMenu("Inventur");
+    //private JMenu inventarMenue = new JMenu("Inventar");
     private JMenu dozentenMenue = new JMenu("Dozenten");
 
     private JMenuItem hausHinzufuegen = new JMenuItem("Haus hinzufügen");
@@ -34,10 +37,14 @@ public class GUI extends JFrame {
     private JMenuItem raumHinzufuegen = new JMenuItem("Raum hinzufügen");
     private JMenuItem raumSuchenUndBuchen = new JMenuItem("Raum suchen und buchen");
     private JMenuItem raumBearbeiten = new JMenuItem("Raum bearbeiten");
+    private JMenuItem raumEntblocken = new JMenuItem("Raum entblocken");
 
-    private JMenuItem inventur = new JMenuItem("Inventur");
-    private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
-    private JMenuItem ausstattungsTypHinzufuegen = new JMenuItem("Ausstattungs- Typ Hinzufügen");
+    /** @deprecated
+     *private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
+     *  private JMenuItem ausstattungsTypHinzufuegen = new JMenuItem("Ausstattungs- Typ Hinzufügen");
+     */
+
+
 
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
     private JMenuItem dozentHinzufuegen = new JMenuItem("Dozent hinzufügen");
@@ -240,6 +247,15 @@ public class GUI extends JFrame {
     private JLabel hausHinzufuegenBarrierefreiTitel;
     private JTextArea hausBearbeitenBestaetigung;
     private JTextArea hausHinzufuegenBestaetigung;
+    private JPanel panelRaumEntblocken;
+    private JLabel raumEntblockenTitel;
+    private JComboBox raumEntblockenRaumInput;
+    private JComboBox raumEntblockenTerminInput;
+    private JButton raumEntblockenCheck;
+    private JSeparator raumEntblockenTitelSeparator;
+    private JLabel raumEntblockenRaumTitel;
+    private JLabel raumEntblockenTerminTitel;
+    private JTextArea raumEntblockenBestaetigung;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -249,7 +265,7 @@ public class GUI extends JFrame {
         //Menü erstellen und verbinden
         hauptMenue.add(hausMenue);
         hauptMenue.add(raumMenue);
-        hauptMenue.add(inventarMenue);
+        hauptMenue.add(inventur);
         hauptMenue.add(dozentenMenue);
 
         hausMenue.add(hausHinzufuegen);
@@ -259,11 +275,12 @@ public class GUI extends JFrame {
         raumMenue.add(raumHinzufuegen);
         raumMenue.add(raumSuchenUndBuchen);
         raumMenue.add(raumBearbeiten);
+        raumMenue.add(raumEntblocken);
 
-        inventarMenue.add(inventur);
-        //inventarMenue.add(inventarBearbeiten);
-        inventarMenue.add(ausstattungsTypHinzufuegen);
-
+        /** @deprecated
+         * inventarMenue.add(inventarBearbeiten);
+         * inventarMenue.add(ausstattungsTypHinzufuegen);
+         */
 
         dozentenMenue.add(dozentTerminplan);
         dozentenMenue.add(dozentHinzufuegen);
@@ -350,13 +367,46 @@ public class GUI extends JFrame {
 
         });
 
+        raumEntblocken.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelRaumEntblocken.setVisible(true);
+                raumEntblockenRaumInput.removeAllItems();
+                for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                    if(r.getBuchungen().size() > 0){
+                        raumEntblockenRaumInput.addItem(r.getRaumnummer());
+                    }
+                }
+            }
+        });
+
+        inventur.addMenuListener(new MenuListener() {
+            @Override
+            public void menuSelected(MenuEvent e) {
+                verbergeAllePanels();
+                panelInventur.setVisible(true);
+                inventurBestaetigung.setText(ServiceLocator.getInstance().getHausliste().inventur());
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        });
+
         inventur.addActionListener(e -> {
             verbergeAllePanels();
             panelInventur.setVisible(true);
             inventurBestaetigung.setText(ServiceLocator.getInstance().getHausliste().inventur());
         });
 
-        inventarBearbeiten.addActionListener(e -> {
+        /*inventarBearbeiten.addActionListener(e -> {
             verbergeAllePanels();
             panelInventarBearbeiten.setVisible(true);
         });
@@ -367,7 +417,7 @@ public class GUI extends JFrame {
                 verbergeAllePanels();
                 panelAusstattungstypHinzufuegen.setVisible(true);
             }
-        });
+        });*/
 
         dozentLoeschen.addActionListener(e -> {
             verbergeAllePanels();
@@ -803,15 +853,10 @@ public class GUI extends JFrame {
             /*
             wenn die ComboBox ausgewählt wird, muss sich die Tabelle initialisieren
              */
-
-            String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
+            //String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
 
             //Testen der Dozenten-Buchungs-Liste (ZanderLK)
-            for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
-                if (d.getName().equals(dozent)) {
-                    System.out.println(d.getMeineBuchungen().size());
-                }
-            }
+
 
         });
         /**
@@ -1004,6 +1049,7 @@ public class GUI extends JFrame {
         panelHausHinzufuegen.setVisible(false);
         panelHausLoeschen.setVisible(false);
         panelAusstattungstypHinzufuegen.setVisible(false);
+        panelRaumEntblocken.setVisible(false);
     }
 
     private void createUIComponents() {
