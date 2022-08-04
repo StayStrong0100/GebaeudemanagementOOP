@@ -26,7 +26,7 @@ public class Beamer extends Ausstattungsmerkmal implements Serializable{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Beamer"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Beamer"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Beamer.super.getAnschaffungsdatum().getTime());
     }
 

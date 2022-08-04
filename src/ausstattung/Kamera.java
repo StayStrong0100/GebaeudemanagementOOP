@@ -25,7 +25,7 @@ public class Kamera extends Ausstattungsmerkmal implements Serializable {
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Kamera"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Kamera"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Kamera.super.getAnschaffungsdatum().getTime());
     }
 

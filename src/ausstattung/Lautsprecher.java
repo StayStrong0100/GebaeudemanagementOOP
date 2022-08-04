@@ -26,7 +26,7 @@ public class Lautsprecher extends Ausstattungsmerkmal implements Serializable {
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Lautsprecher"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Lautsprecher"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Lautsprecher.super.getAnschaffungsdatum().getTime());
     }
 

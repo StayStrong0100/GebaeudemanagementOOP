@@ -25,7 +25,7 @@ public class Kreidetafel extends Tafel implements Serializable {
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Kreidetafel"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Kreidetafel"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Kreidetafel.super.getAnschaffungsdatum().getTime());
     }
 

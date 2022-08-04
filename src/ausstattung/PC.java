@@ -26,7 +26,7 @@ public class PC extends Ausstattungsmerkmal implements Serializable{
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: PC"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: PC"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(PC.super.getAnschaffungsdatum().getTime());
     }
 

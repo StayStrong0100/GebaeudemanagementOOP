@@ -27,7 +27,7 @@ public class Tisch extends Ausstattungsmerkmal implements Serializable {
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Tisch"+ "\nExemplartyp:\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Tisch"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Tisch.super.getAnschaffungsdatum().getTime());
     }
 

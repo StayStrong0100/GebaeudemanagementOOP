@@ -4,37 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="implements Serializable">
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListeIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListeIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/Objekttypen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -473,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659509236577</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert.">
+      <created>1659634732838</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1659634732838</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -488,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Inventur implementiert" />
     <MESSAGE value="DateFormatter geändert: von &quot;YYYY&quot; zu &quot;yyyy&quot;" />
     <MESSAGE value="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle" />
     <MESSAGE value="toString() und print erstellt()" />
@@ -513,7 +490,8 @@
     <MESSAGE value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
     <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
     <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
+    <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
+    <option name="LAST_COMMIT_MESSAGE" value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
