@@ -23,6 +23,10 @@ public class Terminbuchung implements Serializable {
         return count;
     }
 
+    public Dozent getDozent() {
+        return dozent;
+    }
+
     public Zeitraum getIntervall() {
         return intervall;
     }
@@ -32,6 +36,7 @@ public class Terminbuchung implements Serializable {
         this.id = count;
         this.intervall = new Zeitraum(start, ende);
         this.dozent = prof;
+        prof.addBuchung(this);
     }
 
     public String printBuchungDetails(){

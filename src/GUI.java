@@ -24,9 +24,14 @@ public class GUI extends JFrame {
     // Menü Elemente
     private JMenuBar hauptMenue = new JMenuBar();
 
+    private JMenu hausMenue = new JMenu("Haus");
     private JMenu raumMenue = new JMenu("Raum");
     private JMenu inventarMenue = new JMenu("Inventar");
     private JMenu dozentenMenue = new JMenu("Dozenten");
+
+    private JMenuItem hausHinzufuegen = new JMenuItem("Haus hinzufügen");
+    private JMenuItem hausBearbeiten = new JMenuItem("Haus bearbeiten");
+    private JMenuItem hausLoeschen = new JMenuItem("Haus löschen");
 
     private JMenuItem raumHinzufuegen = new JMenuItem("Raum hinzufügen");
     private JMenuItem raumSuchenUndBuchen = new JMenuItem("Raum suchen und buchen");
@@ -38,6 +43,8 @@ public class GUI extends JFrame {
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
     private JMenuItem dozentHinzufuegen = new JMenuItem("Dozent hinzufügen");
     private JMenuItem dozentLoeschen = new JMenuItem("Dozent löschen");
+    //TODO Dozent bearbeiten
+
 
     // GUI Elemente: Panels, Labels, ComboBox, TextField. TextAreas
     private JPanel panelMain;
@@ -196,6 +203,16 @@ public class GUI extends JFrame {
     private JTextArea dozTerminplanW8D5Output;
     private JTextArea dozTerminplanW8D6Output;
     private JComboBox dozTerminplanDozAuswahlInput;
+    private JPanel panelHausLoeschen;
+    private JPanel panelHausBearbeiten;
+    private JPanel panelHausHinzufuegen;
+    private JLabel hausLoeschenTitel;
+    private JSeparator hausLoeschenTitelSeperator;
+    private JLabel hausBearbeitenTitel;
+    private JSeparator hausBearbeitenTitelSeperator;
+    private JLabel hausHinzufuegenTitel;
+    private JSeparator hausHinzufuegenTitelSeperator;
+    private JSeparator inventurTitelSeperator;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -203,9 +220,14 @@ public class GUI extends JFrame {
 
     public GUI() {
         //Menü erstellen und verbinden
+        hauptMenue.add(hausMenue);
         hauptMenue.add(raumMenue);
         hauptMenue.add(inventarMenue);
         hauptMenue.add(dozentenMenue);
+
+        hausMenue.add(hausHinzufuegen);
+        hausMenue.add(hausBearbeiten);
+        hausMenue.add(hausLoeschen);
 
         raumMenue.add(raumHinzufuegen);
         raumMenue.add(raumSuchenUndBuchen);
@@ -236,6 +258,34 @@ public class GUI extends JFrame {
 
 
         //Es folgen die Action Listener, beim Aufruf / Wechsel von Seiten
+
+        hausHinzufuegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelHausHinzufuegen.setVisible(true);
+            }
+        });
+
+
+        hausBearbeiten.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelHausBearbeiten.setVisible(true);
+            }
+        });
+
+        hausLoeschen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelHausLoeschen.setVisible(true);
+            }
+        });
+
+
+
         raumHinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -759,6 +809,15 @@ public class GUI extends JFrame {
                 /*
                 wenn die ComboBox ausgewählt wird, muss sich die Tabelle initialisieren
                  */
+
+                String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
+
+                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    if (d.getName().equals(dozent)){
+                        System.out.println(d.getMeineBuchungen().size());
+                    }
+                }
+
             }
         });
         /**
@@ -771,7 +830,7 @@ public class GUI extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 //super.windowClosing(e);
-                switch (JOptionPane.showConfirmDialog(null,"Möchten Sie das Programm vor dem Schließen speichern?","Schließen",JOptionPane.YES_NO_CANCEL_OPTION)){
+                switch (JOptionPane.showConfirmDialog(null,"Möchten Sie die Änderungen vor dem Schließen speichern?","Schließen",JOptionPane.YES_NO_CANCEL_OPTION)){
                     case JOptionPane.YES_OPTION -> {ServiceLocator.getInstance().getPersistenz().speichern("Grunddaten",ServiceLocator.getInstance()); System.exit(0);}
                     case JOptionPane.NO_OPTION -> System.exit(0);
                     //case JOptionPane.CANCEL_OPTION ->
@@ -884,6 +943,9 @@ public class GUI extends JFrame {
     panelRaumBearbeiten.setVisible(false);
     panelDozentHinzufuegen.setVisible(false);
     panelScrollRaumbearbeiten.setVisible(false);
+    panelHausBearbeiten.setVisible(false);
+    panelHausHinzufuegen.setVisible(false);
+    panelHausLoeschen.setVisible(false);
     }
 
     private void createUIComponents() {

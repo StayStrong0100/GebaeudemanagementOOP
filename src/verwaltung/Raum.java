@@ -24,16 +24,16 @@ public class Raum implements Serializable {
 
     @Override
     public String toString() {
-        String ausgabe = "Raumnummer:\t"+  raumnummer+"\n\n";
+        String ausgabe = "Raumnummer:\t" + raumnummer + "\n\n";
 
-        for(Ausstattungsmerkmal a : ausstattung){
-            ausgabe += a.toString()+"\n\n";
+        for (Ausstattungsmerkmal a : ausstattung) {
+            ausgabe += a.toString() + "\n\n";
         }
 
-    return ausgabe;
+        return ausgabe;
     }
 
-    public String printAlleBuchungen(){
+    public String printAlleBuchungen() {
         String ausgabe = "";
         for (Terminbuchung t : this.getBuchungen()) {
             ausgabe.concat(t.printBuchungDetails());
@@ -54,26 +54,26 @@ public class Raum implements Serializable {
         this.raumnummer = raumnummer;
     }
 
-    public void buchen(Calendar start, Calendar ende, Dozent doz){
-        this.buchungen.add(new Terminbuchung(start,ende,doz));
+    public void buchen(Calendar start, Calendar ende, Dozent doz) {
+        this.buchungen.add(new Terminbuchung(start, ende, doz));
     }
 
-    public boolean cancelOrder(int id){
-        for (Terminbuchung buchung:buchungen) {
-            if (buchung.getId()==id) {
+    public void cancelOrder(int id) {
+        for (Terminbuchung buchung : buchungen) {
+            if (buchung.getId() == id) {
                 buchungen.remove(buchung);
-                return true;
+                buchung.getDozent().removeBuchung(buchung);
             }
         }
-        return false;
     }
-    public void addAusstattung(Ausstattungsmerkmal neu){
+
+    public void addAusstattung(Ausstattungsmerkmal neu) {
         this.ausstattung.add(neu);
     }
 
-    public void addAusstattung(Ausstattungsmerkmal neu, int Anzahl){
+    public void addAusstattung(Ausstattungsmerkmal neu, int Anzahl) {
 
-        for(int i = 1; i <= Anzahl; i++) {
+        for (int i = 1; i <= Anzahl; i++) {
             this.ausstattung.add(neu);
         }
     }
@@ -81,19 +81,18 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Beamern im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
 
-    public int getAnzahlRaumBeamerFunktionstuechtig(){
+    public int getAnzahlRaumBeamerFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Beamer && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Beamer && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
 
         }
         return anzahl;
@@ -102,18 +101,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Beamern im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumBeamerDefekt(){
+    public int getAnzahlRaumBeamerDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                     if (a instanceof Beamer && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Beamer && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -121,18 +119,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Kameras im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumKamerasFunktionstuechtig(){
+    public int getAnzahlRaumKamerasFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                     if (a instanceof Kamera && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Kamera && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -140,18 +137,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Kameras im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumKamerasDefekt(){
+    public int getAnzahlRaumKamerasDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                         if (a instanceof Kamera && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Kamera && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -159,18 +155,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Kreidetafeln im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumKreidetafelnFunktionstuechtig(){
+    public int getAnzahlRaumKreidetafelnFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                     if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -178,18 +173,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Kreidetafeln im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumKreidetafelnDefekt(){
+    public int getAnzahlRaumKreidetafelnDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Kreidetafel && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -197,18 +191,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Lautsprechern im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumLautsprecherFunktionstuechtig(){
+    public int getAnzahlRaumLautsprecherFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -216,18 +209,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Lautsprechern im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumLautsprecherDefekt(){
+    public int getAnzahlRaumLautsprecherDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Lautsprecher && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -235,18 +227,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Mikrofonen im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumMikrofoneFunktionstuechtig(){
+    public int getAnzahlRaumMikrofoneFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -254,18 +245,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Mikrofonen im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumMikrofoneDefekt(){
+    public int getAnzahlRaumMikrofoneDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Mikrofon && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -273,18 +263,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen PCs im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumPCsFunktionstuechtig(){
+    public int getAnzahlRaumPCsFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof PC && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof PC && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -292,18 +281,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten PCs im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumPCsDefekt(){
+    public int getAnzahlRaumPCsDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof PC && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof PC && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -311,18 +299,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Smartboards im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumSmartboardsFunktionstuechtig(){
+    public int getAnzahlRaumSmartboardsFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -330,18 +317,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Smartboards im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumSmartboardsDefekt(){
+    public int getAnzahlRaumSmartboardsDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Smartboard && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -349,18 +335,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Stuehlen im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumStuehleFunktionstuechtig(){
+    public int getAnzahlRaumStuehleFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -368,18 +353,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Stuehlen im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumStuehleDefekt(){
+    public int getAnzahlRaumStuehleDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Stuhl && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -387,18 +371,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Tischen im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumTischeFunktionstuechtig(){
+    public int getAnzahlRaumTischeFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Tisch && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Tisch && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -406,18 +389,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Tischen im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumTischeDefekt(){
+    public int getAnzahlRaumTischeDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Tisch && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Tisch && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -425,18 +407,17 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von funktionstüchtigen Whiteboards im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumWhiteboardsFunktionstuechtig(){
+    public int getAnzahlRaumWhiteboardsFunktionstuechtig() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
-                        anzahl++;
-                    }
+            if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Funktionstuechtig) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
@@ -444,23 +425,22 @@ public class Raum implements Serializable {
     /**
      * Zählt die Anzahl von defekten Whiteboards im Raum
      *
+     * @return anzahl - int
      * @author ZanderLK
      * @version 1.0.0
      * @since 20220725
-     *
-     * @return anzahl - int
      */
-    public int getAnzahlRaumWhiteboardsDefekt(){
+    public int getAnzahlRaumWhiteboardsDefekt() {
         int anzahl = 0;
         for (Ausstattungsmerkmal a : this.getAusstattung()) {
-                    if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Defekt) {
-                        anzahl++;
-                    }
+            if (a instanceof Whiteboard && a.getAktuellerZustand() instanceof Defekt) {
+                anzahl++;
+            }
         }
         return anzahl;
     }
 
-    public String printRaum(){
+    public String printRaum() {
         return ("Raumnummer: " + this.getRaumnummer());
     }
 

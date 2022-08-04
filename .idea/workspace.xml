@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="implements Serializable">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grunddaten" beforeDir="false" afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Dozent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,17 +53,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;202&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;397&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "202",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "397",
+    "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ausstattung" />
@@ -457,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659634732838</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst">
+      <created>1659639236000</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1659639236000</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,7 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DateFormatter geändert: von &quot;YYYY&quot; zu &quot;yyyy&quot;" />
     <MESSAGE value="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle" />
     <MESSAGE value="toString() und print erstellt()" />
     <MESSAGE value="Großschreibung in der toString() geändert" />
@@ -497,7 +504,8 @@
     <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
     <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
     <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
+    <MESSAGE value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
+    <option name="LAST_COMMIT_MESSAGE" value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
