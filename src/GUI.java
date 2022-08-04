@@ -13,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -218,7 +220,7 @@ public class GUI extends JFrame {
 
         //Fenster erstellen
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //damit Speicher-Dialog geöffnet wird
         this.setMinimumSize(new Dimension(500, 500));
         this.setSize(500,500);
         this.setLayout(new FlowLayout());
@@ -759,6 +761,25 @@ public class GUI extends JFrame {
                  */
             }
         });
+        /**
+         * Erstellt ein Dialogfenster zum abfragen, ob vor dem Schließen gespeichert werden soll
+         *
+         * @author ZanderLK
+         */
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //super.windowClosing(e);
+                switch (JOptionPane.showConfirmDialog(null,"Möchten Sie das Programm vor dem Schließen speichern?","Schließen",JOptionPane.YES_NO_CANCEL_OPTION)){
+                    case JOptionPane.YES_OPTION -> {ServiceLocator.getInstance().getPersistenz().speichern("Grunddaten",ServiceLocator.getInstance()); System.exit(0);}
+                    case JOptionPane.NO_OPTION -> System.exit(0);
+                    //case JOptionPane.CANCEL_OPTION ->
+
+                }
+            }
+        });
+
     }
 
     /**

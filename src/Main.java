@@ -27,8 +27,6 @@ public class Main {
         //GUI starten
         new GUI();
 
-
-        ServiceLocator.getInstance().getDozentenListe();
     }
 
 
