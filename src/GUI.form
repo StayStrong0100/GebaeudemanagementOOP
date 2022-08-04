@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panelMain" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1114" height="1995"/>
+      <xy x="20" y="20" width="1524" height="1995"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -632,7 +632,7 @@
           </component>
         </children>
       </grid>
-      <grid id="25446" binding="panelDozentenTerminplan" layout-manager="GridLayoutManager" row-count="13" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="25446" binding="panelDozentenTerminplan" layout-manager="GridLayoutManager" row-count="12" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -748,14 +748,6 @@
               <text value="Woche 2"/>
             </properties>
           </component>
-          <component id="bf2d3" class="javax.swing.JTextArea" binding="dozTerminplanBestätigung">
-            <constraints>
-              <grid row="12" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="9f14c" class="javax.swing.JLabel" binding="dozTerminplanW3Titel">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -802,6 +794,487 @@
             </constraints>
             <properties>
               <text value="Woche 8"/>
+            </properties>
+          </component>
+          <component id="3aa28" class="javax.swing.JTextArea" binding="dozTerminplanW1D1Output">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="5b40c" class="javax.swing.JTextArea" binding="dozTerminplanW1D2Output">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="9c44e" class="javax.swing.JTextArea" binding="dozTerminplanW1D3Output">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="32aa5" class="javax.swing.JTextArea" binding="dozTerminplanW1D4Output">
+            <constraints>
+              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="6e8c9" class="javax.swing.JTextArea" binding="dozTerminplanW1D5Output">
+            <constraints>
+              <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="d27ee" class="javax.swing.JTextArea" binding="dozTerminplanW1D6Output">
+            <constraints>
+              <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="ab0a6" class="javax.swing.JTextArea" binding="dozTerminplanW2D1Output">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="b8b5e" class="javax.swing.JTextArea" binding="dozTerminplanW2D2Output">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="9300e" class="javax.swing.JTextArea" binding="dozTerminplanW2D3Output">
+            <constraints>
+              <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="5432a" class="javax.swing.JTextArea" binding="dozTerminplanW2D4Output">
+            <constraints>
+              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="45e14" class="javax.swing.JTextArea" binding="dozTerminplanW2D5Output">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="f9f4d" class="javax.swing.JTextArea" binding="dozTerminplanW2D6Output">
+            <constraints>
+              <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="85c6" class="javax.swing.JTextArea" binding="dozTerminplanW3D1Output">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="a689d" class="javax.swing.JTextArea" binding="dozTerminplanW3D2Output">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="73f68" class="javax.swing.JTextArea" binding="dozTerminplanW3D3Output">
+            <constraints>
+              <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="886af" class="javax.swing.JTextArea" binding="dozTerminplanW3D4Output">
+            <constraints>
+              <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="649d7" class="javax.swing.JTextArea" binding="dozTerminplanW3D5Output">
+            <constraints>
+              <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="70a76" class="javax.swing.JTextArea" binding="dozTerminplanW3D6Output">
+            <constraints>
+              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="ee317" class="javax.swing.JTextArea" binding="dozTerminplanW4D1Output">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="56f2e" class="javax.swing.JTextArea" binding="dozTerminplanW4D2Output">
+            <constraints>
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="4902b" class="javax.swing.JTextArea" binding="dozTerminplanW4D3Output">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="892ca" class="javax.swing.JTextArea" binding="dozTerminplanW4D4Output">
+            <constraints>
+              <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="6039f" class="javax.swing.JTextArea" binding="dozTerminplanW4D5Output">
+            <constraints>
+              <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="d4f38" class="javax.swing.JTextArea" binding="dozTerminplanW4D6Output">
+            <constraints>
+              <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="8a3ff" class="javax.swing.JTextArea" binding="dozTerminplanW5D1Output">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="b0201" class="javax.swing.JTextArea" binding="dozTerminplanW5D2Output">
+            <constraints>
+              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="5fb35" class="javax.swing.JTextArea" binding="dozTerminplanW5D3Output">
+            <constraints>
+              <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="d3453" class="javax.swing.JTextArea" binding="dozTerminplanW5D4Output">
+            <constraints>
+              <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="b39fa" class="javax.swing.JTextArea" binding="dozTerminplanW5D5Output">
+            <constraints>
+              <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="dbe51" class="javax.swing.JTextArea" binding="dozTerminplanW5D6Output">
+            <constraints>
+              <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="55ae3" class="javax.swing.JTextArea" binding="dozTerminplanW6D1Output">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="e3179" class="javax.swing.JTextArea" binding="dozTerminplanW6D2Output">
+            <constraints>
+              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="9f34c" class="javax.swing.JTextArea" binding="dozTerminplanW6D3Output">
+            <constraints>
+              <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="c5349" class="javax.swing.JTextArea" binding="dozTerminplanW6D4Output">
+            <constraints>
+              <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="54924" class="javax.swing.JTextArea" binding="dozTerminplanW6D5Output">
+            <constraints>
+              <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="67eac" class="javax.swing.JTextArea" binding="dozTerminplanW6D6Output">
+            <constraints>
+              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="3f7e1" class="javax.swing.JTextArea" binding="dozTerminplanW7D1Output">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="2a4af" class="javax.swing.JTextArea" binding="dozTerminplanW7D2Output">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="1b033" class="javax.swing.JTextArea" binding="dozTerminplanW7D3Output">
+            <constraints>
+              <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="e5ed3" class="javax.swing.JTextArea" binding="dozTerminplanW7D4Output">
+            <constraints>
+              <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <enabled value="true"/>
+            </properties>
+          </component>
+          <component id="211c4" class="javax.swing.JTextArea" binding="dozTerminplanW7D5Output">
+            <constraints>
+              <grid row="10" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="55bb0" class="javax.swing.JTextArea" binding="dozTerminplanW7D6Output">
+            <constraints>
+              <grid row="10" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="52819" class="javax.swing.JTextArea" binding="dozTerminplanW8D1Output">
+            <constraints>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="2e513" class="javax.swing.JTextArea" binding="dozTerminplanW8D2Output">
+            <constraints>
+              <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="9d7ee" class="javax.swing.JTextArea" binding="dozTerminplanW8D3Output">
+            <constraints>
+              <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="d199a" class="javax.swing.JTextArea" binding="dozTerminplanW8D4Output">
+            <constraints>
+              <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="6ecb1" class="javax.swing.JTextArea" binding="dozTerminplanW8D5Output">
+            <constraints>
+              <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="eb6af" class="javax.swing.JTextArea" binding="dozTerminplanW8D6Output">
+            <constraints>
+              <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
             </properties>
           </component>
         </children>
