@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StuhlTypListe implements Serializable, AusstattungsTypIF {
+public class StuhlTypListe implements Serializable, StuhlTypListeIF {
     private ArrayList<StuhlTyp> alleStuhlTypen = new ArrayList<>();
     private static StuhlTypListe instance;
 

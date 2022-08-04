@@ -4,9 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring von Bezeichnungen">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="implements Serializable">
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListeIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/AusstattungsTypIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/Objekttypen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,12 +45,22 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/GebaeudemanagementOOP.iml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ausstattung/Mikrofon.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/datenspeicherung/PersistenzIF.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/verwaltung/Haus.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/verwaltung/Raum.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,24 +76,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "202",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "953",
-    "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;202&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;397&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ausstattung" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\DataImages" />
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\GUI\Moritz" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ausstattung" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="DatenInitialisierung" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datenspeicherung.DatenInitialisierung" />
+      <module name="GebaeudemanagementOOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datenspeicherung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GPUMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.Moritz.GPUMain" />
       <module name="GebaeudemanagementOOP" />
@@ -99,6 +156,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DatenInitialisierung" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GPUMain" />
         <item itemvalue="Application.guiTest" />
@@ -394,26 +452,26 @@
       <option name="project" value="LOCAL" />
       <updated>1659451300963</updated>
     </task>
-    <task id="LOCAL-00041" summary="Inventur überarbeiet, Doz hinzufügen implementiert">
-      <created>1659623612238</created>
+    <task id="LOCAL-00041" summary="TypListen gemacht, GUI weiterentwickelt, Daten definiert">
+      <created>1659479773185</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1659623612238</updated>
+      <updated>1659479773186</updated>
     </task>
-    <task id="LOCAL-00042" summary="Terminplan DozAuswahl, Listener DozAuswahl vorbereitet">
-      <created>1659624140211</created>
+    <task id="LOCAL-00042" summary="Typen überarbeitet, GUI weiter ergänzt">
+      <created>1659485551334</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1659624140211</updated>
+      <updated>1659485551334</updated>
     </task>
-    <task id="LOCAL-00043" summary="Refactoring von Bezeichnungen">
-      <created>1659625222338</created>
+    <task id="LOCAL-00043" summary="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring">
+      <created>1659509236577</created>
       <option name="number" value="00043" />
       <option name="presentableId" value="LOCAL-00043" />
       <option name="project" value="LOCAL" />
-      <updated>1659625222338</updated>
+      <updated>1659509236577</updated>
     </task>
     <option name="localTasksCounter" value="44" />
     <servers />
@@ -452,10 +510,10 @@
     <MESSAGE value="Neue GUI implementiert" />
     <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
     <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
-    <MESSAGE value="Inventur überarbeiet, Doz hinzufügen implementiert" />
-    <MESSAGE value="Terminplan DozAuswahl, Listener DozAuswahl vorbereitet" />
-    <MESSAGE value="Refactoring von Bezeichnungen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring von Bezeichnungen" />
+    <MESSAGE value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
+    <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
+    <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

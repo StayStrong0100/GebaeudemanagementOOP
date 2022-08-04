@@ -2,6 +2,7 @@ package serviceLocator;
 
 import ausstattung.*;
 import buchung.DozentListe;
+import buchung.DozentListeIF;
 import datenspeicherung.*;
 import verwaltung.*;
 
@@ -32,7 +33,7 @@ public class ServiceLocator implements Serializable {
 
     private static ServiceLocator instance;
 
-    public ServiceLocator(HausListe hl, DozentListe dl, BeamerTypListe bTL, KameraTypListe kameraTL, KreidetafelTypListe kreideTL, LautsprecherTypListe lTL, MikrofonTypListe mTL, PCTypListe pTL, SmartboardTypListe smartTL, StuhlTypListe stuhlTL, TischTypListe tTL, WhiteboardTypListe wTL) {
+    private ServiceLocator(HausListe hl, DozentListe dl, BeamerTypListe bTL, KameraTypListe kameraTL, KreidetafelTypListe kreideTL, LautsprecherTypListe lTL, MikrofonTypListe mTL, PCTypListe pTL, SmartboardTypListe smartTL, StuhlTypListe stuhlTL, TischTypListe tTL, WhiteboardTypListe wTL) {
         this.hl = hl;
         this.dl = dl;
         this.bTL = bTL;
@@ -49,7 +50,7 @@ public class ServiceLocator implements Serializable {
 
     public static ServiceLocator getInstance() {
         if (instance == null) {
-            instance = new ServiceLocator(HausListe.getInstance(), DozentListe.getInstance(), BeamerTypListe.getInstance(),KameraTypListe.getInstance(),KreidetafelTypListe.getInstance(),LautsprecherTypListe.getInstance(),MikrofonTypListe.getInstance(),PCTypListe.getInstance(),SmartboardTypListe.getInstance(),StuhlTypListe.getInstance(),TischTypListe.getInstance(),WhiteboardTypListe.getInstance());
+            instance = new ServiceLocator(HausListe.getInstance(), DozentListe.getInstance(), BeamerTypListe.getInstance(), KameraTypListe.getInstance(), KreidetafelTypListe.getInstance(), LautsprecherTypListe.getInstance(), MikrofonTypListe.getInstance(), PCTypListe.getInstance(), SmartboardTypListe.getInstance(), StuhlTypListe.getInstance(), TischTypListe.getInstance(), WhiteboardTypListe.getInstance());
         }
         return instance;
     }
@@ -58,56 +59,57 @@ public class ServiceLocator implements Serializable {
         ServiceLocator.instance = instance;
     }
 
-    public HausListe getHausliste() {
+    public HauslisteIF getHausliste() {
         return hl;
     }
 
-    public PersistenzIF getPersistenz(){
+    public PersistenzIF getPersistenz() {
         return PersistenzDB.getInstance();
     }
 
 
-
     //TODO @Ben ist das so richtig? Oder muss hier auch irgendwie mit IFs gearbeitet werden?
-    public DozentListe getDozentenListe() {      return dl;    }
+    public DozentListeIF getDozentenListe() {
+        return dl;
+    }
 
-    public BeamerTypListe getBeamerTypen() {
+    public BeamerTypListeIF getBeamerTypen() {
         return bTL;
     }
 
-    public KameraTypListe getKameraTypen() {
+    public KameraTypListeIF getKameraTypen() {
         return kameraTL;
     }
 
-    public KreidetafelTypListe getKreideTypen() {
+    public KreidetafelTypListeIF getKreideTypen() {
         return kreideTL;
     }
 
-    public LautsprecherTypListe getLautsprecherTypen() {
+    public LautsprecherTypListeIF getLautsprecherTypen() {
         return lTL;
     }
 
-    public MikrofonTypListe getMikrofonTypen() {
+    public MikrofonTypListeIF getMikrofonTypen() {
         return mTL;
     }
 
-    public PCTypListe getPCTypen() {
+    public PCTypListeIF getPCTypen() {
         return pTL;
     }
 
-    public SmartboardTypListe getSmartboardTypen() {
+    public SmartboardTypListeIF getSmartboardTypen() {
         return smartTL;
     }
 
-    public StuhlTypListe getStuhlTypen() {
+    public StuhlTypListeIF getStuhlTypen() {
         return stuhlTL;
     }
 
-    public TischTypListe getTischTypen() {
+    public TischTypListeIF getTischTypen() {
         return tTL;
     }
 
-    public WhiteboardTypListe getWhiteboardTypen() {
+    public WhiteboardTypListeIF getWhiteboardTypen() {
         return wTL;
     }
 }

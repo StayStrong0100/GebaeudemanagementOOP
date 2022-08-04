@@ -13,6 +13,16 @@ public interface HauslisteIF{
 
     public void addHaus(Haus neuesHaus);
 
+
+    /**
+     * Gibt die Anzahl aller Ausstattungsarten nach Zustand in der Konsole aus
+     *
+     * @author ZanderLK
+     * @version 1.1.0
+     * @since 20220725
+     */
+
+
     public String inventur();
 
     @Override
@@ -20,6 +30,14 @@ public interface HauslisteIF{
 
     public void print();
 
+    /**
+     * Gibt eine ArrayList mit allen existierenden Räumen zurück
+     *
+     * @return alleRaueme - ArrayList<Raum>
+     * @author ZanderLK
+     * @version 1.0.0
+     * @since 20220721
+     */
     public ArrayList<Raum> getAlleRaeueme();
 
     /**
@@ -40,6 +58,7 @@ public interface HauslisteIF{
      * @since 20220721
      */
     public void druckeAlleRaeume(String hausID);
+
 
     /**
      * Zählt die Anzahl von funktionstüchtigen Beamern am Campus
@@ -268,6 +287,7 @@ public interface HauslisteIF{
                                                      int anzahlMikrofon, int anzahlPC, int anzahlSmartboard,
                                                      int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard);
 
+
     /**
      * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
      * und gibt eine ArrayList mit passenden Räumen zurück
@@ -342,4 +362,15 @@ public interface HauslisteIF{
      * @return boolean
      */
     public boolean raumnummerKollidiert(int neueNummer);
+
+    /**
+     * Gibt alle Ausstattungsmerkmale zurück
+     *
+     * @author ZanderLK
+     * @since 20220803
+     * @version 1.0.0
+     *
+     * @return alleAusstattungen - ArrayList<Ausstatungsmerkmal>
+     */
+    public ArrayList<Ausstattungsmerkmal> getAlleAusstattungen();
 }

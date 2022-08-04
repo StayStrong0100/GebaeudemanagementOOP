@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public abstract class Ausstattungsmerkmal implements Serializable {
+public abstract class Ausstattungsmerkmal implements Serializable, AusstattungsTypIF {
 
     public static final long serialVersionUID = 0;
 

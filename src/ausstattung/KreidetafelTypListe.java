@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class KreidetafelTypListe implements Serializable{
+public class KreidetafelTypListe implements Serializable, KreidetafelTypListeIF {
     private ArrayList<KreidetafelTyp> alleKreidetafelTypen = new ArrayList<>();
     private static KreidetafelTypListe instance;
 

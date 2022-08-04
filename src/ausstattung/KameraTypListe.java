@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class KameraTypListe implements Serializable {
+public class KameraTypListe implements Serializable, KameraTypListeIF {
     private ArrayList<KameraTyp> alleKameraTypen = new ArrayList<>();
     private static KameraTypListe instance;
 

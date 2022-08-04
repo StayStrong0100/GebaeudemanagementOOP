@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BeamerTypListe implements Serializable {
+public class BeamerTypListe implements Serializable, BeamerTypListeIF {
     private ArrayList<BeamerTyp> alleBeamerTypen = new ArrayList<>();
     private static BeamerTypListe instance;
 
@@ -17,11 +17,11 @@ public class BeamerTypListe implements Serializable {
         return instance;
     }
 
-        public ArrayList<BeamerTyp> getAlleBeamerTypen() {
+    public ArrayList<BeamerTyp> getAlleBeamerTypen() {
         return alleBeamerTypen;
     }
 
-    public void addBeamerTyp(BeamerTyp bt){
+    public void addBeamerTyp(BeamerTyp bt) {
         this.alleBeamerTypen.add(bt);
     }
 }

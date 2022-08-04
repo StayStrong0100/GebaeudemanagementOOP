@@ -3,7 +3,7 @@ package ausstattung;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SmartboardTypListe implements Serializable {
+public class SmartboardTypListe implements Serializable, SmartboardTypListeIF {
     private ArrayList<SmartboardTyp> alleSmartboardTypen = new ArrayList<>();
     private static SmartboardTypListe instance;
 

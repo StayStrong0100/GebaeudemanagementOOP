@@ -6,7 +6,7 @@ import verwaltung.HausListe;
 import java.io.Serializable;
 import java.util.ArrayList;
 //singleton
-public class DozentListe implements Serializable {
+public class DozentListe implements Serializable, DozentListeIF {
 
     private ArrayList<Dozent> alleDozenten = new ArrayList<>();
     private static DozentListe instance;
