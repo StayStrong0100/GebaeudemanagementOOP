@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Inventur überarbeiet, Doz hinzufügen implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
@@ -46,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "202",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "1203",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "478",
     "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -396,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659451300963</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Inventur überarbeiet, Doz hinzufügen implementiert">
+      <created>1659623612238</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1659623612238</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Terminbuchung und Zeitraum implementiert" />
     <MESSAGE value="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert" />
     <MESSAGE value="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus" />
     <MESSAGE value="Inventur implementiert" />
@@ -436,7 +441,8 @@
     <MESSAGE value="Neue GUI implementiert" />
     <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
     <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
+    <MESSAGE value="Inventur überarbeiet, Doz hinzufügen implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inventur überarbeiet, Doz hinzufügen implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

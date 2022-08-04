@@ -676,7 +676,6 @@ public class HausListe implements Serializable, HauslisteIF {
      * @since 20220725
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende) {
-        //TODO @Lukas Filter funktioniert nicht: es werdem alle Räume zurückgegeben
         ArrayList<Raum> freieRaueme = new ArrayList<>();
         for (Raum r : this.getAlleRaeueme()
         ) {

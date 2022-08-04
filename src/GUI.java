@@ -110,8 +110,7 @@ public class GUI extends JFrame {
     private JButton dozentHinzufuegenButton;
     private JTextArea dozentHinzufuegenBestätigung;
     private JTextArea inventurBestätigung;
-    private JLabel dozTerminplanSucheTitel;
-    private JTextField dozTerminplanSucheInput;
+    private JLabel dozTerminplanDozAuswahlTitel;
     private JLabel dozTerminplanT1Titel;
     private JLabel dozTerminplanT3Titel;
     private JLabel dozTerminplanT7Titel;
@@ -195,6 +194,7 @@ public class GUI extends JFrame {
     private JTextArea dozTerminplanW8D4Output;
     private JTextArea dozTerminplanW8D5Output;
     private JTextArea dozTerminplanW8D6Output;
+    private JComboBox dozTerminplanDozAuswahlInput;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -308,6 +308,11 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelDozentenTerminplan.setVisible(true);
+                dozTerminplanDozAuswahlInput.removeAllItems();
+                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    dozTerminplanDozAuswahlInput.addItem(d.getName());
+                }
+
             }
         });
 
@@ -316,6 +321,7 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelDozentHinzufuegen.setVisible(true);
+
             }
         });
 
@@ -731,8 +737,6 @@ public class GUI extends JFrame {
         dozentHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO bei Click, neuen Namen aus lesen und Objekt hinzufügen
-                //Zu beachten: Name darf noch nicht vergeben sein
                 String neuerDozent = dozentHinzufuegenInput.toString();
 
                 for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
@@ -745,6 +749,15 @@ public class GUI extends JFrame {
                 dozentHinzufuegenBestätigung.setText("Dozent erfolgreich hinzugefügt.");
 
 
+            }
+        });
+        dozTerminplanDozAuswahlInput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO @Moritz
+                /*
+                wenn die ComboBox ausgewählt wird, muss sich die Tabelle initialisieren
+                 */
             }
         });
     }
