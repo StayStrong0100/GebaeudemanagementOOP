@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/Dozent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -465,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659639236000</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung">
+      <created>1659641928136</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1659641928136</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -480,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle" />
     <MESSAGE value="toString() und print erstellt()" />
     <MESSAGE value="Großschreibung in der toString() geändert" />
     <MESSAGE value="ToString() und print() erstellt" />
@@ -505,7 +507,8 @@
     <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
     <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
     <MESSAGE value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
-    <option name="LAST_COMMIT_MESSAGE" value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
+    <MESSAGE value="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
