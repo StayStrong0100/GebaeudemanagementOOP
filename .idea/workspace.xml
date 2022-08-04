@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Hausseiten fertig implementiert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Zeitraum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Zeitraum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,13 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Singleton mit eingebunden">
-      <created>1657731619921</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1657731619921</updated>
     </task>
     <task id="LOCAL-00004" summary="Hausliste und Raumliste implementiert">
       <created>1657736452863</created>
@@ -491,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659651840837</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert">
+      <created>1659653965468</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1659653965468</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -506,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="toString() und print() erstellt" />
     <MESSAGE value="Anschaffungsdatum hinzugefügt." />
     <MESSAGE value="toString() und print() erstellt. Anschaffungsdatum hinzugefügt." />
     <MESSAGE value="nichts geändert" />
@@ -531,7 +531,8 @@
     <MESSAGE value="Modell anzeigen, Raumausstattung Anzahl und Design" />
     <MESSAGE value="Hausseiten Struktur implementiert (Methoden fehlen noch)" />
     <MESSAGE value="Hausseiten fertig implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hausseiten fertig implementiert" />
+    <MESSAGE value="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

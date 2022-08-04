@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class Zeitraum implements Serializable {
 
@@ -33,8 +32,9 @@ public class Zeitraum implements Serializable {
         this.ende = ende;
     }
 
-    public String print() {
+    @Override
+    public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-        return (("Start: " + df.format(start.getTime())+" Uhr") + "\t" + ("Ende: " + df.format(ende.getTime())+" Uhr"));
+        return (("Start: " + df.format(start.getTime())+" Uhr") + " | " + ("Ende: " + df.format(ende.getTime())+" Uhr"));
     }
 }

@@ -59,10 +59,11 @@ public class Raum implements Serializable {
     }
 
     public void cancelOrder(int id) {
-        for (Terminbuchung buchung : buchungen) {
+        for (Terminbuchung buchung : this.getBuchungen()) {
             if (buchung.getId() == id) {
-                buchungen.remove(buchung);
                 buchung.getDozent().removeBuchung(buchung);
+                buchungen.remove(buchung);
+                return;
             }
         }
     }

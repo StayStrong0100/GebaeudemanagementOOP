@@ -5,6 +5,7 @@ Multi Cursor: Alt + Shift + Click
 
 import ausstattung.*;
 import buchung.Dozent;
+import buchung.Terminbuchung;
 import serviceLocator.ServiceLocator;
 import verwaltung.Haus;
 import verwaltung.Raum;
@@ -940,6 +941,61 @@ public class GUI extends JFrame {
                     }
                 }
                 hausBearbeitenBestaetigung.setText("Haus nicht gefunden, bitte wiederholen Sie den Vorgang.");
+            }
+        });
+        raumEntblockenRaumInput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int raumnummer;
+                try {
+                    raumnummer = Integer.parseInt(raumEntblockenRaumInput.getSelectedItem().toString());
+                } catch (NullPointerException npe) {
+                    raumEntblockenBestaetigung.setText("Kein Raum ausgewählt");
+                    return;
+                }
+
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                    if (r.getRaumnummer() == raumnummer) {
+                        raumEntblockenTerminInput.removeAllItems();
+                        for (Terminbuchung t : r.getBuchungen()) {
+                            raumEntblockenTerminInput.addItem(t.getId() + " | " + t.getDozent().getName() + " | " + t.getIntervall().toString());
+                        }
+                        return;
+                    }
+                    raumEntblockenBestaetigung.setText("Raum nicht gefunden, bitte wiederholen Sie den Vorgang!");
+
+                }
+            }
+        });
+        raumEntblockenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int raumnummer;
+                try {
+                    raumnummer = Integer.parseInt(raumEntblockenRaumInput.getSelectedItem().toString());
+                } catch (NullPointerException npe) {
+                    raumEntblockenBestaetigung.setText("Kein Raum ausgewählt");
+                    return;
+                }
+
+                int buchungsID;
+                try {
+                    buchungsID = Integer.parseInt(raumEntblockenTerminInput.getSelectedItem().toString().split(" | ")[0]);
+                } catch (NullPointerException npe) {
+                    raumEntblockenBestaetigung.setText("Keine Terminbuchung ausgewählt");
+                    return;
+                }
+                System.out.println(buchungsID);
+
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                    if (r.getRaumnummer() == raumnummer) {
+                        r.cancelOrder(buchungsID);
+                        raumEntblockenBestaetigung.setText("Terminbuchung " + buchungsID + " wurde erfolgeich storniert.");
+                        return;
+                    }
+                }
+                raumEntblockenBestaetigung.setText("Raum nicht gefunden, bitte wiederholen Sie den Vorgang!");
+
             }
         });
     }
