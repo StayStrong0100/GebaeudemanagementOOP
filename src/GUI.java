@@ -257,6 +257,9 @@ public class GUI extends JFrame {
     private JLabel raumEntblockenRaumTitel;
     private JLabel raumEntblockenTerminTitel;
     private JTextArea raumEntblockenBestaetigung;
+    private JSeparator raumsucheTitelSeperator;
+    private JSeparator dozentHinzufuegenTitelSeparator;
+    private JSeparator dozentLoeschenTitelSeparator;
 
     // Startbild Elemente
     private ImageIcon hwr;
