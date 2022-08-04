@@ -26,16 +26,16 @@ public class GUI extends JFrame {
     private JMenu inventarMenue = new JMenu("Inventar");
     private JMenu dozentenMenue = new JMenu("Dozenten");
 
-    private JMenuItem raumHinzufügen = new JMenuItem("Raum hinzufügen");
+    private JMenuItem raumHinzufuegen = new JMenuItem("Raum hinzufügen");
     private JMenuItem raumSuchenUndBuchen = new JMenuItem("Raum suchen und buchen");
     private JMenuItem raumBearbeiten = new JMenuItem("Raum bearbeiten");
 
     private JMenuItem inventur = new JMenuItem("Inventur");
     private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
 
-    private JMenuItem dozentenÜbersicht = new JMenuItem("Dozentenübersicht");
-    private JMenuItem dozentHinzufügen = new JMenuItem("Dozent hinzufügen");
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
+    private JMenuItem dozentHinzufügen = new JMenuItem("Dozent hinzufügen");
+    private JMenuItem dozentLoeschen = new JMenuItem("Dozent löschen");
 
     // GUI Elemente: Panels, Labels, ComboBox, TextField. TextAreas
     private JPanel panelMain;
@@ -43,14 +43,14 @@ public class GUI extends JFrame {
     private JPanel panelRaumSuchenBuchen;
     private JPanel panelInventur;
     private JPanel panelInventarBearbeiten;
-    private JPanel panelDozentenUebersicht;
+    private JPanel panelDozentLöschen;
     private JPanel panelDozentenTerminplan;
     private JPanel panelFooter;
 
     private JLabel raumlisteTitel;
     private JLabel inventurStuehleTitel;
     private JLabel dozTerminplanTitel;
-    private JLabel dozUebersichtTitel;
+    private JLabel dozentlöschenTitel;
     private JLabel inventarsucheTitel;
     private JLabel raumsucheTitel;
     private JPanel panelStartseite;
@@ -125,11 +125,9 @@ public class GUI extends JFrame {
     private JLabel inventurKreidetafelnOutput;
     private JLabel inventurWhiteboardsOutput;
     private JLabel inventurMikrofoneOutput;
-    private JTextArea dozUebersichtBestätigung;
     private JLabel dozentVerwInputTitel;
     private JTextField dozentVerwInput;
     private JButton dozentVerwHinzuButton;
-    private JButton dozentVerwLoeschenButton;
     private JTextArea dozentVerwBestätigung;
     private JTextArea inventurBestätigung;
     private JLabel dozTerminplanSucheTitel;
@@ -151,7 +149,6 @@ public class GUI extends JFrame {
     private JLabel dozTerminplanW6Titel;
     private JLabel dozTerminplanW7Titel;
     private JLabel dozTerminplanW8Titel;
-    private JTextArea inventurGesamtinventur;
     private JComboBox raumbearbeitenHinzufügenInput;
     private JLabel raumbearbeitenHinzufügenTitel;
     private JLabel raumbearbeitenVerändernTitel;
@@ -167,16 +164,14 @@ public class GUI extends JFrame {
     private JComboBox raumlisteAddHausInput;
     private JScrollPane panelScrollRaumbearbeiten;
     private JSeparator raumbearbeitenSeperator;
+    private JComboBox dozentlöschenDozListe;
+    private JButton dozentlöschenCheck;
+    private JLabel dozentlöschenNameTitel;
+    private JTextArea dozentlöschenBestätigung;
 
     // Startbild Elemente
     private ImageIcon hwr;
     private JLabel hintergrund;
-
-    //Attribute für Methoden mit Zugriff auf Verarbeitungsschicht
-    //TODO @Lukas prüfen, ob Elemente noch notwendig sind
-    private ArrayList<Raum> perfekteRaueme = new ArrayList<>();
-    private Calendar start = Calendar.getInstance();
-    private Calendar ende = Calendar.getInstance();
 
     public GUI() {
         //Menü erstellen und verbinden
@@ -184,16 +179,16 @@ public class GUI extends JFrame {
         hauptMenue.add(inventarMenue);
         hauptMenue.add(dozentenMenue);
 
-        raumMenue.add(raumHinzufügen);
+        raumMenue.add(raumHinzufuegen);
         raumMenue.add(raumSuchenUndBuchen);
         raumMenue.add(raumBearbeiten);
 
         inventarMenue.add(inventur);
         inventarMenue.add(inventarBearbeiten);
 
-        dozentenMenue.add(dozentenÜbersicht);
         dozentenMenue.add(dozentTerminplan);
         dozentenMenue.add(dozentHinzufügen);
+        dozentenMenue.add(dozentLoeschen);
 
         //Fenster erstellen
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -213,7 +208,7 @@ public class GUI extends JFrame {
 
 
         //Es folgen die Action Listener, beim Aufruf / Wechsel von Seiten
-        raumHinzufügen.addActionListener(new ActionListener() {
+        raumHinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
@@ -257,7 +252,7 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelInventur.setVisible(true);
-                inventurGesamtinventur.setText(ServiceLocator.getInstance().getHausliste().inventur());
+                inventurBestätigung.setText(ServiceLocator.getInstance().getHausliste().inventur());
             }
         });
 
@@ -269,11 +264,15 @@ public class GUI extends JFrame {
             }
         });
 
-        dozentenÜbersicht.addActionListener(new ActionListener() {
+        dozentLoeschen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
-                panelDozentenUebersicht.setVisible(true);
+                panelDozentLöschen.setVisible(true);
+                dozentlöschenDozListe.removeAllItems();
+                for(Dozent d: ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    dozentlöschenDozListe.addItem(d.getName());
+                }
             }
         });
 
@@ -310,6 +309,8 @@ public class GUI extends JFrame {
 
                 //Zeit-Daten umwandeln
                 SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                Calendar start = Calendar.getInstance();
+                Calendar ende = Calendar.getInstance();
                 try {
                     start.setTime(format.parse(raumsucheStartzeitInput.getText()));
 
@@ -342,25 +343,17 @@ public class GUI extends JFrame {
                 int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
                 int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
 
-                //TODO @Lukas Filter kontrollieren, in GUI werden auch Räume angezeigt, die bereits gebucht sind
                 //Filter nach Zeit
                 ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start,ende);
 
                 //Filter nach Ausstattung
-                perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
-
-                //TODO @Lukas DEBUGING
-                System.out.println("Anzahl Räume: " + ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size());
-                System.out.println("Anzahl freier Räume: " + freieRaueme.size());
-                System.out.println("Anzahl perfekter Räume: " + perfekteRaueme.size());
+                ArrayList<Raum> perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme,minBeamer,minKameras,minKreidetafeln,minLautsprecher,minMikrofone,minPCs,minSmartboards,minStuehle,minTische,minWhiteboards);
 
                 if (perfekteRaueme.size() == 0){
                     raumsuchenbuchenBestätigung.setText("Es gibt keine passenden Räume, bitte verändern Sie Ihre Suchkriterien!");
                 }
 
                 else {
-                    //Clearn, falls alte vorhanden:
-
                     //Gefundene Räume in den DropDownMenus zum Buchen anzeigen
                     for (Raum r : perfekteRaueme) {
                         buchenRaumnummerSelectInput.addItem(r.getRaumnummer());
@@ -458,16 +451,51 @@ public class GUI extends JFrame {
                     return;
                 }
 
+                //Erneutes Einlesen der Zeiten, falls diese in der Zwischenzeit verändert wurden:
+                //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+                if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")){
+                    raumsuchenbuchenBestätigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
+                    return;
+                }
+
+                //Zeit-Daten umwandeln
+                SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                Calendar start = Calendar.getInstance();
+                Calendar ende = Calendar.getInstance();
+                try {
+                    start.setTime(format.parse(raumsucheStartzeitInput.getText()));
+
+                } catch (ParseException ex) {
+                    raumsuchenbuchenBestätigung.setText("Bitte geben Sie die Startzeit in dem angegebene Format an!");
+                    return;
+                }
+                try {
+                    ende.setTime(format.parse(raumsucheEndzeitInput.getText()));
+                } catch (ParseException ex) {
+                    raumsuchenbuchenBestätigung.setText("Bitte geben Sie die Endzeit in dem angegebene Format an!");
+                    return;
+                }
+
+                //Start muss vor Ende liegen
+                if(start.after(ende)){
+                    raumsuchenbuchenBestätigung.setText("Die Startzeit muss vor der Endzeit liegen. Bitte überprüfen Sie Ihre Eingaben!");
+                    return;
+                }
+
                 int raumID = Integer.valueOf(buchenRaumnummerSelectInput.getSelectedItem().toString());
                 String dozent = buchenDozentSelectInput.getSelectedItem().toString();
 
                 for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
                     if (r.getRaumnummer() == raumID){
+                        //Erneuter Kollisions Check, falls Datum verändert wurde. Wenn nun kollidiert, Abbruch und Warnung
+                        if (ServiceLocator.getInstance().getHausliste().terminKollidiert(r,start,ende)){
+                            raumsuchenbuchenBestätigung.setText("Sie haben die Buchungsdaten verändert. Zu der angegebenen Zeit ist der gewünschte Raum nicht verfügbar. Bitte aktualisieren Sie die Raumauswahl durch klicken auf 'Räume finden'!");
+                            return;
+                        }
                         for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
                             if (d.getName().equals(dozent)){
                                 r.buchen(start,ende,d);
                                 raumsuchenbuchenBestätigung.setText("Erfolgreich gebucht. BuchungsID: " + (r.getBuchungen().get(r.getBuchungen().size()-1).getId()));
-                                System.out.println("Anzahl Buchungen im Raum: " +r.getBuchungen().size());
                                 return;
                             }
                         }
@@ -657,6 +685,30 @@ public class GUI extends JFrame {
 
             }
         });
+        dozentlöschenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String dozName = dozentlöschenDozListe.getSelectedItem().toString();
+
+                for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
+                    if(d.getName().equals(dozName)){
+                        ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().remove(d);
+                        dozentlöschenBestätigung.setText("Der Dozent " + dozName + " wurde erfolgreich entfernt.");
+                        return;
+                    }
+
+                }
+                dozentlöschenBestätigung.setText("Unerwarteter Fehler: Dozent existiert nicht. Bitte wiederholen Sie den Vorgang!");
+            }
+        });
+        dozentVerwHinzuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO bei Click, neuen Namen aus lesen und Objekt hinzufügen
+                //Zu beachten: Name darf noch nicht vergeben sein
+
+            }
+        });
     }
 
     /**
@@ -755,7 +807,7 @@ public class GUI extends JFrame {
     panelRaumSuchenBuchen.setVisible(false);
     panelInventur.setVisible(false);
     panelInventarBearbeiten.setVisible(false);
-    panelDozentenUebersicht.setVisible(false);
+    panelDozentLöschen.setVisible(false);
     panelDozentenTerminplan.setVisible(false);
     panelStartseite.setVisible(false);
     panelRaumBearbeiten.setVisible(false);

@@ -72,7 +72,7 @@ public class HausListe implements Serializable, HauslisteIF {
 
  */
 
-            String ausgabe = "Inventur: \n";
+            String ausgabe = "";
             ausgabe += ("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig()) + "\n";
             ausgabe += (("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt()) + "\n\n");
             ausgabe += (("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig()) + "\n");
@@ -651,10 +651,15 @@ public class HausListe implements Serializable, HauslisteIF {
     public boolean terminKollidiert(Raum r, Calendar start, Calendar ende) {
         for (Terminbuchung t : r.getBuchungen()
         ) {
-            if (start.after(t.getIntervall().getStart()) && start.before(t.getIntervall().getEnde())) {
+            Calendar geblockterStart = t.getIntervall().getStart();
+            Calendar geblocktesEnde = t.getIntervall().getEnde();
+
+            //Wenn Anfrage-Start zwischen in einem bereits gebuchten Intervall liegt (dazwischen, gleich Start oder Ende ist)
+            if (start.after(geblockterStart) && start.before(geblocktesEnde) || start.equals(geblockterStart) || start.equals(geblocktesEnde)) {
                 return true;
             }
-            if (ende.after(t.getIntervall().getStart()) && ende.before(t.getIntervall().getEnde())) {
+            //Wenn Anfrage-Ende zwischen in einem bereits gebuchten Intervall liegt
+            if (ende.after(geblockterStart) && ende.before(geblocktesEnde) || ende.equals(geblockterStart) || ende.equals(geblocktesEnde)) {
                 return true;
             }
         }

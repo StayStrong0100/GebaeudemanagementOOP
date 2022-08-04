@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Diverses">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Bugs behoben, Zeitfilter funkt. weiterhin NICHT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -450,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659544794360</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="GUI Bugs behoben, Zeitfilter funkt. weiterhin NICHT">
+      <created>1659555471451</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1659555471451</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -465,7 +471,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="toString() geändert. bessere Darstellung, Anschaffungsdatum an die richtige Stelle" />
     <MESSAGE value="toString() und print erstellt()" />
     <MESSAGE value="Großschreibung in der toString() geändert" />
     <MESSAGE value="ToString() und print() erstellt" />
@@ -490,7 +495,8 @@
     <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
     <MESSAGE value="Weitere Ergänzungen GUI" />
     <MESSAGE value="Diverses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Diverses" />
+    <MESSAGE value="GUI Bugs behoben, Zeitfilter funkt. weiterhin NICHT" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Bugs behoben, Zeitfilter funkt. weiterhin NICHT" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
