@@ -16,7 +16,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="94e19" class="javax.swing.JLabel" binding="raumlisteTitel">
+          <component id="94e19" class="javax.swing.JLabel" binding="raumHinzufuegenTitel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -26,7 +26,7 @@
               <text value="Raum hinzufügen"/>
             </properties>
           </component>
-          <component id="f8a16" class="javax.swing.JLabel" binding="raumlisteAddHausTitel">
+          <component id="f8a16" class="javax.swing.JLabel" binding="raumHinzufuegenHausTitel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -34,7 +34,7 @@
               <text value="In Haus:"/>
             </properties>
           </component>
-          <component id="aacf6" class="javax.swing.JButton" binding="raumlisteAddButton">
+          <component id="aacf6" class="javax.swing.JButton" binding="raumHinzufuegenButton">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -42,13 +42,13 @@
               <text value="Raum anlegen"/>
             </properties>
           </component>
-          <component id="52fe" class="javax.swing.JComboBox" binding="raumlisteAddHausInput">
+          <component id="52fe" class="javax.swing.JComboBox" binding="raumHinzufuegenHausInput">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
           </component>
-          <component id="83034" class="javax.swing.JTextField" binding="raumlisteAddNummerInput">
+          <component id="83034" class="javax.swing.JTextField" binding="raumHinzufuegenNummerInput">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -56,7 +56,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="50255" class="javax.swing.JLabel" binding="raumlisteAddNummerTitel">
+          <component id="50255" class="javax.swing.JLabel" binding="raumHinzufuegenNummerTitel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -64,7 +64,7 @@
               <text value="Neue Raumnummer:"/>
             </properties>
           </component>
-          <component id="2c9bf" class="javax.swing.JTextArea" binding="raumlisteBestätigung">
+          <component id="2c9bf" class="javax.swing.JTextArea" binding="raumHinzufuegenBestätigung">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
@@ -370,7 +370,7 @@
           </component>
         </children>
       </grid>
-      <grid id="e5de3" binding="panelInventur" layout-manager="GridLayoutManager" row-count="8" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e5de3" binding="panelInventur" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -380,177 +380,15 @@
         <children>
           <component id="6e569" class="javax.swing.JLabel" binding="inventurTitel">
             <constraints>
-              <grid row="0" column="2" row-span="5" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="5" col-span="5" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Inventur"/>
             </properties>
           </component>
-          <component id="9412d" class="javax.swing.JLabel" binding="inventurTischTitel">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Tische:"/>
-            </properties>
-          </component>
-          <component id="4485b" class="javax.swing.JLabel" binding="inventurStuehleTitel">
-            <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <text value="Anzahl Stühle:"/>
-            </properties>
-          </component>
-          <component id="f7677" class="javax.swing.JLabel" binding="inventurBeamerTitel">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Beamer:"/>
-            </properties>
-          </component>
-          <component id="d574b" class="javax.swing.JLabel" binding="inventurKameraTitel">
-            <constraints>
-              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Kameras:"/>
-            </properties>
-          </component>
-          <component id="c207c" class="javax.swing.JLabel" binding="inventurPCsTitel">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl PCs:"/>
-            </properties>
-          </component>
-          <component id="53fe3" class="javax.swing.JLabel" binding="inventurLautsprecherTitel">
-            <constraints>
-              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Lautsprecher:"/>
-            </properties>
-          </component>
-          <component id="21f0f" class="javax.swing.JLabel" binding="inventurWhiteboardsTitel">
-            <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Whiteboards:"/>
-            </properties>
-          </component>
-          <component id="8f1c0" class="javax.swing.JLabel" binding="inventurMikrofoneTitel">
-            <constraints>
-              <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Mikrofone:"/>
-            </properties>
-          </component>
-          <component id="b18c6" class="javax.swing.JLabel" binding="inventurKreidetafelnTitel">
-            <constraints>
-              <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Kreidetafeln:"/>
-            </properties>
-          </component>
-          <component id="d1877" class="javax.swing.JLabel" binding="inventurSmartboardsTitel">
-            <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Anzahl Smartboards:"/>
-            </properties>
-          </component>
-          <component id="a5ed2" class="javax.swing.JLabel" binding="inventurTischeOutput">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="9f46f" class="javax.swing.JLabel" binding="inventurStuehleOutput">
-            <constraints>
-              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="4473e" class="javax.swing.JLabel" binding="inventurBeamerOutput">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="2615a" class="javax.swing.JLabel" binding="inventurKamerasOutput">
-            <constraints>
-              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="f3bf3" class="javax.swing.JLabel" binding="inventurPCsOutput">
-            <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="9bad8" class="javax.swing.JLabel" binding="inventurLautsprecherOutput">
-            <constraints>
-              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="59359" class="javax.swing.JLabel" binding="inventurSmartboardsOutput">
-            <constraints>
-              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="d20a0" class="javax.swing.JLabel" binding="inventurKreidetafelnOutput">
-            <constraints>
-              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="672b5" class="javax.swing.JLabel" binding="inventurWhiteboardsOutput">
-            <constraints>
-              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
-          <component id="f57ad" class="javax.swing.JLabel" binding="inventurMikrofoneOutput">
-            <constraints>
-              <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Variable"/>
-            </properties>
-          </component>
           <component id="cf8be" class="javax.swing.JTextArea" binding="inventurBestätigung">
             <constraints>
-              <grid row="7" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="5" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
               </grid>
             </constraints>
@@ -1331,7 +1169,7 @@
           </component>
         </children>
       </grid>
-      <grid id="686d5" binding="panelDozentVerwalten" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="686d5" binding="panelDozentHinzufuegen" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -1339,7 +1177,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="fb210" class="javax.swing.JLabel" binding="dozentVerwTitel">
+          <component id="fb210" class="javax.swing.JLabel" binding="dozentHinzufuegenTitel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1347,7 +1185,7 @@
               <text value="Dozent hinzufügen"/>
             </properties>
           </component>
-          <component id="e911c" class="javax.swing.JLabel" binding="dozentVerwInputTitel">
+          <component id="e911c" class="javax.swing.JLabel" binding="dozentHinzufuegenInputTitel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1355,7 +1193,7 @@
               <text value="Dozent hinzufügen:"/>
             </properties>
           </component>
-          <component id="f4865" class="javax.swing.JButton" binding="dozentVerwHinzuButton">
+          <component id="f4865" class="javax.swing.JButton" binding="dozentHinzufuegenButton">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1363,7 +1201,7 @@
               <text value="Dozent hinzufügen"/>
             </properties>
           </component>
-          <component id="b2c35" class="javax.swing.JTextField" binding="dozentVerwInput">
+          <component id="b2c35" class="javax.swing.JTextField" binding="dozentHinzufuegenInput">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -1373,7 +1211,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="67f94" class="javax.swing.JTextArea" binding="dozentVerwBestätigung">
+          <component id="67f94" class="javax.swing.JTextArea" binding="dozentHinzufuegenBestätigung">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>

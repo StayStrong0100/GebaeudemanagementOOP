@@ -47,8 +47,7 @@ public class GUI extends JFrame {
     private JPanel panelDozentenTerminplan;
     private JPanel panelFooter;
 
-    private JLabel raumlisteTitel;
-    private JLabel inventurStuehleTitel;
+    private JLabel raumHinzufuegenTitel;
     private JLabel dozTerminplanTitel;
     private JLabel dozentlöschenTitel;
     private JLabel inventarsucheTitel;
@@ -82,15 +81,15 @@ public class GUI extends JFrame {
     private JLabel raumsucheMikrofoneTitel;
     private JTextField raumsucheWhiteboardsInput;
     private JTextField raumsucheMikrofoneInput;
-    private JLabel raumlisteAddNummerTitel;
-    private JTextField raumlisteAddNummerInput;
-    private JLabel raumlisteAddHausTitel;
-    private JButton raumlisteAddButton;
+    private JLabel raumHinzufuegenNummerTitel;
+    private JTextField raumHinzufuegenNummerInput;
+    private JLabel raumHinzufuegenHausTitel;
+    private JButton raumHinzufuegenButton;
     private JPanel panelRaumBearbeiten;
     private JLabel raumbearbeitenTitel;
-    private JPanel panelDozentVerwalten;
-    private JLabel dozentVerwTitel;
-    private JTextArea raumlisteBestätigung;
+    private JPanel panelDozentHinzufuegen;
+    private JLabel dozentHinzufuegenTitel;
+    private JTextArea raumHinzufuegenBestätigung;
     private JTextField raumbearbeitenRaumIDInput;
     private JButton raumbearbeitenIDÄndernCheck;
     private JLabel raumbearbeitenRaumlisteTitel;
@@ -105,30 +104,11 @@ public class GUI extends JFrame {
     private JLabel buchenDozentTitel;
     private JButton buchenCheck;
     private JTextArea buchenBestätigung;
-    private JLabel inventurTischTitel;
     private JLabel inventurTitel;
-    private JLabel inventurLautsprecherTitel;
-    private JLabel inventurPCsTitel;
-    private JLabel inventurBeamerTitel;
-    private JLabel inventurKameraTitel;
-    private JLabel inventurSmartboardsTitel;
-    private JLabel inventurKreidetafelnTitel;
-    private JLabel inventurWhiteboardsTitel;
-    private JLabel inventurMikrofoneTitel;
-    private JLabel inventurTischeOutput;
-    private JLabel inventurStuehleOutput;
-    private JLabel inventurBeamerOutput;
-    private JLabel inventurKamerasOutput;
-    private JLabel inventurPCsOutput;
-    private JLabel inventurLautsprecherOutput;
-    private JLabel inventurSmartboardsOutput;
-    private JLabel inventurKreidetafelnOutput;
-    private JLabel inventurWhiteboardsOutput;
-    private JLabel inventurMikrofoneOutput;
-    private JLabel dozentVerwInputTitel;
-    private JTextField dozentVerwInput;
-    private JButton dozentVerwHinzuButton;
-    private JTextArea dozentVerwBestätigung;
+    private JLabel dozentHinzufuegenInputTitel;
+    private JTextField dozentHinzufuegenInput;
+    private JButton dozentHinzufuegenButton;
+    private JTextArea dozentHinzufuegenBestätigung;
     private JTextArea inventurBestätigung;
     private JLabel dozTerminplanSucheTitel;
     private JTextField dozTerminplanSucheInput;
@@ -160,7 +140,7 @@ public class GUI extends JFrame {
     private JComboBox raumbearbeitenVerändernAusstattungInput;
     private JComboBox buchenRaumnummerSelectInput;
     private JComboBox buchenDozentSelectInput;
-    private JComboBox raumlisteAddHausInput;
+    private JComboBox raumHinzufuegenHausInput;
     private JScrollPane panelScrollRaumbearbeiten;
     private JSeparator raumbearbeitenSeperator;
     private JComboBox dozentlöschenDozListe;
@@ -260,10 +240,10 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
                 panelRaumHinzufügen.setVisible(true);
-                raumlisteAddHausInput.removeAllItems();
+                raumHinzufuegenHausInput.removeAllItems();
 
                 for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
-                    raumlisteAddHausInput.addItem(h.getHausnummer());
+                    raumHinzufuegenHausInput.addItem(h.getHausnummer());
                 }
             }
         });
@@ -335,7 +315,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verbergeAllePanels();
-                panelDozentVerwalten.setVisible(true);
+                panelDozentHinzufuegen.setVisible(true);
             }
         });
 
@@ -414,20 +394,20 @@ public class GUI extends JFrame {
                 }
             }
         });
-        raumlisteAddButton.addActionListener(new ActionListener() {
+        raumHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
-                if (raumlisteAddNummerInput.getText().equals("") || raumlisteAddHausInput.getSelectedItem() == null){
-                    raumlisteBestätigung.setText("Bitte füllen Sie beide Felder aus!");
+                if (raumHinzufuegenNummerInput.getText().equals("") || raumHinzufuegenHausInput.getSelectedItem() == null){
+                    raumHinzufuegenBestätigung.setText("Bitte füllen Sie beide Felder aus!");
                     return;
                 }
 
-                int raumID = Integer.valueOf(raumlisteAddNummerInput.getText());
-                String hausID = raumlisteAddHausInput.getSelectedItem().toString();
+                int raumID = Integer.valueOf(raumHinzufuegenNummerInput.getText());
+                String hausID = raumHinzufuegenHausInput.getSelectedItem().toString();
                 //Prüfe, ob ID bereits vergeben ist
                 if(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(raumID)){
-                    raumlisteBestätigung.setText("Die Raumnummer ist bereits vergeben, bitte wählen Sie eine andere!");
+                    raumHinzufuegenBestätigung.setText("Die Raumnummer ist bereits vergeben, bitte wählen Sie eine andere!");
                     return;
                 }
 
@@ -436,11 +416,11 @@ public class GUI extends JFrame {
                     for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
                         if (h.getHausnummer() == hausID) {
                             h.addRaum(new Raum(raumID));
-                            raumlisteBestätigung.setText("Neuer Raum angelegt: Haus " + hausID + " Raum: " + raumID);
+                            raumHinzufuegenBestätigung.setText("Neuer Raum angelegt: Haus " + hausID + " Raum: " + raumID);
                             return;
                         }
                     }
-                    raumlisteBestätigung.setText("Unerwarteter Fehler: Haus existiert nicht. Bitte wiederholen Sie den Vorgang!");
+                    raumHinzufuegenBestätigung.setText("Unerwarteter Fehler: Haus existiert nicht. Bitte wiederholen Sie den Vorgang!");
                 }
             }
         });
@@ -748,11 +728,22 @@ public class GUI extends JFrame {
                 dozentlöschenBestätigung.setText("Unerwarteter Fehler: Dozent existiert nicht. Bitte wiederholen Sie den Vorgang!");
             }
         });
-        dozentVerwHinzuButton.addActionListener(new ActionListener() {
+        dozentHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO bei Click, neuen Namen aus lesen und Objekt hinzufügen
                 //Zu beachten: Name darf noch nicht vergeben sein
+                String neuerDozent = dozentHinzufuegenInput.toString();
+
+                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    if (d.getName().equals(neuerDozent)){
+                        dozentHinzufuegenBestätigung.setText("Dozent existiert bereits. Bitte wählen Sie einen anderen Namen aus!");
+                        return;
+                    }
+                }
+                ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(neuerDozent));
+                dozentHinzufuegenBestätigung.setText("Dozent erfolgreich hinzugefügt.");
+
 
             }
         });
@@ -858,7 +849,7 @@ public class GUI extends JFrame {
     panelDozentenTerminplan.setVisible(false);
     panelStartseite.setVisible(false);
     panelRaumBearbeiten.setVisible(false);
-    panelDozentVerwalten.setVisible(false);
+    panelDozentHinzufuegen.setVisible(false);
     panelScrollRaumbearbeiten.setVisible(false);
     }
 
