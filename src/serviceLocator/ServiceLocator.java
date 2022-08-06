@@ -36,6 +36,7 @@ public class ServiceLocator implements Serializable {
     private static ServiceLocator instance;
 
     private ServiceLocator() {
+        p = PersistenzDB.getInstance();
         hl = HausListe.getInstance();
         dl = DozentListe.getInstance();
         bTL = BeamerTypListe.getInstance();
