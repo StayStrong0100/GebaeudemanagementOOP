@@ -41,19 +41,15 @@ public class GUI extends JFrame {
     private JMenuItem raumEntblocken = new JMenuItem("Raum entblocken");
     private JMenuItem raumLoeschen = new JMenuItem("Raum loeschen");
 
-
     /** @deprecated
      *private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
      *  private JMenuItem ausstattungsTypHinzufuegen = new JMenuItem("Ausstattungs- Typ Hinzufügen");
      */
 
-
-
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
     private JMenuItem dozentHinzufuegen = new JMenuItem("Dozent hinzufügen");
+    private JMenuItem dozentBearbeiten = new JMenuItem(("Dozent bearbeiten"));
     private JMenuItem dozentLoeschen = new JMenuItem("Dozent löschen");
-    //TODO Dozent bearbeiten
-
 
     // GUI Elemente: Panels, Labels, ComboBox, TextField. TextAreas
     private JPanel panelMain;
@@ -267,6 +263,15 @@ public class GUI extends JFrame {
     private JLabel raumLoeschenIDInputTitel;
     private JButton raumLoeschenCheck;
     private JTextArea raumLoeschenBestaetigung;
+    private JPanel panelDozentBearbeiten;
+    private JComboBox dozentBearbeitenDozAuswahlInput;
+    private JTextField dozentBearbeitenNameInput;
+    private JButton dozentBearbeitenCheck;
+    private JTextArea dozentBearbeitenBestaetigung;
+    private JLabel dozentBearbeitenTitel;
+    private JSeparator dozentBearbeitenTitelSeperatior;
+    private JLabel dozentBearbeitenDozAuswahlTitel;
+    private JLabel dozentBearbeitenNameInputTitel;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -296,6 +301,7 @@ public class GUI extends JFrame {
 
         dozentenMenue.add(dozentTerminplan);
         dozentenMenue.add(dozentHinzufuegen);
+        dozentenMenue.add(dozentBearbeiten);
         dozentenMenue.add(dozentLoeschen);
 
         //Fenster erstellen
@@ -466,6 +472,18 @@ public class GUI extends JFrame {
             verbergeAllePanels();
             panelDozentHinzufuegen.setVisible(true);
 
+        });
+
+        dozentBearbeiten.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelDozentBearbeiten.setVisible(true);
+                dozentBearbeitenDozAuswahlInput.removeAllItems();
+                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    dozentBearbeitenDozAuswahlInput.addItem(d.getName());
+                }
+            }
         });
 
         //Es folgen Action Listener, die bei Buttons ausgeführt werden
@@ -1052,6 +1070,30 @@ public class GUI extends JFrame {
 
             }
         });
+        dozentBearbeitenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO @Lukas Dozent bearbeiten Methode
+                //Wenn aus dem DropDownMenu kein Dozent ausgewählt wurde oder kein neuer Name eingegeben wurde, wird die Methode nicht ausgeführt und der Nutzer informiert
+                if(dozentBearbeitenDozAuswahlInput.getSelectedItem() == null || dozentBearbeitenNameInput.getText().equals("")){
+                    dozentBearbeitenBestaetigung.setText("Bitte wählen Sie einen Dozenten aus und geben Sie einen neuen Namen ein!");
+                    return;
+                }
+
+                String dozent = dozentBearbeitenDozAuswahlInput.getSelectedItem().toString();
+                String neuerName = dozentBearbeitenNameInput.getText();
+
+                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    if (d.getName().equals(dozent)){
+                        d.setName(neuerName);
+                        dozentBearbeitenBestaetigung.setText("Dozent " + dozent + " erfolgreich umbenannt. Neuer Name: " + neuerName);
+                        return;
+                    }
+                }
+                dozentBearbeitenBestaetigung.setText("Dozent " + dozent + " wurde nicht gefunden. Bitte wiederholen Sie den Vorgang.");
+                return;
+            }
+        });
     }
 
     /**
@@ -1160,6 +1202,7 @@ public class GUI extends JFrame {
         panelHausLoeschen.setVisible(false);
         panelRaumEntblocken.setVisible(false);
         panelRaumLoeschen.setVisible(false);
+        panelDozentBearbeiten.setVisible(false);
     }
 
     private void createUIComponents() {

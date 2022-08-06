@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Einheitliches Ueberschriftenlayout etabliert">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,13 +146,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Terminplanung und Ausstattungsmerkmal angepasst, Zustände implementiert">
-      <created>1657832391184</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1657832391184</updated>
     </task>
     <task id="LOCAL-00007" summary="Automatische BuchungsID, Raumliste obsolet gemacht durch Integration der notwendigen Methoden in Haus">
       <created>1657879843097</created>
@@ -491,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659655925150</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt">
+      <created>1659772939792</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1659772939792</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -506,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nichts geändert" />
     <MESSAGE value="toString() geändert" />
     <MESSAGE value="nichts" />
     <MESSAGE value="Bei der Methode addAusstattung() den Modifier zu public umgeändert" />
@@ -531,7 +529,8 @@
     <MESSAGE value="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert" />
     <MESSAGE value="Raumentblocken fertiggestellt" />
     <MESSAGE value="Einheitliches Ueberschriftenlayout etabliert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Einheitliches Ueberschriftenlayout etabliert" />
+    <MESSAGE value="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
