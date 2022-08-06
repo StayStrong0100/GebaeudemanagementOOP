@@ -913,7 +913,7 @@ public class GUI extends JFrame {
                 //super.windowClosing(e);
                 switch (JOptionPane.showConfirmDialog(null, "Möchten Sie die Änderungen vor dem Schließen speichern?", "Schließen", JOptionPane.YES_NO_CANCEL_OPTION)) {
                     case JOptionPane.YES_OPTION -> {
-                        ServiceLocator.getInstance().getPersistenz().speichern("Grunddaten", ServiceLocator.getInstance());
+                        ServiceLocator.getInstance().speicherAlleContainer("Grunddaten", ServiceLocator.getInstance());
                         System.exit(0);
                     }
                     case JOptionPane.NO_OPTION -> System.exit(0);

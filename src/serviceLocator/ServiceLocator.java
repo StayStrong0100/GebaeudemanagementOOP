@@ -17,54 +17,58 @@ public class ServiceLocator implements Serializable {
     PersistenzDB
      */
 
-    private HausListe hl;
-    private DozentListe dl;
+    private HauslisteIF hl;
+    private DozentListeIF dl;
 
-    private BeamerTypListe bTL;
-    private KameraTypListe kameraTL;
-    private KreidetafelTypListe kreideTL;
-    private LautsprecherTypListe lTL;
-    private MikrofonTypListe mTL;
-    private PCTypListe pTL;
-    private SmartboardTypListe smartTL;
-    private StuhlTypListe stuhlTL;
-    private TischTypListe tTL;
-    private WhiteboardTypListe wTL;
+    private PersistenzIF p;
+
+    private BeamerTypListeIF bTL;
+    private KameraTypListeIF kameraTL;
+    private KreidetafelTypListeIF kreideTL;
+    private LautsprecherTypListeIF lTL;
+    private MikrofonTypListeIF mTL;
+    private PCTypListeIF pTL;
+    private SmartboardTypListeIF smartTL;
+    private StuhlTypListeIF stuhlTL;
+    private TischTypListeIF tTL;
+    private WhiteboardTypListeIF wTL;
 
     private static ServiceLocator instance;
 
-    private ServiceLocator(HausListe hl, DozentListe dl, BeamerTypListe bTL, KameraTypListe kameraTL, KreidetafelTypListe kreideTL, LautsprecherTypListe lTL, MikrofonTypListe mTL, PCTypListe pTL, SmartboardTypListe smartTL, StuhlTypListe stuhlTL, TischTypListe tTL, WhiteboardTypListe wTL) {
-        this.hl = hl;
-        this.dl = dl;
-        this.bTL = bTL;
-        this.kameraTL = kameraTL;
-        this.kreideTL = kreideTL;
-        this.lTL = lTL;
-        this.mTL = mTL;
-        this.pTL = pTL;
-        this.smartTL = smartTL;
-        this.stuhlTL = stuhlTL;
-        this.tTL = tTL;
-        this.wTL = wTL;
+    private ServiceLocator() {
+        hl = HausListe.getInstance();
+        dl = DozentListe.getInstance();
+        bTL = BeamerTypListe.getInstance();
+        kameraTL = KameraTypListe.getInstance();
+        kreideTL = KreidetafelTypListe.getInstance();
+        lTL = LautsprecherTypListe.getInstance();
+        mTL = MikrofonTypListe.getInstance();
+        pTL = PCTypListe.getInstance();
+        smartTL = SmartboardTypListe.getInstance();
+        stuhlTL = StuhlTypListe.getInstance();
+        tTL = TischTypListe.getInstance();
+        wTL = WhiteboardTypListe.getInstance();
     }
 
     public static ServiceLocator getInstance() {
         if (instance == null) {
-            instance = new ServiceLocator(HausListe.getInstance(), DozentListe.getInstance(), BeamerTypListe.getInstance(), KameraTypListe.getInstance(), KreidetafelTypListe.getInstance(), LautsprecherTypListe.getInstance(), MikrofonTypListe.getInstance(), PCTypListe.getInstance(), SmartboardTypListe.getInstance(), StuhlTypListe.getInstance(), TischTypListe.getInstance(), WhiteboardTypListe.getInstance());
+            instance = new ServiceLocator();
         }
         return instance;
     }
 
-    public static void setInstance(ServiceLocator instance) {
-        ServiceLocator.instance = instance;
-    }
 
     public HauslisteIF getHausliste() {
         return hl;
     }
 
-    public PersistenzIF getPersistenz() {
-        return PersistenzDB.getInstance();
+    public void speicherAlleContainer(String dateiname, ServiceLocator sl) {
+        p.speichern(dateiname, sl);
+    }
+
+    public ServiceLocator ladeAlleContainer(String dateiname) {
+        ServiceLocator sl = p.lade(dateiname);
+        return sl;
     }
 
     public DozentListeIF getDozentenListe() {
