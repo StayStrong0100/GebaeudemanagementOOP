@@ -39,6 +39,8 @@ public class GUI extends JFrame {
     private JMenuItem raumSuchenUndBuchen = new JMenuItem("Raum suchen und buchen");
     private JMenuItem raumBearbeiten = new JMenuItem("Raum bearbeiten");
     private JMenuItem raumEntblocken = new JMenuItem("Raum entblocken");
+    private JMenuItem raumLoeschen = new JMenuItem("Raum loeschen");
+
 
     /** @deprecated
      *private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
@@ -219,9 +221,7 @@ public class GUI extends JFrame {
     private JLabel hausHinzufuegenTitel;
     private JSeparator hausHinzufuegenTitelSeperator;
     private JSeparator inventurTitelSeperator;
-    private JPanel panelAusstattungstypHinzufuegen;
-    private JLabel ausstattungstypHinzufuegenTitel;
-    private JSeparator ausstattungstypHinzufuegenTitelSeperator;
+    //private JPanel panelAusstattungstypHinzufuegen;
     private JSeparator raumbearbeitenTitelSeperator;
     private JSeparator raumbearbeitenAusstattungSeperator;
     private JSpinner raumbearbeitenHinzufuegenAnzahl;
@@ -260,6 +260,13 @@ public class GUI extends JFrame {
     private JSeparator raumsucheTitelSeperator;
     private JSeparator dozentHinzufuegenTitelSeparator;
     private JSeparator dozentLoeschenTitelSeparator;
+    private JPanel panelRaumLoeschen;
+    private JLabel raumLoeschenTitel;
+    private JSeparator raumLoeschenTitelSeperator;
+    private JComboBox raumLoeschenIDInput;
+    private JLabel raumLoeschenIDInputTitel;
+    private JButton raumLoeschenCheck;
+    private JTextArea raumLoeschenBestaetigung;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -280,6 +287,7 @@ public class GUI extends JFrame {
         raumMenue.add(raumSuchenUndBuchen);
         raumMenue.add(raumBearbeiten);
         raumMenue.add(raumEntblocken);
+        raumMenue.add(raumLoeschen);
 
         /** @deprecated
          * inventarMenue.add(inventarBearbeiten);
@@ -381,6 +389,18 @@ public class GUI extends JFrame {
                     if(r.getBuchungen().size() > 0){
                         raumEntblockenRaumInput.addItem(r.getRaumnummer());
                     }
+                }
+            }
+        });
+
+        raumLoeschen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verbergeAllePanels();
+                panelRaumLoeschen.setVisible(true);
+                raumLoeschenIDInput.removeAllItems();
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                    raumLoeschenIDInput.addItem(r.getRaumnummer());
                 }
             }
         });
@@ -1001,6 +1021,37 @@ public class GUI extends JFrame {
 
             }
         });
+        raumLoeschenCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(raumLoeschenIDInput.getSelectedItem() == null){
+                    raumLoeschenBestaetigung.setText("Bitte wählen Sie einen Raum aus!");
+                    return;
+                }
+
+                else {
+                    int raumID = Integer.parseInt(raumLoeschenIDInput.getSelectedItem().toString());
+                    //Raum Objekt finden
+                    for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                        if (r.getRaumnummer() == raumID){
+                            //Raum muss im Haus entfernt werden, passendes Haus finden
+                            for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
+                                if(h.getRaeume().contains(r)){
+                                    h.removeRaum(r);
+                                    raumLoeschenBestaetigung.setText("Der Raum " + raumID + " wurde erfolgreich aus Haus " + h.getHausnummer() + " entfernt.");
+                                    return;
+                                }
+                            }
+                            raumLoeschenBestaetigung.setText("Fehler: Der Raum " + raumID + " wurde gefunden, ist aber keinem Haus zugeordnet. Raum wurde nicht gelöscht. Bitte wiederholen Sie den Vorgang!");
+                            return;
+                        }
+                    }
+                    raumLoeschenBestaetigung.setText("Fehler: Der Raum " + raumID + " konnte nicht gefunden werden. Bitte wiederholen Sie den Vorgang, laden Sie ggf. die Seite neu.");
+                    return;
+                }
+
+            }
+        });
     }
 
     /**
@@ -1107,8 +1158,8 @@ public class GUI extends JFrame {
         panelHausBearbeiten.setVisible(false);
         panelHausHinzufuegen.setVisible(false);
         panelHausLoeschen.setVisible(false);
-        panelAusstattungstypHinzufuegen.setVisible(false);
         panelRaumEntblocken.setVisible(false);
+        panelRaumLoeschen.setVisible(false);
     }
 
     private void createUIComponents() {

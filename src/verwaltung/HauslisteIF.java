@@ -13,6 +13,7 @@ public interface HauslisteIF{
 
     public void addHaus(Haus neuesHaus);
 
+    public void removeHaus(Haus altesHAus);
 
     /**
      * Gibt die Anzahl aller Ausstattungsarten nach Zustand in der Konsole aus
