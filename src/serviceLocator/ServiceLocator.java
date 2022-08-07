@@ -19,9 +19,7 @@ public class ServiceLocator implements Serializable {
 
     private HauslisteIF hl;
     private DozentListeIF dl;
-
-    private PersistenzIF p;
-
+    private PersistenzDB p;
     private BeamerTypListeIF bTL;
     private KameraTypListeIF kameraTL;
     private KreidetafelTypListeIF kreideTL;
@@ -36,9 +34,9 @@ public class ServiceLocator implements Serializable {
     private static ServiceLocator instance;
 
     private ServiceLocator() {
-        p = PersistenzDB.getInstance();
         hl = HausListe.getInstance();
         dl = DozentListe.getInstance();
+        p = PersistenzDB.getInstance();
         bTL = BeamerTypListe.getInstance();
         kameraTL = KameraTypListe.getInstance();
         kreideTL = KreidetafelTypListe.getInstance();
@@ -63,8 +61,7 @@ public class ServiceLocator implements Serializable {
         return hl;
     }
 
-    public void speicherAlleContainer(String dateiname, ServiceLocator sl) {
-        p.speichern(dateiname, sl);
+    public void speicherAlleContainer(String dateiname, ServiceLocator sl){ p.speichern(dateiname, sl);
     }
 
     public ServiceLocator ladeAlleContainer(String dateiname) {

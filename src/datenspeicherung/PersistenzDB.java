@@ -6,7 +6,7 @@ import java.io.*;
 import javax.swing.*;
 
 //singleton
-public class PersistenzDB implements PersistenzIF{
+public class PersistenzDB implements PersistenzIF, Serializable{
 
     private PersistenzDB() {
     }
@@ -24,7 +24,6 @@ public class PersistenzDB implements PersistenzIF{
 
         try {
             FileOutputStream fileOut = new FileOutputStream(dateiname);
-
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(sl);
             out.close();
