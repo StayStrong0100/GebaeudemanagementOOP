@@ -46,7 +46,7 @@ public class HausListe implements Serializable, HauslisteIF {
      *
      * @author Lukas Zander
      *
-     * @param neuesHaus
+     * @param neuesHaus Hausobjekt, welches neu hinzugefügt werden soll
      */
     public void addHaus(Haus neuesHaus) {
         this.alleHaeuser.add(neuesHaus);
@@ -57,19 +57,20 @@ public class HausListe implements Serializable, HauslisteIF {
      *
      * @author Lukas Zander
      *
-     * @param altesHaus
+     * @param altesHaus Hausobjekt, welches entfernt werden soll
      */
     public void removeHaus(Haus altesHaus){
         this.alleHaeuser.remove(altesHaus);
     }
 
     /**
+     *Zählt die Anzahl von Ausstattungsmerkmalen in allen Räumen, abhängig des angegebenen Typs und Zustands
      *
-     * @param typKlasse
-     * @param zustandKlasse
-     * @return
-     * @param <T>
-     * @param <Z>
+    * @author Lukas Zander
+     *
+     * @param typKlasse Typklasse des Ausstattungsmerkmales, nach dem gefiltert werden soll
+     * @param zustandKlasse Zustandsklasse des Ausstattungsmerkmales, nach dem gefiltert werden soll
+     * @return Anzahl der vorhandenen Ausstattungsmerkmale in allen Räumen, abhängig des angegebenen Typs und Zustands
      */
     public <T extends Ausstattungsmerkmal, Z extends Zustand> int getAnzahlAlleMerkmale(Class<T> typKlasse, Class<Z> zustandKlasse){
         int anzahl = 0;
@@ -88,7 +89,6 @@ public class HausListe implements Serializable, HauslisteIF {
      * @return mehrzeiliger String bestehend aus der Anzahl von Ausstattungsarten
      */
     public String inventur() {
-        String ausgabe = "";
         StringBuilder sb = new StringBuilder();
         sb.append("Inventur: \n");
         sb.append("Anzahl Tische funktionstüchtig: ");
@@ -159,7 +159,7 @@ public class HausListe implements Serializable, HauslisteIF {
      *
      * @author Lukas Zander
      *
-     * @return
+     * @return alle Häuser mit Räumen als String
      */
     @Override
     public String toString() {
@@ -184,7 +184,7 @@ public class HausListe implements Serializable, HauslisteIF {
      *
      * @author Lukas Zander
      *
-     * @return alle existierende Räume
+     * @return alle existierende Räume als ArrayList
      */
     public ArrayList<Raum> getAlleRaeueme() {
         ArrayList<Raum> alleRaeume = new ArrayList<>();
@@ -198,25 +198,24 @@ public class HausListe implements Serializable, HauslisteIF {
         return alleRaeume;
     }
 
-
     /**
      * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
      * und gibt eine ArrayList mit passenden Räumen zurück
      *
-     * @param anzahlBeamer - int
-     *                     anzahlKamera - int
-     *                     anzahlKreidetafel - int
-     *                     anzahlLautsprecher - int
-     *                     anzahlMikrofon, int
-     *                     anzahlPC - int
-     *                     anzahlSmartboard - int
-     *                     anzahlStuhl - int
-     *                     anzahlTisch - int
-     *                     anzahlWhiteboard - int
-     * @return passendeRaueme - ArrayList<Raum>
-     * @author Ben
-     * @version 1.0.0
-     * @since 20220725
+     * @author Benjamin Konstka
+     *
+     * @param anzahlBeamer Mindestanzahl von erforderlichen funktionstüchtigen Beamern
+     * @param anzahlKamera Mindestanzahl von erforderlichen funktionstüchtigen Kameras
+     * @param anzahlKreidetafel Mindestanzahl von erforderlichen funktionstüchtigen Kreidetafeln
+     * @param anzahlLautsprecher Mindestanzahl von erforderlichen funktionstüchtigen Lautsprechern
+     * @param anzahlMikrofon Mindestanzahl von erforderlichen funktionstüchtigen Mikrofonen
+     * @param anzahlPC Mindestanzahl von erforderlichen funktionstüchtigen PCs
+     * @param anzahlSmartboard Mindestanzahl von erforderlichen funktionstüchtigen Smartboards
+     * @param anzahlStuhl Mindestanzahl von erforderlichen funktionstüchtigen Stühlen
+     * @param anzahlTisch Mindestanzahl von erforderlichen funktionstüchtigen Tischen
+     * @param anzahlWhiteboard Mindestanzahl von erforderlichen funktionstüchtigen Whiteboards
+     *
+     * @return alle passenden Räume als ArrayList
      */
     public ArrayList<Raum> filtereRaeuemeAusstattung(int anzahlBeamer, int anzahlKamera, int anzahlKreidetafel, int anzahlLautsprecher,
                                                      int anzahlMikrofon, int anzahlPC, int anzahlSmartboard, int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
@@ -230,25 +229,23 @@ public class HausListe implements Serializable, HauslisteIF {
      * und gibt eine ArrayList mit passenden Räumen zurück
      * NUR aus einer Array List von verfügbaren Räumen
      *
-     * @param anzahlBeamer - int
-     *                     anzahlKamera - int
-     *                     anzahlKreidetafel - int
-     *                     anzahlLautsprecher - int
-     *                     anzahlMikrofon, int
-     *                     anzahlPC - int
-     *                     anzahlSmartboard - int
-     *                     anzahlStuhl - int
-     *                     anzahlTisch - int
-     *                     anzahlWhiteboard - int
-     * @return passendeRaueme - ArrayList<Raum>
-     * @author Ben
-     * @version 1.0.0
-     * @since 20220725
+     * @author Benjamin Konstka
+     *
+     * @param freieRaeume Verfügbare Räume, aus denen nach Ausstattung gefiltert werden soll
+     * @param anzahlBeamer Mindestanzahl von erforderlichen funktionstüchtigen Beamern
+     * @param anzahlKamera Mindestanzahl von erforderlichen funktionstüchtigen Kameras
+     * @param anzahlKreidetafel Mindestanzahl von erforderlichen funktionstüchtigen Kreidetafeln
+     * @param anzahlLautsprecher Mindestanzahl von erforderlichen funktionstüchtigen Lautsprechern
+     * @param anzahlMikrofon Mindestanzahl von erforderlichen funktionstüchtigen Mikrofonen
+     * @param anzahlPC Mindestanzahl von erforderlichen funktionstüchtigen PCs
+     * @param anzahlSmartboard Mindestanzahl von erforderlichen funktionstüchtigen Smartboards
+     * @param anzahlStuhl Mindestanzahl von erforderlichen funktionstüchtigen Stühlen
+     * @param anzahlTisch Mindestanzahl von erforderlichen funktionstüchtigen Tischen
+     * @param anzahlWhiteboard Mindestanzahl von erforderlichen funktionstüchtigen Whiteboards
+     * @return
      */
-    public ArrayList<Raum> filtereRaeuemeAusstattung(ArrayList<Raum> freieRaeume, int anzahlBeamer, int anzahlKamera,
-                                                     int anzahlKreidetafel, int anzahlLautsprecher,
-                                                     int anzahlMikrofon, int anzahlPC, int anzahlSmartboard,
-                                                     int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
+    public ArrayList<Raum> filtereRaeuemeAusstattung(ArrayList<Raum> freieRaeume, int anzahlBeamer, int anzahlKamera, int anzahlKreidetafel, int anzahlLautsprecher,
+                                                     int anzahlMikrofon, int anzahlPC, int anzahlSmartboard, int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
 
         ArrayList<Raum> passendeRaueme = new ArrayList<>();
 
@@ -271,15 +268,14 @@ public class HausListe implements Serializable, HauslisteIF {
         return passendeRaueme;
     }
 
-
     /**
      * Überprüft, ob ein Termin mit der Buchungsliste eines Raumes kollidiert
      *
-     * @param 'Raum r, Calendar start, Calendar ende
-     * @return boolean
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220705
+     * @author Lukas Zander
+     * @param r Raum in dem gebucht werden soll
+     * @param start Beginn der geplanten Terminbuchung
+     * @param ende Ende der geplanten Terminbuchung
+     * @return ob Raum dort frei ist oder nicht als boolean
      */
     public boolean terminKollidiert(Raum r, Calendar start, Calendar ende) {
         for (Terminbuchung t : r.getBuchungen()
@@ -300,33 +296,30 @@ public class HausListe implements Serializable, HauslisteIF {
     }
 
     /**
+     *
      * Gibt alle Räume zurück, die im angegebenem Zeitraum verfügbar sind
      *
-     * @param 'Calendar start, Calendar ende
-     * @return freieRaueme - ArrayList<Raum>
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
+     * @author Lukas Zander
+     *
+     * @param start Beginn der geplanten Terminbuchung
+     * @param ende Ende der geplanten Terminbuchung
+     * @return alle freien Räume zu angegebener Zeit als ArrayList
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende) {
-        ArrayList<Raum> freieRaueme = new ArrayList<>();
-        for (Raum r : this.getAlleRaeueme()
-        ) {
-            if (!this.terminKollidiert(r, start, ende)) {
-                freieRaueme.add(r);
-            }
-        }
-        return freieRaueme;
+        return filtereRaeuemeVerfuegbar(start,ende,this.getAlleRaeueme());
     }
 
     /**
-     * Gibt alle Räume einer Raumliste zurück, die im angegebenem Zeitraum verfügbar sind
      *
-     * @param 'Calendar start, Calendar ende, ArrayList<Raum> raumListe
-     * @return freieRaueme -  ArrayList<Raum>
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
+     * Gibt alle Räume zurück, die im angegebenem Zeitraum verfügbar sind
+     *
+     * @author Lukas Zander
+     *
+     * @param raumListe zur Verfügung stehende Räume, die gefiltert werden sollen
+     * @param start Beginn der geplanten Terminbuchung
+     * @param ende Ende der geplanten Terminbuchung
+     *
+     * @return alle freien Räume zu angegebener Zeit als ArrayList
      */
     public ArrayList<Raum> filtereRaeuemeVerfuegbar(Calendar start, Calendar ende, ArrayList<Raum> raumListe) {
         ArrayList<Raum> freieRaueme = new ArrayList<>();
@@ -341,11 +334,11 @@ public class HausListe implements Serializable, HauslisteIF {
     /**
      * Überprüft, ob eine neue Raumnummer bereits vergeben ist
      *
-     * @param neueNummer
-     * @return boolean
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220728
+     * @author Lukas Zander
+     *
+     * @param neueNummer neue Raumnummer, die vergeben werden soll
+     *
+     * @return ob die Nummer kollidiert oder nicht als boolean
      */
     public boolean raumnummerKollidiert(int neueNummer) {
         for (Raum r : this.getAlleRaeueme()) {
@@ -359,10 +352,9 @@ public class HausListe implements Serializable, HauslisteIF {
     /**
      * Gibt alle Ausstattungsmerkmale zurück
      *
-     * @return alleAusstattungen - ArrayList<Ausstatungsmerkmal>
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220803
+     * @author Lukas Zander
+     *
+     * @return alle Ausstattungsmerkmale am Campus als ArrayList
      */
     public ArrayList<Ausstattungsmerkmal> getAlleAusstattungen() {
         ArrayList<Ausstattungsmerkmal> alleAusstattungen = new ArrayList<>();
