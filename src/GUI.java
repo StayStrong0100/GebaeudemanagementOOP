@@ -577,6 +577,7 @@ public class GUI extends JFrame {
                     if (h.getHausnummer() == hausID) {
                         h.addRaum(new Raum(raumID));
                         raumHinzufuegenBestaetigung.setText("Neuer Raum angelegt: Haus " + hausID + " Raum: " + raumID);
+                        raumHinzufuegen.doClick();
                         return;
                     }
                 }
@@ -614,6 +615,7 @@ public class GUI extends JFrame {
                     if (r.getRaumnummer() == alteID) {
                         r.setRaumnummer(neueID);
                         raumbearbeitenBestaetigung.setText("Raumnummer erfolgreich geändert.");
+                        raumBearbeiten.doClick();
                         return;
                     }
                 }
@@ -675,6 +677,7 @@ public class GUI extends JFrame {
                         if (d.getName().equals(dozent)) {
                             r.buchen(start, ende, d);
                             raumsuchenbuchenBestaetigung.setText("Erfolgreich gebucht. BuchungsID: " + (r.getBuchungen().get(r.getBuchungen().size() - 1).getId()));
+                            raumSuchenUndBuchen.doClick();
                             return;
                         }
                     }
@@ -811,6 +814,7 @@ public class GUI extends JFrame {
 
                         if (erfolgreich) {
                             raumbearbeitenBestaetigung.setText("Ausstattung erfolgreich hinzugefügt.\nAktueller Raumzustand: " + r.toString());
+                            raumBearbeiten.doClick();
                         } else {
                             raumbearbeitenBestaetigung.setText("Unerwarteter Fehler: Typ oder Raum existiert nicht. Bitte wiederholen Sie den Vorgang!");
                             return;
@@ -853,10 +857,12 @@ public class GUI extends JFrame {
                     if (neuerStatus.equals("Defekt")) {
                         a.gehtKaputt();
                         raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich als defekt eingestuft.");
+                        raumBearbeiten.doClick();
                         return;
                     } else if (neuerStatus.equals("Funktionstüchtig")) {
                         a.wirdRepariert();
                         raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich als funktionstüchtig eingestuft.");
+                        raumBearbeiten.doClick();
                         return;
                     } else if (neuerStatus.equals("Entfernen (Irreversibel)")) {
                         int raumnummer = Integer.parseInt(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
@@ -864,6 +870,7 @@ public class GUI extends JFrame {
                             if(r.getRaumnummer() == raumnummer){
                                 r.removeAusstattung(a);
                                 raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich entfernt.");
+                                raumBearbeiten.doClick();
                                 return;
                             }
                         }
@@ -877,12 +884,18 @@ public class GUI extends JFrame {
 
         });
         dozentLoeschenCheck.addActionListener(e -> {
+            if(dozentLoeschenDozListe.getSelectedItem() == null)
+            {
+                dozentLoeschenBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
+                return;
+            }
             String dozName = dozentLoeschenDozListe.getSelectedItem().toString();
 
             for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
                 if (d.getName().equals(dozName)) {
                     ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().remove(d);
                     dozentLoeschenBestaetigung.setText("Der Dozent " + dozName + " wurde erfolgreich entfernt.");
+                    dozentLoeschen.doClick();
                     return;
                 }
 
@@ -900,6 +913,7 @@ public class GUI extends JFrame {
             }
             ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(neuerDozent));
             dozentHinzufuegenBestaetigung.setText("Dozent erfolgreich hinzugefügt.");
+            dozentHinzufuegen.doClick();
 
 
         });
@@ -940,6 +954,11 @@ public class GUI extends JFrame {
         hausloeschenCheck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(hausloeschenHausInput.getSelectedItem() == null){
+                    hausloeschenBestaetigung.setText("Bitte wählen Sie ein Haus aus!");
+                    return;
+                }
+
                 String hausID = hausloeschenHausInput.getSelectedItem().toString();
 
                 for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
@@ -971,6 +990,7 @@ public class GUI extends JFrame {
                 }
                 ServiceLocator.getInstance().getHausliste().getAlleHaeuser().add(new Haus(hausnummer,hausHinzufuegenBarrierefreInput.isSelected()));
                 hausHinzufuegenBestaetigung.setText("Haus " + hausnummer + " wurde angelegt. Barrierefrei: " + hausHinzufuegenBarrierefreInput.isSelected());
+                hausHinzufuegen.doClick();
             }
         });
         hausBearbeitenCheck.addActionListener(new ActionListener() {
@@ -984,11 +1004,13 @@ public class GUI extends JFrame {
                         h.setBarrierefrei(hausBearbeitenBarriefreiInput.isSelected());
                         if(hausnummerNeu.equals("")){
                             hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
+                            hausBearbeiten.doClick();
                             return;
                         }
                         else {
                             h.setHausnummer(hausnummerNeu);
                             hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet. Neue Nummer: " + hausnummerNeu);
+                            hausBearbeiten.doClick();
                             return;
 
                         }
@@ -1070,6 +1092,7 @@ public class GUI extends JFrame {
                                 if(h.getRaeume().contains(r)){
                                     h.removeRaum(r);
                                     raumLoeschenBestaetigung.setText("Der Raum " + raumID + " wurde erfolgreich aus Haus " + h.getHausnummer() + " entfernt.");
+                                    raumLoeschen.doClick();
                                     return;
                                 }
                             }
@@ -1099,6 +1122,7 @@ public class GUI extends JFrame {
                     if (d.getName().equals(dozent)){
                         d.setName(neuerName);
                         dozentBearbeitenBestaetigung.setText("Dozent " + dozent + " erfolgreich umbenannt. Neuer Name: " + neuerName);
+                        dozentBearbeiten.doClick();
                         return;
                     }
                 }
