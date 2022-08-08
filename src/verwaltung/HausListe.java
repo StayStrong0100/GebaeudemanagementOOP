@@ -1,24 +1,11 @@
-/**
- * Pars Int
- *
- * @author ZanderLK
- * @version 1.0.0
- * @param
- * @return
- * @since 202207??
- */
 package verwaltung;
 
-import ausstattung.Ausstattungsmerkmal;
 import ausstattung.*;
-import buchung.Terminbuchung;
-import zustand.Defekt;
-import zustand.Funktionstuechtig;
-import zustand.Zustand;
-
+import buchung.*;
+import zustand.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.*;
+
 
 //singleton
 public class HausListe implements Serializable, HauslisteIF {
@@ -190,10 +177,7 @@ public class HausListe implements Serializable, HauslisteIF {
         ArrayList<Raum> alleRaeume = new ArrayList<>();
         for (Haus h : this.getAlleHaeuser()
         ) {
-            for (Raum r : h.getRaeume()
-            ) {
-                alleRaeume.add(r);
-            }
+            alleRaeume.addAll(h.getRaeume());
         }
         return alleRaeume;
     }
@@ -242,7 +226,8 @@ public class HausListe implements Serializable, HauslisteIF {
      * @param anzahlStuhl Mindestanzahl von erforderlichen funktionstüchtigen Stühlen
      * @param anzahlTisch Mindestanzahl von erforderlichen funktionstüchtigen Tischen
      * @param anzahlWhiteboard Mindestanzahl von erforderlichen funktionstüchtigen Whiteboards
-     * @return
+     *
+     * @return alle passenden Räume als ArrayList
      */
     public ArrayList<Raum> filtereRaeuemeAusstattung(ArrayList<Raum> freieRaeume, int anzahlBeamer, int anzahlKamera, int anzahlKreidetafel, int anzahlLautsprecher,
                                                      int anzahlMikrofon, int anzahlPC, int anzahlSmartboard, int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
