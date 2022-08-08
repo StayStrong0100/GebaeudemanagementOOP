@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Raumausstattung Zustandsanzeige implemteriert, Beginn automatische Seitenaktualisierung (Haus)">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI automatische Seitenaktualisierungen implementiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
@@ -145,13 +145,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Inventur implementiert">
-      <created>1657886154392</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1657886154392</updated>
     </task>
     <task id="LOCAL-00009" summary="DateFormatter geändert: von &quot;YYYY&quot; zu &quot;yyyy&quot;">
       <created>1658597103695</created>
@@ -489,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659967493814</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="GUI automatische Seitenaktualisierungen implementiert">
+      <created>1659968450574</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1659968450574</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -504,7 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nichts" />
     <MESSAGE value="Bei der Methode addAusstattung() den Modifier zu public umgeändert" />
     <MESSAGE value="implements Serializiable und serialVerionUID hinzugefügt" />
     <MESSAGE value="Kommentare überarbeitet" />
@@ -529,7 +528,8 @@
     <MESSAGE value="Einheitliches Ueberschriftenlayout etabliert" />
     <MESSAGE value="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt" />
     <MESSAGE value="Raumausstattung Zustandsanzeige implemteriert, Beginn automatische Seitenaktualisierung (Haus)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Raumausstattung Zustandsanzeige implemteriert, Beginn automatische Seitenaktualisierung (Haus)" />
+    <MESSAGE value="GUI automatische Seitenaktualisierungen implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI automatische Seitenaktualisierungen implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
