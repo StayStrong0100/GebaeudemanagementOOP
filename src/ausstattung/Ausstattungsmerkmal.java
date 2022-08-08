@@ -30,6 +30,10 @@ public abstract class Ausstattungsmerkmal implements Serializable{
         return count;
     }
 
+    public static void setCount(int count) {
+        Ausstattungsmerkmal.count = count;
+    }
+
     public Ausstattungsmerkmal(Calendar anschaffungsdatum) {
         count++;
         this.id = count;

@@ -23,6 +23,10 @@ public class Terminbuchung implements Serializable {
         return count;
     }
 
+    public static void setCount(int count) {
+        Terminbuchung.count = count;
+    }
+
     public Dozent getDozent() {
         return dozent;
     }

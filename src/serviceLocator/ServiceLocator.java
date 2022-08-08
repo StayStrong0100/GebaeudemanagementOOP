@@ -3,6 +3,7 @@ package serviceLocator;
 import ausstattung.*;
 import buchung.DozentListe;
 import buchung.DozentListeIF;
+import buchung.Terminbuchung;
 import datenspeicherung.*;
 import verwaltung.*;
 
@@ -30,10 +31,13 @@ public class ServiceLocator implements Serializable {
     private StuhlTypListeIF stuhlTL;
     private TischTypListeIF tTL;
     private WhiteboardTypListeIF wTL;
+    private int countAusstattung;
+    private int countTerminbuchung;
 
     private static ServiceLocator instance;
 
     private ServiceLocator() {
+
         hl = HausListe.getInstance();
         dl = DozentListe.getInstance();
         p = PersistenzDB.getInstance();
@@ -64,11 +68,16 @@ public class ServiceLocator implements Serializable {
         return hl;
     }
 
-    public void speicherAlleContainer(String dateiname, ServiceLocator sl){ p.speichern(dateiname, sl);
+    public void speicherAlleContainer(String dateiname, ServiceLocator sl){
+        this.countAusstattung = Ausstattungsmerkmal.getCount();
+        this.countTerminbuchung = Terminbuchung.getCount();
+        p.speichern(dateiname, sl);
     }
 
     public ServiceLocator ladeAlleContainer(String dateiname) {
         ServiceLocator sl = p.lade(dateiname);
+        Ausstattungsmerkmal.setCount(p.lade(dateiname).countAusstattung);
+        Terminbuchung.setCount(p.lade(dateiname).countAusstattung);
         return sl;
     }
 
