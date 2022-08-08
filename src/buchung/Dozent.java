@@ -1,7 +1,12 @@
 package buchung;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Comparator;
+import java.util.Date;
 
 public class Dozent implements Serializable {
 
@@ -31,5 +36,66 @@ public class Dozent implements Serializable {
 
     public Dozent(String name) {
         this.name = name;
+    }
+
+    /**
+     * Gibt alle Buchungen ab heute bis zur angegebenen Dauer als String zurück
+     *
+     * @param anzahlWochen
+     * @return
+     */
+    public String aktuelleBuchungenToString(int anzahlWochen){
+        ArrayList<Terminbuchung> aktuelleBuchungen = new ArrayList<>();
+        String ausgabe = "Aktuelle Terminbuchungen für " + this.getName() + ": \n";
+        Calendar ende = Calendar.getInstance();
+        ende.add(Calendar.DAY_OF_MONTH, anzahlWochen*7);
+
+        for(Terminbuchung t : this.meineBuchungen){
+            if(t.getIntervall().getStart().after(Calendar.getInstance()) && t.getIntervall().getStart().before(ende)){
+                aktuelleBuchungen.add(t);
+            }
+        }
+
+        //TODO @Lukas Array nach Datum sortieren
+        //aktuelleBuchungen.sort(Terminbuchung);
+
+        aktuelleBuchungen.sort(new Comparator<Terminbuchung>() {
+            @Override
+            public int compare(Terminbuchung o1, Terminbuchung o2) {
+                if(o1.getIntervall().getStart().equals(o2.getIntervall().getStart())){
+                    return 0;
+                }
+                if(o1.getIntervall().getStart().before(o2.getIntervall().getStart())){
+                    return -1;
+                }
+                else {
+                    return 1;
+                }
+
+            }
+        });
+
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        for(int i=0; i<anzahlWochen*7; i++){
+            Calendar aktuell = Calendar.getInstance();
+            aktuell.add(Calendar.DAY_OF_MONTH, i);
+            ausgabe += "Buchungen am " + df.format(aktuell.getTime()) + ":\n";
+            for(Terminbuchung t: aktuelleBuchungen){
+                if(t.getIntervall().getStart().get(Calendar.DAY_OF_YEAR) == aktuell.get(Calendar.DAY_OF_YEAR) && t.getIntervall().getStart().get(Calendar.YEAR) == aktuell.get(Calendar.YEAR)){
+                    ausgabe += t.printBuchungDetails() + "\n";
+                }
+            }
+            ausgabe += "\n\n";
+        }
+
+        /*
+        for(Terminbuchung t : aktuelleBuchungen){
+            ausgabe += t.printBuchungDetails() + "\n";
+        }
+
+         */
+
+        return ausgabe;
+
     }
 }

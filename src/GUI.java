@@ -272,6 +272,8 @@ public class GUI extends JFrame {
     private JSeparator dozentBearbeitenTitelSeperatior;
     private JLabel dozentBearbeitenDozAuswahlTitel;
     private JLabel dozentBearbeitenNameInputTitel;
+    private JTextArea dozTerminplanBestaetigung;
+    private JScrollPane dozTerminplanScrollBestaetigung;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -919,12 +921,23 @@ public class GUI extends JFrame {
         });
         dozTerminplanDozAuswahlInput.addActionListener(e -> {
             //TODO @Moritz Terminplan anzeigen lassen
-            /*
-            wenn die ComboBox ausgewählt wird, muss sich die Tabelle initialisieren
-             */
-            //String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
 
-            //Testen der Dozenten-Buchungs-Liste (ZanderLK)
+            if(dozTerminplanDozAuswahlInput.getSelectedItem() == null){
+                dozTerminplanBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
+                return;
+            }
+
+            String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
+
+            for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                if(d.getName().equals(dozent)){
+                    dozTerminplanBestaetigung.setText(d.aktuelleBuchungenToString(4));
+                    dozentTerminplan.doClick();
+                    return;
+                }
+            }
+            dozTerminplanBestaetigung.setText("Fehler: Dozent nicht gefunden!");
+
 
 
         });
