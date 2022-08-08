@@ -212,7 +212,6 @@ public class GUI extends JFrame {
     private JScrollPane dozTerminplanScrollBestaetigung;
     private JSeparator dozTerminplanTitelSeperator;
     private JSpinner dozTerminplanWochenInput;
-    private JLabel dozTerminplanWochenTitel;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -308,9 +307,8 @@ public class GUI extends JFrame {
             verbergeAllePanels();
             panelScrollRaumbearbeiten.setVisible(true);
             panelRaumBearbeiten.setVisible(true);
-            //raumbearbeitenBestaetigung.setText(ServiceLocator.getInstance().getHausliste().toString());
+
             raumbearbeitenRaumlisteInput.removeAllItems();
-            //raumbearbeitenBestaetigung.setText(ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size()+"");
 
             ArrayList<Integer> alleRaumnummern = new ArrayList<>();
 
@@ -1081,8 +1079,6 @@ public class GUI extends JFrame {
                 return;
             }
         });
-        dozTerminplanWochenInput.addComponentListener(new ComponentAdapter() {
-        });
     }
 
     /**
@@ -1179,19 +1175,18 @@ public class GUI extends JFrame {
         panelRaumHinzufuegen.setVisible(false);
         panelRaumSuchenBuchen.setVisible(false);
         panelInventur.setVisible(false);
-        //panelInventarBearbeiten.setVisible(false);
         panelDozentLoeschen.setVisible(false);
         panelDozentenTerminplan.setVisible(false);
         panelStartseite.setVisible(false);
         panelRaumBearbeiten.setVisible(false);
         panelDozentHinzufuegen.setVisible(false);
-        panelScrollRaumbearbeiten.setVisible(false);
         panelHausBearbeiten.setVisible(false);
         panelHausHinzufuegen.setVisible(false);
         panelHausLoeschen.setVisible(false);
         panelRaumEntblocken.setVisible(false);
         panelRaumLoeschen.setVisible(false);
         panelDozentBearbeiten.setVisible(false);
+        panelScrollRaumbearbeiten.setVisible(false);
     }
 
     private void createUIComponents() {
