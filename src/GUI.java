@@ -832,7 +832,7 @@ public class GUI extends JFrame {
                     if (r.getRaumnummer() == raumID) {
                         for (Ausstattungsmerkmal a : r.getAusstattung()) {
                             DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-                            raumbearbeitenVeraendernAusstattungInput.addItem(a.getId() + " | " + a.getExemplarTyp().getModell() + " | " + df.format(a.getAnschaffungsdatum().getTime()));
+                            raumbearbeitenVeraendernAusstattungInput.addItem(a.getId() + " | " + a.getExemplarTyp().getModell() + " | " + df.format(a.getAnschaffungsdatum().getTime()) + " | " + a.getAktuellerZustand().getClass().getName().split("\\.")[1]);
                         }
                     }
 
@@ -853,14 +853,27 @@ public class GUI extends JFrame {
                     if (neuerStatus.equals("Defekt")) {
                         a.gehtKaputt();
                         raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich als defekt eingestuft.");
+                        return;
                     } else if (neuerStatus.equals("Funktionstüchtig")) {
                         a.wirdRepariert();
                         raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich als funktionstüchtig eingestuft.");
+                        return;
+                    } else if (neuerStatus.equals("Entfernen (Irreversibel)")) {
+                        int raumnummer = Integer.parseInt(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
+                        for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                            if(r.getRaumnummer() == raumnummer){
+                                r.removeAusstattung(a);
+                                raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich entfernt.");
+                                return;
+                            }
+                        }
+                        raumbearbeitenBestaetigung.setText("Fehler: Raum nicht gefunden. Bitte wiederholen Sie den Vorgang.");
+                        return;
                     }
-                    return;
                 }
-
             }
+            raumbearbeitenBestaetigung.setText("Fehler: Ausstattung nicht gefunden. Bitte wiederholen Sie den Vorgang.");
+            return;
 
         });
         dozentLoeschenCheck.addActionListener(e -> {
@@ -933,11 +946,11 @@ public class GUI extends JFrame {
                     if(h.getHausnummer().equals(hausID)){
                         ServiceLocator.getInstance().getHausliste().getAlleHaeuser().remove(h);
                         hausloeschenBestaetigung.setText("Haus " + hausID + " wurde entfernt.");
+                        hausLoeschen.doClick();
                         return;
                     }
                 }
                 hausloeschenBestaetigung.setText("Haus nicht gefunden, Haus wurde nicht entfernt. Bitte wiederholen Sie den Vorgang!");
-                //TODO @Lukas Warum geht "hausLoeschen.doClick();" nicht?
             }
         });
         hausHinzufuegenCheck.addActionListener(new ActionListener() {
@@ -1073,7 +1086,6 @@ public class GUI extends JFrame {
         dozentBearbeitenCheck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO @Lukas Dozent bearbeiten Methode
                 //Wenn aus dem DropDownMenu kein Dozent ausgewählt wurde oder kein neuer Name eingegeben wurde, wird die Methode nicht ausgeführt und der Nutzer informiert
                 if(dozentBearbeitenDozAuswahlInput.getSelectedItem() == null || dozentBearbeitenNameInput.getText().equals("")){
                     dozentBearbeitenBestaetigung.setText("Bitte wählen Sie einen Dozenten aus und geben Sie einen neuen Namen ein!");

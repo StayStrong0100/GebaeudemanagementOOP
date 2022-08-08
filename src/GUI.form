@@ -1361,8 +1361,9 @@
                 </constraints>
                 <properties>
                   <model>
-                    <item value="Defekt"/>
                     <item value="Funktionstüchtig"/>
+                    <item value="Defekt"/>
+                    <item value="Entfernen (Irreversibel)"/>
                   </model>
                 </properties>
               </component>

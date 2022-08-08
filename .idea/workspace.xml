@@ -8,8 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Grunddaten" beforeDir="false" afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
