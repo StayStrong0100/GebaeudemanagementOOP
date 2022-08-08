@@ -56,6 +56,9 @@ public class ServiceLocator implements Serializable {
         return instance;
     }
 
+    public static void setInstance(ServiceLocator instance) {
+        ServiceLocator.instance = instance;
+    }
 
     public HauslisteIF getHausliste() {
         return hl;

@@ -14,7 +14,6 @@ public class Haus implements Serializable {
         return raeume;
     }
 
-
     public String getHausnummer() {
         return hausnummer;
     }
@@ -23,7 +22,7 @@ public class Haus implements Serializable {
         this.hausnummer = hausnummer;
     }
 
-    public boolean isBarrierefrei() {
+    public boolean getBarrierefrei() {
         return barrierefrei;
     }
 

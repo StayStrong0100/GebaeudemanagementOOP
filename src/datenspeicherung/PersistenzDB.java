@@ -30,7 +30,7 @@ public class PersistenzDB implements PersistenzIF, Serializable{
             fileOut.close();
         } catch (IOException e) {
             //throw new RuntimeException(e);
-            messagePopUp(e.getMessage());
+            messagePopUp(e.getMessage() + "\n" + "Speichern fehlgeschlagen");
         }
     }
 
@@ -42,16 +42,13 @@ public class PersistenzDB implements PersistenzIF, Serializable{
             return (ServiceLocator) in.readObject();
         } catch (FileNotFoundException e) {
             //throw new RuntimeException(e);
-            messagePopUp(e.getMessage());
-            messagePopUp("File not found: Hausliste ist nun leer, bitte wiederholen Sie den Importvorgang!");
+            messagePopUp(e.getMessage() + "\n" + "File not found: Das Programm enthält nun keine Daten, bitte wiederholen Sie den Importvorgang!");
         } catch (IOException e) {
             //throw new RuntimeException(e);
-            messagePopUp(e.getMessage());
-            messagePopUp("Input / Output Problem: Hausliste ist nun leer, bitte wiederholen Sie den Importvorgang!");
+            messagePopUp(e.getMessage() + "\n" + "Input / Output Problem: Das Programm enthält nun keine Daten, bitte wiederholen Sie den Importvorgang!");
         } catch (ClassNotFoundException e) {
             //throw new RuntimeException(e);
-            messagePopUp(e.getMessage());
-            messagePopUp("Class not found: Hausliste ist nun leer, bitte wiederholen Sie den Importvorgang!");
+            messagePopUp(e.getMessage() + "\n" + "Class not found: Das Programm enthält nun keine Daten, bitte wiederholen Sie den Importvorgang!");
         }
         return ServiceLocator.getInstance();
     }

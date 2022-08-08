@@ -33,7 +33,6 @@ public class HausListe implements Serializable, HauslisteIF {
         return instance;
     }
 
-
     public ArrayList<Haus> getAlleHaeuser() {
         return alleHaeuser;
     }

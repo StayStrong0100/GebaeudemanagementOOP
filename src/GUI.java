@@ -1207,6 +1207,7 @@ public class GUI extends JFrame {
 
     private void createUIComponents() {
         //place custom component creation code here
+
     }
 }
 
