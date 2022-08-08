@@ -10,7 +10,11 @@
 package verwaltung;
 
 import ausstattung.Ausstattungsmerkmal;
+import ausstattung.*;
 import buchung.Terminbuchung;
+import zustand.Defekt;
+import zustand.Funktionstuechtig;
+import zustand.Zustand;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,65 +41,126 @@ public class HausListe implements Serializable, HauslisteIF {
         return alleHaeuser;
     }
 
+    /**
+     * Fügt ein Haus der Hausliste hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param neuesHaus
+     */
     public void addHaus(Haus neuesHaus) {
         this.alleHaeuser.add(neuesHaus);
     }
 
+    /**
+     * Entfernt ein Haus aus der Hausliste
+     *
+     * @author Lukas Zander
+     *
+     * @param altesHaus
+     */
     public void removeHaus(Haus altesHaus){
         this.alleHaeuser.remove(altesHaus);
     }
 
-
     /**
-     * Gibt die Anzahl aller Ausstattungsarten nach Zustand in der Konsole aus
      *
-     * @author ZanderLK
-     * @version 1.1.0
-     * @since 20220725
+     * @param typKlasse
+     * @param zustandKlasse
+     * @return
+     * @param <T>
+     * @param <Z>
      */
-
-
-    public String inventur() {
-/*
-            //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
-            int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
-            int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
-            int minLautsprecher =  (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
-            int minMikrofone =  (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheMikrofoneInput.getText());
-            int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.valueOf(raumsuchePCInput.getText());
-            int minTische =  (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheTischeInput.getText());
-            int minStuehle =  (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheStuehleInput.getText());
-            int minSmartboards =  (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheSmartboardInput.getText());
-            int minWhiteboards =  (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
-            int minKreidetafeln =  (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
-
-
- */
-
-        String ausgabe = "";
-        ausgabe += ("Anzahl Tische funktionstüchtig: " + this.getAnzahlAlleTischeFunktionstuechtig()) + "\n";
-        ausgabe += (("Anzahl Tische defekt: " + this.getAnzahlAlleTischeDefekt()) + "\n\n");
-        ausgabe += (("Anzahl Stühle funktionstüchtig: " + this.getAnzahlAlleStuehleFunktionstuechtig()) + "\n");
-        ausgabe += (("Stühle defekt: " + this.getAnzahlAlleStuehleDefekt()) + "\n\n");
-        ausgabe += (("Mikrofone funktionstüchtig: " + this.getAnzahlAlleMikrofoneFunktionstuechtig()) + "\n");
-        ausgabe += (("Mikrofone defekt: " + this.getAnzahlAlleMikrofoneDefekt()) + "\n\n");
-        ausgabe += (("Beamer funktionstüchtig: " + this.getAnzahlAlleBeamerFunktionstuechtig()) + "\n");
-        ausgabe += (("Beamer defekt: " + this.getAnzahlAlleBeamerDefekt()) + "\n\n");
-        ausgabe += (("PCs funktionstüchtig: " + this.getAnzahlAllePCsFunktionstuechtig()) + "\n");
-        ausgabe += (("PCs defekt: " + this.getAnzahlAllePCsDefekt()) + "\n\n");
-        ausgabe += (("Smartboards funktionstüchtig: " + this.getAnzahlAlleSmartboardsFunktionstuechtig()) + "\n");
-        ausgabe += (("Smartboards defekt: " + this.getAnzahlAlleSmartboardsDefekt()) + "\n\n");
-        ausgabe += (("Kreidetafeln funktionstüchtig: " + this.getAnzahlAlleKreidetafelnFunktionstuechtig()) + "\n");
-        ausgabe += (("Kreidetafeln defekt: " + this.getAnzahlAlleKreidetafelnDefekt()) + "\n\n");
-        ausgabe += (("Whiteboards funktionstüchtig: " + this.getAnzahlAlleWhiteboardsFunktionstuechtig()) + "\n");
-        ausgabe += (("Whiteboards defekt: " + this.getAnzahlAlleWhiteboardsDefekt()) + "\n\n");
-        ausgabe += (("Kameras funktionstüchtig: " + this.getAnzahlAlleKamerasFunktionstuechtig()) + "\n");
-        ausgabe += (("Kameras defekt: " + this.getAnzahlAlleKamerasDefekt()) + "\n\n");
-        ausgabe += (("Lautsprecher funktionstüchtig: " + this.getAnzahlAlleLautsprecherFunktionstuechtig()) + "\n");
-        ausgabe += (("Lautsprecher defekt: " + this.getAnzahlAlleLautsprecherDefekt()) + "\n");
-        return ausgabe;
+    public <T extends Ausstattungsmerkmal, Z extends Zustand> int getAnzahlAlleMerkmale(Class<T> typKlasse, Class<Z> zustandKlasse){
+        int anzahl = 0;
+        for(Raum r : this.getAlleRaeueme()){
+            anzahl += r.getAnzahlMerkmale(typKlasse,zustandKlasse);
+        }
+        return anzahl;
     }
 
+
+    /**
+     * Gibt eine Übersicht über alle Ausstattungsarten und deren Zustände als String zurück
+     *
+     * @author Lukas Zander
+
+     * @return mehrzeiliger String bestehend aus der Anzahl von Ausstattungsarten
+     */
+    public String inventur() {
+        String ausgabe = "";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Inventur: \n");
+        sb.append("Anzahl Tische funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Tisch.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Anzahl Tische defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Tisch.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Anzahl Stühle funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Stuhl.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Stühle defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Stuhl.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Mikrofone funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Mikrofon.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Mikrofone defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Mikrofon.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Beamer funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Beamer.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Beamer defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Beamer.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("PCs funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(PC.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("PCs defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(PC.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Smartboards funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Smartboard.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Smartboards defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Smartboard.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Kreidetafeln funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Kreidetafel.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Kreidetafeln defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Kreidetafel.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Whiteboards funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Whiteboard.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Whiteboards defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Whiteboard.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Kameras funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Kamera.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Kameras defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Kamera.class, Defekt.class));
+        sb.append("\n\n");
+        sb.append("Lautsprecher funktionstüchtig: ");
+        sb.append(this.getAnzahlAlleMerkmale(Lautsprecher.class, Funktionstuechtig.class));
+        sb.append("\n");
+        sb.append("Lautsprecher defekt: ");
+        sb.append(this.getAnzahlAlleMerkmale(Lautsprecher.class, Defekt.class));
+        sb.append("\n\n");
+        return sb.toString();
+    }
+
+    /**
+     * Gibt alle Häuser mit ihren Räumen in einem String zusammen aus
+     *
+     * @author Lukas Zander
+     *
+     * @return
+     */
     @Override
     public String toString() {
         String ausgabe = "";
@@ -114,17 +179,12 @@ public class HausListe implements Serializable, HauslisteIF {
         return ausgabe;
     }
 
-    public void print() {
-        System.out.println(this);
-    }
-
     /**
-     * Gibt eine ArrayList mit allen existierenden Räumen zurück
+     * Gibt eine ArrayList mit allen Räumen am Campus zurück
      *
-     * @return alleRaueme - ArrayList<Raum>
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220721
+     * @author Lukas Zander
+     *
+     * @return alle existierende Räume
      */
     public ArrayList<Raum> getAlleRaeueme() {
         ArrayList<Raum> alleRaeume = new ArrayList<>();
@@ -138,405 +198,6 @@ public class HausListe implements Serializable, HauslisteIF {
         return alleRaeume;
     }
 
-    /**
-     * Gibt alle Räume mit Haus- und Raumnummer in der Konsole aus
-     *
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220721
-     */
-    public void druckeAlleRaeume() {
-        for (Haus h : this.getAlleHaeuser()
-        ) {
-            for (Raum r : h.getRaeume()) {
-                System.out.println("Haus: " + h.getHausnummer() + "\t" + "Raumnummer: " + r.getRaumnummer());
-            }
-        }
-    }
-
-    /**
-     * Gibt alle Räume eines bestimmten Hauses mit Haus- und Raumnummer in der Konsole aus
-     *
-     * @param hausID - String
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220721
-     */
-    public void druckeAlleRaeume(String hausID) {
-        for (Haus h : this.getAlleHaeuser()
-        ) {
-            if (h.getHausnummer().equals(hausID)) {
-                System.out.println("Räume im Haus " + hausID + ": ");
-                for (Raum r : h.getRaeume()
-                ) {
-                    System.out.println("Raumnummer: " + r.getRaumnummer());
-                }
-            }
-
-        }
-    }
-
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Beamern am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleBeamerFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumBeamerFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Beamern am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleBeamerDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r :
-                    h.getRaeume()) {
-                anzahl += r.getAnzahlRaumBeamerDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Kameras am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleKamerasFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumKamerasFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Kameras am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleKamerasDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumKamerasDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Kreidetafeln am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleKreidetafelnFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumKreidetafelnFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Kreidetafeln am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleKreidetafelnDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumKreidetafelnDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Lautsprechern am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleLautsprecherFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumLautsprecherFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Lautsprechern am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleLautsprecherDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumLautsprecherDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Mikrofonen am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleMikrofoneFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumMikrofoneFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Mikrofonen am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleMikrofoneDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumMikrofoneDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen PCs am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAllePCsFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumPCsFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten PCs am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAllePCsDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumPCsDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Smartboards am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleSmartboardsFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumSmartboardsFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Smartboards am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleSmartboardsDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumSmartboardsDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Stuehlen am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleStuehleFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumStuehleFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Stuehlen am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleStuehleDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumStuehleDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Tischen am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleTischeFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumTischeFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Tischen am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleTischeDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumTischeDefekt();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von funktionstüchtigen Whiteboards am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleWhiteboardsFunktionstuechtig() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumWhiteboardsFunktionstuechtig();
-            }
-        }
-        return anzahl;
-    }
-
-    /**
-     * Zählt die Anzahl von defekten Whiteboards am Campus
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-    public int getAnzahlAlleWhiteboardsDefekt() {
-        int anzahl = 0;
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                anzahl += r.getAnzahlRaumWhiteboardsDefekt();
-            }
-        }
-        return anzahl;
-    }
 
     /**
      * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
@@ -557,33 +218,12 @@ public class HausListe implements Serializable, HauslisteIF {
      * @version 1.0.0
      * @since 20220725
      */
-    public ArrayList<Raum> filtereRaeuemeAusstattung(int anzahlBeamer, int anzahlKamera,
-                                                     int anzahlKreidetafel, int anzahlLautsprecher,
-                                                     int anzahlMikrofon, int anzahlPC, int anzahlSmartboard,
-                                                     int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
+    public ArrayList<Raum> filtereRaeuemeAusstattung(int anzahlBeamer, int anzahlKamera, int anzahlKreidetafel, int anzahlLautsprecher,
+                                                     int anzahlMikrofon, int anzahlPC, int anzahlSmartboard, int anzahlStuhl, int anzahlTisch, int anzahlWhiteboard) {
 
-        ArrayList<Raum> passendeRaueme = new ArrayList<>();
+        return filtereRaeuemeAusstattung(this.getAlleRaeueme(), anzahlBeamer, anzahlKamera, anzahlKreidetafel,  anzahlLautsprecher, anzahlMikrofon,  anzahlPC,  anzahlSmartboard, anzahlStuhl,  anzahlTisch,  anzahlWhiteboard);
 
-        for (Haus h : this.getAlleHaeuser()) {
-            for (Raum r : h.getRaeume()) {
-                if (r.getAnzahlRaumBeamerFunktionstuechtig() >= anzahlBeamer
-                        && r.getAnzahlRaumKamerasFunktionstuechtig() >= anzahlKamera
-                        && r.getAnzahlRaumKreidetafelnFunktionstuechtig() >= anzahlKreidetafel
-                        && r.getAnzahlRaumLautsprecherFunktionstuechtig() >= anzahlLautsprecher
-                        && r.getAnzahlRaumMikrofoneFunktionstuechtig() >= anzahlMikrofon
-                        && r.getAnzahlRaumPCsFunktionstuechtig() >= anzahlPC
-                        && r.getAnzahlRaumSmartboardsFunktionstuechtig() >= anzahlSmartboard
-                        && r.getAnzahlRaumStuehleFunktionstuechtig() >= anzahlStuhl
-                        && r.getAnzahlRaumTischeFunktionstuechtig() >= anzahlTisch
-                        && r.getAnzahlRaumWhiteboardsFunktionstuechtig() >= anzahlWhiteboard) {
-
-                    passendeRaueme.add(r);
-                }
-            }
-        }
-        return passendeRaueme;
     }
-
 
     /**
      * Filter alle Räume nach Anzahl verschiedener Ausstattungsmerkmale
@@ -613,16 +253,16 @@ public class HausListe implements Serializable, HauslisteIF {
         ArrayList<Raum> passendeRaueme = new ArrayList<>();
 
         for (Raum r : freieRaeume) {
-            if (r.getAnzahlRaumBeamerFunktionstuechtig() >= anzahlBeamer
-                    && r.getAnzahlRaumKamerasFunktionstuechtig() >= anzahlKamera
-                    && r.getAnzahlRaumKreidetafelnFunktionstuechtig() >= anzahlKreidetafel
-                    && r.getAnzahlRaumLautsprecherFunktionstuechtig() >= anzahlLautsprecher
-                    && r.getAnzahlRaumMikrofoneFunktionstuechtig() >= anzahlMikrofon
-                    && r.getAnzahlRaumPCsFunktionstuechtig() >= anzahlPC
-                    && r.getAnzahlRaumSmartboardsFunktionstuechtig() >= anzahlSmartboard
-                    && r.getAnzahlRaumStuehleFunktionstuechtig() >= anzahlStuhl
-                    && r.getAnzahlRaumTischeFunktionstuechtig() >= anzahlTisch
-                    && r.getAnzahlRaumWhiteboardsFunktionstuechtig() >= anzahlWhiteboard) {
+            if (r.getAnzahlMerkmale(Beamer.class, Funktionstuechtig.class) >= anzahlBeamer
+                    && r.getAnzahlMerkmale(Kamera.class, Funktionstuechtig.class) >= anzahlKamera
+                    && r.getAnzahlMerkmale(Kreidetafel.class, Funktionstuechtig.class) >= anzahlKreidetafel
+                    && r.getAnzahlMerkmale(Lautsprecher.class, Funktionstuechtig.class) >= anzahlLautsprecher
+                    && r.getAnzahlMerkmale(Mikrofon.class, Funktionstuechtig.class) >= anzahlMikrofon
+                    && r.getAnzahlMerkmale(PC.class, Funktionstuechtig.class) >= anzahlPC
+                    && r.getAnzahlMerkmale(Smartboard.class, Funktionstuechtig.class) >= anzahlSmartboard
+                    && r.getAnzahlMerkmale(Stuhl.class, Funktionstuechtig.class) >= anzahlStuhl
+                    && r.getAnzahlMerkmale(Tisch.class, Funktionstuechtig.class) >= anzahlTisch
+                    && r.getAnzahlMerkmale(Whiteboard.class, Funktionstuechtig.class) >= anzahlWhiteboard) {
 
                 passendeRaueme.add(r);
             }

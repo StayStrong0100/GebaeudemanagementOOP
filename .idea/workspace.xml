@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Dozent String verbessert, GUI Anpassungen">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Neue universelle Zählmethode implementiert">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_08_2022_19_02_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_08_2022_19_02__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sandbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sandbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,18 +55,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "202",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "70",
-    "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;202&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;364&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ausstattung" />
@@ -140,13 +145,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Großschreibung in der toString() geändert">
-      <created>1658597797384</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1658597797384</updated>
     </task>
     <task id="LOCAL-00013" summary="Großschreibung in der toString() geändert">
       <created>1658597902741</created>
@@ -484,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659985351742</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="GUI Terminplan fertig">
+      <created>1659989433107</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1659989433107</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -499,8 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GUI Test" />
-    <MESSAGE value="GUI importiert" />
     <MESSAGE value="Neue GUI implementiert" />
     <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
     <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
@@ -524,7 +527,9 @@
     <MESSAGE value="GUI Änderungen" />
     <MESSAGE value="Terminplan-String in Dozenten implementiert, GUI Terminplan ergänzt" />
     <MESSAGE value="BUG behoben: Terminbuchung &amp; Ausstattung ID werden jetzt mitgespeichert" />
-    <option name="LAST_COMMIT_MESSAGE" value="BUG behoben: Terminbuchung &amp; Ausstattung ID werden jetzt mitgespeichert" />
+    <MESSAGE value="GUI Terminplan fertig" />
+    <MESSAGE value="Neue universelle Zählmethode implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neue universelle Zählmethode implementiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
