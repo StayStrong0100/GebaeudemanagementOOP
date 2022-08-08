@@ -123,22 +123,6 @@ public class GUI extends JFrame {
     private JTextArea dozentHinzufuegenBestaetigung;
     private JTextArea inventurBestaetigung;
     private JLabel dozTerminplanDozAuswahlTitel;
-    private JLabel dozTerminplanT1Titel;
-    private JLabel dozTerminplanT3Titel;
-    private JLabel dozTerminplanT7Titel;
-    private JLabel dozTerminplanT5Titel;
-    private JLabel dozTerminplanT6Titel;
-    private JLabel dozTerminplanT2Titel;
-    private JLabel dozTerminplanDonnerstagTitel;
-    private JLabel dozTerminplanPlatzhalter;
-    private JLabel dozTerminplanW1Titel;
-    private JLabel dozTerminplanW2Titel;
-    private JLabel dozTerminplanW3Titel;
-    private JLabel dozTerminplanW4Titel;
-    private JLabel dozTerminplanW5Titel;
-    private JLabel dozTerminplanW6Titel;
-    private JLabel dozTerminplanW7Titel;
-    private JLabel dozTerminplanW8Titel;
     //private JComboBox raumbearbeitenHinzufügenInput;
     private JLabel raumbearbeitenHinzufuegenTitel;
     private JLabel raumbearbeitenVeraendernTitel;
@@ -158,54 +142,6 @@ public class GUI extends JFrame {
     private JButton dozentLoeschenCheck;
     private JLabel dozentLoeschenNameTitel;
     private JTextArea dozentLoeschenBestaetigung;
-    private JTextArea dozTerminplanW1D1Output;
-    private JTextArea dozTerminplanW1D2Output;
-    private JTextArea dozTerminplanW1D3Output;
-    private JTextArea dozTerminplanW1D4Output;
-    private JTextArea dozTerminplanW1D5Output;
-    private JTextArea dozTerminplanW1D6Output;
-    private JTextArea dozTerminplanW2D1Output;
-    private JTextArea dozTerminplanW2D2Output;
-    private JTextArea dozTerminplanW2D3Output;
-    private JTextArea dozTerminplanW2D4Output;
-    private JTextArea dozTerminplanW2D5Output;
-    private JTextArea dozTerminplanW2D6Output;
-    private JTextArea dozTerminplanW3D1Output;
-    private JTextArea dozTerminplanW3D2Output;
-    private JTextArea dozTerminplanW3D3Output;
-    private JTextArea dozTerminplanW3D4Output;
-    private JTextArea dozTerminplanW3D5Output;
-    private JTextArea dozTerminplanW3D6Output;
-    private JTextArea dozTerminplanW4D1Output;
-    private JTextArea dozTerminplanW4D2Output;
-    private JTextArea dozTerminplanW4D3Output;
-    private JTextArea dozTerminplanW4D4Output;
-    private JTextArea dozTerminplanW4D5Output;
-    private JTextArea dozTerminplanW4D6Output;
-    private JTextArea dozTerminplanW5D1Output;
-    private JTextArea dozTerminplanW5D2Output;
-    private JTextArea dozTerminplanW5D3Output;
-    private JTextArea dozTerminplanW5D4Output;
-    private JTextArea dozTerminplanW5D5Output;
-    private JTextArea dozTerminplanW5D6Output;
-    private JTextArea dozTerminplanW6D1Output;
-    private JTextArea dozTerminplanW6D2Output;
-    private JTextArea dozTerminplanW6D3Output;
-    private JTextArea dozTerminplanW6D4Output;
-    private JTextArea dozTerminplanW6D5Output;
-    private JTextArea dozTerminplanW6D6Output;
-    private JTextArea dozTerminplanW7D1Output;
-    private JTextArea dozTerminplanW7D2Output;
-    private JTextArea dozTerminplanW7D3Output;
-    private JTextArea dozTerminplanW7D4Output;
-    private JTextArea dozTerminplanW7D5Output;
-    private JTextArea dozTerminplanW7D6Output;
-    private JTextArea dozTerminplanW8D1Output;
-    private JTextArea dozTerminplanW8D2Output;
-    private JTextArea dozTerminplanW8D3Output;
-    private JTextArea dozTerminplanW8D4Output;
-    private JTextArea dozTerminplanW8D5Output;
-    private JTextArea dozTerminplanW8D6Output;
     private JComboBox dozTerminplanDozAuswahlInput;
     private JPanel panelHausLoeschen;
     private JPanel panelHausBearbeiten;
@@ -274,6 +210,9 @@ public class GUI extends JFrame {
     private JLabel dozentBearbeitenNameInputTitel;
     private JTextArea dozTerminplanBestaetigung;
     private JScrollPane dozTerminplanScrollBestaetigung;
+    private JSeparator dozTerminplanTitelSeperator;
+    private JSpinner dozTerminplanWochenInput;
+    private JLabel dozTerminplanWochenTitel;
 
     // Startbild Elemente
     private ImageIcon hwr;
@@ -931,8 +870,7 @@ public class GUI extends JFrame {
 
             for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
                 if(d.getName().equals(dozent)){
-                    dozTerminplanBestaetigung.setText(d.aktuelleBuchungenToString(4));
-                    dozentTerminplan.doClick();
+                    dozTerminplanBestaetigung.setText(d.aktuelleBuchungenToString());
                     return;
                 }
             }
@@ -1142,6 +1080,8 @@ public class GUI extends JFrame {
                 dozentBearbeitenBestaetigung.setText("Dozent " + dozent + " wurde nicht gefunden. Bitte wiederholen Sie den Vorgang.");
                 return;
             }
+        });
+        dozTerminplanWochenInput.addComponentListener(new ComponentAdapter() {
         });
     }
 

@@ -41,24 +41,21 @@ public class Dozent implements Serializable {
     /**
      * Gibt alle Buchungen ab heute bis zur angegebenen Dauer als String zurück
      *
-     * @param anzahlWochen
      * @return
      */
-    public String aktuelleBuchungenToString(int anzahlWochen){
+    public String aktuelleBuchungenToString(){
         ArrayList<Terminbuchung> aktuelleBuchungen = new ArrayList<>();
         String ausgabe = "Aktuelle Terminbuchungen für " + this.getName() + ": \n";
+        ausgabe += "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n";
         Calendar ende = Calendar.getInstance();
-        ende.add(Calendar.DAY_OF_MONTH, anzahlWochen*7);
-
+        ende.add(Calendar.DAY_OF_MONTH, 28);
+        //Alle Terminbuchungen, die von heute innerhalb 28 Tage liegen
         for(Terminbuchung t : this.meineBuchungen){
             if(t.getIntervall().getStart().after(Calendar.getInstance()) && t.getIntervall().getStart().before(ende)){
                 aktuelleBuchungen.add(t);
             }
         }
-
-        //TODO @Lukas Array nach Datum sortieren
-        //aktuelleBuchungen.sort(Terminbuchung);
-
+        //Die Terminbuchungen werden anhand ihrer Startzeit sortiert
         aktuelleBuchungen.sort(new Comparator<Terminbuchung>() {
             @Override
             public int compare(Terminbuchung o1, Terminbuchung o2) {
@@ -75,15 +72,27 @@ public class Dozent implements Serializable {
             }
         });
 
-        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        for(int i=0; i<anzahlWochen*7; i++){
+        //Gruppiert nach dem Datum, werden die Terminbuchungen dem String hinzugefügt
+        DateFormat tagLang = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat nurUhrzeit = new SimpleDateFormat("HH:mm");
+        for(int i=0; i<28; i++){
             Calendar aktuell = Calendar.getInstance();
             aktuell.add(Calendar.DAY_OF_MONTH, i);
-            ausgabe += "Buchungen am " + df.format(aktuell.getTime()) + ":\n";
+
+            ausgabe += "Buchungen am " + tagLang.format(aktuell.getTime()) + ":\n";
+
+            //Boolean wird benötigt, damit wenn es keine Buchung an Tag x gibt, dort eine Meldung kommt
+            boolean buchungVorhanden = false;
             for(Terminbuchung t: aktuelleBuchungen){
                 if(t.getIntervall().getStart().get(Calendar.DAY_OF_YEAR) == aktuell.get(Calendar.DAY_OF_YEAR) && t.getIntervall().getStart().get(Calendar.YEAR) == aktuell.get(Calendar.YEAR)){
-                    ausgabe += t.printBuchungDetails() + "\n";
+                    ausgabe += "-Buchungs-ID: " + t.getId() + "\t Start: " + nurUhrzeit.format(t.getIntervall().getStart().getTime()) + "\t Ende: " + nurUhrzeit.format(t.getIntervall().getEnde().getTime());
+                    //ausgabe += t.printBuchungDetails() + "\n";
+                    buchungVorhanden = true;
                 }
+            }
+            //Wenn keine Buchung an Tag x
+            if(!buchungVorhanden){
+                ausgabe += "-keine Buchungen";
             }
             ausgabe += "\n\n";
         }

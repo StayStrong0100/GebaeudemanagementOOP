@@ -41,6 +41,7 @@ public class Terminbuchung implements Serializable {
         this.intervall = new Zeitraum(start, ende);
         this.dozent = prof;
         prof.addBuchung(this);
+
     }
 
     public String printBuchungDetails(){

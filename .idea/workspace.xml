@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Terminplan-String in Dozenten implementiert, GUI Terminplan ergänzt">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="BUG behoben: Terminbuchung &amp; Ausstattung ID werden jetzt mitgespeichert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Grunddaten" beforeDir="false" afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sandbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sandbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Dozent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +61,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "202",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "489",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "429",
     "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -127,8 +129,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.DatenInitialisierung" />
         <item itemvalue="Application.Sandbox" />
+        <item itemvalue="Application.DatenInitialisierung" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GPUMain" />
       </list>
@@ -142,13 +144,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00011" summary="toString() und print erstellt()">
-      <created>1658597580094</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1658597580094</updated>
     </task>
     <task id="LOCAL-00012" summary="Großschreibung in der toString() geändert">
       <created>1658597797384</created>
@@ -486,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659984163877</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="BUG behoben: Terminbuchung &amp; Ausstattung ID werden jetzt mitgespeichert">
+      <created>1659985351742</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1659985351742</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -501,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kommentare überarbeitet" />
     <MESSAGE value="GUI Test" />
     <MESSAGE value="GUI importiert" />
     <MESSAGE value="Neue GUI implementiert" />
@@ -526,7 +527,8 @@
     <MESSAGE value="GUI automatische Seitenaktualisierungen implementiert" />
     <MESSAGE value="GUI Änderungen" />
     <MESSAGE value="Terminplan-String in Dozenten implementiert, GUI Terminplan ergänzt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminplan-String in Dozenten implementiert, GUI Terminplan ergänzt" />
+    <MESSAGE value="BUG behoben: Terminbuchung &amp; Ausstattung ID werden jetzt mitgespeichert" />
+    <option name="LAST_COMMIT_MESSAGE" value="BUG behoben: Terminbuchung &amp; Ausstattung ID werden jetzt mitgespeichert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
