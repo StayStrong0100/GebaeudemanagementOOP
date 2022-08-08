@@ -72,9 +72,9 @@ public class Raum implements Serializable {
         this.ausstattung.add(neu);
     }
 
-    public void addAusstattung(Ausstattungsmerkmal neu, int Anzahl) {
+    public void addAusstattung(Ausstattungsmerkmal neu, int anzahl) {
 
-        for (int i = 1; i <= Anzahl; i++) {
+        for (int i = 1; i <= anzahl; i++) {
             this.ausstattung.add(neu);
         }
     }

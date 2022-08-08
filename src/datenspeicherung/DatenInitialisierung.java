@@ -104,7 +104,7 @@ public class DatenInitialisierung {
 
 
         //speichern
-        ServiceLocator.getInstance().speicherAlleContainer("Grunddaten", ServiceLocator.getInstance());
+        ServiceLocator.getInstance().speicherAlleContainer("Grunddaten",ServiceLocator.getInstance());
     }
 }
 

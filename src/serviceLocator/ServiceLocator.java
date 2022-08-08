@@ -19,7 +19,7 @@ public class ServiceLocator implements Serializable {
 
     private HauslisteIF hl;
     private DozentListeIF dl;
-    private PersistenzDB p;
+    private PersistenzIF p;
     private BeamerTypListeIF bTL;
     private KameraTypListeIF kameraTL;
     private KreidetafelTypListeIF kreideTL;

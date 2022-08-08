@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="GebaeudemanagementOOP:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="setInstance ergänzt, Ladevorgang gefixt">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GebaeudemanagementOOP_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Da PersistenzDB im SL Objekt gespeichert wird, muss Serializable interface hinzugefügt werden. SL Klasse an Faustis version angepasst.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Grunddaten" beforeDir="false" afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Haus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,14 +58,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;202&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;375&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
@@ -83,8 +70,6 @@
       <recent name="ausstattung" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\images" />
-      <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src" />
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\DataImages" />
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\GUI\Moritz" />
     </key>
@@ -523,6 +508,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="toString() geändert" />
     <MESSAGE value="nichts" />
     <MESSAGE value="Bei der Methode addAusstattung() den Modifier zu public umgeändert" />
     <MESSAGE value="implements Serializiable und serialVerionUID hinzugefügt" />
@@ -547,8 +533,7 @@
     <MESSAGE value="Raumentblocken fertiggestellt" />
     <MESSAGE value="Einheitliches Ueberschriftenlayout etabliert" />
     <MESSAGE value="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt" />
-    <MESSAGE value="setInstance ergänzt, Ladevorgang gefixt" />
-    <option name="LAST_COMMIT_MESSAGE" value="setInstance ergänzt, Ladevorgang gefixt" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Raum löschen implementiert, HauslisteIF removeHaus ergänzt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
