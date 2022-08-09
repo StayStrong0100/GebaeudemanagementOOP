@@ -14,14 +14,33 @@ public class Raum implements Serializable {
     private ArrayList<Terminbuchung> buchungen = new ArrayList<>();
     private ArrayList<Ausstattungsmerkmal> ausstattung = new ArrayList<>();
 
-    public int getRaumnummer() {
-        return raumnummer;
+    public Raum(int raumnummer) {
+        this.raumnummer = raumnummer;
     }
 
     public void setRaumnummer(int raumnummer) {
         this.raumnummer = raumnummer;
     }
 
+    public int getRaumnummer() {
+        return raumnummer;
+    }
+
+    public ArrayList<Ausstattungsmerkmal> getAusstattung() {
+        return this.ausstattung;
+    }
+
+    public ArrayList<Terminbuchung> getBuchungen() {
+        return this.buchungen;
+    }
+
+    /**
+     * Gibt die gesamte Ausstattung eines Raumes als String zurück
+     *
+     * @author Benjamin Kostka
+     *
+     * @return Ausstattung eines Raumes als String
+     */
     @Override
     public String toString() {
         String ausgabe = "Raumnummer:\t" + raumnummer + "\n\n";
@@ -33,31 +52,26 @@ public class Raum implements Serializable {
         return ausgabe;
     }
 
-    public String printAlleBuchungen() {
-        String ausgabe = "";
-        for (Terminbuchung t : this.getBuchungen()) {
-            ausgabe.concat(t.printBuchungDetails());
-            ausgabe.concat("\n");
-        }
-        return ausgabe;
-    }
-
-    public ArrayList<Ausstattungsmerkmal> getAusstattung() {
-        return this.ausstattung;
-    }
-
-    public ArrayList<Terminbuchung> getBuchungen() {
-        return this.buchungen;
-    }
-
-    public Raum(int raumnummer) {
-        this.raumnummer = raumnummer;
-    }
-
+    /**
+     * Fügt dem Raum eine Terminbuchung hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param start Beginn der Terminbuchung
+     * @param ende Ende der Terminbuchung
+     * @param doz Dozent, der den Raum buchen möchte
+     */
     public void buchen(Calendar start, Calendar ende, Dozent doz) {
         this.buchungen.add(new Terminbuchung(start, ende, doz));
     }
 
+    /**
+     * Entfernt eine Terminbuchung aus dem Raum und aus der Terminliste des betroffenen Dozenten
+     *
+     * @author Lukas Zander
+     *
+     * @param id ID der Terminbuchung
+     */
     public void cancelOrder(int id) {
         for (Terminbuchung buchung : this.getBuchungen()) {
             if (buchung.getId() == id) {
@@ -68,17 +82,24 @@ public class Raum implements Serializable {
         }
     }
 
+    /**
+     * Fügt dem Raum ein neues Ausstattungsmerkmal hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param neu Ausstattungsmerkmal, dass hinzugefügt werden soll
+     */
     public void addAusstattung(Ausstattungsmerkmal neu) {
         this.ausstattung.add(neu);
     }
 
-    public void addAusstattung(Ausstattungsmerkmal neu, int anzahl) {
-
-        for (int i = 1; i <= anzahl; i++) {
-            this.ausstattung.add(neu);
-        }
-    }
-
+    /**
+     * Entfernt aus dem Raum ein Ausstattungsmerkmal
+     *
+     * @author Lukas Zander
+     *
+     * @param alt Ausstattungsmerkmal, dass entfernt werden soll
+     */
     public void removeAusstattung(Ausstattungsmerkmal alt) {this.ausstattung.remove(alt);}
 
     /**
@@ -86,7 +107,7 @@ public class Raum implements Serializable {
      *
      * @author Lukas Zander
      *
-     * @return
+     * @return die vorhandene Anzahl des entsprechenden Ausstattungsmerkmals in dem Raum
      */
     public <T extends Ausstattungsmerkmal, Z extends Zustand> int getAnzahlMerkmale(Class<T> typKlasse, Class<Z> zustandKlasse){
         int anzahl = 0;
@@ -96,10 +117,6 @@ public class Raum implements Serializable {
             }
         }
         return anzahl;
-    }
-
-    public String printRaum() {
-        return ("Raumnummer: " + this.getRaumnummer());
     }
 
 }

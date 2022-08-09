@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Code Reviewing 2.0 für HausListe durchgeführt">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_09_49_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_09_49__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_13_24_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_13_24__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Bugs behoben">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grunddaten" beforeDir="false" afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verwaltung/Haus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Haus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verwaltung/Raum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/Raum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,13 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00016" summary="ToString() und print() erstellt.Sourroundsound zu Surroundsound geändert">
-      <created>1658599388419</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1658599388419</updated>
     </task>
     <task id="LOCAL-00017" summary="Formatierung von toString()">
       <created>1658599639020</created>
@@ -492,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659994220001</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="GUI Bugs behoben">
+      <created>1660060353611</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1660060353612</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -507,7 +500,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
     <MESSAGE value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
     <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
     <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
@@ -532,7 +524,8 @@
     <MESSAGE value="Neue universelle Zählmethode implementiert" />
     <MESSAGE value="Code Reviewing für HausListe durchgeführt" />
     <MESSAGE value="Code Reviewing 2.0 für HausListe durchgeführt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code Reviewing 2.0 für HausListe durchgeführt" />
+    <MESSAGE value="GUI Bugs behoben" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Bugs behoben" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

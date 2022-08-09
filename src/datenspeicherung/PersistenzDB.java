@@ -31,6 +31,7 @@ public class PersistenzDB implements PersistenzIF, Serializable{
         } catch (IOException e) {
             //throw new RuntimeException(e);
             messagePopUp(e.getMessage() + "\n" + "Speichern fehlgeschlagen");
+
         }
     }
 
