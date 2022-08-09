@@ -20,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 
 public class GUI extends JFrame {
     // Menü Elemente
@@ -419,6 +420,14 @@ public class GUI extends JFrame {
                 verbergeAllePanels();
                 panelDozentBearbeiten.setVisible(true);
                 dozentBearbeitenDozAuswahlInput.removeAllItems();
+
+                ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().sort(new Comparator<Dozent>() {
+                    @Override
+                    public int compare(Dozent o1, Dozent o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+
                 for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
                     dozentBearbeitenDozAuswahlInput.addItem(d.getName());
                 }
@@ -832,7 +841,8 @@ public class GUI extends JFrame {
 
             for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
                 if (d.getName().equals(dozName)) {
-                    ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().remove(d);
+                    //ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().remove(d);
+                    ServiceLocator.getInstance().getDozentenListe().removeDozent(d);
                     dozentLoeschenBestaetigung.setText("Der Dozent " + dozName + " wurde erfolgreich entfernt.");
                     dozentLoeschen.doClick();
                     return;
@@ -842,14 +852,22 @@ public class GUI extends JFrame {
             dozentLoeschenBestaetigung.setText("Unerwarteter Fehler: Dozent existiert nicht. Bitte wiederholen Sie den Vorgang!");
         });
         dozentHinzufuegenButton.addActionListener(e -> {
-            String neuerDozent = dozentHinzufuegenInput.toString();
+            if(dozentHinzufuegenInput.getText().equals("")){
+                dozentHinzufuegenBestaetigung.setText("Bitte geben Sie einen namen ein!");
+                return;
+            }
 
+            String neuerDozent = dozentHinzufuegenInput.getText();
+
+            //Wenn der Name bereits vergeben ist, nicht erstellen
             for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
                 if (d.getName().equals(neuerDozent)) {
                     dozentHinzufuegenBestaetigung.setText("Dozent existiert bereits. Bitte wählen Sie einen anderen Namen aus!");
                     return;
                 }
             }
+
+            //Dozent hinzufügen
             ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(neuerDozent));
             dozentHinzufuegenBestaetigung.setText("Dozent erfolgreich hinzugefügt.");
             dozentHinzufuegen.doClick();
@@ -857,8 +875,6 @@ public class GUI extends JFrame {
 
         });
         dozTerminplanDozAuswahlInput.addActionListener(e -> {
-            //TODO @Moritz Terminplan anzeigen lassen
-
             if(dozTerminplanDozAuswahlInput.getSelectedItem() == null){
                 dozTerminplanBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
                 return;
@@ -1016,6 +1032,7 @@ public class GUI extends JFrame {
                     if (r.getRaumnummer() == raumnummer) {
                         r.cancelOrder(buchungsID);
                         raumEntblockenBestaetigung.setText("Terminbuchung " + buchungsID + " wurde erfolgeich storniert.");
+                        raumEntblocken.doClick();
                         return;
                     }
                 }
@@ -1066,6 +1083,14 @@ public class GUI extends JFrame {
 
                 String dozent = dozentBearbeitenDozAuswahlInput.getSelectedItem().toString();
                 String neuerName = dozentBearbeitenNameInput.getText();
+
+                //Wenn der neue Name bereits vergeben wurde, Fehlermeldung und abbrechen
+                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                    if (d.getName().equals(neuerName)){
+                        dozentBearbeitenBestaetigung.setText("Der Name ist bereits vergeben, bitte geben Sie einen anderen Namen aus!");
+                        return;
+                    }
+                }
 
                 for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
                     if (d.getName().equals(dozent)){

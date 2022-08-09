@@ -82,15 +82,6 @@ public class Raum implements Serializable {
     public void removeAusstattung(Ausstattungsmerkmal alt) {this.ausstattung.remove(alt);}
 
     /**
-     * Zählt die Anzahl von funktionstüchtigen Beamern im Raum
-     *
-     * @return anzahl - int
-     * @author ZanderLK
-     * @version 1.0.0
-     * @since 20220725
-     */
-
-    /**
      * Zählt die Anzahl von einer bestimmten Ausstattung und einem bestimmten Zustand
      *
      * @author Lukas Zander

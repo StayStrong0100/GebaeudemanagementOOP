@@ -5,9 +5,6 @@ public class Main {
         //Daten laden
         ServiceLocator.getInstance().setInstance(ServiceLocator.getInstance().ladeAlleContainer("Grunddaten"));
 
-
-
-
         //GUI starten
         new GUI();
     }

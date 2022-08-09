@@ -7,4 +7,6 @@ public interface DozentListeIF {
     public ArrayList<Dozent> getAlleDozenten();
 
     public void addDozent(Dozent doz);
+
+    public void removeDozent(Dozent doz);
 }
