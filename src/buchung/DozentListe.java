@@ -2,10 +2,9 @@ package buchung;
 
 import serviceLocator.ServiceLocator;
 import verwaltung.Raum;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-//singleton
+
 public class DozentListe implements Serializable, DozentListeIF {
 
     private ArrayList<Dozent> alleDozenten = new ArrayList<>();
@@ -25,6 +24,13 @@ public class DozentListe implements Serializable, DozentListeIF {
         return this.alleDozenten;
     }
 
+    /**
+     * Fügt einen Dozenten hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param doz Dozent, der hinzugefügt werden soll
+     */
     public void addDozent(Dozent doz){
         this.alleDozenten.add(doz);
     }

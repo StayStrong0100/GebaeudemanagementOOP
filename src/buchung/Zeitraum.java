@@ -1,8 +1,7 @@
 package buchung;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.Calendar;
 
 public class Zeitraum implements Serializable {
@@ -11,27 +10,26 @@ public class Zeitraum implements Serializable {
     private Calendar start;
     private Calendar ende;
 
-    public Calendar getStart() {
-        return start;
+    public Zeitraum(Calendar start, Calendar ende) {
+        this.start = start;
+        this.ende = ende;
     }
 
-    public void setStart(Calendar start) {
-        this.start = start;
+    public Calendar getStart() {
+        return start;
     }
 
     public Calendar getEnde() {
         return ende;
     }
 
-    public void setEnde(Calendar ende) {
-        this.ende = ende;
-    }
-
-    public Zeitraum(Calendar start, Calendar ende) {
-        this.start = start;
-        this.ende = ende;
-    }
-
+    /**
+     * Gibt den Zeitraum als String zurück
+     *
+     * @author Benjamin Kostka
+     *
+     * @return Start und Ende als String
+     */
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");

@@ -6,25 +6,25 @@ import java.util.Calendar;
 public class Terminbuchung implements Serializable {
 
     public static final long serialVersionUID = 0;
-    private int id;
     private static int count=0;
+    private int id;
     private Zeitraum intervall;
     private Dozent dozent;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Terminbuchung(Calendar start, Calendar ende, Dozent prof) {
+        count++;
+        this.id = count;
+        this.intervall = new Zeitraum(start, ende);
+        this.dozent = prof;
+        prof.addBuchung(this);
     }
 
     public static int getCount() {
         return count;
     }
 
-    public static void setCount(int count) {
-        Terminbuchung.count = count;
+    public int getId() {
+        return id;
     }
 
     public Dozent getDozent() {
@@ -35,19 +35,9 @@ public class Terminbuchung implements Serializable {
         return intervall;
     }
 
-    public Terminbuchung(Calendar start, Calendar ende, Dozent prof) {
-        count++;
-        this.id = count;
-        this.intervall = new Zeitraum(start, ende);
-        this.dozent = prof;
-        prof.addBuchung(this);
-
+    public static void setCount(int count) {
+        Terminbuchung.count = count;
     }
-
-    public String printBuchungDetails(){
-        return (("Buchungs-ID: "+ this.id) + "\t" + this.intervall.toString() + "\t" + this.dozent.getName());
-    }
-
 
 
 }

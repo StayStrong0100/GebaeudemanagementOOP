@@ -4,9 +4,23 @@ import java.util.ArrayList;
 
 public interface DozentListeIF {
 
-    public ArrayList<Dozent> getAlleDozenten();
+    ArrayList<Dozent> getAlleDozenten();
 
-    public void addDozent(Dozent doz);
+    /**
+     * Fügt einen Dozenten hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param doz Dozent, der hinzugefügt werden soll
+     */
+    void addDozent(Dozent doz);
 
-    public void removeDozent(Dozent doz);
+    /**
+     * Entfernt einen Dozenten und gleichzeitig alle seine Terminbuchungen aus den jeweiligen Räumen
+     *
+     * @author Lukas Zander
+     *
+     * @param doz Dozent, der gelöscht werden soll
+     */
+    void removeDozent(Dozent doz);
 }

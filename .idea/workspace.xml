@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_17_39_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_17_39__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring PersistenzDB, PersistenzIF und ServiceLocator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Dozent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Dozent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/Terminbuchung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,13 +143,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00020" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
-      <created>1658600258543</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1658600258543</updated>
     </task>
     <task id="LOCAL-00021" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
       <created>1658600473811</created>
@@ -487,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660065433157</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Refactoring PersistenzDB, PersistenzIF und ServiceLocator">
+      <created>1660074983139</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1660074983140</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
     <MESSAGE value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
     <MESSAGE value="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung" />
     <MESSAGE value="Action Listener komprimiert (Lambda)" />
@@ -527,7 +526,8 @@
     <MESSAGE value="Refactoring Haus und Raum" />
     <MESSAGE value="Refactoring HauslisteIF, Refactoring Hausliste 3.0" />
     <MESSAGE value="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)" />
+    <MESSAGE value="Refactoring PersistenzDB, PersistenzIF und ServiceLocator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring PersistenzDB, PersistenzIF und ServiceLocator" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

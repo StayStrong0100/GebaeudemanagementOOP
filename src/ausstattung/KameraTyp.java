@@ -61,6 +61,10 @@ public class KameraTyp implements Serializable, AusstattungsTypIF {
         return flexibel;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Marke: " + marke +
