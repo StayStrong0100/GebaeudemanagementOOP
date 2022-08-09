@@ -1,8 +1,6 @@
 package buchung;
 
 import serviceLocator.ServiceLocator;
-import verwaltung.Haus;
-import verwaltung.HausListe;
 import verwaltung.Raum;
 
 import java.io.Serializable;
@@ -40,7 +38,7 @@ public class DozentListe implements Serializable, DozentListeIF {
      */
     public void removeDozent(Dozent doz){
         for(Terminbuchung t : doz.getMeineBuchungen()){
-            for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+            for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
                 if(r.getBuchungen().contains(t)){
                     r.getBuchungen().remove(t);
                     break;

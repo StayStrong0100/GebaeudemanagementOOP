@@ -1,11 +1,9 @@
 package datenspeicherung;
 
-import datenspeicherung.*;
 import serviceLocator.*;
 import verwaltung.*;
 import ausstattung.*;
 import buchung.*;
-import zustand.*;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -89,14 +87,14 @@ public class DatenInitialisierung {
         //Beamer anlegen
         for (int j = 0; j < 5; j++) {
             for (int i = 0; i < 3; i++) {
-                ServiceLocator.getInstance().getHausliste().getAlleRaeueme().get(j).addAusstattung(new Beamer(ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen().get(i), Calendar.getInstance()));
+                ServiceLocator.getInstance().getHausliste().getAlleRaeume().get(j).addAusstattung(new Beamer(ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen().get(i), Calendar.getInstance()));
             }
         }
 
         //PCs anlegen
         for (int j = 0; j < 5; j++) {
             for (int i = 0; i < 3; i++) {
-                ServiceLocator.getInstance().getHausliste().getAlleRaeueme().get(j).addAusstattung(new PC(ServiceLocator.getInstance().getPCTypen().getAllePCTypen().get(i), Calendar.getInstance()));
+                ServiceLocator.getInstance().getHausliste().getAlleRaeume().get(j).addAusstattung(new PC(ServiceLocator.getInstance().getPCTypen().getAllePCTypen().get(i), Calendar.getInstance()));
             }
 
         ///

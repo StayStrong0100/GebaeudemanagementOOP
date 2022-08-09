@@ -313,7 +313,7 @@ public class GUI extends JFrame {
 
             ArrayList<Integer> alleRaumnummern = new ArrayList<>();
 
-            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                 alleRaumnummern.add(r.getRaumnummer());
             }
 
@@ -331,7 +331,7 @@ public class GUI extends JFrame {
                 verbergeAllePanels();
                 panelRaumEntblocken.setVisible(true);
                 raumEntblockenRaumInput.removeAllItems();
-                for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
                     if(r.getBuchungen().size() > 0){
                         raumEntblockenRaumInput.addItem(r.getRaumnummer());
                     }
@@ -345,7 +345,7 @@ public class GUI extends JFrame {
                 verbergeAllePanels();
                 panelRaumLoeschen.setVisible(true);
                 raumLoeschenIDInput.removeAllItems();
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
                     raumLoeschenIDInput.addItem(r.getRaumnummer());
                 }
             }
@@ -484,10 +484,10 @@ public class GUI extends JFrame {
             int minKreidetafeln = (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
 
             //Filter nach Zeit
-            ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeVerfuegbar(start, ende);
+            ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeumeVerfuegbar(start, ende);
 
             //Filter nach Ausstattung
-            ArrayList<Raum> perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeuemeAusstattung(freieRaueme, minBeamer, minKameras, minKreidetafeln, minLautsprecher, minMikrofone, minPCs, minSmartboards, minStuehle, minTische, minWhiteboards);
+            ArrayList<Raum> perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeumeAusstattung(freieRaueme, minBeamer, minKameras, minKreidetafeln, minLautsprecher, minMikrofone, minPCs, minSmartboards, minStuehle, minTische, minWhiteboards);
 
             if (perfekteRaueme.size() == 0) {
                 raumsuchenbuchenBestaetigung.setText("Es gibt keine passenden Räume, bitte verändern Sie Ihre Suchkriterien!");
@@ -559,7 +559,7 @@ public class GUI extends JFrame {
 
             //Wenn die neueID noch nicht vergeben ist:
             if (!(ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(neueID))) {
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == alteID) {
                         r.setRaumnummer(neueID);
                         raumbearbeitenBestaetigung.setText("Raumnummer erfolgreich geändert.");
@@ -614,7 +614,7 @@ public class GUI extends JFrame {
             int raumID = Integer.valueOf(buchenRaumnummerSelectInput.getSelectedItem().toString());
             String dozent = buchenDozentSelectInput.getSelectedItem().toString();
 
-            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                 if (r.getRaumnummer() == raumID) {
                     //Erneuter Kollisions Check, falls Datum verändert wurde. Wenn nun kollidiert, Abbruch und Warnung
                     if (ServiceLocator.getInstance().getHausliste().terminKollidiert(r, start, ende)) {
@@ -732,10 +732,10 @@ public class GUI extends JFrame {
             for (int i = 0; i < anzahlElemente; i++) {
                 boolean erfolgreich = true;
                 //Im entsprechenden Raum
-                if(ServiceLocator.getInstance().getHausliste().getAlleRaeueme().size() == 0){
+                if(ServiceLocator.getInstance().getHausliste().getAlleRaeume().size() == 0){
                     erfolgreich = false;
                 }
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == raumID) {
 
                         //Entsprechend der Art, dann entsprechend des Typen
@@ -780,7 +780,7 @@ public class GUI extends JFrame {
             if (raumbearbeitenRaumlisteInput.getSelectedItem() != null) {
                 int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
 
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == raumID) {
                         for (Ausstattungsmerkmal a : r.getAusstattung()) {
                             DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
@@ -814,7 +814,7 @@ public class GUI extends JFrame {
                         return;
                     } else if (neuerStatus.equals("Entfernen (Irreversibel)")) {
                         int raumnummer = Integer.parseInt(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
-                        for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                        for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
                             if(r.getRaumnummer() == raumnummer){
                                 r.removeAusstattung(a);
                                 raumbearbeitenBestaetigung.setText("Ausstattung " + ID + " wurde erfolgreich entfernt.");
@@ -928,7 +928,7 @@ public class GUI extends JFrame {
 
                 for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
                     if(h.getHausnummer().equals(hausID)){
-                        ServiceLocator.getInstance().getHausliste().getAlleHaeuser().remove(h);
+                        ServiceLocator.getInstance().getHausliste().removeHaus(h);
                         hausloeschenBestaetigung.setText("Haus " + hausID + " wurde entfernt.");
                         hausLoeschen.doClick();
                         return;
@@ -995,7 +995,7 @@ public class GUI extends JFrame {
                     return;
                 }
 
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == raumnummer) {
                         raumEntblockenTerminInput.removeAllItems();
                         for (Terminbuchung t : r.getBuchungen()) {
@@ -1028,7 +1028,7 @@ public class GUI extends JFrame {
                 }
                 System.out.println(buchungsID);
 
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()) {
+                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == raumnummer) {
                         r.cancelOrder(buchungsID);
                         raumEntblockenBestaetigung.setText("Terminbuchung " + buchungsID + " wurde erfolgeich storniert.");
@@ -1051,7 +1051,7 @@ public class GUI extends JFrame {
                 else {
                     int raumID = Integer.parseInt(raumLoeschenIDInput.getSelectedItem().toString());
                     //Raum Objekt finden
-                    for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeueme()){
+                    for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
                         if (r.getRaumnummer() == raumID){
                             //Raum muss im Haus entfernt werden, passendes Haus finden
                             for(Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
