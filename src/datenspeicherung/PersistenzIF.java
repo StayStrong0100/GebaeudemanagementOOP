@@ -1,13 +1,36 @@
 package datenspeicherung;
 
 import serviceLocator.ServiceLocator;
-import verwaltung.HausListe;
 
 public interface PersistenzIF {
 
-    public void speichern(String dateiname, ServiceLocator sl);
+    /**
+     * Speichert den Service Locator als Datei ab
+     *
+     * @author Benjamin Kostka und David Brockmeyer
+     *
+     * @param dateiname Name, die die gespeicherte Datei bekommt
+     * @param sl der zu speichernde ServiceLocator
+     */
+    void speichern(String dateiname, ServiceLocator sl);
 
-    public ServiceLocator lade(String dateiname);
+    /**
+     * Liest aus einer Datei einen ServiceLocator aus
+     *
+     * @author Benjamin Kostka und David Brockmeyer
+     *
+     * @param dateiname Name der Datei, in welcher der ServiceLocator gespeichert wurde
+     *
+     * @return importierter (ausgelesener) ServiceLocator
+     */
+    ServiceLocator lade(String dateiname);
 
-    public void messagePopUp(String nachricht);
+    /**
+     * Erzeugt ein Pop-up-Fenster
+     *
+     * @author Lukas Zander
+     *
+     * @param nachricht Anzuzeigender Inhalt im Pop-up-Fenster
+     */
+    void messagePopUp(String nachricht);
 }

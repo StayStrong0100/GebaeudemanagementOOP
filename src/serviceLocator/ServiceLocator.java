@@ -1,23 +1,12 @@
 package serviceLocator;
 
 import ausstattung.*;
-import buchung.DozentListe;
-import buchung.DozentListeIF;
-import buchung.Terminbuchung;
+import buchung.*;
 import datenspeicherung.*;
 import verwaltung.*;
-
 import java.io.Serializable;
 
 public class ServiceLocator implements Serializable {
-
-    /*
-    Zugriff auf:
-    HausListe
-    DozentenListe
-    PersistenzDB
-     */
-
     private HauslisteIF hl;
     private DozentListeIF dl;
     private PersistenzIF p;
@@ -33,11 +22,9 @@ public class ServiceLocator implements Serializable {
     private WhiteboardTypListeIF wTL;
     private int countAusstattung;
     private int countTerminbuchung;
-
     private static ServiceLocator instance;
 
     private ServiceLocator() {
-
         hl = HausListe.getInstance();
         dl = DozentListe.getInstance();
         p = PersistenzDB.getInstance();
@@ -66,19 +53,6 @@ public class ServiceLocator implements Serializable {
 
     public HauslisteIF getHausliste() {
         return hl;
-    }
-
-    public void speicherAlleContainer(String dateiname, ServiceLocator sl){
-        this.countAusstattung = Ausstattungsmerkmal.getCount();
-        this.countTerminbuchung = Terminbuchung.getCount();
-        p.speichern(dateiname, sl);
-    }
-
-    public ServiceLocator ladeAlleContainer(String dateiname) {
-        ServiceLocator sl = p.lade(dateiname);
-        Ausstattungsmerkmal.setCount(p.lade(dateiname).countAusstattung);
-        Terminbuchung.setCount(p.lade(dateiname).countAusstattung);
-        return sl;
     }
 
     public DozentListeIF getDozentenListe() {
@@ -123,6 +97,38 @@ public class ServiceLocator implements Serializable {
 
     public WhiteboardTypListeIF getWhiteboardTypen() {
         return wTL;
+    }
+
+    /**
+     * Speichert den ServiceLocator mit allen seinen Attributen in einer Datei ab
+     * Auch die Counts von Terminbuchung und Ausstattung werden übergeben, damit bei Neustart die IDs richtig weitergezählt werden
+     *
+     * @author Benjamin Kostka und David Brockmeyer
+     *
+     * @param dateiname Name, die die gespeicherte Datei bekommt
+     * @param sl ServiceLocator, der gespeichert werden soll
+     */
+    public void speicherAlleContainer(String dateiname, ServiceLocator sl){
+        this.countAusstattung = Ausstattungsmerkmal.getCount();
+        this.countTerminbuchung = Terminbuchung.getCount();
+        p.speichern(dateiname, sl);
+    }
+
+    /**
+     * Liest den ServiceLocator aus einer Datei aus
+     * Auch die Counts von Terminbuchung und Ausstattung werden übergeben, damit die IDs richtig weitergezählt werden
+     *
+     * @author Benjamin Kostka und David Brockmeyer
+     *
+     * @param dateiname Name der Datei, in welcher der ServiceLocator gespeichert wurde
+     *
+     * @return ausgelesenen ServiceLocator
+     */
+    public ServiceLocator ladeAlleContainer(String dateiname) {
+        ServiceLocator sl = p.lade(dateiname);
+        Ausstattungsmerkmal.setCount(p.lade(dateiname).countAusstattung);
+        Terminbuchung.setCount(p.lade(dateiname).countTerminbuchung);
+        return sl;
     }
 }
 

@@ -1,17 +1,16 @@
 package datenspeicherung;
 
 import serviceLocator.ServiceLocator;
-import verwaltung.HausListe;
 import java.io.*;
 import javax.swing.*;
 
 //singleton
 public class PersistenzDB implements PersistenzIF, Serializable{
 
+    private static PersistenzDB instance;
+
     private PersistenzDB() {
     }
-
-    private static PersistenzDB instance;
 
     public static PersistenzDB getInstance() {
         if (instance == null) {
@@ -20,6 +19,14 @@ public class PersistenzDB implements PersistenzIF, Serializable{
         return instance;
     }
 
+    /**
+     * Speichert den Service Locator als Datei ab
+     *
+     * @author Benjamin Kostka und David Brockmeyer
+     *
+     * @param dateiname Name, die die gespeicherte Datei bekommt
+     * @param sl der zu speichernde ServiceLocator
+     */
     public void speichern(String dateiname, ServiceLocator sl) {
 
         try {
@@ -35,6 +42,15 @@ public class PersistenzDB implements PersistenzIF, Serializable{
         }
     }
 
+    /**
+     * Liest aus einer Datei einen ServiceLocator aus
+     *
+     * @author Benjamin Kostka und David Brockmeyer
+     *
+     * @param dateiname Name der Datei, in welcher der ServiceLocator gespeichert wurde
+     *
+     * @return importierter (ausgelesener) ServiceLocator
+     */
     public ServiceLocator lade(String dateiname) {
         try {
             FileInputStream fileIn = new FileInputStream(dateiname);
@@ -54,6 +70,13 @@ public class PersistenzDB implements PersistenzIF, Serializable{
         return ServiceLocator.getInstance();
     }
 
+    /**
+     * Erzeugt ein Pop-up-Fenster
+     *
+     * @author Lukas Zander
+     *
+     * @param nachricht Anzuzeigender Inhalt im Pop-up-Fenster
+     */
     public void messagePopUp(String nachricht){
         // Erzeugung eines neuen JDialogs mit Titel und fixer Größe
         JDialog fehlermeldung = new JDialog();

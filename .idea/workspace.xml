@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring Haus und Raum">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_17_39_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_08_2022_17_39__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buchung/DozentListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buchung/DozentListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HausListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HausListe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/verwaltung/HauslisteIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/PersistenzIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/PersistenzIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceLocator/ServiceLocator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,20 +143,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00018" summary="toString() und print() erstellt">
-      <created>1658599715482</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1658599715482</updated>
-    </task>
-    <task id="LOCAL-00019" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
-      <created>1658599955337</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1658599955337</updated>
     </task>
     <task id="LOCAL-00020" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
       <created>1658600258543</created>
@@ -487,7 +473,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660064667971</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Refactoring HauslisteIF, Refactoring Hausliste 3.0">
+      <created>1660065269772</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1660065269772</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)">
+      <created>1660065433157</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1660065433157</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,8 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
-    <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
     <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
     <MESSAGE value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
     <MESSAGE value="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung" />
@@ -527,7 +525,9 @@
     <MESSAGE value="Code Reviewing 2.0 für HausListe durchgeführt" />
     <MESSAGE value="GUI Bugs behoben" />
     <MESSAGE value="Refactoring Haus und Raum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Haus und Raum" />
+    <MESSAGE value="Refactoring HauslisteIF, Refactoring Hausliste 3.0" />
+    <MESSAGE value="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
