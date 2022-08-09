@@ -1,38 +1,16 @@
 package ausstattung;
 
 import zustand.*;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.*;
 
 public abstract class Ausstattungsmerkmal implements Serializable{
 
     public static final long serialVersionUID = 0;
-
-    private int id;
     private static int count=0;
+    private int id;
     private Calendar anschaffungsdatum;
     private ArrayList<Zustand> zustandsListe = new ArrayList<>();
-
-    public abstract AusstattungsTypIF getExemplarTyp();
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Ausstattungsmerkmal.count = count;
-    }
 
     public Ausstattungsmerkmal(Calendar anschaffungsdatum) {
         count++;
@@ -41,16 +19,14 @@ public abstract class Ausstattungsmerkmal implements Serializable{
         this.zustandsListe.add(new Funktionstuechtig(Calendar.getInstance()));
     }
 
-    public ArrayList<Zustand> getZustandsListe() {
-        return zustandsListe;
+    public abstract AusstattungsTypIF getExemplarTyp();
+
+    public static int getCount() {
+        return count;
     }
 
-    public void gehtKaputt(){
-        this.zustandsListe.add(new Defekt(Calendar.getInstance()));
-    }
-
-    public void wirdRepariert(){
-        this.zustandsListe.add(new Funktionstuechtig(Calendar.getInstance()));
+    public int getId() {
+        return id;
     }
 
     public Zustand getAktuellerZustand(){
@@ -61,7 +37,25 @@ public abstract class Ausstattungsmerkmal implements Serializable{
         return anschaffungsdatum;
     }
 
-    public void setAnschaffungsdatum(Calendar anschaffungsdatum) {
-        this.anschaffungsdatum = anschaffungsdatum;
+    public static void setCount(int count) {
+        Ausstattungsmerkmal.count = count;
+    }
+
+    /**
+     * Fügt der Zustandsliste neues Objekt von Typ "Defekt" mit aktuellem Datum hinzu
+     *
+     * @author Lukas Zander
+     */
+    public void gehtKaputt(){
+        this.zustandsListe.add(new Defekt(Calendar.getInstance()));
+    }
+
+    /**
+     * Fügt der Zustandsliste neues Objekt von Typ "Funktionstüchtig" mit aktuellem Datum hinzu
+     *
+     * @author Lukas Zander
+     */
+    public void wirdRepariert(){
+        this.zustandsListe.add(new Funktionstuechtig(Calendar.getInstance()));
     }
 }
