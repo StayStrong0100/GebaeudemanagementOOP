@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring Ausstattungsmerkmal und AusstattungsTypIF">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring GUI Teil 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,13 +150,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Anschaffungsdatum hinzugefügt.">
-      <created>1658600777551</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1658600777552</updated>
     </task>
     <task id="LOCAL-00024" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
       <created>1658601031689</created>
@@ -496,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660078824517</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Refactoring GUI Teil 1">
+      <created>1660145026723</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1660145026723</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -511,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Action Listener komprimiert (Lambda)" />
     <MESSAGE value="&quot;Ausstattungstyp hinzufügen&quot; vorbereitet" />
     <MESSAGE value="Modell anzeigen, Raumausstattung Anzahl und Design" />
     <MESSAGE value="Hausseiten Struktur implementiert (Methoden fehlen noch)" />
@@ -536,7 +533,8 @@
     <MESSAGE value="Refactoring PersistenzDB, PersistenzIF und ServiceLocator" />
     <MESSAGE value="Refactoring Dozent, DozentListe, DozentListeIF, Terminbuchung, Zeitraum" />
     <MESSAGE value="Refactoring Ausstattungsmerkmal und AusstattungsTypIF" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Ausstattungsmerkmal und AusstattungsTypIF" />
+    <MESSAGE value="Refactoring GUI Teil 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring GUI Teil 1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

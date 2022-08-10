@@ -215,9 +215,7 @@ public class GUI extends JFrame {
 
     /**
      * Es folgt der GUI Konstruktor, in diesem werden alle Konfigurationen der GUI vorgenommen
-     *
      */
-
     public GUI() {
         //Menü erstellen und verbinden
         hauptMenue.add(hausMenue);
@@ -345,16 +343,13 @@ public class GUI extends JFrame {
          * Es werden alle Panels versteckt und nur das Panel "Raum entblocken" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Räume, dabei werden nur die Räume angezeigt, die irgendwann gebucht sind
          */
-        raumEntblocken.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                verbergeAllePanels();
-                panelRaumEntblocken.setVisible(true);
-                raumEntblockenRaumInput.removeAllItems();
-                for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
-                    if(r.getBuchungen().size() > 0){
-                        raumEntblockenRaumInput.addItem(r.getRaumnummer());
-                    }
+        raumEntblocken.addActionListener(e -> {
+            verbergeAllePanels();
+            panelRaumEntblocken.setVisible(true);
+            raumEntblockenRaumInput.removeAllItems();
+            for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
+                if(r.getBuchungen().size() > 0){
+                    raumEntblockenRaumInput.addItem(r.getRaumnummer());
                 }
             }
         });
@@ -364,15 +359,12 @@ public class GUI extends JFrame {
          * Es werden alle Panels versteckt und nur das Panel "Raum löschen" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Räume
          */
-        raumLoeschen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                verbergeAllePanels();
-                panelRaumLoeschen.setVisible(true);
-                raumLoeschenIDInput.removeAllItems();
-                for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
-                    raumLoeschenIDInput.addItem(r.getRaumnummer());
-                }
+        raumLoeschen.addActionListener(e -> {
+            verbergeAllePanels();
+            panelRaumLoeschen.setVisible(true);
+            raumLoeschenIDInput.removeAllItems();
+            for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
+                raumLoeschenIDInput.addItem(r.getRaumnummer());
             }
         });
 
@@ -402,6 +394,11 @@ public class GUI extends JFrame {
             }
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Dozent löschen"
+         * Es werden alle Panels versteckt und nur das Panel "Dozent löschen" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Dozenten
+         */
         dozentLoeschen.addActionListener(e -> {
             verbergeAllePanels();
             panelDozentLoeschen.setVisible(true);
@@ -411,6 +408,11 @@ public class GUI extends JFrame {
             }
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Dozent Terminplan"
+         * Es werden alle Panels versteckt und nur das Panel "Dozent Terminplan" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Dozenten
+         */
         dozentTerminplan.addActionListener(e -> {
             verbergeAllePanels();
             panelDozentenTerminplan.setVisible(true);
@@ -421,33 +423,47 @@ public class GUI extends JFrame {
 
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Dozent hinzufügen"
+         * Es werden alle Panels versteckt und nur das Panel "Dozent hinzufügen" wird angezeigt
+         */
         dozentHinzufuegen.addActionListener(e -> {
             verbergeAllePanels();
             panelDozentHinzufuegen.setVisible(true);
 
         });
 
-        dozentBearbeiten.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                verbergeAllePanels();
-                panelDozentBearbeiten.setVisible(true);
-                dozentBearbeitenDozAuswahlInput.removeAllItems();
+        /**
+         * Action Listener für Seitenaufruf "Dozent bearbeiten"
+         * Es werden alle Panels versteckt und nur das Panel "Dozent bearbeiten" wird angezeigt
+         * Sortierte Initialisierung der Auswahlliste (ComboBox) für die Dozenten
+         */
+        dozentBearbeiten.addActionListener(e -> {
+            verbergeAllePanels();
+            panelDozentBearbeiten.setVisible(true);
+            dozentBearbeitenDozAuswahlInput.removeAllItems();
 
-                ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().sort(new Comparator<Dozent>() {
-                    @Override
-                    public int compare(Dozent o1, Dozent o2) {
-                        return o1.getName().compareTo(o2.getName());
-                    }
-                });
+            ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().sort(Comparator.comparing(Dozent::getName));
 
-                for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
-                    dozentBearbeitenDozAuswahlInput.addItem(d.getName());
-                }
+            for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                dozentBearbeitenDozAuswahlInput.addItem(d.getName());
             }
         });
 
-        //Es folgen Action Listener, die bei Buttons ausgeführt werden
+        /**
+         * ========================================================================
+         * Hier enden die Action Listener für Seitenaufrufe.
+         * Es folgen die Action Listener, die innerhalb von Seiten aktiviert werden
+         * ========================================================================
+         */
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite Raum suchen der Button "Suchen" geklickt wird.
+         * Leert das Ausgabefeld, die passende Raumlist und die Liste der verfügbaren Dozenten
+         * Wenn keine Fehler(leeres Feld, falsche Eingabe etc.) vorhanden sind, werden alle Räume anhand der Kriterien gefiltert
+         * und in der Auswahlliste hinzugefügt
+         * Anschließend wird die Liste der existierenden Dozenten initialisiert
+         */
         raumsucheSuchen.addActionListener(e -> {
             //Felder leeren von vorherigen Durchläufen
             raumsuchenbuchenBestaetigung.setText("");
@@ -460,7 +476,7 @@ public class GUI extends JFrame {
                 return;
             }
 
-            //Zeit-Daten umwandeln
+            //Zeit-Daten auslesen und umwandeln
             SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
             Calendar start = Calendar.getInstance();
             Calendar ende = Calendar.getInstance();
@@ -484,7 +500,7 @@ public class GUI extends JFrame {
                 return;
             }
 
-            //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Anzahl = 0
+            //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Mindestanzahl = 0
             int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
             int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
             int minLautsprecher = (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
@@ -496,12 +512,13 @@ public class GUI extends JFrame {
             int minWhiteboards = (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
             int minKreidetafeln = (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
 
-            //Filter nach Zeit
+            //Alle existierenden Räume nach den Zeitkriterien filtern
             ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeumeVerfuegbar(start, ende);
 
-            //Filter nach Ausstattung
+            //Alle freien Räume nach den Ausstattungskriterien filtern
             ArrayList<Raum> perfekteRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeumeAusstattung(freieRaueme, minBeamer, minKameras, minKreidetafeln, minLautsprecher, minMikrofone, minPCs, minSmartboards, minStuehle, minTische, minWhiteboards);
 
+            //Wenn es keine passenden Räume gibt wird der Nutzer informiert, sonst werden die passenden Räume angezeigt
             if (perfekteRaueme.size() == 0) {
                 raumsuchenbuchenBestaetigung.setText("Es gibt keine passenden Räume, bitte verändern Sie Ihre Suchkriterien!");
             } else {
@@ -517,22 +534,26 @@ public class GUI extends JFrame {
 
             }
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum hinzufügen" der Button "hinzufügen" geklickt wird
+         * Wenn keine Fehler (leeres Feld, Raumnummer bereits vergeben etc.) gemacht wurden, wird ein neuer Raum hinzugefügt
+         */
         raumHinzufuegenButton.addActionListener(e -> {
             //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
             if (raumHinzufuegenNummerInput.getText().equals("") || raumHinzufuegenHausInput.getSelectedItem() == null) {
-                raumHinzufuegenBestaetigung.setText("Bitte füllen Sie beide Felder aus!");
+                raumHinzufuegenBestaetigung.setText("Bitte füllen Sie alle Felder aus!");
                 return;
             }
 
             int raumID = Integer.valueOf(raumHinzufuegenNummerInput.getText());
             String hausID = raumHinzufuegenHausInput.getSelectedItem().toString();
-            //Prüfe, ob ID bereits vergeben ist
+            //Prüfe, ob ID bereits vergeben ist. Wenn ja, Fehlermeldung
             if (ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(raumID)) {
                 raumHinzufuegenBestaetigung.setText("Die Raumnummer ist bereits vergeben, bitte wählen Sie eine andere!");
-                return;
             }
 
-            //wenn keine Kollision: Im entsprechenden Haus addRaum
+            //wenn keine Kollision: Im entsprechenden Haus Raum hinzufügen und Seite neu laden
             else {
                 for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
                     if (h.getHausnummer() == hausID) {
@@ -545,20 +566,25 @@ public class GUI extends JFrame {
                 raumHinzufuegenBestaetigung.setText("Unerwarteter Fehler: Haus existiert nicht. Bitte wiederholen Sie den Vorgang!");
             }
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Raumnummer-Änderung bestätigen" geklickt wurde
+         *Wenn es keine Fehler (kein Raum ausgewählt, keine ID eingegeben, keine ID Kollision etc.) gibt, wird die Nummer des ausgewählten Raumes verändert
+         */
         raumbearbeitenIDAendernCheck.addActionListener(e -> {
-            //Wenn kein Raum ausgewählt wurde
+            //Wenn kein Raum ausgewählt wurde, Fehlermeldung und Abbruch
             if (raumbearbeitenRaumlisteInput.getSelectedItem() == null) {
                 raumbearbeitenBestaetigung.setText("Bitte wählen Sie einen Raum aus!");
                 return;
             }
 
-            //Wenn neue ID nicht angegeben wurde, Fehlermeldung und Methode nicht ausführen
+            //Wenn neue ID nicht angegeben wurde, Fehlermeldung und Abbruch
             if (raumbearbeitenRaumIDNeuInput.getText().equals("")) {
                 raumbearbeitenBestaetigung.setText("Bitte geben Sie eine neue Raumnummer an!");
                 return;
             }
 
-            //Neue ID einlesen, wenn falsches Format Abbruch
+            //Neue ID einlesen, wenn falsches Format Fehlermeldung und Abbruch
             int neueID;
             try {
                 neueID = Integer.parseInt(raumbearbeitenRaumIDNeuInput.getText());
@@ -581,11 +607,17 @@ public class GUI extends JFrame {
                     }
                 }
             }
-            //Es gab eine ID-Kollision, also ist die Raumnummer bereits vergeben
+            //Es gab eine ID-Kollision, Fehlermeldung und Abbruch
             else {
                 raumbearbeitenBestaetigung.setText("Neue Raumnummer ist bereits vergeben. Bitte überprüfen Sie ihre Eingaben!");
             }
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum suchen und buchen" der Button "Buchen" geklickt wurde
+         * Wenn es keine Fehler gibt (Raum/Dozent nicht ausgewählt, Kalenderfeld leergeblieben), dann wird im entsprechenden Raum eine Terminbuchung mit dem ausgewählten Dozenten ergänzt
+         *
+         */
         buchenCheck.addActionListener(e -> {
             //Kontrolle, ob Raum und Dozent ausgewählt wurden
             if (buchenDozentSelectInput.getSelectedItem() == null || buchenRaumnummerSelectInput.getSelectedItem() == null) {
@@ -593,14 +625,14 @@ public class GUI extends JFrame {
                 return;
             }
 
-            //Erneutes Einlesen der Zeiten, falls diese in der Zwischenzeit verändert wurden:
-            //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+            //Einlesen der Zeiten, falls diese in der Zwischenzeit (seit Filtern) verändert wurden
+            //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Abbruch
             if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")) {
                 raumsuchenbuchenBestaetigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
                 return;
             }
 
-            //Zeit-Daten umwandeln
+            //Zeit-Daten umwandeln, wenn falsches Format Fehlermeldung und Abbruch
             SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
             Calendar start = Calendar.getInstance();
             Calendar ende = Calendar.getInstance();
@@ -618,7 +650,7 @@ public class GUI extends JFrame {
                 return;
             }
 
-            //Start muss vor Ende liegen
+            //Start muss vor Ende liegen, sonst Fehlermeldung und Abbruch
             if (start.after(ende)) {
                 raumsuchenbuchenBestaetigung.setText("Die Startzeit muss vor der Endzeit liegen. Bitte überprüfen Sie Ihre Eingaben!");
                 return;
@@ -627,9 +659,10 @@ public class GUI extends JFrame {
             int raumID = Integer.valueOf(buchenRaumnummerSelectInput.getSelectedItem().toString());
             String dozent = buchenDozentSelectInput.getSelectedItem().toString();
 
+            //Raumbuchung wird durchgeführt
             for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                 if (r.getRaumnummer() == raumID) {
-                    //Erneuter Kollisions Check, falls Datum verändert wurde. Wenn nun kollidiert, Abbruch und Warnung
+                    //Erneuter Kollisions Check, falls Datum verändert wurde. Wenn nun kollidiert, Fehlermeldung und Abbruch
                     if (ServiceLocator.getInstance().getHausliste().terminKollidiert(r, start, ende)) {
                         raumsuchenbuchenBestaetigung.setText("Sie haben die Buchungsdaten verändert. Zu der angegebenen Zeit ist der gewünschte Raum nicht verfügbar. Bitte aktualisieren Sie die Raumauswahl durch klicken auf 'Räume finden'!");
                         return;
@@ -643,10 +676,15 @@ public class GUI extends JFrame {
                         }
                     }
                 }
-                raumsuchenbuchenBestaetigung.setText("Unerwarteter Fehler, bitte wiederholen Sie den Buchungsvorgang");
             }
+            raumsuchenbuchenBestaetigung.setText("Fehler: Raum nicht gefunden. Bitte wiederholen Sie den Buchungsvorgang");
 
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" eine Ausstattungsart ausgewählt wurde
+         * Initialisert entsprechend der ausgewählten Art die Typenliste
+         */
         raumbearbeitenHinzufuegenArtInput.addActionListener(e -> {
             raumbearbeitenHinzufuegenTypInput.removeAllItems();
             switch (raumbearbeitenHinzufuegenArtInput.getSelectedItem().toString()) {
@@ -710,33 +748,40 @@ public class GUI extends JFrame {
                     }
                 }
 
-                default -> System.out.println("Kp why, aber den Typ geht es nicht.");
+                default -> System.out.println("Fehler: Der Typ wurde nicht gefunden");
             }
 
         });
 
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Ausstattung hinzufügen" geklickt wird
+         * Wenn es keine Fehler (kein Typ gewählt, kein Raum gewählt etc.) gibt, wird entsprechend der Anzahl die Ausstattung im Raum hinzugefügt
+         *
+         */
         raumbearbeitenHinzufuegenCheck.addActionListener(e -> {
-            //Wenn kein Typ gewählt wurde, kann nur beim Starten passieren
+            //Wenn kein Typ gewählt wurde (kann nur beim Starten passieren), Fehlermeldung und Abbruch
             if (raumbearbeitenHinzufuegenTypInput.getSelectedItem() == null || raumbearbeitenHinzufuegenArtInput.getSelectedItem() == null) {
                 raumbearbeitenBestaetigung.setText("Bitte wählen Sie Art und Typ aus!");
                 return;
             }
 
-            //Es muss vorher ein Raum gewählt worden sein
+            //Wenn kein Raum gewählt wurde, Fehlermeldung und Abbruch
             if (raumbearbeitenRaumlisteInput.getSelectedItem() == null) {
                 raumbearbeitenBestaetigung.setText("Bitte wählen Sie zuerst einen Raum aus!");
                 return;
             }
 
+            //Try Catch nicht notwendig, da Zahl durch Spinner eingegeben wird
             int anzahlElemente = Integer.parseInt(raumbearbeitenHinzufuegenAnzahl.getValue().toString());
 
+            //Wenn gewünschte Anzahl nicht dem ökonomisch sinnvollem Wertebereich entspricht, Fehlermeldung und Abbruch
             if (anzahlElemente < 1) {
                     raumbearbeitenBestaetigung.setText("Bitte geben Sie eine positive Anzahl von hinzuzufügenden Ausstattungsgegenständen ein!");
                     raumbearbeitenHinzufuegenAnzahl.setValue(1);
                     return;
             }
 
-            //Initialisierung
+            //Eckdaten auslesen
             int raumID = Integer.valueOf(raumbearbeitenRaumlisteInput.getSelectedItem().toString());
             String typ = raumbearbeitenHinzufuegenTypInput.getSelectedItem().toString();
             String art = raumbearbeitenHinzufuegenArtInput.getSelectedItem().toString();
@@ -751,7 +796,7 @@ public class GUI extends JFrame {
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == raumID) {
 
-                        //Entsprechend der Art, dann entsprechend des Typen
+                        //Entsprechend der Art, dann entsprechend des Types
                         switch (art) {
                             case "Beamer" ->
                                     r.addAusstattung(new Beamer((BeamerTyp) getTyp(typ), Calendar.getInstance()));
@@ -777,17 +822,20 @@ public class GUI extends JFrame {
                             raumbearbeitenBestaetigung.setText("Ausstattung erfolgreich hinzugefügt.\nAktueller Raumzustand: " + r.toString());
                             raumBearbeiten.doClick();
                         } else {
-                            raumbearbeitenBestaetigung.setText("Unerwarteter Fehler: Typ oder Raum existiert nicht. Bitte wiederholen Sie den Vorgang!");
+                            raumbearbeitenBestaetigung.setText("Fehler: Typ oder Raum existiert nicht. Bitte wiederholen Sie den Vorgang!");
                             return;
                         }
                     }
                 }
             }
-
-
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" ein Raum ausgewählt wurde
+         * Initialisiert die Ausstattungsliste des Raumes
+         *
+         */
         raumbearbeitenRaumlisteInput.addActionListener(e -> {
-            //Aktuelle Ausstattung dem Zustands-DropDown Menu hinzufügen
             raumbearbeitenVeraendernAusstattungInput.removeAllItems();
 
             if (raumbearbeitenRaumlisteInput.getSelectedItem() != null) {
@@ -799,19 +847,29 @@ public class GUI extends JFrame {
                             DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
                             raumbearbeitenVeraendernAusstattungInput.addItem(a.getId() + " | " + a.getExemplarTyp().getModell() + " | " + df.format(a.getAnschaffungsdatum().getTime()) + " | " + a.getAktuellerZustand().getClass().getName().split("\\.")[1]);
                         }
+                        return;
                     }
-
                 }
             }
-
-
         });
-        raumbearbeitenVeraendernCheck.addActionListener(e -> {
 
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Speichern" geklickt wird
+         * Verändert den Zustand des ausgewählten Ausstattungsgegenstandes bzw. entfernt ihn endgültig
+         *
+         */
+        raumbearbeitenVeraendernCheck.addActionListener(e -> {
             int ID = Integer.valueOf(raumbearbeitenVeraendernAusstattungInput.getSelectedItem().toString().split(" | ")[0]);
+
+            //Wenn kein Status ausgewählt wurde, Fehlermeldung und Abbruch
+            if(raumbearbeitenVeraendernZustandInput.getSelectedItem() == null){
+                raumbearbeitenBestaetigung.setText("Fehler: Bitte geben Sie einen Zustand ein!");
+                return;
+            }
 
             String neuerStatus = raumbearbeitenVeraendernZustandInput.getSelectedItem().toString();
 
+            //Ausstattungsmerkmal finden und bearbeiten, anschließend wird die Seite neu geladen
             for (Ausstattungsmerkmal a : ServiceLocator.getInstance().getHausliste().getAlleAusstattungen()) {
                 if (a.getId() == ID) {
                     raumbearbeitenBestaetigung.setText("Ausstattung gefunden!");
@@ -841,20 +899,26 @@ public class GUI extends JFrame {
                 }
             }
             raumbearbeitenBestaetigung.setText("Fehler: Ausstattung nicht gefunden. Bitte wiederholen Sie den Vorgang.");
-            return;
-
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozenten löschen" der Button "Löschen" geklickt wird
+         * Löscht den ausgewählten Dozenten
+         *
+         */
         dozentLoeschenCheck.addActionListener(e -> {
+            //Wenn kein Dozent ausgewählt wurde, Fehlermeldung und Abbruch
             if(dozentLoeschenDozListe.getSelectedItem() == null)
             {
                 dozentLoeschenBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
                 return;
             }
+
             String dozName = dozentLoeschenDozListe.getSelectedItem().toString();
 
+            //Dozent löschen
             for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
                 if (d.getName().equals(dozName)) {
-                    //ServiceLocator.getInstance().getDozentenListe().getAlleDozenten().remove(d);
                     ServiceLocator.getInstance().getDozentenListe().removeDozent(d);
                     dozentLoeschenBestaetigung.setText("Der Dozent " + dozName + " wurde erfolgreich entfernt.");
                     dozentLoeschen.doClick();
@@ -864,15 +928,21 @@ public class GUI extends JFrame {
             }
             dozentLoeschenBestaetigung.setText("Unerwarteter Fehler: Dozent existiert nicht. Bitte wiederholen Sie den Vorgang!");
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent hinzufügen" der Button "Hinzufügen" geklickt wurde
+         * Wenn es keine Fehler (kein Name eingegeben, Name existiert bereits) gibt, wird ein neuer Dozent erstellt
+         */
         dozentHinzufuegenButton.addActionListener(e -> {
+            //Wenn kein Name eingegeben wurde, Fehlermeldung und Abbruch
             if(dozentHinzufuegenInput.getText().equals("")){
-                dozentHinzufuegenBestaetigung.setText("Bitte geben Sie einen namen ein!");
+                dozentHinzufuegenBestaetigung.setText("Bitte geben Sie einen Namen ein!");
                 return;
             }
 
             String neuerDozent = dozentHinzufuegenInput.getText();
 
-            //Wenn der Name bereits vergeben ist, nicht erstellen
+            //Wenn der Name bereits vergeben ist, Fehlermeldung und Abbruch
             for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
                 if (d.getName().equals(neuerDozent)) {
                     dozentHinzufuegenBestaetigung.setText("Dozent existiert bereits. Bitte wählen Sie einen anderen Namen aus!");
@@ -880,13 +950,16 @@ public class GUI extends JFrame {
                 }
             }
 
-            //Dozent hinzufügen
+            //Dozent hinzufügen und Seite aktualisieren
             ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(neuerDozent));
             dozentHinzufuegenBestaetigung.setText("Dozent erfolgreich hinzugefügt.");
             dozentHinzufuegen.doClick();
-
-
         });
+
+        /**
+         * Action Listener, wird ausgeführt, wenn auf der Seite
+         *
+         */
         dozTerminplanDozAuswahlInput.addActionListener(e -> {
             if(dozTerminplanDozAuswahlInput.getSelectedItem() == null){
                 dozTerminplanBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
