@@ -1,35 +1,27 @@
-/*
-IJ Sheets:
-Multi Cursor: Alt + Shift + Click
- */
-
 import ausstattung.*;
-import buchung.Dozent;
-import buchung.Terminbuchung;
-import serviceLocator.ServiceLocator;
-import verwaltung.Haus;
-import verwaltung.Raum;
+import buchung.*;
+import serviceLocator.*;
+import verwaltung.*;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
+import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Comparator;
+import java.text.*;
+import java.util.*;
 
+/**
+ * Die Definition der GUI Klasse, innerhalb dieser wird alles definiert und gesteuert, was für das Userinterface notwendig ist
+ *
+ * @author Moritz Limberg und Lukas Zander
+ */
 public class GUI extends JFrame {
-    // Menü Elemente
+    //Komponenten der Menüstruktur
     private JMenuBar hauptMenue = new JMenuBar();
 
     private JMenu hausMenue = new JMenu("Haus");
     private JMenu raumMenue = new JMenu("Raum");
     private JMenu inventur = new JMenu("Inventur");
-    //private JMenu inventarMenue = new JMenu("Inventar");
     private JMenu dozentenMenue = new JMenu("Dozenten");
 
     private JMenuItem hausHinzufuegen = new JMenuItem("Haus hinzufügen");
@@ -42,93 +34,139 @@ public class GUI extends JFrame {
     private JMenuItem raumEntblocken = new JMenuItem("Raum entblocken");
     private JMenuItem raumLoeschen = new JMenuItem("Raum loeschen");
 
-    /** @deprecated
-     *private JMenuItem inventarBearbeiten = new JMenuItem("Inventar suchen/bearbeiten");
-     *  private JMenuItem ausstattungsTypHinzufuegen = new JMenuItem("Ausstattungs- Typ Hinzufügen");
-     */
-
     private JMenuItem dozentTerminplan = new JMenuItem("Dozenten Terminplan");
     private JMenuItem dozentHinzufuegen = new JMenuItem("Dozent hinzufügen");
     private JMenuItem dozentBearbeiten = new JMenuItem(("Dozent bearbeiten"));
     private JMenuItem dozentLoeschen = new JMenuItem("Dozent löschen");
 
-    // GUI Elemente: Panels, Labels, ComboBox, TextField. TextAreas
+    /**
+     * Es folgt die Definition der einzelnen Elemente auf den verschiedenen Seiten
+     */
+    //Panels
     private JPanel panelMain;
     private JPanel panelRaumHinzufuegen;
     private JPanel panelRaumSuchenBuchen;
     private JPanel panelInventur;
-    private JPanel panelInventarBearbeiten;
     private JPanel panelDozentLoeschen;
     private JPanel panelDozentenTerminplan;
     private JPanel panelFooter;
+    private JPanel panelStartseite;
+    private JPanel panelDozentHinzufuegen;
+    private JPanel panelRaumBearbeiten;
+    private JPanel panelHausLoeschen;
+    private JPanel panelHausBearbeiten;
+    private JPanel panelHausHinzufuegen;
+    private JPanel panelRaumEntblocken;
+    private JPanel panelRaumLoeschen;
+    private JPanel panelDozentBearbeiten;
 
+    //Labels
     private JLabel raumHinzufuegenTitel;
     private JLabel dozTerminplanTitel;
     private JLabel dozentLoeschenTitel;
     private JLabel raumsucheTitel;
-    private JPanel panelStartseite;
     private JLabel startseiteTitel;
     private JLabel startseiteBild;
     private JLabel footerContent;
-    private JTextField raumsucheStartzeitInput;
-    private JTextField raumsucheEndzeitInput;
-    private JTextField raumsucheTischeInput;
-    private JTextField raumsucheStuehleInput;
-    private JTextField raumsucheBeamerInput;
-    private JTextField raumsucheKamerasInput;
     private JLabel raumsucheStartTitel;
     private JLabel raumsucheEndeTitel;
     private JLabel raumsucheTischeTitel;
     private JLabel raumsucheStuehleTitel;
     private JLabel raumsucheBeamerTitel;
     private JLabel raumsucheKamerasTitel;
-    private JButton raumsucheSuchen;
-    private JTextField raumsuchePCInput;
-    private JTextField raumsucheLautsprecherInput;
-    private JTextField raumsucheKreidetafelnInput;
-    private JTextField raumsucheSmartboardInput;
     private JLabel raumsuchePCTitel;
     private JLabel raumsucheLautsprecherTitel;
     private JLabel raumsucheSmartboardTitel;
     private JLabel raumsucheKreidetafelTitel;
     private JLabel raumsucheWhiteboardTitel;
     private JLabel raumsucheMikrofoneTitel;
-    private JTextField raumsucheWhiteboardsInput;
-    private JTextField raumsucheMikrofoneInput;
     private JLabel raumHinzufuegenNummerTitel;
-    private JTextField raumHinzufuegenNummerInput;
     private JLabel raumHinzufuegenHausTitel;
-    private JButton raumHinzufuegenButton;
-    private JPanel panelRaumBearbeiten;
     private JLabel raumbearbeitenTitel;
-    private JPanel panelDozentHinzufuegen;
     private JLabel dozentHinzufuegenTitel;
-    private JTextArea raumHinzufuegenBestaetigung;
-    private JTextField raumbearbeitenRaumIDInput;
-    private JButton raumbearbeitenIDAendernCheck;
     private JLabel raumbearbeitenRaumlisteTitel;
-    private JPanel panelRaumBearbeitenDetails;
     private JLabel raumbearbeitenRaumIDNeuTitel;
-    private JTextField raumbearbeitenRaumIDNeuInput;
-    private JTextArea raumbearbeitenBestaetigung;
-    private JTextArea raumsuchenbuchenBestaetigung;
-    private JTextField buchenRaumnummerInput;
-    private JTextField buchenDozentInput;
     private JLabel buchenRaumnummerTitel;
     private JLabel buchenDozentTitel;
-    private JButton buchenCheck;
     private JLabel inventurTitel;
     private JLabel dozentHinzufuegenInputTitel;
-    private JTextField dozentHinzufuegenInput;
-    private JButton dozentHinzufuegenButton;
-    private JTextArea dozentHinzufuegenBestaetigung;
-    private JTextArea inventurBestaetigung;
     private JLabel dozTerminplanDozAuswahlTitel;
-    //private JComboBox raumbearbeitenHinzufügenInput;
     private JLabel raumbearbeitenHinzufuegenTitel;
     private JLabel raumbearbeitenVeraendernTitel;
+    private JLabel dozentLoeschenNameTitel;
+    private JLabel hausLoeschenTitel;
+    private JLabel hausBearbeitenTitel;
+    private JLabel hausHinzufuegenTitel;
+    private JLabel raumbearbeitenHinzufuegenArtTitel;
+    private JLabel raumbearbeitenHinzufuegenModellTitel;
+    private JLabel raumbearbeitenHinzufuegenAnzahlTitel;
+    private JLabel hausLoeschenHausTitel;
+    private JLabel hausBearbeitenHausTitel;
+    private JLabel hausBearbeitenBarrierefreiTitel;
+    private JLabel hausBearbeitenNeueIDTitel;
+    private JLabel hausHinzufuegenIDTitel;
+    private JLabel hausHinzufuegenBarrierefreiTitel;
+    private JLabel raumEntblockenTitel;
+    private JLabel raumEntblockenRaumTitel;
+    private JLabel raumEntblockenTerminTitel;
+    private JLabel raumLoeschenTitel;
+    private JLabel raumLoeschenIDInputTitel;
+    private JLabel dozentBearbeitenTitel;
+    private JLabel dozentBearbeitenDozAuswahlTitel;
+    private JLabel dozentBearbeitenNameInputTitel;
+
+    //TextFields
+    private JTextField raumsucheStartzeitInput;
+    private JTextField raumsucheEndzeitInput;
+    private JTextField raumsucheTischeInput;
+    private JTextField raumsucheStuehleInput;
+    private JTextField raumsucheBeamerInput;
+    private JTextField raumsucheKamerasInput;
+    private JTextField raumsuchePCInput;
+    private JTextField raumsucheLautsprecherInput;
+    private JTextField raumsucheKreidetafelnInput;
+    private JTextField raumsucheSmartboardInput;
+    private JTextField raumsucheWhiteboardsInput;
+    private JTextField raumsucheMikrofoneInput;
+    private JTextField raumHinzufuegenNummerInput;
+    private JTextField raumbearbeitenRaumIDNeuInput;
+    private JTextField dozentHinzufuegenInput;
+    private JTextField hausBearbeitenNeueIDInput;
+    private JTextField hausHinzufuegenIDInput;
+    private JTextField dozentBearbeitenNameInput;
+
+    //Buttons
+    private JButton raumsucheSuchen;
+    private JButton raumHinzufuegenButton;
+    private JButton raumbearbeitenIDAendernCheck;
+    private JButton buchenCheck;
     private JButton raumbearbeitenHinzufuegenCheck;
     private JButton raumbearbeitenVeraendernCheck;
+    private JButton dozentHinzufuegenButton;
+    private JButton dozentLoeschenCheck;
+    private JButton hausloeschenCheck;
+    private JButton hausBearbeitenCheck;
+    private JButton hausHinzufuegenCheck;
+    private JButton raumEntblockenCheck;
+    private JButton raumLoeschenCheck;
+    private JButton dozentBearbeitenCheck;
+
+    //TextAreas
+    private JTextArea raumHinzufuegenBestaetigung;
+    private JTextArea raumbearbeitenBestaetigung;
+    private JTextArea raumsuchenbuchenBestaetigung;
+    private JTextArea dozentHinzufuegenBestaetigung;
+    private JTextArea inventurBestaetigung;
+    private JTextArea dozentLoeschenBestaetigung;
+    private JTextArea hausloeschenBestaetigung;
+    private JTextArea hausBearbeitenBestaetigung;
+    private JTextArea hausHinzufuegenBestaetigung;
+    private JTextArea raumEntblockenBestaetigung;
+    private JTextArea raumLoeschenBestaetigung;
+    private JTextArea dozentBearbeitenBestaetigung;
+    private JTextArea dozTerminplanBestaetigung;
+
+    //ComboBoxes (Drop Down Liste)
     private JComboBox raumbearbeitenHinzufuegenTypInput;
     private JComboBox raumbearbeitenHinzufuegenArtInput;
     private JComboBox raumbearbeitenRaumlisteInput;
@@ -137,86 +175,48 @@ public class GUI extends JFrame {
     private JComboBox buchenRaumnummerSelectInput;
     private JComboBox buchenDozentSelectInput;
     private JComboBox raumHinzufuegenHausInput;
-    private JScrollPane panelScrollRaumbearbeiten;
-    private JSeparator raumbearbeitenSeperator;
     private JComboBox dozentLoeschenDozListe;
-    private JButton dozentLoeschenCheck;
-    private JLabel dozentLoeschenNameTitel;
-    private JTextArea dozentLoeschenBestaetigung;
-    private JComboBox dozTerminplanDozAuswahlInput;
-    private JPanel panelHausLoeschen;
-    private JPanel panelHausBearbeiten;
-    private JPanel panelHausHinzufuegen;
-    private JLabel hausLoeschenTitel;
-    private JSeparator hausLoeschenTitelSeperator;
-    private JLabel hausBearbeitenTitel;
-    private JSeparator hausBearbeitenTitelSeperator;
-    private JLabel hausHinzufuegenTitel;
-    private JSeparator hausHinzufuegenTitelSeperator;
-    private JSeparator inventurTitelSeperator;
-    //private JPanel panelAusstattungstypHinzufuegen;
-    private JSeparator raumbearbeitenTitelSeperator;
-    private JSeparator raumbearbeitenAusstattungSeperator;
-    private JSpinner raumbearbeitenHinzufuegenAnzahl;
-    private JLabel raumbearbeitenHinzufuegenArtTitel;
-    private JLabel raumbearbeitenHinzufuegenModellTitel;
-    private JLabel raumbearbeitenHinzufuegenAnzahlTitel;
-    private JSeparator raumbearbeitenWaehlenSeperator;
-    private JSeparator raumbearbeitenNummerSeperator;
     private JComboBox hausloeschenHausInput;
-    private JButton hausloeschenCheck;
+    private JComboBox dozTerminplanDozAuswahlInput;
     private JComboBox hausBearbeitenHausInput;
-    private JTextField hausBearbeitenNeueIDInput;
-    private JCheckBox hausBearbeitenBarriefreiInput;
-    private JButton hausBearbeitenCheck;
-    private JLabel hausLoeschenHausTitel;
-    private JTextArea hausloeschenBestaetigung;
-    private JLabel hausBearbeitenHausTitel;
-    private JLabel hausBearbeitenBarrierefreiTitel;
-    private JLabel hausBearbeitenNeueIDTitel;
-    private JTextField hausHinzufuegenIDInput;
-    private JCheckBox hausHinzufuegenBarrierefreInput;
-    private JButton hausHinzufuegenCheck;
-    private JLabel hausHinzufuegenIDTitel;
-    private JLabel hausHinzufuegenBarrierefreiTitel;
-    private JTextArea hausBearbeitenBestaetigung;
-    private JTextArea hausHinzufuegenBestaetigung;
-    private JPanel panelRaumEntblocken;
-    private JLabel raumEntblockenTitel;
     private JComboBox raumEntblockenRaumInput;
     private JComboBox raumEntblockenTerminInput;
-    private JButton raumEntblockenCheck;
+    private JComboBox raumLoeschenIDInput;
+    private JComboBox dozentBearbeitenDozAuswahlInput;
+
+    //ScrollPanes
+    private JScrollPane ScrollRaumbearbeiten;
+    private JScrollPane ScrollDozTerminplanBestaetigung;
+
+    //Seperators
+    private JSeparator raumbearbeitenSeperator;
+    private JSeparator hausLoeschenTitelSeperator;
+    private JSeparator hausBearbeitenTitelSeperator;
+    private JSeparator hausHinzufuegenTitelSeperator;
+    private JSeparator inventurTitelSeperator;
+    private JSeparator raumbearbeitenTitelSeperator;
+    private JSeparator raumbearbeitenAusstattungSeperator;
+    private JSeparator raumbearbeitenWaehlenSeperator;
+    private JSeparator raumbearbeitenNummerSeperator;
     private JSeparator raumEntblockenTitelSeparator;
-    private JLabel raumEntblockenRaumTitel;
-    private JLabel raumEntblockenTerminTitel;
-    private JTextArea raumEntblockenBestaetigung;
     private JSeparator raumsucheTitelSeperator;
     private JSeparator dozentHinzufuegenTitelSeparator;
     private JSeparator dozentLoeschenTitelSeparator;
-    private JPanel panelRaumLoeschen;
-    private JLabel raumLoeschenTitel;
     private JSeparator raumLoeschenTitelSeperator;
-    private JComboBox raumLoeschenIDInput;
-    private JLabel raumLoeschenIDInputTitel;
-    private JButton raumLoeschenCheck;
-    private JTextArea raumLoeschenBestaetigung;
-    private JPanel panelDozentBearbeiten;
-    private JComboBox dozentBearbeitenDozAuswahlInput;
-    private JTextField dozentBearbeitenNameInput;
-    private JButton dozentBearbeitenCheck;
-    private JTextArea dozentBearbeitenBestaetigung;
-    private JLabel dozentBearbeitenTitel;
     private JSeparator dozentBearbeitenTitelSeperatior;
-    private JLabel dozentBearbeitenDozAuswahlTitel;
-    private JLabel dozentBearbeitenNameInputTitel;
-    private JTextArea dozTerminplanBestaetigung;
-    private JScrollPane dozTerminplanScrollBestaetigung;
     private JSeparator dozTerminplanTitelSeperator;
-    private JSpinner dozTerminplanWochenInput;
 
-    // Startbild Elemente
-    private ImageIcon hwr;
-    private JLabel hintergrund;
+    //Spinner
+    private JSpinner raumbearbeitenHinzufuegenAnzahl;
+
+    //CheckBox
+    private JCheckBox hausBearbeitenBarriefreiInput;
+    private JCheckBox hausHinzufuegenBarrierefreInput;
+
+    /**
+     * Es folgt der GUI Konstruktor, in diesem werden alle Konfigurationen der GUI vorgenommen
+     *
+     */
 
     public GUI() {
         //Menü erstellen und verbinden
@@ -235,41 +235,39 @@ public class GUI extends JFrame {
         raumMenue.add(raumEntblocken);
         raumMenue.add(raumLoeschen);
 
-        /** @deprecated
-         * inventarMenue.add(inventarBearbeiten);
-         * inventarMenue.add(ausstattungsTypHinzufuegen);
-         */
-
         dozentenMenue.add(dozentTerminplan);
         dozentenMenue.add(dozentHinzufuegen);
         dozentenMenue.add(dozentBearbeiten);
         dozentenMenue.add(dozentLoeschen);
 
-        //Fenster erstellen
+        //Konfiguration des sich öffnenden Fensters
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //damit Speicher-Dialog geöffnet wird
         this.setMinimumSize(new Dimension(500, 500));
         this.setSize(500, 500);
         this.setLayout(new FlowLayout());
 
-        //Seiten Konfiguration
         hauptMenue.setVisible(true);
         this.setJMenuBar(hauptMenue);
         this.setContentPane(panelMain);
         this.setVisible(true);
         verbergeAllePanels();
         panelStartseite.setVisible(true);
-        //hintergrund.setVisible(true);
 
-
-        //Es folgen die Action Listener, beim Aufruf / Wechsel von Seiten
-
+        /**
+         * Action Listener für Seitenaufruf "Haus hinzufügen"
+         * Es werden alle Panels versteckt und nur das Panel "Haus hinzufügen" wird angezeigt
+         */
         hausHinzufuegen.addActionListener(e -> {
             verbergeAllePanels();
             panelHausHinzufuegen.setVisible(true);
         });
 
-
+        /**
+         * Action Listener für Seitenaufruf "Haus bearbeiten"
+         * Es werden alle Panels versteckt und nur das Panel "Haus bearbeiten" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Häuser
+         */
         hausBearbeiten.addActionListener(e -> {
             verbergeAllePanels();
             panelHausBearbeiten.setVisible(true);
@@ -279,6 +277,11 @@ public class GUI extends JFrame {
             }
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Haus löschen"
+         * Es werden alle Panels versteckt und nur das Panel "Haus löschen" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Häuser
+         */
         hausLoeschen.addActionListener(e -> {
             verbergeAllePanels();
             panelHausLoeschen.setVisible(true);
@@ -288,35 +291,47 @@ public class GUI extends JFrame {
             }
         });
 
-
+        /**
+         * Action Listener für Seitenaufruf "Raum hinzufügen"
+         * Es werden alle Panels versteckt und nur das Panel "Raum hinzufügen" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Häuser (in dem dann der Raum ergänzt werden soll)
+         */
         raumHinzufuegen.addActionListener(e -> {
             verbergeAllePanels();
             panelRaumHinzufuegen.setVisible(true);
             raumHinzufuegenHausInput.removeAllItems();
-
             for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
                 raumHinzufuegenHausInput.addItem(h.getHausnummer());
             }
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Raum suchen und buchen"
+         * Es werden alle Panels versteckt und nur das Panel "Raum suchen und buchen" wird angezeigt
+         */
         raumSuchenUndBuchen.addActionListener(e -> {
             verbergeAllePanels();
             panelRaumSuchenBuchen.setVisible(true);
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Raum bearbeiten"
+         * Es werden alle Panels versteckt und nur das Panel und ScrollArea "Raum bearbeiten" wird angezeigt
+         * Sortierte Initialisierung der Auswahlliste (ComboBox) für die Räume
+         *
+         *
+         */
         raumBearbeiten.addActionListener(e -> {
             verbergeAllePanels();
-            panelScrollRaumbearbeiten.setVisible(true);
+            ScrollRaumbearbeiten.setVisible(true);
             panelRaumBearbeiten.setVisible(true);
 
             raumbearbeitenRaumlisteInput.removeAllItems();
 
             ArrayList<Integer> alleRaumnummern = new ArrayList<>();
-
             for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                 alleRaumnummern.add(r.getRaumnummer());
             }
-
             alleRaumnummern.sort(null);
 
             for (Integer ID : alleRaumnummern) {
@@ -325,6 +340,11 @@ public class GUI extends JFrame {
 
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Raum entblocken"
+         * Es werden alle Panels versteckt und nur das Panel "Raum entblocken" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Räume, dabei werden nur die Räume angezeigt, die irgendwann gebucht sind
+         */
         raumEntblocken.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -339,6 +359,11 @@ public class GUI extends JFrame {
             }
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Raum löschen"
+         * Es werden alle Panels versteckt und nur das Panel "Raum löschen" wird angezeigt
+         * Initialisierung der Auswahlliste (ComboBox) für die Räume
+         */
         raumLoeschen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -351,6 +376,13 @@ public class GUI extends JFrame {
             }
         });
 
+        /**
+         * Action Listener für Seitenaufruf "Inventur"
+         * Es werden alle Panels versteckt und nur das Panel "Inventur" wird angezeigt
+         * Die Inventur wird direkt durchgeführt und angezeigt
+         *
+         * Hinweis: andere Listener-Struktur, weil diesmal Obermenüpunkt
+         */
         inventur.addMenuListener(new MenuListener() {
             @Override
             public void menuSelected(MenuEvent e) {
@@ -369,25 +401,6 @@ public class GUI extends JFrame {
 
             }
         });
-
-        inventur.addActionListener(e -> {
-            verbergeAllePanels();
-            panelInventur.setVisible(true);
-            inventurBestaetigung.setText(ServiceLocator.getInstance().getHausliste().inventur());
-        });
-
-        /*inventarBearbeiten.addActionListener(e -> {
-            verbergeAllePanels();
-            panelInventarBearbeiten.setVisible(true);
-        });
-
-        ausstattungsTypHinzufuegen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                verbergeAllePanels();
-                panelAusstattungstypHinzufuegen.setVisible(true);
-            }
-        });*/
 
         dozentLoeschen.addActionListener(e -> {
             verbergeAllePanels();
@@ -969,16 +982,14 @@ public class GUI extends JFrame {
                         h.setBarrierefrei(hausBearbeitenBarriefreiInput.isSelected());
                         if(hausnummerNeu.equals("")){
                             hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
-                            hausBearbeiten.doClick();
-                            return;
                         }
                         else {
                             h.setHausnummer(hausnummerNeu);
                             hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet. Neue Nummer: " + hausnummerNeu);
-                            hausBearbeiten.doClick();
-                            return;
 
                         }
+                        hausBearbeiten.doClick();
+                        return;
                     }
                 }
                 hausBearbeitenBestaetigung.setText("Haus nicht gefunden, bitte wiederholen Sie den Vorgang.");
@@ -1045,7 +1056,6 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(raumLoeschenIDInput.getSelectedItem() == null){
                     raumLoeschenBestaetigung.setText("Bitte wählen Sie einen Raum aus!");
-                    return;
                 }
 
                 else {
@@ -1067,8 +1077,8 @@ public class GUI extends JFrame {
                         }
                     }
                     raumLoeschenBestaetigung.setText("Fehler: Der Raum " + raumID + " konnte nicht gefunden werden. Bitte wiederholen Sie den Vorgang, laden Sie ggf. die Seite neu.");
-                    return;
                 }
+                return;
 
             }
         });
@@ -1193,8 +1203,6 @@ public class GUI extends JFrame {
      * Verbirgt alle Panels, die nicht dauerhaft notwendig sind
      *
      * @author ZanderLK
-     * @version 1.1.3
-     * @since 20220725
      */
     public void verbergeAllePanels() {
         panelRaumHinzufuegen.setVisible(false);
@@ -1211,7 +1219,7 @@ public class GUI extends JFrame {
         panelRaumEntblocken.setVisible(false);
         panelRaumLoeschen.setVisible(false);
         panelDozentBearbeiten.setVisible(false);
-        panelScrollRaumbearbeiten.setVisible(false);
+        ScrollRaumbearbeiten.setVisible(false);
     }
 
     private void createUIComponents() {
