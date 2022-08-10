@@ -21,6 +21,13 @@ public class StuhlTypListe implements Serializable, StuhlTypListeIF {
         return alleStuhlTypen;
     }
 
+    /**
+     * Fügt ein StuhlTyp der Liste von allen StuhlTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param st StuhlTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addStuhlTyp(StuhlTyp st){
         this.alleStuhlTypen.add(st);
     }

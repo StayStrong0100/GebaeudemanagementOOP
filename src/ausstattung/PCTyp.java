@@ -19,43 +19,17 @@ public class PCTyp implements Serializable, AusstattungsTypIF{
         this.grafikkarte = grafikkarte;
         this.ram = ram;
     }
-
-    public String getBetriebssystem() {
-        return betriebssystem;
-    }
-
-    public void setBetriebssystem(String betriebssystem) {
-        this.betriebssystem = betriebssystem;
-    }
-
-    public double getTaktfrequenz() {
-        return taktfrequenz;
-    }
-
-    public void setTaktfrequenz(double taktfrequenz) {
-        this.taktfrequenz = taktfrequenz;
-    }
-
-    public boolean isGrafikkarte() {
-        return grafikkarte;
-    }
-
-    public void setGrafikkarte(boolean grafikkarte) {
-        this.grafikkarte = grafikkarte;
-    }
-
-    public short getRam() {
-        return ram;
-    }
-
-    public void setRam(short ram) {
-        this.ram = ram;
-    }
-
     public String getModell() {
         return this.modell;
     }
 
+    /**
+     * Gibt alle Attribute des PCTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des PCTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Betriebssystem: " + betriebssystem +

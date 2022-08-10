@@ -15,14 +15,6 @@ public class StuhlTyp implements Serializable, AusstattungsTypIF{
         this.drehstuhl = drehstuhl;
     }
 
-    public boolean isDrehstuhl() {
-        return drehstuhl;
-    }
-
-    public void setDrehstuhl(boolean drehstuhl) {
-        this.drehstuhl = drehstuhl;
-    }
-
     public String getModell() {
         return modell;
     }
@@ -31,6 +23,13 @@ public class StuhlTyp implements Serializable, AusstattungsTypIF{
         this.modell = modell;
     }
 
+    /**
+     * Gibt alle Attribute des StuhlTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des StuhlTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Drehstuhl: " + drehstuhl +

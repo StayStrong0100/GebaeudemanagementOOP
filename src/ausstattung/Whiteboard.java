@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Whiteboard extends Tafel implements Serializable {
+public class Whiteboard extends Ausstattungsmerkmal implements Serializable {
 
     public static final long serialVersionUID = 0;
 
@@ -20,18 +20,17 @@ public class Whiteboard extends Tafel implements Serializable {
         return exemplarTyp;
     }
 
-    public void setExemplarTyp(WhiteboardTyp exemplarTyp) {
-        this.exemplarTyp = exemplarTyp;
-    }
-
+    /**
+     * Gibt alle Attribute des WhiteboardObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des WhiteboardObjekts als String
+     */
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         return "Ausstattungsmerkmal: Whiteboard"+ "\nEXEMPLARTYP:\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Whiteboard.super.getAnschaffungsdatum().getTime());
-    }
-
-    public void print() {
-        System.out.println(toString());
     }
 }

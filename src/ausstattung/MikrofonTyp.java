@@ -17,14 +17,6 @@ public class MikrofonTyp implements Serializable, AusstattungsTypIF {
         this.empfindlichkeit = empfindlichkeit;
     }
 
-    public String getMarke() {
-        return marke;
-    }
-
-    public void setMarke(String marke) {
-        this.marke = marke;
-    }
-
     public String getModell() {
         return modell;
     }
@@ -33,22 +25,13 @@ public class MikrofonTyp implements Serializable, AusstattungsTypIF {
         this.modell = modell;
     }
 
-    public boolean isKonferenzMikro() {
-        return konferenzMikro;
-    }
-
-    public void setKonferenzMikro(boolean konferenzMikro) {
-        this.konferenzMikro = konferenzMikro;
-    }
-
-    public int getEmpfindlichkeit() {
-        return empfindlichkeit;
-    }
-
-    public void setEmpfindlichkeit(int empfindlichkeit) {
-        this.empfindlichkeit = empfindlichkeit;
-    }
-
+    /**
+     * Gibt alle Attribute des MikrofonTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des MikrofonTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Marke: " + marke +

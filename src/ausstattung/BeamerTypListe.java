@@ -10,7 +10,7 @@ public class BeamerTypListe implements Serializable, BeamerTypListeIF {
     private BeamerTypListe() {
     }
 
-    public static BeamerTypListe getInstance(){
+    public static BeamerTypListe getInstance() {
         if (instance == null) {
             instance = new BeamerTypListe();
         }
@@ -21,6 +21,13 @@ public class BeamerTypListe implements Serializable, BeamerTypListeIF {
         return alleBeamerTypen;
     }
 
+    /**
+     * Fügt ein BeamerTyp der Liste von allen BeamerTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param bt BeamerTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addBeamerTyp(BeamerTyp bt) {
         this.alleBeamerTypen.add(bt);
     }

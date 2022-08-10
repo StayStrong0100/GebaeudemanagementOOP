@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="GebaeudemanagementOOP:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring GUI Teil 3">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Code Reviewing für HausListe durchgeführt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Beamer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Beamer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Kamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Kamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Kreidetafel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Kreidetafel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Lautsprecher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Lautsprecher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Mikrofon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Mikrofon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/PC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Smartboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Smartboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Tafel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Tisch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Tisch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListeIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/Whiteboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Whiteboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListeIF.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,29 +90,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "202",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "452",
-    "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;202&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;364&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ausstattung" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP" />
-      <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\datenspeicherung" />
-      <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\images" />
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\DataImages" />
       <recent name="C:\Users\Lukas Zander\IdeaProjects\GebaeudemanagementOOP\src\GUI\Moritz" />
     </key>
@@ -135,8 +165,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.DatenInitialisierung" />
         <item itemvalue="Application.Sandbox" />
+        <item itemvalue="Application.DatenInitialisierung" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GPUMain" />
       </list>
@@ -150,6 +180,83 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
+    </task>
+    <task id="LOCAL-00015" summary="ToString() und print() erstellt">
+      <created>1658598160825</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658598160825</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ToString() und print() erstellt.Sourroundsound zu Surroundsound geändert">
+      <created>1658599388419</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599388419</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Formatierung von toString()">
+      <created>1658599639020</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599639020</updated>
+    </task>
+    <task id="LOCAL-00018" summary="toString() und print() erstellt">
+      <created>1658599715482</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599715482</updated>
+    </task>
+    <task id="LOCAL-00019" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658599955337</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658599955337</updated>
+    </task>
+    <task id="LOCAL-00020" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658600258543</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600258543</updated>
+    </task>
+    <task id="LOCAL-00021" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658600473811</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600473811</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Anschaffungsdatum hinzugefügt.">
+      <created>1658600575605</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600575605</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Anschaffungsdatum hinzugefügt.">
+      <created>1658600777551</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658600777552</updated>
+    </task>
+    <task id="LOCAL-00024" summary="toString() und print() erstellt. Anschaffungsdatum hinzugefügt.">
+      <created>1658601031689</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658601031689</updated>
+    </task>
+    <task id="LOCAL-00025" summary="nichts geändert">
+      <created>1658601326056</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1658601326056</updated>
     </task>
     <task id="LOCAL-00026" summary="toString() geändert">
       <created>1658651503158</created>
@@ -417,84 +524,7 @@
       <option name="project" value="LOCAL" />
       <updated>1659994049408</updated>
     </task>
-    <task id="LOCAL-00064" summary="Code Reviewing 2.0 für HausListe durchgeführt">
-      <created>1659994220001</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1659994220001</updated>
-    </task>
-    <task id="LOCAL-00065" summary="GUI Bugs behoben">
-      <created>1660060353611</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1660060353612</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Refactoring Haus und Raum">
-      <created>1660064667971</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1660064667971</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Refactoring HauslisteIF, Refactoring Hausliste 3.0">
-      <created>1660065269772</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1660065269772</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)">
-      <created>1660065433157</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1660065433157</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Refactoring PersistenzDB, PersistenzIF und ServiceLocator">
-      <created>1660074983139</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1660074983140</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Refactoring Dozent, DozentListe, DozentListeIF, Terminbuchung, Zeitraum">
-      <created>1660077936726</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1660077936726</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Refactoring Ausstattungsmerkmal und AusstattungsTypIF">
-      <created>1660078824517</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1660078824517</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Refactoring GUI Teil 1">
-      <created>1660145026723</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1660145026723</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Refactoring GUI Teil 2">
-      <created>1660152062475</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1660152062476</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Refactoring GUI Teil 3">
-      <created>1660153216797</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1660153216797</updated>
-    </task>
-    <option name="localTasksCounter" value="75" />
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,6 +539,17 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="GUI Anpassungen und Namenskonventionen" />
+    <MESSAGE value="GUI Rauminhalte ergänzt, raumidkollision implementiert, exceptionhandling and popup for iostream" />
+    <MESSAGE value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
+    <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
+    <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
+    <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
+    <MESSAGE value="AusstattungsTypIF cleared, SpeicherDialog implementiert, Grunddaten angepasst" />
+    <MESSAGE value="GUI Hauptmenu, Beginn neues Überschriftendesign, Doppelverknüpfung Dozent-Terminbuchung" />
+    <MESSAGE value="Action Listener komprimiert (Lambda)" />
+    <MESSAGE value="&quot;Ausstattungstyp hinzufügen&quot; vorbereitet" />
+    <MESSAGE value="Modell anzeigen, Raumausstattung Anzahl und Design" />
     <MESSAGE value="Hausseiten Struktur implementiert (Methoden fehlen noch)" />
     <MESSAGE value="Hausseiten fertig implementiert" />
     <MESSAGE value="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert" />
@@ -523,18 +564,7 @@
     <MESSAGE value="GUI Terminplan fertig" />
     <MESSAGE value="Neue universelle Zählmethode implementiert" />
     <MESSAGE value="Code Reviewing für HausListe durchgeführt" />
-    <MESSAGE value="Code Reviewing 2.0 für HausListe durchgeführt" />
-    <MESSAGE value="GUI Bugs behoben" />
-    <MESSAGE value="Refactoring Haus und Raum" />
-    <MESSAGE value="Refactoring HauslisteIF, Refactoring Hausliste 3.0" />
-    <MESSAGE value="Refactoring Zustand, Funktionstuechtig, Defekt (quasi keine Änderung)" />
-    <MESSAGE value="Refactoring PersistenzDB, PersistenzIF und ServiceLocator" />
-    <MESSAGE value="Refactoring Dozent, DozentListe, DozentListeIF, Terminbuchung, Zeitraum" />
-    <MESSAGE value="Refactoring Ausstattungsmerkmal und AusstattungsTypIF" />
-    <MESSAGE value="Refactoring GUI Teil 1" />
-    <MESSAGE value="Refactoring GUI Teil 2" />
-    <MESSAGE value="Refactoring GUI Teil 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring GUI Teil 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code Reviewing für HausListe durchgeführt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

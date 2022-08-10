@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface WhiteboardTypListeIF {
 
-    public ArrayList<WhiteboardTyp> getAlleWhiteboardTypen();
+    ArrayList<WhiteboardTyp> getAlleWhiteboardTypen();
 
-    public void addWhiteboardTyp(WhiteboardTyp wt);
+    /**
+     * Fügt ein WhiteboardTyp der Liste von allen WhiteboardTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param wt WhiteboardTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addWhiteboardTyp(WhiteboardTyp wt);
 }

@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface MikrofonTypListeIF {
 
-    public ArrayList<MikrofonTyp> getAlleMikrofonTypen();
+    ArrayList<MikrofonTyp> getAlleMikrofonTypen();
 
-    public void addMikrofonTyp(MikrofonTyp mt);
+    /**
+     * Fügt ein MikrofonTyp der Liste von allen MikrofonTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param mt MikrofonTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addMikrofonTyp(MikrofonTyp mt);
 }

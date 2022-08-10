@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface LautsprecherTypListeIF {
 
-    public ArrayList<LautsprecherTyp> getAlleLautsprecherTypen();
+    ArrayList<LautsprecherTyp> getAlleLautsprecherTypen();
 
-    public void addLautsprecherTyp(LautsprecherTyp lt);
+    /**
+     * Fügt ein LautsprecherTyp der Liste von allen LautsprecherTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param lt LautsprecherTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addLautsprecherTyp(LautsprecherTyp lt);
 }

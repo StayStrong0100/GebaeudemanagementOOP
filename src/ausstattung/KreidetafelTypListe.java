@@ -21,6 +21,13 @@ public class KreidetafelTypListe implements Serializable, KreidetafelTypListeIF 
         return alleKreidetafelTypen;
     }
 
+    /**
+     * Fügt ein KreidetafelTyp der Liste von allen KreidetafelTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param kt KreidetafelTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addKreidetafelTyp(KreidetafelTyp kt){
         this.alleKreidetafelTypen.add(kt);
     }

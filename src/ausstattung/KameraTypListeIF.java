@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface KameraTypListeIF {
 
-    public ArrayList<KameraTyp> getAlleKameraTypen();
+    ArrayList<KameraTyp> getAlleKameraTypen();
 
-    public void addKameraTyp(KameraTyp kt);
+    /**
+     * Fügt ein KameraTyp der Liste von allen KameraTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param kt KameraTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addKameraTyp(KameraTyp kt);
 }

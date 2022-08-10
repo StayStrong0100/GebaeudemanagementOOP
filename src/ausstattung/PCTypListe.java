@@ -21,6 +21,13 @@ public class PCTypListe implements Serializable, PCTypListeIF {
         return allePCTypen;
     }
 
+    /**
+     * Fügt ein PCTyp der Liste von allen PCTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param pt PCTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addPCTyp(PCTyp pt){
         this.allePCTypen.add(pt);
     }

@@ -19,42 +19,17 @@ public class KreidetafelTyp implements Serializable, AusstattungsTypIF {
         this.hoehe = hoehe;
     }
 
-    public boolean isWandtafel() {
-        return wandtafel;
-    }
-
-    public void setWandtafel(boolean wandtafel) {
-        this.wandtafel = wandtafel;
-    }
-
-    public boolean isFreitafel() {
-        return freitafel;
-    }
-
-    public void setFreitafel(boolean freitafel) {
-        this.freitafel = freitafel;
-    }
-
-    public double getBreite() {
-        return breite;
-    }
-
-    public void setBreite(double breite) {
-        this.breite = breite;
-    }
-
-    public double getHoehe() {
-        return hoehe;
-    }
-
-    public void setHoehe(double hoehe) {
-        this.hoehe = hoehe;
-    }
-
     public String getModell() {
         return this.modell;
     }
 
+    /**
+     * Gibt alle Attribute des WandtafelTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des WandtafelTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Wandtafel: " + wandtafel +

@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface KreidetafelTypListeIF {
 
-    public ArrayList<KreidetafelTyp> getAlleKreidetafelTypen();
+    ArrayList<KreidetafelTyp> getAlleKreidetafelTypen();
 
-    public void addKreidetafelTyp(KreidetafelTyp kt);
+    /**
+     * Fügt ein KreidetafelTyp der Liste von allen KreidetafelTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param kt KreidetafelTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addKreidetafelTyp(KreidetafelTyp kt);
 }

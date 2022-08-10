@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface SmartboardTypListeIF {
 
-    public ArrayList<SmartboardTyp> getAlleSmartboardTypen();
+    ArrayList<SmartboardTyp> getAlleSmartboardTypen();
 
-    public void addSmartboardTyp(SmartboardTyp st);
+    /**
+     * Fügt ein SmartboardTyp der Liste von allen SmartboardTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param st SmartboardTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addSmartboardTyp(SmartboardTyp st);
 }

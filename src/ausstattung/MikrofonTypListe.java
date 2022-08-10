@@ -10,7 +10,7 @@ public class MikrofonTypListe implements Serializable, MikrofonTypListeIF {
     private MikrofonTypListe() {
     }
 
-    public static MikrofonTypListe getInstance(){
+    public static MikrofonTypListe getInstance() {
         if (instance == null) {
             instance = new MikrofonTypListe();
         }
@@ -21,7 +21,14 @@ public class MikrofonTypListe implements Serializable, MikrofonTypListeIF {
         return alleMikrofonTypen;
     }
 
-    public void addMikrofonTyp(MikrofonTyp mt){
+    /**
+     * Fügt ein MikrofonTyp der Liste von allen MikrofonTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param mt MikrofonTypObjekt, welches neu hinzugefügt werden soll
+     */
+    public void addMikrofonTyp(MikrofonTyp mt) {
         this.alleMikrofonTypen.add(mt);
     }
 }

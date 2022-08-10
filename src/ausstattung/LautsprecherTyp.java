@@ -20,14 +20,6 @@ public class LautsprecherTyp implements Serializable, AusstattungsTypIF {
         this.surroundSound = surroundSound;
     }
 
-    public String getMarke() {
-        return marke;
-    }
-
-    public void setMarke(String marke) {
-        this.marke = marke;
-    }
-
     public String getModell() {
         return modell;
     }
@@ -36,30 +28,13 @@ public class LautsprecherTyp implements Serializable, AusstattungsTypIF {
         this.modell = modell;
     }
 
-    public int getAnzahl() {
-        return anzahl;
-    }
-
-    public void setAnzahl(int anzahl) {
-        this.anzahl = anzahl;
-    }
-
-    public int getMaxLautstaerke() {
-        return maxLautstaerke;
-    }
-
-    public void setMaxLautstaerke(int maxLautstaerke) {
-        this.maxLautstaerke = maxLautstaerke;
-    }
-
-    public boolean isSurroundSound() {
-        return surroundSound;
-    }
-
-    public void setSorroundSound(boolean surroundSound) {
-        this.surroundSound = surroundSound;
-    }
-
+    /**
+     * Gibt alle Attribute des LautsprecherTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des LautsprecherTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Marke: " + marke +

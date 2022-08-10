@@ -21,6 +21,13 @@ public class SmartboardTypListe implements Serializable, SmartboardTypListeIF {
         return alleSmartboardTypen;
     }
 
+    /**
+     * Fügt ein SmartboardTyp der Liste von allen SmartboardTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param st SmartboardTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addSmartboardTyp(SmartboardTyp st){
         this.alleSmartboardTypen.add(st);
     }

@@ -21,53 +21,17 @@ public class TischTyp implements Serializable, AusstattungsTypIF {
         this.breite = breite;
         this.laenge = laenge;
     }
-
-    public int getAnzahlPlaetze() {
-        return anzahlPlaetze;
-    }
-
-    public void setAnzahlPlaetze(int anzahlPlaetze) {
-        this.anzahlPlaetze = anzahlPlaetze;
-    }
-
-    public boolean isComputertisch() {
-        return computertisch;
-    }
-
-    public void setComputertisch(boolean computertisch) {
-        this.computertisch = computertisch;
-    }
-
-    public boolean isHoehenverstellbar() {
-        return hoehenverstellbar;
-    }
-
-    public void setHoehenverstellbar(boolean hoehenverstellbar) {
-        this.hoehenverstellbar = hoehenverstellbar;
-    }
-
-    public double getBreite() {
-        return breite;
-    }
-
-    public void setBreite(double breite) {
-        this.breite = breite;
-    }
-
-    public double getLaenge() {
-        return laenge;
-    }
-
-    public void setLaenge(double laenge) {
-        this.laenge = laenge;
-    }
-
     public String getModell() {
         return this.modell;
     }
 
-
-
+    /**
+     * Gibt alle Attribute des TischTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des TischTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Anzahlplaetze: " + anzahlPlaetze +

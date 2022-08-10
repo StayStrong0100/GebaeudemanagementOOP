@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface TischTypListeIF {
 
-    public ArrayList<TischTyp> getAlleTischTypen();
+    ArrayList<TischTyp> getAlleTischTypen();
 
-    public void addTischTyp(TischTyp tt);
+    /**
+     * Fügt ein TischTyp der Liste von allen TischTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param tt TischTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addTischTyp(TischTyp tt);
 }

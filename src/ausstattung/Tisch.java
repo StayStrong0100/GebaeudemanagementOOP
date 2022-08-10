@@ -20,20 +20,17 @@ public class Tisch extends Ausstattungsmerkmal implements Serializable {
         return exemplarTyp;
     }
 
-    public void setExemplarTyp(TischTyp exemplarTyp) {
-        this.exemplarTyp = exemplarTyp;
-    }
-
+    /**
+     * Gibt alle Attribute des TischObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des TischObjekts als String
+     */
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         return "Ausstattungsmerkmal: Tisch"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Tisch.super.getAnschaffungsdatum().getTime());
     }
-
-    public void print() {
-        System.out.println(toString());
-    }
-
-
 }

@@ -21,6 +21,13 @@ public class KameraTypListe implements Serializable, KameraTypListeIF {
         return alleKameraTypen;
     }
 
+    /**
+     * Fügt ein KameraTyp der Liste von allen KameraTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param kt KameraTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addKameraTyp(KameraTyp kt){
         this.alleKameraTypen.add(kt);
     }

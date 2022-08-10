@@ -21,6 +21,13 @@ public class WhiteboardTypListe implements Serializable, WhiteboardTypListeIF {
         return alleWhiteboardTypen;
     }
 
+    /**
+     * Fügt ein WhiteboardTyp der Liste von allen WhiteboardTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param wt WhiteboardTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addWhiteboardTyp(WhiteboardTyp wt){
         this.alleWhiteboardTypen.add(wt);
     }

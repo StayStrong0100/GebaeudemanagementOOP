@@ -19,51 +19,20 @@ public class KameraTyp implements Serializable, AusstattungsTypIF {
         this.flexibel = flexibel;
     }
 
-
-
-    public void setMarke(String marke) {
-        this.marke = marke;
-    }
-
     public void setModell(String modell) {
         this.modell = modell;
-    }
-
-    public void setPixel(int pixel) {
-        this.pixel = pixel;
-    }
-
-    public void setBrennweite(int brennweite) {
-        this.brennweite = brennweite;
-    }
-
-    public void setFlexibel(boolean flexibel) {
-        this.flexibel = flexibel;
-    }
-
-    public String getMarke() {
-        return marke;
     }
 
     public String getModell() {
         return modell;
     }
 
-    public int getPixel() {
-        return pixel;
-    }
-
-    public int getBrennweite() {
-        return brennweite;
-    }
-
-    public boolean isFlexibel() {
-        return flexibel;
-    }
-
     /**
+     * Gibt alle Attribute des KameraTypObjekts in einem String zusammen aus
      *
-     * @return
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des KameraTypObjekts als String
      */
     @Override
     public String toString() {

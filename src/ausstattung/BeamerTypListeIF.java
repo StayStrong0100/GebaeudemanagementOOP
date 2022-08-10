@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public interface BeamerTypListeIF {
 
-    public ArrayList<BeamerTyp> getAlleBeamerTypen();
+    ArrayList<BeamerTyp> getAlleBeamerTypen();
 
-    public void addBeamerTyp(BeamerTyp bt);
+    /**
+     * Fügt ein BeamerTyp der Liste von allen BeamerTypen hinzu
+     *
+     * @author Ben Kostka
+     *
+     * @param bt BeamerTypObjekt, welches neu hinzugefügt werden soll
+     */
+    void addBeamerTyp(BeamerTyp bt);
 }

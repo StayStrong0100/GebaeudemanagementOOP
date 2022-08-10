@@ -19,20 +19,17 @@ public class PC extends Ausstattungsmerkmal implements Serializable{
         return exemplarTyp;
     }
 
-    public void setExemplarTyp(PCTyp exemplarTyp) {
-        this.exemplarTyp = exemplarTyp;
-    }
-
+    /**
+     * Gibt alle Attribute des PCObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des PCObjekts als String
+     */
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         return "Ausstattungsmerkmal: PC"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(PC.super.getAnschaffungsdatum().getTime());
     }
-
-    public void print() {
-        System.out.println(toString());
-    }
-
-
 }

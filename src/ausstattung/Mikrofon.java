@@ -10,7 +10,7 @@ public class Mikrofon extends Ausstattungsmerkmal implements Serializable {
     public static final long serialVersionUID = 0;
     private MikrofonTyp exemplarTyp;
 
-    public Mikrofon(MikrofonTyp exemplarTyp, Calendar anschaffungsdatum){
+    public Mikrofon(MikrofonTyp exemplarTyp, Calendar anschaffungsdatum) {
         super(anschaffungsdatum);
         this.exemplarTyp = exemplarTyp;
     }
@@ -19,18 +19,17 @@ public class Mikrofon extends Ausstattungsmerkmal implements Serializable {
         return exemplarTyp;
     }
 
-    public void setExemplarTyp(MikrofonTyp exemplarTyp) {
-        this.exemplarTyp = exemplarTyp;
-    }
-
+    /**
+     * Gibt alle Attribute des MicrofonObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des MicrofonObjekts als String
+     */
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        return "Ausstattungsmerkmal: Microfon"+ "\nEXEMPLARTYP\n" + exemplarTyp
+        return "Ausstattungsmerkmal: Microfon" + "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Mikrofon.super.getAnschaffungsdatum().getTime());
-    }
-
-    public void print() {
-        System.out.println(toString());
     }
 }

@@ -21,6 +21,13 @@ public class TischTypListe implements Serializable, TischTypListeIF {
         return alleTischTypen;
     }
 
+    /**
+     * Fügt ein TischTyp der Liste von allen TischTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param tt TischTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addTischTyp(TischTyp tt){
         this.alleTischTypen.add(tt);
     }

@@ -15,14 +15,6 @@ public class SmartboardTyp implements Serializable, AusstattungsTypIF {
         this.lumen = lumen;
     }
 
-    public String getMarke() {
-        return marke;
-    }
-
-    public void setMarke(String marke) {
-        this.marke = marke;
-    }
-
     public String getModell() {
         return modell;
     }
@@ -31,14 +23,13 @@ public class SmartboardTyp implements Serializable, AusstattungsTypIF {
         this.modell = modell;
     }
 
-    public int getLumen() {
-        return lumen;
-    }
-
-    public void setLumen(int lumen) {
-        this.lumen = lumen;
-    }
-
+    /**
+     * Gibt alle Attribute des SmartboardTypObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des SmartboardTypObjekts als String
+     */
     @Override
     public String toString() {
         return "Marke: " + marke +

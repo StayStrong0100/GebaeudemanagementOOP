@@ -19,18 +19,17 @@ public class Stuhl extends Ausstattungsmerkmal implements Serializable{
         return exemplarTyp;
     }
 
-    public void setExemplarTyp(StuhlTyp exemplarTyp) {
-        this.exemplarTyp = exemplarTyp;
-    }
-
+    /**
+     * Gibt alle Attribute des StuhlObjekts in einem String zusammen aus
+     *
+     * @author Ben Kostka
+     *
+     * @return alle Attribute des StuhlObjekts als String
+     */
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         return "Ausstattungsmerkmal: Stuhl"+ "\nEXEMPLARTYP\n" + exemplarTyp
                 + "\nAnschaffungsdatum: " + df.format(Stuhl.super.getAnschaffungsdatum().getTime());
-    }
-
-    public void print() {
-        System.out.println(toString());
     }
 }

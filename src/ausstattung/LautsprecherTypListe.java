@@ -21,6 +21,13 @@ public class LautsprecherTypListe implements Serializable, LautsprecherTypListeI
         return alleLautsprecherTypen;
     }
 
+    /**
+     * Fügt ein LautsprecherTyp der Liste von allen LautsprecherTypen hinzu
+     *
+     * @author Lukas Zander
+     *
+     * @param lt LautsprecherTypObjekt, welches neu hinzugefügt werden soll
+     */
     public void addLautsprecherTyp(LautsprecherTyp lt){
         this.alleLautsprecherTypen.add(lt);
     }
