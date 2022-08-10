@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring GUI Teil 2">
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring GUI Teil 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
@@ -150,13 +150,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00025" summary="nichts geändert">
-      <created>1658601326056</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1658601326056</updated>
     </task>
     <task id="LOCAL-00026" summary="toString() geändert">
       <created>1658651503158</created>
@@ -494,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660152062476</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Refactoring GUI Teil 3">
+      <created>1660153216797</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1660153216797</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modell anzeigen, Raumausstattung Anzahl und Design" />
     <MESSAGE value="Hausseiten Struktur implementiert (Methoden fehlen noch)" />
     <MESSAGE value="Hausseiten fertig implementiert" />
     <MESSAGE value="Raum Entblocken: Seitengerüst erstellt, Raumfilter implementiert" />
@@ -534,7 +533,8 @@
     <MESSAGE value="Refactoring Ausstattungsmerkmal und AusstattungsTypIF" />
     <MESSAGE value="Refactoring GUI Teil 1" />
     <MESSAGE value="Refactoring GUI Teil 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring GUI Teil 2" />
+    <MESSAGE value="Refactoring GUI Teil 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring GUI Teil 3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

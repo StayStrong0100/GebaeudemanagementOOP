@@ -211,7 +211,7 @@ public class GUI extends JFrame {
 
     //CheckBox
     private JCheckBox hausBearbeitenBarriefreiInput;
-    private JCheckBox hausHinzufuegenBarrierefreInput;
+    private JCheckBox hausHinzufuegenBarrierefreiInput;
 
     /**
      * Es folgt der GUI Konstruktor, in diesem werden alle Konfigurationen der GUI vorgenommen
@@ -252,7 +252,7 @@ public class GUI extends JFrame {
         verbergeAllePanels();
         panelStartseite.setVisible(true);
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Haus hinzufügen"
          * Es werden alle Panels versteckt und nur das Panel "Haus hinzufügen" wird angezeigt
          */
@@ -261,7 +261,7 @@ public class GUI extends JFrame {
             panelHausHinzufuegen.setVisible(true);
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Haus bearbeiten"
          * Es werden alle Panels versteckt und nur das Panel "Haus bearbeiten" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Häuser
@@ -275,7 +275,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Haus löschen"
          * Es werden alle Panels versteckt und nur das Panel "Haus löschen" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Häuser
@@ -289,7 +289,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Raum hinzufügen"
          * Es werden alle Panels versteckt und nur das Panel "Raum hinzufügen" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Häuser (in dem dann der Raum ergänzt werden soll)
@@ -303,7 +303,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Raum suchen und buchen"
          * Es werden alle Panels versteckt und nur das Panel "Raum suchen und buchen" wird angezeigt
          */
@@ -312,10 +312,10 @@ public class GUI extends JFrame {
             panelRaumSuchenBuchen.setVisible(true);
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Raum bearbeiten"
          * Es werden alle Panels versteckt und nur das Panel und ScrollArea "Raum bearbeiten" wird angezeigt
-         * Sortierte Initialisierung der Auswahlliste (ComboBox) für die Räume
+         * sortierte Initialisierung der Auswahlliste (ComboBox) für die Räume
          *
          *
          */
@@ -335,10 +335,9 @@ public class GUI extends JFrame {
             for (Integer ID : alleRaumnummern) {
                 raumbearbeitenRaumlisteInput.addItem(ID.toString());
             }
-
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Raum entblocken"
          * Es werden alle Panels versteckt und nur das Panel "Raum entblocken" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Räume, dabei werden nur die Räume angezeigt, die irgendwann gebucht sind
@@ -354,7 +353,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Raum löschen"
          * Es werden alle Panels versteckt und nur das Panel "Raum löschen" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Räume
@@ -368,10 +367,10 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Inventur"
          * Es werden alle Panels versteckt und nur das Panel "Inventur" wird angezeigt
-         * Die Inventur wird direkt durchgeführt und angezeigt
+         * die Inventur wird direkt durchgeführt und angezeigt
          *
          * Hinweis: andere Listener-Struktur, weil diesmal Obermenüpunkt
          */
@@ -394,7 +393,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Dozent löschen"
          * Es werden alle Panels versteckt und nur das Panel "Dozent löschen" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Dozenten
@@ -408,7 +407,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Dozent Terminplan"
          * Es werden alle Panels versteckt und nur das Panel "Dozent Terminplan" wird angezeigt
          * Initialisierung der Auswahlliste (ComboBox) für die Dozenten
@@ -420,23 +419,21 @@ public class GUI extends JFrame {
             for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
                 dozTerminplanDozAuswahlInput.addItem(d.getName());
             }
-
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Dozent hinzufügen"
          * Es werden alle Panels versteckt und nur das Panel "Dozent hinzufügen" wird angezeigt
          */
         dozentHinzufuegen.addActionListener(e -> {
             verbergeAllePanels();
             panelDozentHinzufuegen.setVisible(true);
-
         });
 
-        /**
+        /*
          * Action Listener für Seitenaufruf "Dozent bearbeiten"
          * Es werden alle Panels versteckt und nur das Panel "Dozent bearbeiten" wird angezeigt
-         * Sortierte Initialisierung der Auswahlliste (ComboBox) für die Dozenten
+         * sortierte Initialisierung der Auswahlliste (ComboBox) für die Dozenten
          */
         dozentBearbeiten.addActionListener(e -> {
             verbergeAllePanels();
@@ -450,18 +447,18 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * ========================================================================
          * Hier enden die Action Listener für Seitenaufrufe.
          * Es folgen die Action Listener, die innerhalb von Seiten aktiviert werden
          * ========================================================================
          */
 
-        /**
+        /*
          * Action Listener, wird ausgeführt, wenn auf der Seite Raum suchen der Button "Suchen" geklickt wird.
-         * Leert das Ausgabefeld, die passende Raumlist und die Liste der verfügbaren Dozenten
-         * Wenn keine Fehler(leeres Feld, falsche Eingabe etc.) vorhanden sind, werden alle Räume anhand der Kriterien gefiltert
-         * und in der Auswahlliste hinzugefügt
+         * Leert das Ausgabefeld, die passende Raumlist und die Liste der verfügbaren Dozenten,
+         * wenn keine Fehler(leeres Feld, falsche Eingabe etc.) vorhanden sind, werden alle Räume anhand der Kriterien gefiltert
+         * und in der Auswahlliste hinzugefügt.
          * Anschließend wird die Liste der existierenden Dozenten initialisiert
          */
         raumsucheSuchen.addActionListener(e -> {
@@ -470,7 +467,7 @@ public class GUI extends JFrame {
             buchenRaumnummerSelectInput.removeAllItems();
             buchenDozentSelectInput.removeAllItems();
 
-            //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+            //Wenn ein Kalenderfeld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
             if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")) {
                 raumsuchenbuchenBestaetigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
                 return;
@@ -501,16 +498,16 @@ public class GUI extends JFrame {
             }
 
             //Ausstattungs-Daten auslesen, wenn kein Wert eingeben wurde: Mindestanzahl = 0
-            int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKamerasInput.getText());
-            int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheBeamerInput.getText());
-            int minLautsprecher = (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheLautsprecherInput.getText());
-            int minMikrofone = (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheMikrofoneInput.getText());
-            int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.valueOf(raumsuchePCInput.getText());
-            int minTische = (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheTischeInput.getText());
-            int minStuehle = (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheStuehleInput.getText());
-            int minSmartboards = (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheSmartboardInput.getText());
-            int minWhiteboards = (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheWhiteboardsInput.getText());
-            int minKreidetafeln = (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.valueOf(raumsucheKreidetafelnInput.getText());
+            int minKameras = (raumsucheKamerasInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheKamerasInput.getText());
+            int minBeamer = (raumsucheBeamerInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheBeamerInput.getText());
+            int minLautsprecher = (raumsucheLautsprecherInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheLautsprecherInput.getText());
+            int minMikrofone = (raumsucheMikrofoneInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheMikrofoneInput.getText());
+            int minPCs = (raumsuchePCInput.getText().equals("")) ? 0 : Integer.parseInt(raumsuchePCInput.getText());
+            int minTische = (raumsucheTischeInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheTischeInput.getText());
+            int minStuehle = (raumsucheStuehleInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheStuehleInput.getText());
+            int minSmartboards = (raumsucheSmartboardInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheSmartboardInput.getText());
+            int minWhiteboards = (raumsucheWhiteboardsInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheWhiteboardsInput.getText());
+            int minKreidetafeln = (raumsucheKreidetafelnInput.getText().equals("")) ? 0 : Integer.parseInt(raumsucheKreidetafelnInput.getText());
 
             //Alle existierenden Räume nach den Zeitkriterien filtern
             ArrayList<Raum> freieRaueme = ServiceLocator.getInstance().getHausliste().filtereRaeumeVerfuegbar(start, ende);
@@ -531,12 +528,11 @@ public class GUI extends JFrame {
                     buchenDozentSelectInput.addItem(d.getName());
                 }
                 raumsuchenbuchenBestaetigung.setText("Bitte wählen Sie einen Raum und einen Dozenten aus!");
-
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum hinzufügen" der Button "hinzufügen" geklickt wird
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum hinzufügen" der Button "hinzufügen" geklickt wird.
          * Wenn keine Fehler (leeres Feld, Raumnummer bereits vergeben etc.) gemacht wurden, wird ein neuer Raum hinzugefügt
          */
         raumHinzufuegenButton.addActionListener(e -> {
@@ -567,9 +563,9 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Raumnummer-Änderung bestätigen" geklickt wurde
-         *Wenn es keine Fehler (kein Raum ausgewählt, keine ID eingegeben, keine ID Kollision etc.) gibt, wird die Nummer des ausgewählten Raumes verändert
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Raumnummer-Änderung bestätigen" geklickt wurde.
+         * Wenn es keine Fehler (kein Raum ausgewählt, keine ID eingegeben, keine ID Kollision etc.) gibt, wird die Nummer des ausgewählten Raumes verändert
          */
         raumbearbeitenIDAendernCheck.addActionListener(e -> {
             //Wenn kein Raum ausgewählt wurde, Fehlermeldung und Abbruch
@@ -613,9 +609,9 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum suchen und buchen" der Button "Buchen" geklickt wurde
-         * Wenn es keine Fehler gibt (Raum/Dozent nicht ausgewählt, Kalenderfeld leergeblieben), dann wird im entsprechenden Raum eine Terminbuchung mit dem ausgewählten Dozenten ergänzt
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum suchen und buchen" der Button "Buchen" geklickt wurde.
+         * Wenn es keine Fehler gibt (Raum/Dozent nicht ausgewählt, Kalenderfeld leer geblieben), dann wird im entsprechenden Raum eine Terminbuchung mit dem ausgewählten Dozenten ergänzt
          *
          */
         buchenCheck.addActionListener(e -> {
@@ -625,8 +621,8 @@ public class GUI extends JFrame {
                 return;
             }
 
-            //Einlesen der Zeiten, falls diese in der Zwischenzeit (seit Filtern) verändert wurden
-            //Wenn ein Kalendar-Feld leer geblieben ist, Fehlermeldung und Abbruch
+            //Einlesen der Zeiten, falls diese in der Zwischenzeit (seit Filtern) verändert wurden.
+            //Wenn ein Kalenderfeld leer geblieben ist, Fehlermeldung und Abbruch
             if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")) {
                 raumsuchenbuchenBestaetigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
                 return;
@@ -662,7 +658,7 @@ public class GUI extends JFrame {
             //Raumbuchung wird durchgeführt
             for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                 if (r.getRaumnummer() == raumID) {
-                    //Erneuter Kollisions Check, falls Datum verändert wurde. Wenn nun kollidiert, Fehlermeldung und Abbruch
+                    //Erneuter Kollisionscheck, falls Datum verändert wurde. Wenn nun kollidiert, Fehlermeldung und Abbruch
                     if (ServiceLocator.getInstance().getHausliste().terminKollidiert(r, start, ende)) {
                         raumsuchenbuchenBestaetigung.setText("Sie haben die Buchungsdaten verändert. Zu der angegebenen Zeit ist der gewünschte Raum nicht verfügbar. Bitte aktualisieren Sie die Raumauswahl durch klicken auf 'Räume finden'!");
                         return;
@@ -678,10 +674,9 @@ public class GUI extends JFrame {
                 }
             }
             raumsuchenbuchenBestaetigung.setText("Fehler: Raum nicht gefunden. Bitte wiederholen Sie den Buchungsvorgang");
-
         });
 
-        /**
+        /*
          * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" eine Ausstattungsart ausgewählt wurde
          * Initialisert entsprechend der ausgewählten Art die Typenliste
          */
@@ -750,11 +745,10 @@ public class GUI extends JFrame {
 
                 default -> System.out.println("Fehler: Der Typ wurde nicht gefunden");
             }
-
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Ausstattung hinzufügen" geklickt wird
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Ausstattung hinzufügen" geklickt wird.
          * Wenn es keine Fehler (kein Typ gewählt, kein Raum gewählt etc.) gibt, wird entsprechend der Anzahl die Ausstattung im Raum hinzugefügt
          *
          */
@@ -819,7 +813,7 @@ public class GUI extends JFrame {
                         }
 
                         if (erfolgreich) {
-                            raumbearbeitenBestaetigung.setText("Ausstattung erfolgreich hinzugefügt.\nAktueller Raumzustand: " + r.toString());
+                            raumbearbeitenBestaetigung.setText("Ausstattung erfolgreich hinzugefügt.\nAktueller Raumzustand: " + r);
                             raumBearbeiten.doClick();
                         } else {
                             raumbearbeitenBestaetigung.setText("Fehler: Typ oder Raum existiert nicht. Bitte wiederholen Sie den Vorgang!");
@@ -830,7 +824,7 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
+        /*
          * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" ein Raum ausgewählt wurde
          * Initialisiert die Ausstattungsliste des Raumes
          *
@@ -853,8 +847,8 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Speichern" geklickt wird
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum bearbeiten" der Button "Speichern" geklickt wird.
          * Verändert den Zustand des ausgewählten Ausstattungsgegenstandes bzw. entfernt ihn endgültig
          *
          */
@@ -901,172 +895,7 @@ public class GUI extends JFrame {
             raumbearbeitenBestaetigung.setText("Fehler: Ausstattung nicht gefunden. Bitte wiederholen Sie den Vorgang.");
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozenten löschen" der Button "Löschen" geklickt wird
-         * Löscht den ausgewählten Dozenten
-         *
-         */
-        dozentLoeschenCheck.addActionListener(e -> {
-            //Wenn kein Dozent ausgewählt wurde, Fehlermeldung und Abbruch
-            if(dozentLoeschenDozListe.getSelectedItem() == null)
-            {
-                dozentLoeschenBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
-                return;
-            }
-
-            String dozName = dozentLoeschenDozListe.getSelectedItem().toString();
-
-            //Dozent löschen
-            for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
-                if (d.getName().equals(dozName)) {
-                    ServiceLocator.getInstance().getDozentenListe().removeDozent(d);
-                    dozentLoeschenBestaetigung.setText("Der Dozent " + dozName + " wurde erfolgreich entfernt.");
-                    dozentLoeschen.doClick();
-                    return;
-                }
-
-            }
-            dozentLoeschenBestaetigung.setText("Unerwarteter Fehler: Dozent existiert nicht. Bitte wiederholen Sie den Vorgang!");
-        });
-
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent hinzufügen" der Button "Hinzufügen" geklickt wurde
-         * Wenn es keine Fehler (kein Name eingegeben, Name existiert bereits) gibt, wird ein neuer Dozent erstellt
-         */
-        dozentHinzufuegenButton.addActionListener(e -> {
-            //Wenn kein Name eingegeben wurde, Fehlermeldung und Abbruch
-            if(dozentHinzufuegenInput.getText().equals("")){
-                dozentHinzufuegenBestaetigung.setText("Bitte geben Sie einen Namen ein!");
-                return;
-            }
-
-            String neuerDozent = dozentHinzufuegenInput.getText();
-
-            //Wenn der Name bereits vergeben ist, Fehlermeldung und Abbruch
-            for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
-                if (d.getName().equals(neuerDozent)) {
-                    dozentHinzufuegenBestaetigung.setText("Dozent existiert bereits. Bitte wählen Sie einen anderen Namen aus!");
-                    return;
-                }
-            }
-
-            //Dozent hinzufügen und Seite aktualisieren
-            ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(neuerDozent));
-            dozentHinzufuegenBestaetigung.setText("Dozent erfolgreich hinzugefügt.");
-            dozentHinzufuegen.doClick();
-        });
-
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent Terminplan" ein Dozent ausgewählt wurde
-         * Zeigt den aktuellen Terminplan des Dozenten an
-         */
-        dozTerminplanDozAuswahlInput.addActionListener(e -> {
-            //Wenn (doch) kein Dozent ausgewählt wurde, Fehlermeldung und Abbruch
-            if(dozTerminplanDozAuswahlInput.getSelectedItem() == null){
-                dozTerminplanBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
-                return;
-            }
-
-            String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
-
-            for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
-                if(d.getName().equals(dozent)){
-                    dozTerminplanBestaetigung.setText(d.aktuelleBuchungenToString());
-                    return;
-                }
-            }
-            dozTerminplanBestaetigung.setText("Fehler: Dozent nicht gefunden!");
-
-
-
-        });
-
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Haus löschen" der Button "Löschen" geklickt wird
-         * Löscht das augewählte Haus
-         */
-        hausloeschenCheck.addActionListener(e -> {
-            //Wenn (doch) kein Haus ausgewählt wurde, Fehlermeldung und Abbruch
-            if(hausloeschenHausInput.getSelectedItem() == null){
-                hausloeschenBestaetigung.setText("Bitte wählen Sie ein Haus aus!");
-                return;
-            }
-
-            String hausID = hausloeschenHausInput.getSelectedItem().toString();
-
-            //Haus wird gelöscht und Seite aktualisiert
-            for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
-                if(h.getHausnummer().equals(hausID)){
-                    ServiceLocator.getInstance().getHausliste().removeHaus(h);
-                    hausloeschenBestaetigung.setText("Haus " + hausID + " wurde entfernt.");
-                    hausLoeschen.doClick();
-                    return;
-                }
-            }
-            hausloeschenBestaetigung.setText("Haus nicht gefunden, Haus wurde nicht entfernt. Bitte wiederholen Sie den Vorgang!");
-        });
-
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Haus hinzufügen" der Button "Hinzufügen" geklickt wird
-         * Fügt ein neues Haus hinzu, wenn der Name nicht bereits vergeben ist
-         */
-        hausHinzufuegenCheck.addActionListener(e -> {
-            String hausnummer = hausHinzufuegenIDInput.getText();
-            //Wenn keine Hausnummer angegeben wurde, Fehlermeldung und Abbruch
-            if(hausnummer.equals("")){
-                hausHinzufuegenBestaetigung.setText("Bitte geben Sie eine Hausnummer an!");
-                return;
-            }
-
-            //Wenn Hausnummer bereits vergeben ist, Fehlermeldung und Abbruch
-            for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
-                if(h.getHausnummer().equals(hausnummer)){
-                    hausHinzufuegenBestaetigung.setText("Fehler: Hausnummer bereits vergeben, bitte wählen Sie eine andere Nummer!");
-                    return;
-                }
-            }
-
-            //Haus hinzufügen und Seite aktualisieren
-            ServiceLocator.getInstance().getHausliste().getAlleHaeuser().add(new Haus(hausnummer,hausHinzufuegenBarrierefreInput.isSelected()));
-            hausHinzufuegenBestaetigung.setText("Haus " + hausnummer + " wurde angelegt. Barrierefrei: " + hausHinzufuegenBarrierefreInput.isSelected());
-            hausHinzufuegen.doClick();
-        });
-
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Haus bearbeiten" der Button "Speichern" geklickt wird
-         * Verändert die Eigenschaften (Name, barrierefrei) eines Hauses, wenn eine Änderung eingegeben wurde
-         */
-
-        hausBearbeitenCheck.addActionListener(e -> {
-            //Wenn kein Haus ausgewählt wurde, Fehlermeldung und Abbruch
-            if(hausBearbeitenHausInput.getSelectedItem() == null ){
-                hausBearbeitenBestaetigung.setText("Bitte wählen Sie ein Haus aus!");
-                return;
-            }
-
-            String hausnummerAktuell = hausBearbeitenHausInput.getSelectedItem().toString();
-            String hausnummerNeu = hausBearbeitenNeueIDInput.getText();
-
-            //Eigenschaften anpassen
-            for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
-                if(h.getHausnummer().equals(hausnummerAktuell)){
-                    h.setBarrierefrei(hausBearbeitenBarriefreiInput.isSelected());
-                    if(hausnummerNeu.equals("")){
-                        hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
-                    }
-                    else {
-                        h.setHausnummer(hausnummerNeu);
-                        hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet. Neue Nummer: " + hausnummerNeu);
-
-                    }
-                    hausBearbeiten.doClick();
-                    return;
-                }
-            }
-            hausBearbeitenBestaetigung.setText("Haus nicht gefunden, bitte wiederholen Sie den Vorgang.");
-        });
-
-        /**
+        /*
          * Action Listener, wird ausgeführt, wenn auf der Seite "Raum entblocken" ein Raum ausgewählt wurde
          * Initialisiert die Terminbuchungsliste des entsprechenden Raumes
          */
@@ -1096,8 +925,8 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum entblocken" der Button "Terminbuchung stornieren" geklickt wird
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum entblocken" der Button "Terminbuchung stornieren" geklickt wird.
          * Löscht die ausgewählte Terminbuchung
          */
         raumEntblockenCheck.addActionListener(new ActionListener() {
@@ -1125,7 +954,7 @@ public class GUI extends JFrame {
                 for (Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()) {
                     if (r.getRaumnummer() == raumnummer) {
                         r.cancelOrder(buchungsID);
-                        raumEntblockenBestaetigung.setText("Terminbuchung " + buchungsID + " wurde erfolgeich storniert.");
+                        raumEntblockenBestaetigung.setText("Terminbuchung " + buchungsID + " wurde erfolgreich storniert.");
                         raumEntblocken.doClick();
                         return;
                     }
@@ -1134,8 +963,8 @@ public class GUI extends JFrame {
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum löschen" der Button "Löschen" geklickt wird
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Raum löschen" der Button "Löschen" geklickt wird.
          * Löscht den ausgewählten Raum aus dem entsprechendem Haus
          */
         raumLoeschenCheck.addActionListener(new ActionListener() {
@@ -1166,13 +995,87 @@ public class GUI extends JFrame {
                     }
                     raumLoeschenBestaetigung.setText("Fehler: Der Raum " + raumID + " konnte nicht gefunden werden. Bitte wiederholen Sie den Vorgang, laden Sie ggf. die Seite neu.");
                 }
-                return;
-
             }
         });
 
-        /**
-         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent bearbeiten" der Button "Speichern" geklickt wird
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozenten löschen" der Button "Löschen" geklickt wird.
+         * Löscht den ausgewählten Dozenten
+         */
+        dozentLoeschenCheck.addActionListener(e -> {
+            //Wenn kein Dozent ausgewählt wurde, Fehlermeldung und Abbruch
+            if(dozentLoeschenDozListe.getSelectedItem() == null)
+            {
+                dozentLoeschenBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
+                return;
+            }
+
+            String dozName = dozentLoeschenDozListe.getSelectedItem().toString();
+
+            //Dozent löschen
+            for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
+                if (d.getName().equals(dozName)) {
+                    ServiceLocator.getInstance().getDozentenListe().removeDozent(d);
+                    dozentLoeschenBestaetigung.setText("Der Dozent " + dozName + " wurde erfolgreich entfernt.");
+                    dozentLoeschen.doClick();
+                    return;
+                }
+
+            }
+            dozentLoeschenBestaetigung.setText("Unerwarteter Fehler: Dozent existiert nicht. Bitte wiederholen Sie den Vorgang!");
+        });
+
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent hinzufügen" der Button "Hinzufügen" geklickt wurde.
+         * Wenn es keine Fehler (kein Name eingegeben, Name existiert bereits) gibt, wird ein neuer Dozent erstellt
+         */
+        dozentHinzufuegenButton.addActionListener(e -> {
+            //Wenn kein Name eingegeben wurde, Fehlermeldung und Abbruch
+            if(dozentHinzufuegenInput.getText().equals("")){
+                dozentHinzufuegenBestaetigung.setText("Bitte geben Sie einen Namen ein!");
+                return;
+            }
+
+            String neuerDozent = dozentHinzufuegenInput.getText();
+
+            //Wenn der Name bereits vergeben ist, Fehlermeldung und Abbruch
+            for (Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()) {
+                if (d.getName().equals(neuerDozent)) {
+                    dozentHinzufuegenBestaetigung.setText("Dozent existiert bereits. Bitte wählen Sie einen anderen Namen aus!");
+                    return;
+                }
+            }
+
+            //Dozent hinzufügen und Seite aktualisieren
+            ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(neuerDozent));
+            dozentHinzufuegenBestaetigung.setText("Dozent erfolgreich hinzugefügt.");
+            dozentHinzufuegen.doClick();
+        });
+
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent Terminplan" ein Dozent ausgewählt wurde.
+         * Zeigt den aktuellen Terminplan des Dozenten an
+         */
+        dozTerminplanDozAuswahlInput.addActionListener(e -> {
+            //Wenn (doch) kein Dozent ausgewählt wurde, Fehlermeldung und Abbruch
+            if(dozTerminplanDozAuswahlInput.getSelectedItem() == null){
+                dozTerminplanBestaetigung.setText("Bitte wählen Sie einen Dozenten aus!");
+                return;
+            }
+
+            String dozent = dozTerminplanDozAuswahlInput.getSelectedItem().toString();
+
+            for(Dozent d : ServiceLocator.getInstance().getDozentenListe().getAlleDozenten()){
+                if(d.getName().equals(dozent)){
+                    dozTerminplanBestaetigung.setText(d.aktuelleBuchungenToString());
+                    return;
+                }
+            }
+            dozTerminplanBestaetigung.setText("Fehler: Dozent nicht gefunden!");
+        });
+
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Dozent bearbeiten" der Button "Speichern" geklickt wird.
          * Verändert den Namen des ausgewählten Dozenten
          */
         dozentBearbeitenCheck.addActionListener(new ActionListener() {
@@ -1205,13 +1108,95 @@ public class GUI extends JFrame {
                     }
                 }
                 dozentBearbeitenBestaetigung.setText("Dozent " + dozent + " wurde nicht gefunden. Bitte wiederholen Sie den Vorgang.");
-                return;
             }
         });
 
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Haus löschen" der Button "Löschen" geklickt wird.
+         * Löscht das ausgewählte Haus
+         */
+        hausloeschenCheck.addActionListener(e -> {
+            //Wenn (doch) kein Haus ausgewählt wurde, Fehlermeldung und Abbruch
+            if(hausloeschenHausInput.getSelectedItem() == null){
+                hausloeschenBestaetigung.setText("Bitte wählen Sie ein Haus aus!");
+                return;
+            }
 
-        /**
-         * Erstellt das Schließen-Dialogfenster und fragt ab, ob gespeichert werden soll
+            String hausID = hausloeschenHausInput.getSelectedItem().toString();
+
+            //Haus wird gelöscht und Seite aktualisiert
+            for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()){
+                if(h.getHausnummer().equals(hausID)){
+                    ServiceLocator.getInstance().getHausliste().removeHaus(h);
+                    hausloeschenBestaetigung.setText("Haus " + hausID + " wurde entfernt.");
+                    hausLoeschen.doClick();
+                    return;
+                }
+            }
+            hausloeschenBestaetigung.setText("Haus nicht gefunden, Haus wurde nicht entfernt. Bitte wiederholen Sie den Vorgang!");
+        });
+
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Haus hinzufügen" der Button "Hinzufügen" geklickt wird.
+         * Fügt ein neues Haus hinzu, wenn der Name nicht bereits vergeben ist
+         */
+        hausHinzufuegenCheck.addActionListener(e -> {
+            String hausnummer = hausHinzufuegenIDInput.getText();
+            //Wenn keine Hausnummer angegeben wurde, Fehlermeldung und Abbruch
+            if(hausnummer.equals("")){
+                hausHinzufuegenBestaetigung.setText("Bitte geben Sie eine Hausnummer an!");
+                return;
+            }
+
+            //Wenn Hausnummer bereits vergeben ist, Fehlermeldung und Abbruch
+            for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
+                if(h.getHausnummer().equals(hausnummer)){
+                    hausHinzufuegenBestaetigung.setText("Fehler: Hausnummer bereits vergeben, bitte wählen Sie eine andere Nummer!");
+                    return;
+                }
+            }
+
+            //Haus hinzufügen und Seite aktualisieren
+            ServiceLocator.getInstance().getHausliste().getAlleHaeuser().add(new Haus(hausnummer, hausHinzufuegenBarrierefreiInput.isSelected()));
+            hausHinzufuegenBestaetigung.setText("Haus " + hausnummer + " wurde angelegt. Barrierefrei: " + hausHinzufuegenBarrierefreiInput.isSelected());
+            hausHinzufuegen.doClick();
+        });
+
+        /*
+         * Action Listener, wird ausgeführt, wenn auf der Seite "Haus bearbeiten" der Button "Speichern" geklickt wird.
+         * Verändert die Eigenschaften (Name, barrierefrei) eines Hauses, wenn eine Änderung eingegeben wurde
+         */
+        hausBearbeitenCheck.addActionListener(e -> {
+            //Wenn kein Haus ausgewählt wurde, Fehlermeldung und Abbruch
+            if(hausBearbeitenHausInput.getSelectedItem() == null ){
+                hausBearbeitenBestaetigung.setText("Bitte wählen Sie ein Haus aus!");
+                return;
+            }
+
+            String hausnummerAktuell = hausBearbeitenHausInput.getSelectedItem().toString();
+            String hausnummerNeu = hausBearbeitenNeueIDInput.getText();
+
+            //Eigenschaften anpassen
+            for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
+                if(h.getHausnummer().equals(hausnummerAktuell)){
+                    h.setBarrierefrei(hausBearbeitenBarriefreiInput.isSelected());
+                    if(hausnummerNeu.equals("")){
+                        hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
+                    }
+                    else {
+                        h.setHausnummer(hausnummerNeu);
+                        hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet. Neue Nummer: " + hausnummerNeu);
+
+                    }
+                    hausBearbeiten.doClick();
+                    return;
+                }
+            }
+            hausBearbeitenBestaetigung.setText("Haus nicht gefunden, bitte wiederholen Sie den Vorgang.");
+        });
+
+        /*
+         * Erstellt das Schließen-Dialogfenster und fragt ab, ob gespeichert werden soll.
          * Entsprechend wird gespeichert & geschlossen
          */
         this.addWindowListener(new WindowAdapter() {
@@ -1225,13 +1210,12 @@ public class GUI extends JFrame {
                     }
                     case JOptionPane.NO_OPTION -> System.exit(0);
                     //case JOptionPane.CANCEL_OPTION ->
-
                 }
             }
         });
     }
 
-    /**
+    /*
      * Methode ermittelt den Typ, basierend auf einem String der dem Typennamen entspricht
      *
      * @author Lukas Zander
@@ -1243,64 +1227,63 @@ public class GUI extends JFrame {
     public AusstattungsTypIF getTyp(String typName) {
         for (BeamerTyp typ : ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (KreidetafelTyp typ : ServiceLocator.getInstance().getKreideTypen().getAlleKreidetafelTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (SmartboardTyp typ : ServiceLocator.getInstance().getSmartboardTypen().getAlleSmartboardTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (TischTyp typ : ServiceLocator.getInstance().getTischTypen().getAlleTischTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (WhiteboardTyp typ : ServiceLocator.getInstance().getWhiteboardTypen().getAlleWhiteboardTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (StuhlTyp typ : ServiceLocator.getInstance().getStuhlTypen().getAlleStuhlTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (KameraTyp typ : ServiceLocator.getInstance().getKameraTypen().getAlleKameraTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (PCTyp typ : ServiceLocator.getInstance().getPCTypen().getAllePCTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (MikrofonTyp typ : ServiceLocator.getInstance().getMikrofonTypen().getAlleMikrofonTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
 
         for (LautsprecherTyp typ : ServiceLocator.getInstance().getLautsprecherTypen().getAlleLautsprecherTypen()) {
             if (typ.getModell().equals(typName)) {
-                return (AusstattungsTypIF) typ;
+                return typ;
             }
         }
-
         return null;
     }
 
