@@ -210,7 +210,7 @@ public class GUI extends JFrame {
     private JSpinner raumbearbeitenHinzufuegenAnzahl;
 
     //CheckBox
-    private JCheckBox hausBearbeitenBarriefreiInput;
+    private JCheckBox hausHinzufuegenBarrierefreInput;
     private JCheckBox hausHinzufuegenBarrierefreiInput;
 
     /**
@@ -467,7 +467,7 @@ public class GUI extends JFrame {
             buchenRaumnummerSelectInput.removeAllItems();
             buchenDozentSelectInput.removeAllItems();
 
-            //Wenn ein Kalenderfeld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+            //Wenn ein Kalenderfeld leer geblieben ist, Fehlermeldung und Abbruch
             if (raumsucheStartzeitInput.getText().equals("") || raumsucheEndzeitInput.getText().equals("")) {
                 raumsuchenbuchenBestaetigung.setText("Bitte füllen Sie die Zeit-Felder aus!");
                 return;
@@ -491,9 +491,15 @@ public class GUI extends JFrame {
                 return;
             }
 
-            //Start muss vor Ende liegen
+            //Start muss vor Ende liegen, sonst Fehlermeldung und Abbruch
             if (start.after(ende)) {
                 raumsuchenbuchenBestaetigung.setText("Die Startzeit muss vor der Endzeit liegen. Bitte überprüfen Sie Ihre Eingaben!");
+                return;
+            }
+
+            //Start muss nach heute liegen, Vergangenheitsbuchungen sollen nicht möglich sein. Sonst Fehlermeldung und Abbruch
+            if (start.before(Calendar.getInstance())){
+                raumsuchenbuchenBestaetigung.setText("Die Startzeit muss in der Zukunft liegen!");
                 return;
             }
 
@@ -1179,7 +1185,7 @@ public class GUI extends JFrame {
             //Eigenschaften anpassen
             for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
                 if(h.getHausnummer().equals(hausnummerAktuell)){
-                    h.setBarrierefrei(hausBearbeitenBarriefreiInput.isSelected());
+                    h.setBarrierefrei(hausHinzufuegenBarrierefreInput.isSelected());
                     if(hausnummerNeu.equals("")){
                         hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
                     }
