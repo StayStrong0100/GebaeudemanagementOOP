@@ -1,8 +1,7 @@
 package ausstattung;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.Calendar;
 
 public class Kamera extends Ausstattungsmerkmal implements Serializable {
@@ -22,7 +21,7 @@ public class Kamera extends Ausstattungsmerkmal implements Serializable {
     /**
      * Gibt alle Attribute des KameraObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des KameraObjekts als String
      */

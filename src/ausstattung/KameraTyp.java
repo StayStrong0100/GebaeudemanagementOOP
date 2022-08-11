@@ -30,7 +30,7 @@ public class KameraTyp implements Serializable, AusstattungsTypIF {
     /**
      * Gibt alle Attribute des KameraTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des KameraTypObjekts als String
      */

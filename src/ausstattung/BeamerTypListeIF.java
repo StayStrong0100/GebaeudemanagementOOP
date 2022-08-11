@@ -9,7 +9,7 @@ public interface BeamerTypListeIF {
     /**
      * Fügt ein BeamerTyp der Liste von allen BeamerTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param bt BeamerTypObjekt, welches neu hinzugefügt werden soll
      */

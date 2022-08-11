@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Smartboard extends Ausstattungsmerkmal {
+public class Smartboard extends Ausstattungsmerkmal implements Serializable {
 
     public static final long serialVersionUID = 0;
 
@@ -23,7 +23,7 @@ public class Smartboard extends Ausstattungsmerkmal {
     /**
      * Gibt alle Attribute des SmartboardObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des SmartboardObjekts als String
      */

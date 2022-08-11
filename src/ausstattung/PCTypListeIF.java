@@ -9,7 +9,7 @@ public interface PCTypListeIF {
     /**
      * Fügt ein PCTyp der Liste von allen PCTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param pt PCTypObjekt, welches neu hinzugefügt werden soll
      */

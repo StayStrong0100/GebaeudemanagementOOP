@@ -22,7 +22,7 @@ public class Mikrofon extends Ausstattungsmerkmal implements Serializable {
     /**
      * Gibt alle Attribute des MicrofonObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des MicrofonObjekts als String
      */

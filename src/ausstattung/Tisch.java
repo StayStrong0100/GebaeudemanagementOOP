@@ -23,7 +23,7 @@ public class Tisch extends Ausstattungsmerkmal implements Serializable {
     /**
      * Gibt alle Attribute des TischObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des TischObjekts als String
      */

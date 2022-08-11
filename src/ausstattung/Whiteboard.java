@@ -23,7 +23,7 @@ public class Whiteboard extends Ausstattungsmerkmal implements Serializable {
     /**
      * Gibt alle Attribute des WhiteboardObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des WhiteboardObjekts als String
      */

@@ -26,7 +26,7 @@ public class KreidetafelTyp implements Serializable, AusstattungsTypIF {
     /**
      * Gibt alle Attribute des WandtafelTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des WandtafelTypObjekts als String
      */

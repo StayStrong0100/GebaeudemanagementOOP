@@ -9,7 +9,7 @@ public interface TischTypListeIF {
     /**
      * Fügt ein TischTyp der Liste von allen TischTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param tt TischTypObjekt, welches neu hinzugefügt werden soll
      */

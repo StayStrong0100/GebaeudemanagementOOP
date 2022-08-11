@@ -9,7 +9,7 @@ public interface LautsprecherTypListeIF {
     /**
      * Fügt ein LautsprecherTyp der Liste von allen LautsprecherTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param lt LautsprecherTypObjekt, welches neu hinzugefügt werden soll
      */

@@ -31,7 +31,7 @@ public class LautsprecherTyp implements Serializable, AusstattungsTypIF {
     /**
      * Gibt alle Attribute des LautsprecherTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des LautsprecherTypObjekts als String
      */

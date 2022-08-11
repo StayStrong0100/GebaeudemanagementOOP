@@ -22,7 +22,7 @@ public class Lautsprecher extends Ausstattungsmerkmal implements Serializable {
     /**
      * Gibt alle Attribute des LautsprecherObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des LautsprecherObjekts als String
      */

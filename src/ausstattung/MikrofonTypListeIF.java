@@ -9,7 +9,7 @@ public interface MikrofonTypListeIF {
     /**
      * Fügt ein MikrofonTyp der Liste von allen MikrofonTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param mt MikrofonTypObjekt, welches neu hinzugefügt werden soll
      */

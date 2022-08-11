@@ -22,7 +22,7 @@ public class Stuhl extends Ausstattungsmerkmal implements Serializable{
     /**
      * Gibt alle Attribute des StuhlObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des StuhlObjekts als String
      */

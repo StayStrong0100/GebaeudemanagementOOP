@@ -70,7 +70,6 @@ public abstract class Ausstattungsmerkmal implements Serializable{
      *
      * @return Liefert den aktuellen/ letzten Zustand eines Objektes aus der Zustandsliste
      */
-
     public Zustand getAktuellerZustand(){
         return this.zustandsListe.get(this.zustandsListe.size()-1);
     }

@@ -4,49 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Code Reviewing für HausListe durchgeführt">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Refactoring GUI Teil 4">
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Ausstattungsmerkmal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Beamer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Beamer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/BeamerTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/BeamerTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Kamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Kamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/KameraTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KameraTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Kreidetafel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Kreidetafel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/KreidetafelTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Lautsprecher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Lautsprecher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/LautsprecherTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Mikrofon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Mikrofon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/MikrofonTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/PC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/PCTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/PCTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Smartboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Smartboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/SmartboardTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Stuhl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/StuhlTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/StuhlTypListeIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/Tafel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Tisch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Tisch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/TischTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/TischTypListeIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/Whiteboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/Whiteboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListeIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ausstattung/WhiteboardTypListeIF.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

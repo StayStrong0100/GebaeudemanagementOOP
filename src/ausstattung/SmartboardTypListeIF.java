@@ -9,7 +9,7 @@ public interface SmartboardTypListeIF {
     /**
      * Fügt ein SmartboardTyp der Liste von allen SmartboardTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param st SmartboardTypObjekt, welches neu hinzugefügt werden soll
      */

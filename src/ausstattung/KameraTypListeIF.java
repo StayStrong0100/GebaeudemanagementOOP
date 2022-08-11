@@ -9,7 +9,7 @@ public interface KameraTypListeIF {
     /**
      * Fügt ein KameraTyp der Liste von allen KameraTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param kt KameraTypObjekt, welches neu hinzugefügt werden soll
      */

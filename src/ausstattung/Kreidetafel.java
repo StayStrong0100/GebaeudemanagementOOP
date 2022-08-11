@@ -22,7 +22,7 @@ public class Kreidetafel extends Ausstattungsmerkmal implements Serializable {
     /**
      * Gibt alle Attribute des WandtafelObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des WandtafelObjekts als String
      */

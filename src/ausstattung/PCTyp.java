@@ -26,7 +26,7 @@ public class PCTyp implements Serializable, AusstattungsTypIF{
     /**
      * Gibt alle Attribute des PCTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des PCTypObjekts als String
      */

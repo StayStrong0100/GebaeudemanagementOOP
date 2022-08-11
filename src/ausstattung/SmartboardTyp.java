@@ -26,7 +26,7 @@ public class SmartboardTyp implements Serializable, AusstattungsTypIF {
     /**
      * Gibt alle Attribute des SmartboardTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des SmartboardTypObjekts als String
      */

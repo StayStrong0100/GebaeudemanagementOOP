@@ -15,6 +15,7 @@ public class BeamerTyp implements Serializable, AusstattungsTypIF {
         this.lumen = lumen;
         this.lautsprecher = lautsprecher;
     }
+
     public String getModell() {
         return modell;
     }
@@ -26,11 +27,10 @@ public class BeamerTyp implements Serializable, AusstattungsTypIF {
     /**
      * Gibt alle Attribute des BeamerTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des BeamerTypObjekts als String
      */
-
     @Override
     public String toString() {
         return "Marke: " + marke +

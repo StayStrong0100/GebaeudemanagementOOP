@@ -9,7 +9,7 @@ public interface WhiteboardTypListeIF {
     /**
      * Fügt ein WhiteboardTyp der Liste von allen WhiteboardTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param wt WhiteboardTypObjekt, welches neu hinzugefügt werden soll
      */

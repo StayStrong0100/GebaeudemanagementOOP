@@ -26,7 +26,7 @@ public class WhiteboardTyp implements Serializable, AusstattungsTypIF {
     /**
      * Gibt alle Attribute des WhiteboardTypObjekts in einem String zusammen aus
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @return alle Attribute des WhiteboardTypObjekts als String
      */

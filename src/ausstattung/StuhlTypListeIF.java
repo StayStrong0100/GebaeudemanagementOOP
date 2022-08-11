@@ -9,7 +9,7 @@ public interface StuhlTypListeIF {
     /**
      * Fügt ein StuhlTyp der Liste von allen StuhlTypen hinzu
      *
-     * @author Ben Kostka
+     * @author Benjamin Kostka
      *
      * @param st StuhlTypObjekt, welches neu hinzugefügt werden soll
      */
