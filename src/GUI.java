@@ -187,6 +187,7 @@ public class GUI extends JFrame {
     //ScrollPanes
     private JScrollPane ScrollRaumbearbeiten;
     private JScrollPane ScrollDozTerminplanBestaetigung;
+    private JScrollPane ScrollRaumBearbeitenBestaetigung;
 
     //Seperators
     private JSeparator raumbearbeitenSeperator;
@@ -210,8 +211,8 @@ public class GUI extends JFrame {
     private JSpinner raumbearbeitenHinzufuegenAnzahl;
 
     //CheckBox
-    private JCheckBox hausHinzufuegenBarrierefreInput;
-    private JCheckBox hausHinzufuegenBarrierefreiInput;
+    private JCheckBox hausHinzufuegenBarrierefreiCheckInput;
+    private JCheckBox hausBearbeitenBarrierefreiCheckInput;
 
     /**
      * Es folgt der GUI Konstruktor, in diesem werden alle Konfigurationen der GUI vorgenommen
@@ -542,13 +543,30 @@ public class GUI extends JFrame {
          * Wenn keine Fehler (leeres Feld, Raumnummer bereits vergeben etc.) gemacht wurden, wird ein neuer Raum hinzugefügt
          */
         raumHinzufuegenButton.addActionListener(e -> {
-            //Wenn ein Feld leer geblieben ist, Fehlermeldung und Methode nicht ausführen
+            //Wenn ein Feld leer geblieben ist, Fehlermeldung und Abbruch
             if (raumHinzufuegenNummerInput.getText().equals("") || raumHinzufuegenHausInput.getSelectedItem() == null) {
                 raumHinzufuegenBestaetigung.setText("Bitte füllen Sie alle Felder aus!");
                 return;
             }
 
-            int raumID = Integer.valueOf(raumHinzufuegenNummerInput.getText());
+            int raumID;
+
+            //Wenn keine Zahl eingegeben wurde, Fehlermeldung und Abbruch
+            try{
+
+                raumID = Integer.valueOf(raumHinzufuegenNummerInput.getText());
+            }
+            catch (NumberFormatException nfe){
+                raumHinzufuegenBestaetigung.setText("Bitte geben Sie eine Zahl ein!");
+                return;
+            }
+
+            //Wenn eine negative Zahl eingegeben wurde, Fehlermeldung und Abbruch
+            if(raumID < 1){
+                raumHinzufuegenBestaetigung.setText("Bitte geben Sie eine positive Zahl als Raumnummer ein!");
+                return;
+            }
+
             String hausID = raumHinzufuegenHausInput.getSelectedItem().toString();
             //Prüfe, ob ID bereits vergeben ist. Wenn ja, Fehlermeldung
             if (ServiceLocator.getInstance().getHausliste().raumnummerKollidiert(raumID)) {
@@ -1163,8 +1181,8 @@ public class GUI extends JFrame {
             }
 
             //Haus hinzufügen und Seite aktualisieren
-            ServiceLocator.getInstance().getHausliste().getAlleHaeuser().add(new Haus(hausnummer, hausHinzufuegenBarrierefreiInput.isSelected()));
-            hausHinzufuegenBestaetigung.setText("Haus " + hausnummer + " wurde angelegt. Barrierefrei: " + hausHinzufuegenBarrierefreiInput.isSelected());
+            ServiceLocator.getInstance().getHausliste().getAlleHaeuser().add(new Haus(hausnummer, hausHinzufuegenBarrierefreiCheckInput.isSelected()));
+            hausHinzufuegenBestaetigung.setText("Haus " + hausnummer + " wurde angelegt. Barrierefrei: " + hausHinzufuegenBarrierefreiCheckInput.isSelected());
             hausHinzufuegen.doClick();
         });
 
@@ -1185,7 +1203,7 @@ public class GUI extends JFrame {
             //Eigenschaften anpassen
             for (Haus h : ServiceLocator.getInstance().getHausliste().getAlleHaeuser()) {
                 if(h.getHausnummer().equals(hausnummerAktuell)){
-                    h.setBarrierefrei(hausHinzufuegenBarrierefreInput.isSelected());
+                    h.setBarrierefrei(hausBearbeitenBarrierefreiCheckInput.isSelected());
                     if(hausnummerNeu.equals("")){
                         hausBearbeitenBestaetigung.setText("Haus " + hausnummerAktuell + " erfolgreich bearbeitet.");
                     }

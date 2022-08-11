@@ -8,6 +8,14 @@ import buchung.*;
 import java.util.Arrays;
 import java.util.Calendar;
 
+/**
+ * Diese Klasse dient zur einmaligen Erstellung von Daten als Grundgerüst für das Programm
+ * Im weiteren Verlauf der Nutzung spielt diese Klasse keine weitere Rolle
+ * Sie kann jedoch zum Reseten benutzt werden bzw. um die Objekte neu zu erstellen, wenn es verschiedene Version gibt und Konflikte entstehen (Serialisierung)
+ *
+ * @author Lukas Zander
+ */
+
 public class DatenInitialisierung {
 
     public static void main(String[] args) {
@@ -32,7 +40,7 @@ public class DatenInitialisierung {
         }
 
         //Dozenten
-        for (String s : Arrays.asList("Faustmann", "Drebing", "Becker", "Maeß", "Lemke", "Saucken", "Magalashvili", "Gatzer", "Ringhand", "Schlösser", "Kocmann", "Eisenbart", "Erkens")) {
+        for (String s : Arrays.asList("Faustmann", "Drebing", "Becker", "Maeß", "Lemke", "Saucken", "Magalashvili", "Gatzer", "Ringhand", "Schlösser", "Kocmann", "Eisenbart", "Erkens", "Winter", "Roxin")) {
             ServiceLocator.getInstance().getDozentenListe().addDozent(new Dozent(s));
         }
 
@@ -60,7 +68,6 @@ public class DatenInitialisierung {
         ServiceLocator.getInstance().getTischTypen().addTischTyp(new TischTyp("BasicTisch", 1,false, false, 80, 60));
         ServiceLocator.getInstance().getTischTypen().addTischTyp(new TischTyp("Doppeltisch",2, false, false, 160, 60));
         ServiceLocator.getInstance().getTischTypen().addTischTyp(new TischTyp("PCGroß", 2, true, false, 180, 70));
-        ServiceLocator.getInstance().getTischTypen().addTischTyp(new TischTyp("PCUltraKomfort",1, true, true, 160, 80));
 
         //Stuhltyp
         ServiceLocator.getInstance().getStuhlTypen().addStuhlTyp(new StuhlTyp("Dynamic", true));
@@ -84,22 +91,26 @@ public class DatenInitialisierung {
         ServiceLocator.getInstance().getLautsprecherTypen().addLautsprecherTyp(new LautsprecherTyp("Master200","Logitech",4,300,true));
         ServiceLocator.getInstance().getLautsprecherTypen().addLautsprecherTyp(new LautsprecherTyp("Basic100", "Logitech", 2,100,false));
 
-        //Beamer anlegen
-        for (int j = 0; j < 5; j++) {
-            for (int i = 0; i < 3; i++) {
-                ServiceLocator.getInstance().getHausliste().getAlleRaeume().get(j).addAusstattung(new Beamer(ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen().get(i), Calendar.getInstance()));
-            }
-        }
-
-        //PCs anlegen
-        for (int j = 0; j < 5; j++) {
-            for (int i = 0; i < 3; i++) {
-                ServiceLocator.getInstance().getHausliste().getAlleRaeume().get(j).addAusstattung(new PC(ServiceLocator.getInstance().getPCTypen().getAllePCTypen().get(i), Calendar.getInstance()));
+        //Universalausstattung
+        for(Raum r : ServiceLocator.getInstance().getHausliste().getAlleRaeume()){
+            //15 Basistische anlegen
+            for (int i = 0; i < 15; i++) {
+                r.addAusstattung(new Tisch(ServiceLocator.getInstance().getTischTypen().getAlleTischTypen().get(0), Calendar.getInstance()));
             }
 
-        ///
-        }
+            //30 Stühle anlegen, je 15 pro Typ
+            for (int j = 0; j < 2; j++) {
+                for (int i = 0; i < 15; i++) {
+                    r.addAusstattung(new Stuhl((ServiceLocator.getInstance().getStuhlTypen().getAlleStuhlTypen().get(j)), Calendar.getInstance()));
+                }
+            }
 
+            //Beamer, PC, Mikro, Kamera
+            r.addAusstattung(new Beamer(ServiceLocator.getInstance().getBeamerTypen().getAlleBeamerTypen().get(0), Calendar.getInstance()));
+            r.addAusstattung(new Mikrofon(ServiceLocator.getInstance().getMikrofonTypen().getAlleMikrofonTypen().get(0), Calendar.getInstance()));
+            r.addAusstattung(new Kamera(ServiceLocator.getInstance().getKameraTypen().getAlleKameraTypen().get(0), Calendar.getInstance()));
+            r.addAusstattung(new PC(ServiceLocator.getInstance().getPCTypen().getAllePCTypen().get(0), Calendar.getInstance()));
+        }
 
         //speichern
         ServiceLocator.getInstance().speicherAlleContainer("Grunddaten",ServiceLocator.getInstance());
