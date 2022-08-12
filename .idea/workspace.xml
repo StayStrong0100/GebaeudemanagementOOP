@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GebaeudemanagementOOP:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="Bugs behoben: Barrierefrei und Startzeit liegt in der Zukunft">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_08_2022_15_30_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_08_2022_15_30__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_08_2022_19_51_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_08_2022_19_51__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ff3f2e23-5b3f-4119-a77f-c06b2854abf7" name="Changes" comment="GUI Margin left eingefügt, DatenInitialisierung erweitert, GUI BUGs behoben">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grunddaten" beforeDir="false" afterPath="$PROJECT_DIR$/Grunddaten" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/datenspeicherung/DatenInitialisierung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,10 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "680",
     "last_opened_file_path": "C:/Users/Lukas Zander/Downloads/Musterlösung ÜB 9",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "shared-indexes"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -146,13 +147,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657729218096</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Formatierung von toString()">
-      <created>1658599639020</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1658599639020</updated>
     </task>
     <task id="LOCAL-00018" summary="toString() und print() erstellt">
       <created>1658599715482</created>
@@ -490,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660191347634</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="GUI Margin left eingefügt, DatenInitialisierung erweitert, GUI BUGs behoben">
+      <created>1660250079670</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1660250079670</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,7 +506,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TypListen gemacht, GUI weiterentwickelt, Daten definiert" />
     <MESSAGE value="Typen überarbeitet, GUI weiter ergänzt" />
     <MESSAGE value="Raum Buchen und Bearbeiten verbessert durch ComboBoxen, Code Refactoring" />
     <MESSAGE value="Interfaces für die TypListen, Ausstattungsmerkmal erstellt und HauslisteIF auf den neuesten Stand gebracht. Und Output Datentyp in dem ServiceLocator verändert." />
@@ -530,7 +530,8 @@
     <MESSAGE value="Code Reviewing für HausListe durchgeführt" />
     <MESSAGE value="Refactoring &quot;Ben&quot; durch &quot;Benjamin&quot; ersetzt" />
     <MESSAGE value="Bugs behoben: Barrierefrei und Startzeit liegt in der Zukunft" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugs behoben: Barrierefrei und Startzeit liegt in der Zukunft" />
+    <MESSAGE value="GUI Margin left eingefügt, DatenInitialisierung erweitert, GUI BUGs behoben" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Margin left eingefügt, DatenInitialisierung erweitert, GUI BUGs behoben" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
